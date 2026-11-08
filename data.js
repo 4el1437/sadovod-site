@@ -96,7 +96,7 @@ const MANUAL_STANDINGS = {
 //  Имя пишется «Имя Фамилия» — так же, как в постах канала (по нему считается статистика).
 // ---------------------------------------------------------------------
 const PLAYERS = [
-  { num: 1   , name: "Семён Проровский",       pos: "ВРТ", photo: "img/players/prorovskiy.jpg" },
+  { num: 1   , name: "Семён Проровский",       pos: "ВРТ", photo: "img/players/prorovskiy.jpg?v=2" },
   { num: 99  , name: "Вадим Засим",            pos: "ЗАЩ", photo: "img/players/zasim.jpg" },
   { num: 81  , name: "Сергей Михаль",          pos: "ВРТ", photo: "img/players/mihal.jpg" },
   { num: 22  , name: "Ярослав Ромашин",        pos: "НАП", photo: "img/players/romashin.jpg" },
@@ -130,7 +130,7 @@ const PLAYERS = [
 // Тренеры и руководство
 const STAFF = [
   { name: "Вадим Засим",      role: "Тренер",   photo: "img/players/zasim.jpg" },
-  { name: "Семён Проровский", role: "Директор", photo: "img/players/prorovskiy.jpg" },
+  { name: "Семён Проровский", role: "Директор", photo: "img/players/prorovskiy.jpg?v=2" },
 ];
 
 // ---------------------------------------------------------------------
