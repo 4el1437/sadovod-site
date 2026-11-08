@@ -197,7 +197,8 @@ function pageHome() {
 const POS_NAMES = { ВРТ: "Вратари", ЗАЩ: "Защитники", ПЗ: "Полузащитники", НАП: "Нападающие" };
 const POS_ONE = { ВРТ: "Вратарь", ЗАЩ: "Защитник", ПЗ: "Полузащитник", НАП: "Нападающий" };
 function personCard(p, sub, num) {
-  return `<div class="card person">
+  const isPl = PLAYERS.some((x) => x.name === p.name);
+  return `<div class="card person${isPl ? " person--link" : ""}"${isPl ? ` data-player="${esc(p.name)}" tabindex="0" role="button" aria-label="Статистика: ${esc(p.name)}"` : ""}>
     <div class="person__photo">${p.photo ? `<img src="${p.photo}" alt="" loading="lazy" onerror="this.replaceWith('${initials(p.name)}')">` : initials(p.name)}${num != null ? `<span class="person__num">${num}</span>` : ""}${p.captain ? `<span class="person__cap" title="Капитан">C</span>` : ""}</div>
     <div class="person__body"><div class="person__name">${esc(p.name)}</div><div class="person__role">${esc(sub)}${p.captain ? " · капитан" : ""}</div></div></div>`;
 }
@@ -240,7 +241,7 @@ function pageStats() {
     const sorted = [...rows].sort((a, b) => (typeof a[key] === "string" ? a[key].localeCompare(b[key]) : (a[key] || 0) - (b[key] || 0)) * dir || b.goals - a.goals || a.name.localeCompare(b.name));
     $("#stable").innerHTML = `<div class="table-wrap"><table>
       <thead><tr>${cols.map(([k, t, c]) => `<th class="sortable ${c || ""}" data-k="${k}">${t}${k === key ? (dir < 0 ? " ▼" : " ▲") : ""}</th>`).join("")}</tr></thead>
-      <tbody>${sorted.map((r) => `<tr>${cols.map(([k, , c]) => `<td class="${c || ""}">${esc(r[k] ?? "")}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
+      <tbody>${sorted.map((r) => `<tr class="row-link" data-player="${esc(r.name)}">${cols.map(([k, , c]) => `<td class="${c || ""}">${esc(r[k] ?? "")}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
     document.querySelectorAll("th.sortable").forEach((th) => (th.onclick = () => { dir = th.dataset.k === key ? -dir : -1; key = th.dataset.k; draw(); }));
   };
   const leader = (k, label) => { const t = [...rows].sort((a, b) => (b[k] || 0) - (a[k] || 0))[0]; return `<div class="card leader"><div class="leader__val">${t ? t[k] || 0 : "–"}</div><div><div class="leader__label">${label}</div><div><b>${t ? esc(t.name) : "—"}</b></div></div></div>`; };
@@ -360,7 +361,74 @@ function pageShop() {
        <a class="btn" href="${CLUB.telegram}" target="_blank">Телеграм-канал</a></div>`;
 }
 
+// ---------- личная карточка игрока ----------
+function playerData(name) {
+  const tours = {}, games = [];
+  for (const t of T) for (const m of t.matches) {
+    let g = 0, a = 0; const mins = [];
+    for (const e of m.goals || []) {
+      if (e.opp) continue;
+      if (e.scorer === name) { g++; if (e.min) mins.push(e.min + "'"); }
+      if (e.assist === name) a++;
+    }
+    const mvp = m.mvp === name;
+    if (!g && !a && !mvp) continue;
+    const r = (tours[t.id] ||= { goals: 0, assists: 0, mvp: 0, matches: 0 });
+    r.goals += g; r.assists += a; r.mvp += mvp ? 1 : 0; r.matches++;
+    games.push({ t, m, g, a, mvp, mins });
+  }
+  for (const s of PLAYER_STATS.filter((x) => x.name === name)) {
+    const r = (tours[s.t] ||= { goals: 0, assists: 0, mvp: 0, matches: 0 });
+    r.goals += s.goals || 0; r.assists += s.assists || 0; r.games = (r.games || 0) + (s.games || 0); r.yc = (r.yc || 0) + (s.yc || 0);
+  }
+  const sum = (k) => Object.values(tours).reduce((x, r) => x + (r[k] || 0), 0);
+  return { tours, games: games.sort((x, y) => y.m.date.localeCompare(x.m.date)), total: { goals: sum("goals"), assists: sum("assists"), mvp: sum("mvp"), games: sum("games"), yc: sum("yc") } };
+}
+
+function openPlayer(name) {
+  const p = PLAYERS.find((x) => x.name === name) || { name };
+  const staff = STAFF.find((x) => x.name === name);
+  const d = playerData(name);
+  const tile = (v, l) => `<div class="pm__tile"><b>${v}</b><span>${l}</span></div>`;
+  const rows = T.filter((t) => d.tours[t.id]).map((t) => { const r = d.tours[t.id];
+    return `<tr><td class="l"><span class="tag tag-${t.id}">${esc(t.short)}</span></td><td>${r.goals}</td><td>${r.assists}</td><td><b>${r.goals + r.assists}</b></td><td>${r.mvp || "–"}</td></tr>`; }).join("");
+  const games = d.games.map(({ t, m, g, a, mvp, mins }) => {
+    const opp = m.home === m.us ? m.away : m.home;
+    const r = result(m);
+    return `<li class="pm__game">
+      <div class="pm__gmeta"><span>${fmtDate(m.date)}</span><span class="tag tag-${t.id}">${esc(t.short)}</span></div>
+      <div class="pm__gline">${r ? `<span class="badge ${r}">${m.score.join(":")}</span>` : ""} <span>${esc(opp)}</span> <span class="muted" style="font-weight:400;font-size:13px">${m.home === m.us ? "дома" : "в гостях"}</span></div>
+      <div class="pm__gcontrib">${g ? `⚽ ${g}${mins.length ? ` <span class="muted">(${mins.join(", ")})</span>` : ""}` : ""} ${a ? `🅰️ ${a}` : ""} ${mvp ? "⭐ лучший игрок" : ""}</div></li>`;
+  }).join("");
+  const box = document.createElement("div");
+  box.className = "pmodal";
+  box.innerHTML = `<div class="pm" role="dialog" aria-modal="true" aria-label="${esc(name)}">
+    <button class="pm__x" aria-label="Закрыть">✕</button>
+    <div class="pm__head">
+      <div class="pm__photo">${p.photo ? `<img src="${p.photo}" alt="">` : initials(name)}</div>
+      <div>
+        <div class="pm__name">${esc(name)}${p.captain ? ' <span class="person__cap" style="position:static;display:inline-grid;width:24px;height:24px;font-size:13px">C</span>' : ""}</div>
+        <div class="muted">${[p.num != null ? "№ " + p.num : "", POS_ONE[p.pos] || "", p.captain ? "капитан" : "", staff ? staff.role.toLowerCase() : ""].filter(Boolean).join(" · ")}</div>
+      </div>
+    </div>
+    <div class="pm__tiles">${tile(d.total.goals, "голов")}${tile(d.total.assists, "передач")}${tile(d.total.goals + d.total.assists, "гол + пас")}${tile(d.total.mvp, "лучший игрок")}${d.total.games ? tile(d.total.games, "игр") : ""}${d.total.yc ? tile(d.total.yc, "ЖК") : ""}</div>
+    ${rows ? `<h3>По турнирам</h3><div class="table-wrap"><table><thead><tr><th class="l">Турнир</th><th>Голы</th><th>Пасы</th><th>Г+П</th><th>⭐</th></tr></thead><tbody>${rows}</tbody></table></div>` : `<p class="muted" style="margin-top:16px">В этом сезоне пока без голов и передач.</p>`}
+    ${games ? `<h3>Матчи с результативными действиями</h3><ul class="pm__games">${games}</ul>` : ""}
+    <p class="muted" style="font-size:12px;margin:14px 0 0">Сезон ${esc(T[0].season)} · голы и передачи по протоколам и телеграм-каналу команды</p>
+  </div>`;
+  const close = () => { box.remove(); document.removeEventListener("keydown", onKey); if (location.hash.startsWith("#player=")) history.replaceState(null, "", location.pathname + location.search); };
+  const onKey = (e) => e.key === "Escape" && close();
+  box.onclick = (e) => { if (e.target === box || e.target.closest(".pm__x")) close(); };
+  document.addEventListener("keydown", onKey);
+  document.body.appendChild(box);
+  history.replaceState(null, "", "#player=" + encodeURIComponent(name));
+}
+document.addEventListener("click", (e) => { const el = e.target.closest("[data-player]"); if (el) openPlayer(el.dataset.player); });
+document.addEventListener("keydown", (e) => { if ((e.key === "Enter" || e.key === " ") && e.target.matches?.("[data-player]")) { e.preventDefault(); openPlayer(e.target.dataset.player); } });
+
 // клик по посту с фото → просмотрщик (на любой странице)
 document.addEventListener("click", (e) => { const a = e.target.closest("[data-gallery]"); if (a) { e.preventDefault(); openGallery(ALL_CONTENT[+a.dataset.gallery].photos); } });
 layout();
 ({ home: pageHome, team: pageTeam, stats: pageStats, media: pageMedia, shop: pageShop })[document.body.dataset.page]();
+// ссылка вида team.html#player=Имя Фамилия открывает карточку сразу
+if (location.hash.startsWith("#player=")) openPlayer(decodeURIComponent(location.hash.slice(8)));
