@@ -1,7 +1,7 @@
 // Файл создаётся автоматически скриптом update.js — не редактируйте вручную.
 // Ручные правки делайте в data.js (MANUAL_MATCHES / MANUAL_STANDINGS).
 const AUTO = {
- "updated": "2026-11-08T15:52:15.961Z",
+ "updated": "2026-11-08T16:13:35.261Z",
  "tournaments": {
   "city": {
    "standings": [
@@ -132,7 +132,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-08T15:52:15.961Z"
+   "at": "2026-11-08T16:13:35.261Z"
   },
   "fbl": {
    "standings": [
@@ -459,7 +459,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-08T15:52:15.961Z"
+   "at": "2026-11-08T16:13:35.261Z"
   },
   "cup": {
    "standings": [],
@@ -479,7 +479,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-08T15:52:15.961Z"
+   "at": "2026-11-08T16:13:35.261Z"
   }
  },
  "telegram": {
@@ -560,7 +560,25 @@ const AUTO = {
     "date": "2026-11-01",
     "time": "",
     "post": 1973,
-    "finished": true
+    "lineupPost": {
+     "id": 1976,
+     "photo": "https://cdn4.telesco.pe/file/J1B5fW7Sj3XfxWLsx_fnVb1e27ElNoDg5oqB6P3LeW3Q7LferxkCbTNzkvhs6gsam5M0rPO8gyYKfxdjwfTHPt_uaHoLWDO-eEm7t8IZfuUlYvydqmzmGwevyCArSEzAa4AbPxqi3azJHM6gyaXwlnIzKCGgfbhvuiAbj8-a9Ay6REAFksW-OONmrCwP5GD9b9fZXRV_PmuojEtrC50PRQDObDw3bTq6B37P8UzxJKctydJKTuErj83wn4outFXqrU6IS9JY10RZ7qudkBPyMYti09nGaHqaqSaMbOgUzStmyVjL7XdA5YAETWpllsiM6bqVZTBXWtA4_3mPxOP5SA.jpg"
+    },
+    "finished": true,
+    "lineup": [
+     "Семён Проровский",
+     "Сергей Михаль",
+     "Иван Обороча",
+     "Максим Янгулов",
+     "Степан Мельников",
+     "Михаил Фалькенберг",
+     "Александр Дьяченко",
+     "Александр Воропаев",
+     "Александр Андриевич",
+     "Василий Прокофьев",
+     "Артур Мустафин",
+     "Вадим Засим"
+    ]
    },
    {
     "t": "fbl",
@@ -752,7 +770,24 @@ const AUTO = {
     "date": "2026-11-02",
     "time": "",
     "post": 1992,
-    "finished": true
+    "lineupPost": {
+     "id": 1993,
+     "photo": "https://cdn4.telesco.pe/file/h6CRb0EETyPQHwpQRWpZm6pXpz5zMlEgBpOQmcDcESqnzuiPcv7OMhyoegJ-B8ZtL6Xp3fLo97dJFRp49F3c_goy4Y-Hz1XdFg5I1jZipoI4lsCN0x6V1JZNwKTfV55RELVkNqovKaDSo-UMDG-CuVH6F2mp_7DB9hhni2-zv7aZrpmggfopQwHxcX6cTsFtrTx0kumZRS5EAnxAXAkFoHOYWoYWOPbY12y9ojiPNMwARcWCFM2D-JWHPLOk1w5SD4Fu6rsnFFfqOjLewXLbVzFcwhsHrdsVirS5O0eg6XwawdClcu3mwMRo-jTFrBBHVknAq5RD4LACLJtTMfyIZw.jpg"
+    },
+    "finished": true,
+    "lineup": [
+     "Семён Проровский",
+     "Лев Мормель",
+     "Евгений Новиков",
+     "Артём Лагерев",
+     "Александр Андриевич",
+     "Владислав Мурзин",
+     "Артур Мустафин",
+     "Кирилл Герасимов",
+     "Андрей Пикалов",
+     "Данил Скуратов",
+     "Даниил Кардашов"
+    ]
    },
    {
     "t": "city",
@@ -807,11 +842,30 @@ const AUTO = {
     "date": "2026-11-08",
     "time": "",
     "post": 2037,
-    "finished": true
+    "lineupPost": {
+     "id": 2040,
+     "photo": "https://cdn4.telesco.pe/file/obZkPP7XdZ3MBveoy8PaeMbnAb5SjSi4cdbgeA9NBfBAyX7V7Hpf2JPhYTS0-xmospfGK3v52JIWvS-gKeILi_ONkXo7WfgHwArNu6Zu4O7HlEw5Wgj-DeWtuxVplhD3F91MHKO8T9njCyxmkjfHviMF80QPAHspm0l-hYUca5wYQLRuxaK8H1BZIj3AKm3rRn8cNG3FhB5PVYfBwxsk1u2QAZef9cFttGiDdzAXa3yRBNA2_IQR-Ee_uIrTA3PVAOPzwC0O8nhOAVltysdBwTpIOpSHkA6LVzEbw2z8THEMCF7YhdfOd0raFayhbPAbG_b_PuyJuPAzDGnHPNmZpQ.jpg"
+    },
+    "finished": true,
+    "lineup": [
+     "Семён Проровский",
+     "Вадим Засим",
+     "Андрей Супрун",
+     "Иван Обороча",
+     "Максим Янгулов",
+     "Степан Мельников",
+     "Михаил Фалькенберг",
+     "Александр Дьяченко",
+     "Александр Воропаев",
+     "Александр Андриевич",
+     "Владислав Мурзин",
+     "Рамиль Халимов",
+     "Александр Шурыгин"
+    ]
    }
   ],
   "ok": true,
-  "at": "2026-11-08T15:52:15.961Z"
+  "at": "2026-11-08T16:13:35.261Z"
  },
  "vk": {
   "posts": [
@@ -968,7 +1022,7 @@ const AUTO = {
   ],
   "albums": [],
   "ok": true,
-  "at": "2026-11-08T15:52:15.961Z",
+  "at": "2026-11-08T16:13:35.261Z",
   "via": "widget"
  }
 };

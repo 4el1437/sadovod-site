@@ -33,9 +33,9 @@ const T = TOURNAMENTS.map((t) => {
     const opp = tidy(tm.opponent);
     const same = (m) => m.date === tm.date || (m.home + m.away).toLowerCase().includes(opp.toLowerCase()) && Math.abs(new Date(m.date) - new Date(tm.date)) < 3 * 864e5;
     const hit = [...matches.values()].find(same);
-    if (hit) { if (tm.goals?.length) hit.goals = tm.goals; // авторы голов — по телеграму команды (в протоколах организаторов бывают ошибки в фамилиях)
+    if (hit) { if (tm.lineup?.length) hit.lineup = tm.lineup; if (tm.goals?.length) hit.goals = tm.goals; // авторы голов — по телеграму команды (в протоколах организаторов бывают ошибки в фамилиях)
       if (!hit.score && tm.score && tm.finished) hit.score = hit.home === t.team ? tm.score : [tm.score[1], tm.score[0]]; if (!hit.round) hit.round = tidyRound(tm.round); }
-    else matches.set("tg" + tm.post, { date: tm.date, time: "", home: t.team, away: opp, score: tm.finished ? tm.score : null, venue: "", round: tidyRound(tm.round), goals: tm.goals, link: `https://t.me/${TELEGRAM.channel}/${tm.post}` });
+    else matches.set("tg" + tm.post, { date: tm.date, time: "", home: t.team, away: opp, score: tm.finished ? tm.score : null, venue: "", round: tidyRound(tm.round), goals: tm.goals, lineup: tm.lineup, link: `https://t.me/${TELEGRAM.channel}/${tm.post}` });
   }
   return {
     ...t,
@@ -87,6 +87,19 @@ function matchCard(m) {
     ${scorersLine(m)}
     ${m.link ? `<div class="match__foot"><a href="${m.link}" target="_blank" class="muted">Подробнее →</a></div>` : ""}
   </div>`;
+}
+
+// кто сыграл матч: ручной состав (MANUAL_LINEUPS) или распознанная картинка + авторы голов/передач
+function playedIn(m) {
+  const manual = typeof MANUAL_LINEUPS !== "undefined" ? MANUAL_LINEUPS[`${m.t}:${m.date}`] : null;
+  const set = new Set(manual || m.lineup || []);
+  if (!manual) for (const g of m.goals || []) {
+    if (g.opp) continue;
+    if (g.scorer && !/автогол/i.test(g.scorer)) set.add(g.scorer);
+    if (g.assist) set.add(g.assist);
+  }
+  if (m.mvp && !manual) set.add(m.mvp);
+  return m.score || set.size ? set : new Set();
 }
 
 // «⚽ Мустафин ×7, Андриевич ×3 …»
@@ -228,12 +241,13 @@ function pageStats() {
     if (g.scorer && !/автогол/i.test(g.scorer)) auto.push({ t: t.id, name: g.scorer, goals: 1 });
     if (g.assist) auto.push({ t: t.id, name: g.assist, assists: 1 });
   }
+  for (const t of T) for (const m of t.matches) if (m.score) for (const n of playedIn(m)) auto.push({ t: t.id, name: n, games: 1 });
   const all = [...auto, ...PLAYER_STATS];
   if (!all.length) {
     $("#sbody").innerHTML = `<div class="card empty"><div class="empty__icon">📊</div><h2>Статистика скоро появится</h2><p class="muted">Голы и передачи подтягиваются из телеграм-канала команды.</p><a class="btn" href="${CLUB.telegram}" target="_blank">Телеграм-канал</a></div>`;
     return;
   }
-  const hasGames = PLAYER_STATS.some((s) => s.games), hasYc = PLAYER_STATS.some((s) => s.yc);
+  const hasGames = all.some((s) => s.games), hasYc = PLAYER_STATS.some((s) => s.yc);
   const hasNum = PLAYERS.some((p) => p.num != null);
   const cols = [hasNum && ["num", "№"], ["name", "Игрок", "l"], hasGames && ["games", "И"], ["goals", "Голы"], ["assists", "Пасы"], ["ga", "Г+П"], hasYc && ["yc", "ЖК"]].filter(Boolean);
   let key = "ga", dir = -1, rows = [];
@@ -372,9 +386,10 @@ function playerData(name) {
       if (e.assist === name) a++;
     }
     const mvp = m.mvp === name;
-    if (!g && !a && !mvp) continue;
-    const r = (tours[t.id] ||= { goals: 0, assists: 0, mvp: 0, matches: 0 });
-    r.goals += g; r.assists += a; r.mvp += mvp ? 1 : 0; r.matches++;
+    const played = !!m.score && playedIn(m).has(name);
+    if (!g && !a && !mvp && !played) continue;
+    const r = (tours[t.id] ||= { goals: 0, assists: 0, mvp: 0, matches: 0, games: 0 });
+    r.goals += g; r.assists += a; r.mvp += mvp ? 1 : 0; r.matches++; r.games += played ? 1 : 0;
     games.push({ t, m, g, a, mvp, mins });
   }
   for (const s of PLAYER_STATS.filter((x) => x.name === name)) {
@@ -391,14 +406,14 @@ function openPlayer(name) {
   const d = playerData(name);
   const tile = (v, l) => `<div class="pm__tile"><b>${v}</b><span>${l}</span></div>`;
   const rows = T.filter((t) => d.tours[t.id]).map((t) => { const r = d.tours[t.id];
-    return `<tr><td class="l"><span class="tag tag-${t.id}">${esc(t.short)}</span></td><td>${r.goals}</td><td>${r.assists}</td><td><b>${r.goals + r.assists}</b></td><td>${r.mvp || "–"}</td></tr>`; }).join("");
+    return `<tr><td class="l"><span class="tag tag-${t.id}">${esc(t.short)}</span></td><td>${r.games || "–"}</td><td>${r.goals}</td><td>${r.assists}</td><td><b>${r.goals + r.assists}</b></td><td>${r.mvp || "–"}</td></tr>`; }).join("");
   const games = d.games.map(({ t, m, g, a, mvp, mins }) => {
     const opp = m.home === m.us ? m.away : m.home;
     const r = result(m);
     return `<li class="pm__game">
       <div class="pm__gmeta"><span>${fmtDate(m.date)}</span><span class="tag tag-${t.id}">${esc(t.short)}</span></div>
       <div class="pm__gline">${r ? `<span class="badge ${r}">${m.score.join(":")}</span>` : ""} <span>${esc(opp)}</span> <span class="muted" style="font-weight:400;font-size:13px">${m.home === m.us ? "дома" : "в гостях"}</span></div>
-      <div class="pm__gcontrib">${g ? `⚽ ${g}${mins.length ? ` <span class="muted">(${mins.join(", ")})</span>` : ""}` : ""} ${a ? `🅰️ ${a}` : ""} ${mvp ? "⭐ лучший игрок" : ""}</div></li>`;
+      <div class="pm__gcontrib">${g ? `⚽ ${g}${mins.length ? ` <span class="muted">(${mins.join(", ")})</span>` : ""}` : ""} ${a ? `🅰️ ${a}` : ""} ${mvp ? "⭐ лучший игрок" : ""}${!g && !a && !mvp ? "<span class=\"muted\">в составе</span>" : ""}</div></li>`;
   }).join("");
   const box = document.createElement("div");
   box.className = "pmodal";
@@ -411,9 +426,9 @@ function openPlayer(name) {
         <div class="muted">${[p.num != null ? "№ " + p.num : "", POS_ONE[p.pos] || "", p.captain ? "капитан" : "", staff ? staff.role.toLowerCase() : ""].filter(Boolean).join(" · ")}</div>
       </div>
     </div>
-    <div class="pm__tiles">${tile(d.total.goals, "голов")}${tile(d.total.assists, "передач")}${tile(d.total.goals + d.total.assists, "гол + пас")}${tile(d.total.mvp, "лучший игрок")}${d.total.games ? tile(d.total.games, "игр") : ""}${d.total.yc ? tile(d.total.yc, "ЖК") : ""}</div>
-    ${rows ? `<h3>По турнирам</h3><div class="table-wrap"><table><thead><tr><th class="l">Турнир</th><th>Голы</th><th>Пасы</th><th>Г+П</th><th>⭐</th></tr></thead><tbody>${rows}</tbody></table></div>` : `<p class="muted" style="margin-top:16px">В этом сезоне пока без голов и передач.</p>`}
-    ${games ? `<h3>Матчи с результативными действиями</h3><ul class="pm__games">${games}</ul>` : ""}
+    <div class="pm__tiles">${tile(d.total.games, "игр")}${tile(d.total.goals, "голов")}${tile(d.total.assists, "передач")}${tile(d.total.goals + d.total.assists, "гол + пас")}${tile(d.total.mvp, "лучший игрок")}${d.total.yc ? tile(d.total.yc, "ЖК") : ""}</div>
+    ${rows ? `<h3>По турнирам</h3><div class="table-wrap"><table><thead><tr><th class="l">Турнир</th><th>И</th><th>Голы</th><th>Пасы</th><th>Г+П</th><th>⭐</th></tr></thead><tbody>${rows}</tbody></table></div>` : `<p class="muted" style="margin-top:16px">В этом сезоне пока без голов и передач.</p>`}
+    ${games ? `<h3>Сыгранные матчи</h3><ul class="pm__games">${games}</ul>` : ""}
     <p class="muted" style="font-size:12px;margin:14px 0 0">Сезон ${esc(T[0].season)} · голы и передачи по протоколам и телеграм-каналу команды</p>
   </div>`;
   const close = () => { box.remove(); document.removeEventListener("keydown", onKey); if (location.hash.startsWith("#player=")) history.replaceState(null, "", location.pathname + location.search); };

@@ -14,7 +14,7 @@ const AUTO_FILE = path.join(DIR, "data-auto.js");
 // ---------- загрузка конфигурации из data.js ----------
 const ctx = {};
 vm.createContext(ctx);
-vm.runInContext(fs.readFileSync(path.join(DIR, "data.js"), "utf8") + "\n;this.TOURNAMENTS = TOURNAMENTS; this.TELEGRAM = typeof TELEGRAM !== 'undefined' ? TELEGRAM : null; this.VK = typeof VK_PUBLIC !== 'undefined' ? VK_PUBLIC : null;", ctx);
+vm.runInContext(fs.readFileSync(path.join(DIR, "data.js"), "utf8") + "\n;this.TOURNAMENTS = TOURNAMENTS; this.TELEGRAM = typeof TELEGRAM !== 'undefined' ? TELEGRAM : null; this.VK = typeof VK_PUBLIC !== 'undefined' ? VK_PUBLIC : null; this.PLAYERS = PLAYERS;", ctx);
 const TOURNAMENTS = ctx.TOURNAMENTS;
 
 function loadPrev() {
@@ -226,6 +226,7 @@ const unhtml = (s) => s.replace(/<br\s*\/?>/g, "\n").replace(/<[^>]+>/g, "").rep
 async function tgPosts(cfg) {
   let cache = {};
   try { cache = JSON.parse(fs.readFileSync(TG_CACHE, "utf8")); } catch {}
+  if (!Object.values(cache).some((p) => p.photos)) cache = {}; // старый формат кэша без фото — перечитать всё
   const known = Object.keys(cache).map(Number);
   const stopAt = Math.max(cfg.fromPost - 1, known.length ? Math.max(...known) - 40 : 0); // перечитываем последние ~40 постов (правки)
   let before = null;
@@ -238,7 +239,8 @@ async function tgPosts(cfg) {
       ids.push(id);
       const text = unhtml(p.match(/tgme_widget_message_text[^>]*>([\s\S]*?)<\/div>/)?.[1] || "").trim();
       const dt = p.match(/datetime="([^"]+)"/)?.[1] || "";
-      if (id >= cfg.fromPost) cache[id] = { id, dt, text };
+      const photos = [...p.matchAll(/tgme_widget_message_photo_wrap[^>]*background-image:url\('([^']+)'\)/g)].map((m) => m[1]);
+      if (id >= cfg.fromPost) cache[id] = { id, dt, text, photos };
     }
     if (!ids.length) break;
     const min = Math.min(...ids);
@@ -256,6 +258,8 @@ function tgMatches(posts, cfg) {
   let cur = null;
   for (const p of posts) {
     const flat = p.text.replace(/\s+/g, " ");
+    // картинка «Состав на матч» → к текущему матчу (до проверки шапки: такой пост может её повторять)
+    if (cur && !cur.done && /состав на/i.test(flat) && p.photos?.length) cur.lineupPost = { id: p.id, photo: p.photos[0] };
     // шапка матча
     const rule = /садовод/i.test(flat) && rules.find((r) => r.re.test(flat));
     const opp = flat.match(/САДОВОД\s*(?:🆚|vs|-|–)\s*([^💥⚽️❗📆📅🏆\n]+?)(?:\s*[💥⚽️❗]|\s+\d|\s+🏆|\s+📅|\s+📆|$)/i);
@@ -388,6 +392,47 @@ async function vkWidget(cfg) {
 }
 
 // =====================================================================
+//  СОСТАВЫ НА МАТЧ: OCR картинки из поста «Состав на матч» (tesseract.js).
+//  Распознаём два варианта (как есть + увеличенный ч/б с инверсией), объединяем,
+//  ищем фамилии из PLAYERS с допуском на ошибки распознавания.
+//  Результат кэшируется в lineups.json по номеру поста — каждая картинка распознаётся один раз.
+// =====================================================================
+const LINEUP_CACHE = path.join(DIR, "lineups.json");
+const normRu = (s) => s.toUpperCase().replace(/Ё/g, "Е").replace(/[^А-ЯA-Z0-9 ]/g, " ");
+function lev(a, b) {
+  const d = Array.from({ length: a.length + 1 }, (_, i) => [i]);
+  for (let j = 1; j <= b.length; j++) d[0][j] = j;
+  for (let i = 1; i <= a.length; i++) for (let j = 1; j <= b.length; j++)
+    d[i][j] = Math.min(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
+  return d[a.length][b.length];
+}
+function namesInText(text, players) {
+  const words = normRu(text).split(/\s+/).filter((w) => w.length >= 3);
+  return players.filter((p) => {
+    const sur = normRu(p.name.split(" ").slice(-1)[0]).trim();
+    const tol = sur.length >= 8 ? 2 : sur.length >= 5 ? 1 : 0;
+    return words.some((w) => lev(w, sur) <= tol || (w.length >= 5 && sur.startsWith(w) && w.length >= sur.length - 3));
+  }).map((p) => p.name);
+}
+async function ocrLineup(url, players) {
+  const { createWorker } = require("tesseract.js");
+  const Jimp = require("jimp");
+  const buf = Buffer.from(await (await fetch(url, { signal: AbortSignal.timeout(60000) })).arrayBuffer());
+  const img = await Jimp.read(buf);
+  img.scale(2.5).greyscale().contrast(0.4);
+  img.scan(0, 0, img.bitmap.width, img.bitmap.height, function (x, y, i) {
+    const v = this.bitmap.data[i] > 170 ? 0 : 255; // белый текст → чёрный на белом
+    this.bitmap.data[i] = this.bitmap.data[i + 1] = this.bitmap.data[i + 2] = v;
+  });
+  const bw = await img.getBufferAsync(Jimp.MIME_PNG);
+  const worker = await createWorker("rus", 1, { cachePath: path.join(DIR, ".ocr-cache") });
+  const t1 = (await worker.recognize(buf)).data.text;
+  const t2 = (await worker.recognize(bw)).data.text;
+  await worker.terminate();
+  return [...new Set([...namesInText(t1, players), ...namesInText(t2, players)])];
+}
+
+// =====================================================================
 async function main() {
   const prev = loadPrev();
   const result = { updated: new Date().toISOString(), tournaments: {} };
@@ -416,6 +461,21 @@ async function main() {
     try {
       const posts = await tgPosts(ctx.TELEGRAM);
       result.telegram = { matches: tgMatches(posts, ctx.TELEGRAM), ok: true, at: result.updated };
+      // составы на матч: распознаём картинки (один раз на пост, результат в lineups.json)
+      let lc = {};
+      try { lc = JSON.parse(fs.readFileSync(LINEUP_CACHE, "utf8")); } catch {}
+      for (const m of result.telegram.matches) {
+        if (!m.lineupPost) continue;
+        const key = String(m.lineupPost.id);
+        if (!lc[key]) {
+          try {
+            lc[key] = { names: await ocrLineup(m.lineupPost.photo, ctx.PLAYERS), at: result.updated };
+            console.log(`\n   состав (пост ${key}, ${m.t}, ${m.opponent}): ${lc[key].names.length} чел.`);
+          } catch (e) { console.log(`\n   не удалось распознать состав ${key}: ${e.message}`); continue; }
+        }
+        m.lineup = lc[key].names;
+      }
+      fs.writeFileSync(LINEUP_CACHE, JSON.stringify(lc, null, 1));
       const n = result.telegram.matches.reduce((s, m) => s + m.goals.filter((g) => !g.opp).length, 0);
       console.log(`ок: постов ${posts.length}, матчей ${result.telegram.matches.length}, наших голов ${n}`);
     } catch (e) {

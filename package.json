@@ -1,0 +1,9 @@
+{
+  "name": "sadovod-site",
+  "private": true,
+  "description": "Сайт ФК «Садовод»: скрипт обновления данных",
+  "dependencies": {
+    "jimp": "0.22.12",
+    "tesseract.js": "5.1.1"
+  }
+}

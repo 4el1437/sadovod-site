@@ -1,3 +1,5 @@
 vk-token.txt
 node_modules/
 photo/
+.ocr-cache/
+*.traineddata
