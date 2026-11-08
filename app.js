@@ -268,8 +268,10 @@ function pageStats() {
     }
     rows = Object.values(agg).map((r) => ({ ...r, ga: r.goals + r.assists }));
     const played = T.filter((t) => f === "all" || t.id === f).flatMap((t) => t.matches).filter((m) => m.goals);
-    const gf = played.reduce((s, m) => s + m.goals.filter((g) => !g.opp).length, 0);
-    const summary = `<p class="muted">Матчей с трансляцией: ${played.length} · забито ${gf} · пропущено ${played.reduce((s, m) => s + m.goals.filter((g) => g.opp).length, 0)}
+    // забито/пропущено — по итоговому счёту матчей (официальному), а не по постам с голами
+    const done = T.filter((t) => f === "all" || t.id === f).flatMap((t) => t.matches).filter((m) => m.score);
+    const ours = (m) => (m.home === m.us ? m.score[0] : m.score[1]), theirs = (m) => (m.home === m.us ? m.score[1] : m.score[0]);
+    const summary = `<p class="muted">Сыграно матчей: ${done.length} · забито ${done.reduce((s, m) => s + ours(m), 0)} · пропущено ${done.reduce((s, m) => s + theirs(m), 0)}
       · источник: <a href="https://t.me/${TELEGRAM.channel}" target="_blank">t.me/${TELEGRAM.channel}</a></p>`;
     $("#sbody").innerHTML = summary + `<div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">
       ${leader("goals", "Лучший бомбардир")}${leader("assists", "Лучший ассистент")}${leader("ga", "Гол + пас")}</div><h2>Все игроки</h2><div id="stable"></div>`;
