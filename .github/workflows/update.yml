@@ -48,7 +48,10 @@ jobs:
           cp -r img _site/
           # номер версии в ссылках, чтобы браузеры (особенно на телефонах) не держали старые файлы
           V=$(date +%s)
-          sed -i -E "s/(src|href)="(app|data|data-auto).js"/=".js?v=$V"/g; s/href="style.css"/href="style.css?v=$V"/g" _site/*.html
+          for f in app.js data.js data-auto.js style.css; do
+            sed -i "s|\"$f\"|\"$f?v=$V\"|g" _site/*.html
+          done
+          grep -h "v=$V" _site/index.html
           rm _site/update.js
 
       - uses: actions/configure-pages@v5
