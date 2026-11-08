@@ -33,7 +33,7 @@ const T = TOURNAMENTS.map((t) => {
     const opp = tidy(tm.opponent);
     const same = (m) => m.date === tm.date || (m.home + m.away).toLowerCase().includes(opp.toLowerCase()) && Math.abs(new Date(m.date) - new Date(tm.date)) < 3 * 864e5;
     const hit = [...matches.values()].find(same);
-    if (hit) { if (!hit.goals) hit.goals = tm.goals; // официальный протокол важнее телеграма
+    if (hit) { if (tm.goals?.length) hit.goals = tm.goals; // авторы голов — по телеграму команды (в протоколах организаторов бывают ошибки в фамилиях)
       if (!hit.score && tm.score && tm.finished) hit.score = hit.home === t.team ? tm.score : [tm.score[1], tm.score[0]]; if (!hit.round) hit.round = tidyRound(tm.round); }
     else matches.set("tg" + tm.post, { date: tm.date, time: "", home: t.team, away: opp, score: tm.finished ? tm.score : null, venue: "", round: tidyRound(tm.round), goals: tm.goals, link: `https://t.me/${TELEGRAM.channel}/${tm.post}` });
   }
