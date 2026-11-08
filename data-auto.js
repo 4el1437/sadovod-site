@@ -1,7 +1,7 @@
 // Файл создаётся автоматически скриптом update.js — не редактируйте вручную.
 // Ручные правки делайте в data.js (MANUAL_MATCHES / MANUAL_STANDINGS).
 const AUTO = {
- "updated": "2026-11-08T15:20:35.522Z",
+ "updated": "2026-11-08T15:28:33.546Z",
  "tournaments": {
   "city": {
    "standings": [
@@ -132,7 +132,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-08T15:20:35.522Z"
+   "at": "2026-11-08T15:28:33.546Z"
   },
   "fbl": {
    "standings": [
@@ -459,7 +459,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-08T15:20:35.522Z"
+   "at": "2026-11-08T15:28:33.546Z"
   },
   "cup": {
    "standings": [],
@@ -478,8 +478,9 @@ const AUTO = {
      "link": "https://www.goalstream.org/match/106434151/2dadb76e"
     }
    ],
-   "ok": true,
-   "at": "2026-11-08T15:20:35.522Z"
+   "ok": false,
+   "at": "2026-11-08T15:27:47.410Z",
+   "error": "fetch failed"
   }
  },
  "telegram": {
@@ -811,6 +812,164 @@ const AUTO = {
    }
   ],
   "ok": true,
-  "at": "2026-11-08T15:20:35.522Z"
+  "at": "2026-11-08T15:28:33.546Z"
+ },
+ "vk": {
+  "posts": [
+   {
+    "id": 4049,
+    "date": "2026-11-08T14:03:32.000Z",
+    "text": "Андрей, с днём рождения! \n \nТы с нами с самого начала — настоящий ветеран команды, человек, который прошёл с ней весь путь и по сей день остаётся рядом, поддерживает и вдохновляет! \nЭто дорогого стоит!\nСпасибо тебе за надёжность, преданность общему делу и за то, что на тебя всегда можно положиться🌟🎁 \n \nЖелаем крепкого здоровья, радости, новых побед и исполнения самых заветных желаний! \nПусть рядом будут близкие люди, в делах сопутствует удача, а каждый новый год приносит больше поводов для гордости и счастья! \nС праздником, Андрей! 🥳",
+    "photos": [
+     {
+      "big": "https://sun9-84.userapi.com/s/v1/ig2/WN4lzKp8z4UgkWDWIqn-x_YiIIUOPKFV5SfAEga4Yh45DKShoX7AIheD8xrlMgg_3cDubBUyz9IYjxMnnzL19KOD.jpg?quality=95&crop=0,0,1067,1280&as=32x38,48x58,72x86,108x130,160x192,240x288,360x432,480x576,540x648,640x768,720x864,1067x1280&from=bu&cs=640x0",
+      "small": "https://sun9-84.userapi.com/s/v1/ig2/WN4lzKp8z4UgkWDWIqn-x_YiIIUOPKFV5SfAEga4Yh45DKShoX7AIheD8xrlMgg_3cDubBUyz9IYjxMnnzL19KOD.jpg?quality=95&crop=0,0,1067,1280&as=32x38,48x58,72x86,108x130,160x192,240x288,360x432,480x576,540x648,640x768,720x864,1067x1280&from=bu&cs=640x0"
+     }
+    ],
+    "video": null,
+    "link": "https://vk.ru/wall-214784904_4049"
+   },
+   {
+    "id": 4048,
+    "date": "2026-11-08T10:00:01.000Z",
+    "text": "❗СОСТАВ НА МАТЧ ❗",
+    "photos": [
+     {
+      "big": "https://sun9-70.userapi.com/s/v1/ig2/o115Ryr10I4y2Nd99o0kuHu1mCzSclpzZHhkTde6EcIUWvxU2oKfpMzSHtlH8H2HGxp85134cf8oKPSwYxeEi4Dc.jpg?quality=95&crop=0,0,1122,1402&as=32x40,48x60,72x90,108x135,160x200,240x300,360x450,480x600,540x675,640x800,720x900,1080x1350,1122x1402&from=bu&cs=640x0",
+      "small": "https://sun9-70.userapi.com/s/v1/ig2/o115Ryr10I4y2Nd99o0kuHu1mCzSclpzZHhkTde6EcIUWvxU2oKfpMzSHtlH8H2HGxp85134cf8oKPSwYxeEi4Dc.jpg?quality=95&crop=0,0,1122,1402&as=32x40,48x60,72x90,108x135,160x200,240x300,360x450,480x600,540x675,640x800,720x900,1080x1350,1122x1402&from=bu&cs=640x0"
+     }
+    ],
+    "video": null,
+    "link": "https://vk.ru/wall-214784904_4048"
+   },
+   {
+    "id": 4047,
+    "date": "2026-11-08T09:19:16.000Z",
+    "text": "",
+    "photos": [],
+    "video": {
+     "title": "ФК Садовод - Спартак. 1 тур 1 лиги города Красноярска по футзалу",
+     "image": "https://sun9-15.userapi.com/impg/-MMd9KagCuzwaJkOIOGToZFb4EGzQm7hFl1qHg/RRwMqLY5tGU.jpg?size=800x450&quality=95&keep_aspect_ratio=1&background=000000&sign=09ce6ab7dcfdab95384afa6cde3898d6&type=video_thumb",
+     "clip": false,
+     "link": "https://vk.ru/video-218166313_456239634"
+    },
+    "link": "https://vk.ru/wall-214784904_4047"
+   },
+   {
+    "id": 4045,
+    "date": "2026-11-08T02:00:00.000Z",
+    "text": "❗ФК Садовод - Спартак❗\n\n📆 8 ноября \n⏰ 18:00\n🏟 МСК Сопка\nСмотри трансляцию, читай новости здесь или приходи поддержать нас лично!",
+    "photos": [
+     {
+      "big": "https://sun9-50.userapi.com/s/v1/ig2/K8TwgkGISwwMWW_u2Cwrfq76me9nBu5b2mfrX0-UFCv5RK94Mm6S6_G8b5icOq0GZSD3mlqffFZ9H9RFjWOCISHJ.jpg?quality=95&crop=0,0,1254,1254&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,1080x1080,1254x1254&from=bu&cs=640x0",
+      "small": "https://sun9-50.userapi.com/s/v1/ig2/K8TwgkGISwwMWW_u2Cwrfq76me9nBu5b2mfrX0-UFCv5RK94Mm6S6_G8b5icOq0GZSD3mlqffFZ9H9RFjWOCISHJ.jpg?quality=95&crop=0,0,1254,1254&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,1080x1080,1254x1254&from=bu&cs=640x0"
+     }
+    ],
+    "video": null,
+    "link": "https://vk.ru/wall-214784904_4045"
+   },
+   {
+    "id": 4042,
+    "date": "2026-11-06T15:16:42.000Z",
+    "text": "❗ЧЕМПИОНАТ ГОРОДА КРАСНОЯРСКА ПО ФУТЗАЛУ❗\n\n🏆1 ТУР\n\nФК САДОВОД 🆚 СПАРТАК\n📅 Дата: 8 ноября 2026 года\n🕕 Время: 18:00\n📍 Место: МСК «Сопка»\n\nНам нужна ваша поддержка! Приходите на трибуны, заряжайте команду своей энергией и помогайте нам двигаться вперёд!❤\n\nОДНА КОМАНДА — ОДНА ЦЕЛЬ — ТОЛЬКО ПОБЕДА!🔥",
+    "photos": [
+     {
+      "big": "https://sun9-16.userapi.com/s/v1/ig2/cUB3kY3gq_eEI4ei01vs0lRA5Kn6vop8kf1-7DzPbwCF09MlnwsrmRsNGQOob0a6uLhHrc6ZX-4QABMggiUh8nm5.jpg?quality=95&crop=0,0,1024,1536&as=32x48,48x72,72x108,108x162,160x240,240x360,360x540,480x720,540x810,640x960,720x1080,1024x1536&from=bu&cs=640x0",
+      "small": "https://sun9-16.userapi.com/s/v1/ig2/cUB3kY3gq_eEI4ei01vs0lRA5Kn6vop8kf1-7DzPbwCF09MlnwsrmRsNGQOob0a6uLhHrc6ZX-4QABMggiUh8nm5.jpg?quality=95&crop=0,0,1024,1536&as=32x48,48x72,72x108,108x162,160x240,240x360,360x540,480x720,540x810,640x960,720x1080,1024x1536&from=bu&cs=640x0"
+     }
+    ],
+    "video": null,
+    "link": "https://vk.ru/wall-214784904_4042"
+   },
+   {
+    "id": 4040,
+    "date": "2026-11-06T07:51:51.000Z",
+    "text": "Моменты игры 1/16 Кубка города  – в нашем альбоме https://vk.ru/album-214784904_310769584 👈\n\n📸 https://vk.ru/alllyass",
+    "photos": [
+     {
+      "big": "https://sun9-7.userapi.com/impg/zz1r-yTLe-7i78i9bZU_ewFR0G4nC25pU0o-7A/K0LAtSSXCFg.jpg?size=596x604&quality=95&sign=2c892e05ae4329a22b2ad40ac509c773&type=album",
+      "small": "https://sun9-7.userapi.com/impg/zz1r-yTLe-7i78i9bZU_ewFR0G4nC25pU0o-7A/K0LAtSSXCFg.jpg?size=596x604&quality=95&sign=2c892e05ae4329a22b2ad40ac509c773&type=album"
+     },
+     {
+      "big": "https://sun9-82.userapi.com/impg/mz-jOE4CCBkxNELiJPGFXlYUrfSIbYfsOIi6qg/gEz9HImAqeQ.jpg?size=453x604&quality=95&sign=245c2ab3b2d9c385eb0d8ce65b344767&type=album",
+      "small": "https://sun9-82.userapi.com/impg/mz-jOE4CCBkxNELiJPGFXlYUrfSIbYfsOIi6qg/gEz9HImAqeQ.jpg?size=453x604&quality=95&sign=245c2ab3b2d9c385eb0d8ce65b344767&type=album"
+     },
+     {
+      "big": "https://sun9-87.userapi.com/impg/g1ndBSV2Bueewm8aqxEUoIkp-xbr4DSVTlwfyw/dY4j9-MnOLA.jpg?size=402x604&quality=95&sign=944ba9edb08cd40da39fdb208001a093&type=album",
+      "small": "https://sun9-87.userapi.com/impg/g1ndBSV2Bueewm8aqxEUoIkp-xbr4DSVTlwfyw/dY4j9-MnOLA.jpg?size=402x604&quality=95&sign=944ba9edb08cd40da39fdb208001a093&type=album"
+     },
+     {
+      "big": "https://sun9-50.userapi.com/impg/L4dF8GeBM4P1L6-rzzV2HCYj2Z9wtrN8TMuL-w/SNdat-tNW-Q.jpg?size=496x604&quality=95&sign=5a6b4fe1a70f26001dc24b73e99e5d6a&type=album",
+      "small": "https://sun9-50.userapi.com/impg/L4dF8GeBM4P1L6-rzzV2HCYj2Z9wtrN8TMuL-w/SNdat-tNW-Q.jpg?size=496x604&quality=95&sign=5a6b4fe1a70f26001dc24b73e99e5d6a&type=album"
+     },
+     {
+      "big": "https://sun9-52.userapi.com/impg/d0PQxjPGvjUPvBE8Xp3_PqaqBNn6WH6CCedRzw/JH3Zm_aHGLg.jpg?size=437x604&quality=95&sign=151456fb2b2ae687c5c87a48c91978bf&type=album",
+      "small": "https://sun9-52.userapi.com/impg/d0PQxjPGvjUPvBE8Xp3_PqaqBNn6WH6CCedRzw/JH3Zm_aHGLg.jpg?size=437x604&quality=95&sign=151456fb2b2ae687c5c87a48c91978bf&type=album"
+     },
+     {
+      "big": "https://sun9-51.userapi.com/impg/JVWFeGloi0RBPj3oYbcSg5OaqZeJKO7so6XWww/MoI9q23FsxQ.jpg?size=402x604&quality=95&sign=b48e1c0dc35e915738b6838c77b41c4c&type=album",
+      "small": "https://sun9-51.userapi.com/impg/JVWFeGloi0RBPj3oYbcSg5OaqZeJKO7so6XWww/MoI9q23FsxQ.jpg?size=402x604&quality=95&sign=b48e1c0dc35e915738b6838c77b41c4c&type=album"
+     }
+    ],
+    "video": null,
+    "link": "https://vk.ru/wall-214784904_4040"
+   },
+   {
+    "id": 4039,
+    "date": "2026-11-04T07:25:56.000Z",
+    "text": "С праздником, друзья!❤",
+    "photos": [
+     {
+      "big": "https://sun9-50.userapi.com/s/v1/ig2/pXwfr1k-E3oAZqUog8rBhTbEsVglWLQ9QG5XA_PyqlW0OBK6aoqQebx0JfZn1ZEQIofNamjwGofCc1YvSwCwCMwn.jpg?quality=95&crop=0,0,1254,1254&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,1080x1080,1254x1254&from=bu&cs=640x0",
+      "small": "https://sun9-50.userapi.com/s/v1/ig2/pXwfr1k-E3oAZqUog8rBhTbEsVglWLQ9QG5XA_PyqlW0OBK6aoqQebx0JfZn1ZEQIofNamjwGofCc1YvSwCwCMwn.jpg?quality=95&crop=0,0,1254,1254&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,1080x1080,1254x1254&from=bu&cs=640x0"
+     }
+    ],
+    "video": null,
+    "link": "https://vk.ru/wall-214784904_4039"
+   },
+   {
+    "id": 4038,
+    "date": "2026-11-02T21:09:34.000Z",
+    "text": "❗КОНЕЦ МАТЧА❗\n\nСтартуем в ФБЛ с разгромной победы!🔥\n\nТакже рекомендуем подписаться на наш Телеграмм канал! https://t.me/fcsadovod\nТам много интересного контента с матчей!",
+    "photos": [
+     {
+      "big": "https://sun9-67.userapi.com/s/v1/ig2/PPgCHPfz8GfV7DbQ7Bdn7rswX6tngjApNjqUb0bcj9TXLxPZH1jSWml3k80X80Gp1ZINBL_2NRVn9uyqoTMPn-8N.jpg?quality=95&crop=0,0,1122,1402&as=32x40,48x60,72x90,108x135,160x200,240x300,360x450,480x600,540x675,640x800,720x900,1080x1350,1122x1402&from=bu&cs=640x0",
+      "small": "https://sun9-67.userapi.com/s/v1/ig2/PPgCHPfz8GfV7DbQ7Bdn7rswX6tngjApNjqUb0bcj9TXLxPZH1jSWml3k80X80Gp1ZINBL_2NRVn9uyqoTMPn-8N.jpg?quality=95&crop=0,0,1122,1402&as=32x40,48x60,72x90,108x135,160x200,240x300,360x450,480x600,540x675,640x800,720x900,1080x1350,1122x1402&from=bu&cs=640x0"
+     }
+    ],
+    "video": null,
+    "link": "https://vk.ru/wall-214784904_4038"
+   },
+   {
+    "id": 4036,
+    "date": "2026-11-02T13:00:01.000Z",
+    "text": "❗ СОСТАВ НА МАТЧ ❗",
+    "photos": [
+     {
+      "big": "https://sun9-63.userapi.com/s/v1/ig2/vm7qFIGzV5B8UBDCre2Pa6u__xelKGP4C33WHbwPiLxt5ne6I8o647ZAoLWAoIaXQ-DD7JTIV_cHLVvedisKkgij.jpg?quality=95&crop=0,0,1122,1402&as=32x40,48x60,72x90,108x135,160x200,240x300,360x450,480x600,540x675,640x800,720x900,1080x1350,1122x1402&from=bu&cs=640x0",
+      "small": "https://sun9-63.userapi.com/s/v1/ig2/vm7qFIGzV5B8UBDCre2Pa6u__xelKGP4C33WHbwPiLxt5ne6I8o647ZAoLWAoIaXQ-DD7JTIV_cHLVvedisKkgij.jpg?quality=95&crop=0,0,1122,1402&as=32x40,48x60,72x90,108x135,160x200,240x300,360x450,480x600,540x675,640x800,720x900,1080x1350,1122x1402&from=bu&cs=640x0"
+     }
+    ],
+    "video": null,
+    "link": "https://vk.ru/wall-214784904_4036"
+   },
+   {
+    "id": 4031,
+    "date": "2026-11-02T08:54:31.000Z",
+    "text": "❗ДЕНЬ МАТЧА❗\n\n💥ФК Садовод - Курама💥\n\n1 тур 2 дивизиона ФБЛ\n📆 2 ноября\n⏰ 21:00\n🏟 СК КАТТ\n💬 Телеграм - текстовая трансляция\n\nПриглашаем всех поддержать нас! Идём за победой!⚽❤",
+    "photos": [
+     {
+      "big": "https://sun9-4.userapi.com/s/v1/ig2/PIOM6ae77zQ60HkDsgNHlbtpw01ZjONd0L3mr8MhlFC1zVHaGLbUWK1xZx2iKTL_Xga_8w5EmzS9O8Vczzl_8ce0.jpg?quality=95&crop=0,0,1024,1536&as=32x48,48x72,72x108,108x162,160x240,240x360,360x540,480x720,540x810,640x960,720x1080,1024x1536&from=bu&cs=640x0",
+      "small": "https://sun9-4.userapi.com/s/v1/ig2/PIOM6ae77zQ60HkDsgNHlbtpw01ZjONd0L3mr8MhlFC1zVHaGLbUWK1xZx2iKTL_Xga_8w5EmzS9O8Vczzl_8ce0.jpg?quality=95&crop=0,0,1024,1536&as=32x48,48x72,72x108,108x162,160x240,240x360,360x540,480x720,540x810,640x960,720x1080,1024x1536&from=bu&cs=640x0"
+     }
+    ],
+    "video": null,
+    "link": "https://vk.ru/wall-214784904_4031"
+   }
+  ],
+  "albums": [],
+  "ok": true,
+  "at": "2026-11-08T15:28:33.546Z",
+  "via": "widget"
  }
 };

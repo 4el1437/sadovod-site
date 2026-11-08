@@ -347,6 +347,47 @@ async function vk(cfg, token) {
 }
 
 // =====================================================================
+//  VK БЕЗ КЛЮЧА: официальный виджет сообщества (widget_community.php) отдаёт
+//  последние ~10 постов прямо в HTML. Забираем их и накапливаем между запусками.
+// =====================================================================
+const decodeEnt = (s) => s
+  .replace(/&#(\d+);/g, (_, n) => String.fromCodePoint(+n)).replace(/&#x([0-9a-f]+);/gi, (_, n) => String.fromCodePoint(parseInt(n, 16)))
+  .replace(/&quot;/g, '"').replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&nbsp;/g, " ");
+
+async function vkWidget(cfg) {
+  const url = `https://vk.com/widget_community.php?app=0&width=600px&_ver=1&gid=${cfg.groupId}&mode=4&wide=1&height=4000`;
+  const res = await fetch(url, {
+    // простой UA: на «неполный» Chrome UA VK отвечает заглушкой «Ваш браузер устарел»
+    headers: { "User-Agent": "Mozilla/5.0", "Accept-Language": "ru-RU,ru", Referer: "https://4el1437.github.io/" },
+    signal: AbortSignal.timeout(90000),
+  });
+  const buf = Buffer.from(await res.arrayBuffer());
+  const html = new TextDecoder(/1251/.test(res.headers.get("content-type") || "") ? "windows-1251" : "utf-8").decode(buf);
+  const owner = -Math.abs(cfg.groupId);
+  const posts = [];
+  for (const p of html.split(`id="post${owner}_`).slice(1)) {
+    const id = +p.match(/^\d+/)?.[0];
+    const ts = +(p.match(/data-date="?(\d{9,})/) || p.match(/time="(\d{9,})/) || [])[1];
+    if (!id || !ts) continue;
+    const raw = p.match(/class="wall_post_text"[^>]*>([\s\S]*?)<\/div>/)?.[1] || "";
+    const text = decodeEnt(raw.replace(/<a[^>]*class="[^"]*(?:wall_post_more|PostTextMore)[^"]*"[\s\S]*?<\/a>/g, "")
+      .replace(/<br\s*\/?>/g, "\n").replace(/<img[^>]*alt="([^"]*)"[^>]*>/g, "$1").replace(/<[^>]+>/g, "")).replace(/\s*Показать (?:ещё|полностью)…?\s*/g, "\n").replace(/\n{3,}/g, "\n\n").trim();
+    const imgs = [...p.matchAll(/background-image:\s*url\(([^)]+)\)/g)].map((m) => decodeEnt(m[1].replace(/['"]/g, "")));
+    const vhref = p.match(/href="(\/(?:video|clip)-?\d+_\d+)[^"]*"/)?.[1];
+    const vtitle = decodeEnt(p.match(/class="a post_video_title"[^>]*>([^<]*)/)?.[1] || "");
+    const isVideo = !!vhref || /page_post_thumb_video/.test(p);
+    posts.push({
+      id, date: new Date(ts * 1000).toISOString(), text,
+      photos: isVideo ? [] : imgs.map((u) => ({ big: u, small: u })),
+      video: isVideo ? { title: vtitle, image: imgs[0] || "", clip: /\/clip/.test(vhref || ""), link: vhref ? `https://vk.ru${vhref}` : `https://vk.ru/wall${owner}_${id}` } : null,
+      link: `https://vk.ru/wall${owner}_${id}`,
+    });
+  }
+  if (!posts.length) throw new Error("виджет VK не вернул постов");
+  return posts;
+}
+
+// =====================================================================
 async function main() {
   const prev = loadPrev();
   const result = { updated: new Date().toISOString(), tournaments: {} };
@@ -388,8 +429,19 @@ async function main() {
     const token = vkToken();
     process.stdout.write(`▶ VK ${ctx.VK.screenName} … `);
     if (!token) {
-      console.log("пропущено: нет ключа (vk-token.txt)");
-      if (prev.vk) result.vk = prev.vk;
+      // без ключа — через виджет сообщества, накапливая посты между запусками
+      try {
+        const fresh = await vkWidget(ctx.VK);
+        const from = new Date(ctx.VK.fromDate).getTime();
+        const byId = new Map((prev.vk?.posts || []).map((p) => [p.id, p]));
+        for (const p of fresh) byId.set(p.id, p);
+        const posts = [...byId.values()].filter((p) => new Date(p.date).getTime() >= from).sort((a, b) => b.date.localeCompare(a.date));
+        result.vk = { posts, albums: prev.vk?.albums || [], ok: true, at: result.updated, via: "widget" };
+        console.log(`ок (виджет): новых/обновлённых ${fresh.length}, всего постов ${posts.length}`);
+      } catch (e) {
+        console.log("ОШИБКА виджета:", e.message, "— оставлены прошлые данные");
+        result.vk = { ...(prev.vk || { posts: [], albums: [] }), ok: false, error: e.message };
+      }
     } else {
       try {
         result.vk = { ...(await vk(ctx.VK, token)), ok: true, at: result.updated };
