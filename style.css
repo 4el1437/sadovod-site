@@ -49,8 +49,8 @@ h1 { font-size: 30px; margin: 0 0 6px; }
 h2 { font-size: 22px; margin: 32px 0 14px; }
 .sub { color: var(--muted); margin: 0 0 20px; }
 .grid { display: grid; gap: 16px; }
-.grid-2 { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
-.grid-cards { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+.grid-2 { grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr)); }
+.grid-cards { grid-template-columns: repeat(auto-fill, minmax(min(160px, 45%), 1fr)); }
 .card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; }
 .muted { color: var(--muted); }
 .note { background: var(--green-light); border-radius: 10px; padding: 12px 14px; font-size: 14px; color: var(--muted); }
@@ -138,7 +138,7 @@ td.pts { font-weight: 800; }
 @media (prefers-color-scheme: dark) { .tag-cup { background: #3a3014; color: #f2c230; } }
 
 /* ---------- media ---------- */
-.grid-3 { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
+.grid-3 { grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr)); }
 .post__img { position: relative; text-decoration: none; }
 .post__img--clip { aspect-ratio: 9/12; }
 .post__play { position: absolute; inset: 0; margin: auto; width: 56px; height: 56px; border-radius: 50%; background: rgba(0,0,0,.55); color: #fff; display: grid; place-items: center; font-size: 22px; padding-left: 4px; }
@@ -155,3 +155,21 @@ td.pts { font-weight: 800; }
 .lb-next { right: 16px; top: 50%; transform: translateY(-50%); }
 .lb-n { position: absolute; bottom: 16px; color: #ccc; font-size: 14px; }
 .person__cap { position: absolute; top: 10px; right: 12px; width: 28px; height: 28px; border-radius: 50%; background: var(--accent); color: var(--green-dark); font-weight: 800; display: grid; place-items: center; font-size: 15px; }
+
+/* ---------- mobile ---------- */
+.grid > *, .container > * { min-width: 0; }
+html, body { overflow-x: hidden; }
+@media (max-width: 600px) {
+  .container { padding: 16px 16px 40px; }
+  h1 { font-size: 26px; }
+  .hero { padding: 20px; gap: 14px; }
+  .hero img { width: 72px; height: 72px; }
+  .hero h1 { font-size: 26px; }
+  .hero__stats { margin-left: 0; gap: 18px; }
+  .hero__stat b { font-size: 24px; }
+  .match__team { font-size: 15px; }
+  .match__score { font-size: 22px; padding: 4px 10px; }
+  th, td { padding: 8px 6px; font-size: 14px; }
+  .brand { font-size: 17px; }
+  .tsum__head { flex-wrap: wrap; }
+}
