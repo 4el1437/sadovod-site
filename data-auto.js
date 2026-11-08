@@ -1,7 +1,7 @@
 // Файл создаётся автоматически скриптом update.js — не редактируйте вручную.
 // Ручные правки делайте в data.js (MANUAL_MATCHES / MANUAL_STANDINGS).
 const AUTO = {
- "updated": "2026-11-08T16:22:00.127Z",
+ "updated": "2026-11-08T20:45:42.801Z",
  "tournaments": {
   "city": {
    "standings": [
@@ -132,7 +132,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-08T16:22:00.127Z"
+   "at": "2026-11-08T20:45:42.801Z"
   },
   "fbl": {
    "standings": [
@@ -459,7 +459,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-08T16:22:00.127Z"
+   "at": "2026-11-08T20:45:42.801Z"
   },
   "cup": {
    "standings": [],
@@ -479,7 +479,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-08T16:22:00.127Z"
+   "at": "2026-11-08T20:45:42.801Z"
   }
  },
  "telegram": {
@@ -850,7 +850,7 @@ const AUTO = {
     "announced": true,
     "lineupPost": {
      "id": 2040,
-     "photo": "https://cdn4.telesco.pe/file/obZkPP7XdZ3MBveoy8PaeMbnAb5SjSi4cdbgeA9NBfBAyX7V7Hpf2JPhYTS0-xmospfGK3v52JIWvS-gKeILi_ONkXo7WfgHwArNu6Zu4O7HlEw5Wgj-DeWtuxVplhD3F91MHKO8T9njCyxmkjfHviMF80QPAHspm0l-hYUca5wYQLRuxaK8H1BZIj3AKm3rRn8cNG3FhB5PVYfBwxsk1u2QAZef9cFttGiDdzAXa3yRBNA2_IQR-Ee_uIrTA3PVAOPzwC0O8nhOAVltysdBwTpIOpSHkA6LVzEbw2z8THEMCF7YhdfOd0raFayhbPAbG_b_PuyJuPAzDGnHPNmZpQ.jpg"
+     "photo": "https://cdn4.telesco.pe/file/LlHI4UkcpqteS04h7DugCmm5M0fbRpJZO-EpiDPJ5qzxBEWYO0BAHdzSL-um8Y57Url6LUZRO769RJXSOnWoKHC47AmaHweawaIeufj0L5v5jc7TrX6u6v220e6UpLLLAbeyVzErfoEpRwnyi_G5FgWSTzjWuffCyI_F8z65YR4Qjo9-JC7KTpDFgYnQZv_7m3IIOihxmoQ8CbdehhYDaXlIrP6YNL_4qgf_rQgjhi5fE-2rnalTLRJ30xwgPfz8Dqeh1HayBKztM7ad7S6rwLK1vgrCii50_Ll96ndClQv0ll3Xyx4q7cZUYST4uTQT1BJHnWSDcOc6G7_7ZenpEg.jpg"
     },
     "finished": true,
     "lineup": [
@@ -871,7 +871,7 @@ const AUTO = {
    }
   ],
   "ok": true,
-  "at": "2026-11-08T16:22:00.127Z"
+  "at": "2026-11-08T20:45:42.801Z"
  },
  "vk": {
   "posts": [
@@ -1028,7 +1028,7 @@ const AUTO = {
   ],
   "albums": [],
   "ok": true,
-  "at": "2026-11-08T16:22:00.127Z",
+  "at": "2026-11-08T20:45:42.801Z",
   "via": "widget"
  }
 };
