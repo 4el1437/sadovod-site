@@ -1,7 +1,7 @@
 // Файл создаётся автоматически скриптом update.js — не редактируйте вручную.
 // Ручные правки делайте в data.js (MANUAL_MATCHES / MANUAL_STANDINGS).
 const AUTO = {
- "updated": "2026-11-08T14:54:38.477Z",
+ "updated": "2026-11-08T15:12:50.402Z",
  "tournaments": {
   "city": {
    "standings": [
@@ -132,13 +132,14 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-08T14:54:38.477Z"
+   "at": "2026-11-08T15:12:50.402Z"
   },
   "fbl": {
    "standings": [],
    "matches": [],
-   "ok": true,
-   "at": "2026-11-08T14:54:38.477Z"
+   "ok": false,
+   "at": "2026-11-08T14:54:38.477Z",
+   "error": "fetch failed"
   },
   "cup": {
    "standings": [],
@@ -158,7 +159,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-08T14:54:38.477Z"
+   "at": "2026-11-08T15:12:50.402Z"
   }
  },
  "telegram": {
@@ -490,6 +491,6 @@ const AUTO = {
    }
   ],
   "ok": true,
-  "at": "2026-11-08T14:54:38.477Z"
+  "at": "2026-11-08T15:12:50.402Z"
  }
 };
