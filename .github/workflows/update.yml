@@ -46,6 +46,9 @@ jobs:
           mkdir _site
           cp *.html *.css *.js _site/
           cp -r img _site/
+          # номер версии в ссылках, чтобы браузеры (особенно на телефонах) не держали старые файлы
+          V=$(date +%s)
+          sed -i -E "s/(src|href)="(app|data|data-auto).js"/=".js?v=$V"/g; s/href="style.css"/href="style.css?v=$V"/g" _site/*.html
           rm _site/update.js
 
       - uses: actions/configure-pages@v5
