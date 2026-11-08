@@ -124,7 +124,7 @@ const PLAYERS = [
   { num: 5   , name: "Андрей Пикалов",         pos: "ЗАЩ", photo: "img/players/pikalov.jpg" },
   { num: 82  , name: "Андрей Суздаль",         pos: "НАП", photo: "img/players/suzdal.jpg" },
   { num: 69  , name: "Александр Шурыгин",      pos: "НАП", photo: "img/players/shurigin.jpg" },
-  { num: null, name: "Даниил Кардашов",        pos: "ЗАЩ", photo: "" },
+  { num: 93  , name: "Даниил Кардашов",        pos: "ЗАЩ", photo: "" },
 ];
 
 // Тренеры и руководство
