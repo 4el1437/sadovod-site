@@ -87,6 +87,8 @@ const MANUAL_STANDINGS = {
 //  Имя пишется «Имя Фамилия» — так же, как в постах канала (по нему считается статистика).
 // ---------------------------------------------------------------------
 const PLAYERS = [
+  { num: null, name: "Семён Проровский",       pos: "ВРТ", photo: "https://img.goalstream.org/img_c_300x300/public/gperson_person/f2/35/4e/4d9a0b_cac6.png?c=05d4" },
+  { num: null, name: "Вадим Засим",            pos: "",    photo: "https://img.goalstream.org/img_c_300x300/public/gperson_person/af/51/40/3fd19e_6810.png?c=1b43" },
   { num: null, name: "Сергей Михаль",          pos: "ВРТ", photo: "https://img.goalstream.org/img_c_300x300/public/gperson_person/cb/5c/3d/3ce2ac_ac43.JPG?c=667a" },
   { num: null, name: "Ярослав Ромашин",        pos: "НАП", photo: "https://img.goalstream.org/img_c_300x300/public/gperson_person/17/52/40/3fd205_943f.png?c=6979" },
   { num: null, name: "Анатолий Антропов",      pos: "НАП", photo: "" },
