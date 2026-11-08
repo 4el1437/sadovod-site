@@ -251,6 +251,21 @@ async function tgPosts(cfg) {
   return Object.values(cache).sort((a, b) => a.id - b.id);
 }
 
+// «📅 Дата: 8 ноября 2026 года ⏰ Время: 18:00 📍 Место: МСК «Сопка»» → {date, time, venue}
+function announceInfo(text) {
+  const out = {};
+  const d = text.match(/(\d{1,2})\s+(января|февраля|марта|апреля|мая|июня|июля|августа|сентября|октября|ноября|декабря)(?:\s+(\d{4}))?/i);
+  if (d) {
+    const mo = RU_MONTHS_GEN.indexOf(d[2].toLowerCase());
+    out.date = `${d[3] || guessYear(mo, +d[1])}-${pad(mo + 1)}-${pad(d[1])}`;
+  }
+  const t = text.match(/(?:⏰|🕐|🕑|🕒|🕓|🕔|🕕|🕖|🕗|🕘|🕙|🕚|🕛|время)[^\d\n]{0,12}(\d{1,2}):(\d{2})/i) || text.match(/\b(\d{1,2}):(\d{2})\b/);
+  if (t) out.time = `${pad(t[1])}:${t[2]}`;
+  const v = text.split("\n").find((l) => /🏟|📍|место:/i.test(l));
+  if (v) out.venue = v.replace(/🏟️?|📍|место:?/gi, "").replace(/[«»]/g, (c) => c).trim();
+  return out;
+}
+
 function tgMatches(posts, cfg) {
   const rules = cfg.rules.map((r) => ({ ...r, re: new RegExp(r.match, "i") }));
   const local = (dt) => new Date(new Date(dt).getTime() + cfg.tz * 36e5).toISOString(); // время Красноярска
@@ -267,10 +282,15 @@ function tgMatches(posts, cfg) {
       const opponent = opp[1].replace(/[«»"]/g, "").trim();
       const round = flat.match(/(1\/\d+ финала|\d+ тур|финал|полуфинал)/i)?.[1] || "";
       if (!cur || cur.done || cur.opponent.toLowerCase() !== opponent.toLowerCase()) {
-        if (cur && !cur.goals.length && !cur.done) res.pop(); // анонс без матча
-        cur = { t: rule.t, opponent, round, goals: [], score: null, date: "", time: "", done: false, post: p.id };
+        cur = { t: rule.t, opponent, round, goals: [], score: null, date: "", time: "", venue: "", done: false, post: p.id, announced: false };
         res.push(cur);
       }
+      // анонс: дата, время, место (повторные анонсы дополняют пустые поля)
+      const info = announceInfo(p.text);
+      if (info.date) { cur.date ||= info.date; cur.announced = true; }
+      if (info.time) cur.time ||= info.time;
+      if (info.venue) cur.venue ||= info.venue;
+      if (round && !cur.round) cur.round = round;
       continue;
     }
     if (!cur || cur.done) continue;
@@ -292,7 +312,7 @@ function tgMatches(posts, cfg) {
     }
     if (/матч (закончен|окончен)/i.test(flat)) cur.done = true;
   }
-  return res.filter((m) => m.goals.length || m.done).map(({ done, ...m }) => ({ ...m, finished: done }));
+  return res.filter((m) => m.goals.length || m.done || m.announced).map(({ done, ...m }) => ({ ...m, finished: done }));
 }
 
 // =====================================================================

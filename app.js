@@ -30,12 +30,13 @@ const T = TOURNAMENTS.map((t) => {
   }
   // матчи из телеграма: прикрепляем голы к матчу из таблицы или добавляем как новый
   for (const tm of TG_MATCHES.filter((m) => m.t === t.id)) {
-    const opp = tidy(tm.opponent);
+    // название соперника — как в турнирной таблице, если он там есть («ВИТЭН», а не «Витэн»)
+    const opp = (MANUAL_STANDINGS[t.id] || a.standings).map((r) => r.team).find((n) => n.toLowerCase() === tm.opponent.toLowerCase()) || tidy(tm.opponent);
     const same = (m) => m.date === tm.date || (m.home + m.away).toLowerCase().includes(opp.toLowerCase()) && Math.abs(new Date(m.date) - new Date(tm.date)) < 3 * 864e5;
     const hit = [...matches.values()].find(same);
-    if (hit) { if (tm.lineup?.length) hit.lineup = tm.lineup; if (tm.goals?.length) hit.goals = tm.goals; // авторы голов — по телеграму команды (в протоколах организаторов бывают ошибки в фамилиях)
+    if (hit) { if (!hit.time && tm.time) hit.time = tm.time; if (!hit.venue && tm.venue) hit.venue = tm.venue; if (tm.lineup?.length) hit.lineup = tm.lineup; if (tm.goals?.length) hit.goals = tm.goals; // авторы голов — по телеграму команды (в протоколах организаторов бывают ошибки в фамилиях)
       if (!hit.score && tm.score && tm.finished) hit.score = hit.home === t.team ? tm.score : [tm.score[1], tm.score[0]]; if (!hit.round) hit.round = tidyRound(tm.round); }
-    else matches.set("tg" + tm.post, { date: tm.date, time: "", home: t.team, away: opp, score: tm.finished ? tm.score : null, venue: "", round: tidyRound(tm.round), goals: tm.goals, lineup: tm.lineup, link: `https://t.me/${TELEGRAM.channel}/${tm.post}` });
+    else matches.set("tg" + tm.post, { date: tm.date, time: tm.time || "", home: t.team, away: opp, score: tm.finished ? tm.score : null, venue: tm.venue || "", announced: !tm.finished, round: tidyRound(tm.round), goals: tm.goals, lineup: tm.lineup, link: `https://t.me/${TELEGRAM.channel}/${tm.post}` });
   }
   return {
     ...t,
