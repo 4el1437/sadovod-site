@@ -1,0 +1,55 @@
+name: Обновление данных и публикация
+
+on:
+  schedule:
+    - cron: "0 */3 * * *"   # каждые 3 часа
+  workflow_dispatch:         # кнопка «Run workflow» вручную
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  update-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Загрузка таблиц, матчей, статистики и VK
+        run: node update.js
+        env:
+          VK_TOKEN: ${{ secrets.VK_TOKEN }}
+
+      - name: Сохранить обновлённые данные в репозиторий
+        run: |
+          git config user.name "sadovod-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data-auto.js tg-cache.json
+          git diff --cached --quiet || (git commit -m "Обновление данных $(date -u +'%Y-%m-%d %H:%M')" && git push)
+
+      - name: Подготовка сайта
+        run: |
+          mkdir _site
+          cp *.html *.css *.js _site/
+          rm _site/update.js
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - id: deploy
+        uses: actions/deploy-pages@v4
