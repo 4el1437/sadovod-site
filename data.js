@@ -93,7 +93,7 @@ const MANUAL_STANDINGS = {
 const PLAYERS = [
   { num: 1   , name: "Семён Проровский",       pos: "ВРТ", photo: "img/players/prorovskiy.jpg" },
   { num: 99  , name: "Вадим Засим",            pos: "ЗАЩ", photo: "img/players/zasim.jpg" },
-  { num: null, name: "Сергей Михаль",          pos: "ВРТ", photo: "img/players/mihal.jpg" },
+  { num: 81  , name: "Сергей Михаль",          pos: "ВРТ", photo: "img/players/mihal.jpg" },
   { num: 22  , name: "Ярослав Ромашин",        pos: "НАП", photo: "img/players/romashin.jpg" },
   { num: 13  , name: "Анатолий Антропов",      pos: "НАП", photo: "img/players/antropov.jpg" },
   { num: 3   , name: "Андрей Супрун",          pos: "ВРТ", photo: "img/players/suprun.jpg" },
