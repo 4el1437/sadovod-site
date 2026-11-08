@@ -103,79 +103,114 @@ async function goalstream(t) {
 }
 
 // =====================================================================
-//  VSPORT.SU  (универсальный разбор HTML-таблиц)
-//  Таблица: ищется <table>, в которой есть название нашей команды и колонка очков.
-//  Матчи: строки, где есть наша команда и дата вида 15.11 / 15.11.2026.
+//  VSPORT.SU (ФБЛ). Скрипты сайт не пускает, поэтому основной путь —
+//  сохранённые страницы лиги в папке fbl/ (Ctrl+S в браузере → загрузить на GitHub).
+//  Если сайт вдруг ответит напрямую — берём и его. Все страницы объединяются.
+//  На странице: таблица (№ ▲ «Команда» И В Н П М О) и «РАСПИСАНИЕ ИГР» по дням:
+//    «А» - «Б» - 8:22 (4:11) Голы: Фамилия Имя (Ассистент), мин (счёт) ... Лучший игрок матча: ...
+//    «А» - «Б» Стадион. Адрес: ... Время начала матча 19:00 Судья: ...
 // =====================================================================
-function tables(html) {
-  return [...html.matchAll(/<table[\s\S]*?<\/table>/gi)].map((t) =>
-    [...t[0].matchAll(/<tr[\s\S]*?<\/tr>/gi)].map((r) => [...r[0].matchAll(/<t[hd][^>]*>([\s\S]*?)<\/t[hd]>/gi)].map((c) => strip(c[1])))
-  );
+const RU_MONTHS_GEN = ["января","февраля","марта","апреля","мая","июня","июля","августа","сентября","октября","ноября","декабря"];
+
+function vsText(html) {
+  return html
+    .replace(/<script[\s\S]*?<\/script>/gi, " ").replace(/<style[\s\S]*?<\/style>/gi, " ")
+    .replace(/<[^>]+>/g, " ").replace(/&nbsp;/g, " ").replace(/&laquo;/g, "«").replace(/&raquo;/g, "»")
+    .replace(/&quot;/g, '"').replace(/&amp;/g, "&").replace(/&gt;/g, ">").replace(/&lt;/g, "<")
+    .replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ");
 }
 
-function parseStandings(html, team) {
-  for (const rows of tables(html)) {
-    if (!rows.some((r) => r.some((c) => c.toLowerCase() === team.toLowerCase() || c.toLowerCase().includes(team.toLowerCase())))) continue;
-    const head = rows[0].map((h) => h.toLowerCase());
-    const col = (...names) => head.findIndex((h) => names.some((n) => h === n || h.startsWith(n)));
-    const iTeam = col("команда", "клуб", "team");
-    const iP = col("и", "игры", "м");
-    const iW = col("в", "поб");
-    const iD = col("н", "нич");
-    const iL = col("п", "пор");
-    const iG = col("мячи", "з-п", "голы", "заб");
-    const iPts = col("о", "оч", "очки");
-    if (iTeam < 0 || iPts < 0) continue;
-    return rows.slice(1).filter((r) => r[iTeam]).map((r) => {
-      const g = iG >= 0 ? (r[iG] || "").match(/(\d+)\s*[-:–]\s*(\d+)/) : null;
-      return { team: r[iTeam], p: num(r[iP]), w: num(r[iW]), d: num(r[iD]) ?? 0, l: num(r[iL]), gf: g ? +g[1] : null, ga: g ? +g[2] : null, pts: num(r[iPts]) };
+// «Мустафин Артур» → «Артур Мустафин»
+const swapName = (s) => { const p = s.trim().split(/\s+/); return p.length === 2 ? `${p[1]} ${p[0]}` : s.trim(); };
+
+function parseVsport(html, t, src) {
+  const txt = vsText(html);
+  const aliases = [t.team, ...(t.vsport.aliases || [])].map((a) => a.toLowerCase());
+  const isUs = (name) => aliases.includes(name.replace(/[«»"]/g, "").trim().toLowerCase());
+  const clean = (s) => s.replace(/[«»]/g, "").trim();
+
+  // --- таблица ---
+  const standings = [];
+  const tbl = txt.split(/РАСПИСАНИЕ ИГР/i)[0];
+  for (const m of tbl.matchAll(/(\d+) [▲▼►=]? ?«([^»]+)» (\d+) (\d+) (\d+) (\d+) (\d+):(\d+) (\d+)/g)) {
+    const team = clean(m[2]);
+    standings.push({ team: isUs(team) ? t.team : team, p: +m[3], w: +m[4], d: +m[5], l: +m[6], gf: +m[7], ga: +m[8], pts: +m[9] });
+  }
+
+  // --- расписание по дням ---
+  const matches = [];
+  const sched = txt.split(/РАСПИСАНИЕ ИГР:?/i)[1]?.split(/Комментировать могут/i)[0] || "";
+  const dayRe = /(Понедельник|Вторник|Среда|Четверг|Пятница|Суббота|Воскресенье)\.? (\d{1,2}) ([а-я]+):?/gi;
+  const days = [...sched.matchAll(dayRe)];
+  days.forEach((d, i) => {
+    const mo = RU_MONTHS_GEN.indexOf(d[3].toLowerCase());
+    if (mo < 0) return;
+    const date = `${guessYear(mo, +d[2])}-${pad(mo + 1)}-${pad(d[2])}`;
+    const body = sched.slice(d.index + d[0].length, days[i + 1]?.index ?? sched.length);
+    // каждая игра начинается с «А» - «Б»
+    const games = [...body.matchAll(/«([^»]+)» ?[-–] ?«([^»]+)»/g)];
+    games.forEach((g, j) => {
+      const chunk = body.slice(g.index + g[0].length, games[j + 1]?.index ?? body.length);
+      const home = clean(g[1]), away = clean(g[2]);
+      const usHome = isUs(home), usAway = isUs(away);
+      if (!usHome && !usAway) return;
+      const sc = chunk.match(/^\s*[-–]?\s*(\d+):(\d+)/);
+      const time = chunk.match(/Время начала матча (\d{1,2}):(\d{2})/);
+      const venue = chunk.match(/^\s*([^.]{3,80}?)\. Адрес/)?.[1]?.trim() || "";
+      const m = {
+        id: `vs-${date}-${usHome ? away : home}`, date, time: time ? `${pad(time[1])}:${time[2]}` : "",
+        home: usHome ? t.team : home, away: usAway ? t.team : away,
+        score: sc ? [+sc[1], +sc[2]] : null, venue, link: t.source, round: "",
+      };
+      // голы: «Фамилия Имя (Ассистент), 12 (0:1)»
+      const gl = chunk.split(/Голы:/i)[1]?.split(/Лучший игрок|Наказание/i)[0];
+      if (sc && gl) {
+        m.goals = [];
+        let prev = [0, 0];
+        for (const e of gl.matchAll(/([^,()]+?)\s*(?:\(([^)]*)\))?\s*,\s*(\d+)\s*\((\d+):(\d+)\)/g)) {
+          const s = [+e[4], +e[5]];
+          const homeScored = s[0] > prev[0];
+          prev = s;
+          const oursScored = usHome ? homeScored : !homeScored;
+          const ourScore = usHome ? `${s[0]}:${s[1]}` : `${s[1]}:${s[0]}`;
+          if (!oursScored) { m.goals.push({ score: ourScore, opp: true, min: +e[3] }); continue; }
+          const scorer = e[1].trim();
+          m.goals.push({ score: ourScore, min: +e[3], scorer: /автогол/i.test(scorer) ? "Автогол" : swapName(scorer), assist: e[2] ? swapName(e[2]) : null });
+        }
+        const best = chunk.match(/Лучший игрок матча:\s*([^(]+?)\s*\(/)?.[1];
+        if (best) m.mvp = swapName(best);
+      }
+      matches.push(m);
     });
-  }
-  return [];
-}
-
-function parseMatches(html, team, baseUrl) {
-  const res = [];
-  const low = team.toLowerCase();
-  for (const rows of tables(html)) {
-    let lastDate = "";
-    for (const r of rows) {
-      const line = r.join(" | ");
-      const d = line.match(/(\d{1,2})\.(\d{1,2})(?:\.(\d{2,4}))?/);
-      if (d && r.length <= 2) lastDate = d[0]; // строка-заголовок с датой тура
-      if (!line.toLowerCase().includes(low)) continue;
-      const ds = (d && r.length > 2 ? d : lastDate.match(/(\d{1,2})\.(\d{1,2})(?:\.(\d{2,4}))?/));
-      if (!ds) continue;
-      const mo = +ds[2] - 1, day = +ds[1];
-      const year = ds[3] ? (ds[3].length === 2 ? 2000 + +ds[3] : +ds[3]) : guessYear(mo, day);
-      const time = line.match(/\b(\d{1,2}):(\d{2})\b(?!\s*\d)/);
-      const sc = line.match(/(\d+)\s*[:\-–]\s*(\d+)(?!\d)(?![^|]*\d\d\.)/g)?.filter((s) => !/^\d{1,2}:\d{2}$/.test(s.replace(/\s/g, "")) || !time || s.replace(/\s/g, "") !== time[0]);
-      // команды: ячейки, похожие на названия (не числа, не даты)
-      const teams = r.filter((c) => c && !/^[\d\s:.\-–]+$/.test(c) && c.length < 50 && !/стадион|манеж|арена|тур/i.test(c));
-      const ti = teams.findIndex((c) => c.toLowerCase().includes(low));
-      if (teams.length < 2 || ti < 0) continue;
-      const other = teams[ti === 0 ? 1 : ti - 1];
-      const usHome = ti === 0 || teams.indexOf(other) > ti;
-      const s = sc && sc.length ? sc[sc.length - 1].match(/(\d+)\s*[:\-–]\s*(\d+)/) : null;
-      const date = `${year}-${pad(mo + 1)}-${pad(day)}`;
-      res.push({
-        id: `vs-${date}-${other}`, date, time: time ? `${pad(time[1])}:${time[2]}` : "",
-        home: usHome ? team : other, away: usHome ? other : team,
-        score: s && new Date(date) <= new Date() ? [+s[1], +s[2]] : null,
-        venue: "", link: baseUrl,
-      });
-    }
-  }
-  return res;
+  });
+  return { standings, matches, src };
 }
 
 async function vsport(t) {
-  const out = { standings: [], matches: [] };
-  for (const url of t.vsport.urls) {
-    const html = await get(url);
-    if (!out.standings.length) out.standings = parseStandings(html, t.team);
-    out.matches.push(...parseMatches(html, t.team, url));
+  const pages = [];
+  // 1) сохранённые страницы из папки fbl/ (по времени изменения: новые важнее)
+  const dir = path.join(DIR, t.vsport.dir || "fbl");
+  if (fs.existsSync(dir)) {
+    for (const f of fs.readdirSync(dir).filter((f) => /\.html?$/i.test(f))
+      .map((f) => ({ f, at: fs.statSync(path.join(dir, f)).mtimeMs })).sort((a, b) => a.at - b.at)) {
+      const buf = fs.readFileSync(path.join(dir, f.f));
+      const head = buf.slice(0, 3000).toString("latin1");
+      pages.push({ html: new TextDecoder(/charset=["']?(windows-1251|cp1251)/i.test(head) ? "windows-1251" : "utf-8").decode(buf), src: f.f });
+    }
   }
+  // 2) попытка скачать напрямую (обычно не пускает)
+  for (const url of t.vsport.urls || []) {
+    try { pages.push({ html: await get(url, 1), src: url }); } catch (e) { console.log(`   vsport напрямую недоступен (${e.message}), беру сохранённые страницы: ${pages.length}`); }
+  }
+  if (!pages.length) throw new Error("нет страниц: положите сохранённую страницу лиги в папку fbl/");
+  const out = { standings: [], matches: [] };
+  const byId = new Map();
+  for (const p of pages) {
+    const r = parseVsport(p.html, t, p.src);
+    if (r.standings.length) out.standings = r.standings; // последняя по времени
+    for (const m of r.matches) byId.set(m.id, { ...byId.get(m.id), ...m, goals: m.goals || byId.get(m.id)?.goals, score: m.score || byId.get(m.id)?.score || null });
+  }
+  out.matches = [...byId.values()];
   return out;
 }
 

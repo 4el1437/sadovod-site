@@ -33,7 +33,8 @@ const T = TOURNAMENTS.map((t) => {
     const opp = tidy(tm.opponent);
     const same = (m) => m.date === tm.date || (m.home + m.away).toLowerCase().includes(opp.toLowerCase()) && Math.abs(new Date(m.date) - new Date(tm.date)) < 3 * 864e5;
     const hit = [...matches.values()].find(same);
-    if (hit) { hit.goals = tm.goals; if (!hit.score && tm.score && tm.finished) hit.score = hit.home === t.team ? tm.score : [tm.score[1], tm.score[0]]; if (!hit.round) hit.round = tidyRound(tm.round); }
+    if (hit) { if (!hit.goals) hit.goals = tm.goals; // официальный протокол важнее телеграма
+      if (!hit.score && tm.score && tm.finished) hit.score = hit.home === t.team ? tm.score : [tm.score[1], tm.score[0]]; if (!hit.round) hit.round = tidyRound(tm.round); }
     else matches.set("tg" + tm.post, { date: tm.date, time: "", home: t.team, away: opp, score: tm.finished ? tm.score : null, venue: "", round: tidyRound(tm.round), goals: tm.goals, link: `https://t.me/${TELEGRAM.channel}/${tm.post}` });
   }
   return {
@@ -94,7 +95,7 @@ function scorersLine(m) {
   if (!ours.length) return "";
   const cnt = new Map();
   for (const g of ours) { const n = /автогол/i.test(g.scorer) ? "автогол" : g.scorer.split(" ").slice(-1)[0]; cnt.set(n, (cnt.get(n) || 0) + 1); }
-  return `<div class="match__goals">⚽ ${[...cnt].map(([n, c]) => esc(n) + (c > 1 ? ` ×${c}` : "")).join(", ")}</div>`;
+  return `<div class="match__goals">⚽ ${[...cnt].map(([n, c]) => esc(n) + (c > 1 ? ` ×${c}` : "")).join(", ")}${m.mvp ? `<br>⭐ Лучший игрок: ${esc(m.mvp)}` : ""}</div>`;
 }
 
 function tickCountdowns() {

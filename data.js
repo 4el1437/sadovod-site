@@ -32,13 +32,17 @@ const TOURNAMENTS = [
     id: "fbl",
     name: "ФБЛ · 2 лига",
     short: "ФБЛ · 2 лига",
-    full: "Корпоративный футбол vsport.su — 2 лига",
+    full: "Корпоративная футбольная лига (ФБЛ) — 2 дивизион",
     season: "2026/27",
     team: "СФУ", // в этом турнире играем под названием «СФУ»
-    source: "https://vsport.su/football/football-corporate/",
-    // Страницы, откуда брать таблицу и календарь 2 лиги.
-    // TODO: вставить точные ссылки на таблицу / календарь 2 лиги
-    vsport: { urls: ["https://vsport.su/football/football-corporate/"] },
+    source: "https://vsport.su/football/football-corporate/2-divizion-[fbl]---korporativnaia-futbolnaia-liga-202627/",
+    // vsport не пускает скрипты, поэтому страницу лиги сохраняют в браузере (Ctrl+S)
+    // и загружают на GitHub в папку fbl/. Все страницы в папке объединяются, новые важнее.
+    vsport: {
+      dir: "fbl",
+      aliases: ["Сибирский федеральный университет"], // как ещё нас называют на vsport
+      urls: ["https://vsport.su/football/football-corporate/2-divizion-[fbl]---korporativnaia-futbolnaia-liga-202627/"],
+    },
   },
   {
     id: "cup",
