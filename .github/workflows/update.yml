@@ -2,7 +2,7 @@ name: Обновление данных и публикация
 
 on:
   schedule:
-    - cron: "0 */3 * * *"   # каждые 3 часа
+    - cron: "*/20 * * * *"   # каждые 20 минут
   workflow_dispatch:         # кнопка «Run workflow» вручную
   push:
     branches: [main]

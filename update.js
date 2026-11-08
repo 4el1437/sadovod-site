@@ -533,6 +533,13 @@ async function main() {
     }
   }
 
+  // перезаписываем файл только если изменились сами данные (метки времени не считаются),
+  // чтобы бот не делал коммит каждые 20 минут впустую
+  const stripTimes = (o) => JSON.stringify(o, (k, v) => (k === "updated" || k === "at" ? undefined : v));
+  if (prev.tournaments && stripTimes(prev) === stripTimes(result)) {
+    console.log("Данные не изменились — data-auto.js не трогаю");
+    return;
+  }
   fs.writeFileSync(AUTO_FILE,
     "// Файл создаётся автоматически скриптом update.js — не редактируйте вручную.\n" +
     "// Ручные правки делайте в data.js (MANUAL_MATCHES / MANUAL_STANDINGS).\n" +
