@@ -147,7 +147,7 @@ const PLAYER_STATS = [
 //  Нужен сервисный ключ в файле vk-token.txt (см. ИНСТРУКЦИЯ.txt).
 //  fromDate — с какой даты брать посты.
 // ---------------------------------------------------------------------
-const VK = {
+const VK_PUBLIC = {
   screenName: "fc_sadovod",
   groupId: 218166313,
   url: "https://vk.ru/fc_sadovod",

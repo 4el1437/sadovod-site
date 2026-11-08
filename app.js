@@ -319,13 +319,27 @@ function openGallery(photos, start = 0) {
 }
 
 function pageMedia() {
-  const vkLink = typeof VK !== "undefined" ? VK.url : "";
+  const vkLink = typeof VK_PUBLIC !== "undefined" ? VK_PUBLIC.url : "";
   $("#app").innerHTML = `
     <h1>Контент</h1><p class="sub">Новости, фото, видео и клипы команды${vkLink ? ` · из <a href="${vkLink}" target="_blank">VK</a>` : ""}</p>
+    ${vkLink && !VK_DATA.posts.length ? `<h2 style="margin-top:8px">Лента VK</h2><div class="card vkwidget"><div id="vk_groups"></div></div><h2>Материалы команды</h2>` : ""}
     <div class="filters" id="ctabs"></div>
     <div id="albums"></div>
     <div class="grid grid-3" id="posts"></div>
     <div class="note" style="margin-top:20px">Больше материалов — в ${vkLink ? `<a href="${vkLink}" target="_blank">VK-паблике</a> и ` : ""}<a href="${CLUB.telegram}" target="_blank">телеграм-канале</a> команды.</div>`;
+  // официальный виджет сообщества VK (без ключа): лента постов паблика
+  if (document.getElementById("vk_groups")) {
+    const draw = () => {
+      const el = document.getElementById("vk_groups");
+      el.innerHTML = "";
+      window.VK.Widgets.Group("vk_groups", { mode: 4, wide: 1, no_cover: 0, width: "auto", height: 900, color1: "FFFFFF", color3: "1F7A3A" }, VK_PUBLIC.groupId);
+    };
+    const sc = document.createElement("script");
+    sc.src = "https://vk.com/js/api/openapi.js?169";
+    sc.onload = draw;
+    sc.onerror = () => (document.getElementById("vk_groups").innerHTML = `<p class="muted">Лента VK не загрузилась. <a href="${vkLink}" target="_blank">Открыть паблик →</a></p>`);
+    document.head.appendChild(sc);
+  }
   const types = Object.keys(TYPE_NAME).filter((k) => ALL_CONTENT.some((c) => c.type === k));
   const tabsList = [["all", "Всё"], ...types.map((k) => [k, TYPE_NAME[k]])];
   if (VK_DATA.albums.length) tabsList.push(["albums", "Альбомы"]);

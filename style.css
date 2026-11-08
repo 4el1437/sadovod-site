@@ -173,3 +173,5 @@ html, body { overflow-x: hidden; }
   .brand { font-size: 17px; }
   .tsum__head { flex-wrap: wrap; }
 }
+.vkwidget { padding: 8px; overflow: hidden; }
+.vkwidget iframe { max-width: 100%; }

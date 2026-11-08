@@ -14,7 +14,7 @@ const AUTO_FILE = path.join(DIR, "data-auto.js");
 // ---------- загрузка конфигурации из data.js ----------
 const ctx = {};
 vm.createContext(ctx);
-vm.runInContext(fs.readFileSync(path.join(DIR, "data.js"), "utf8") + "\n;this.TOURNAMENTS = TOURNAMENTS; this.TELEGRAM = typeof TELEGRAM !== 'undefined' ? TELEGRAM : null; this.VK = typeof VK !== 'undefined' ? VK : null;", ctx);
+vm.runInContext(fs.readFileSync(path.join(DIR, "data.js"), "utf8") + "\n;this.TOURNAMENTS = TOURNAMENTS; this.TELEGRAM = typeof TELEGRAM !== 'undefined' ? TELEGRAM : null; this.VK = typeof VK_PUBLIC !== 'undefined' ? VK_PUBLIC : null;", ctx);
 const TOURNAMENTS = ctx.TOURNAMENTS;
 
 function loadPrev() {
