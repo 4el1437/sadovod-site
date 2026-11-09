@@ -5,3 +5,4 @@ photo/
 *.traineddata
 ivent/
 *.xlsx
+fbl/*_files/
