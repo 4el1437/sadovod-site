@@ -211,3 +211,12 @@ html, body { overflow-x: hidden; }
 /* переход «Пятница 13-е»: пока грузится новая страница — тёмный экран вместо белого */
 html.f13-pre, html.f13-pre body { background: #000 !important; }
 html.f13-pre body > :not(.f13-veil) { visibility: hidden; }
+
+/* вкладки «Сезон / За всё время» */
+.seg { display: flex; flex-wrap: wrap; gap: 4px; border-bottom: 2px solid var(--border); margin: 4px 0 16px; }
+.seg__btn { background: none; border: 0; border-bottom: 3px solid transparent; margin-bottom: -2px; padding: 10px 14px;
+  font: inherit; font-weight: 700; font-size: 16px; color: var(--muted); cursor: pointer; white-space: nowrap; }
+.seg__btn:hover { color: var(--text); }
+.seg__btn.active { color: var(--text); border-bottom-color: var(--green); }
+.pm__seg { margin-top: 18px; margin-bottom: 0; }
+[hidden] { display: none !important; }

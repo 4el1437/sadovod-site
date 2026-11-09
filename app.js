@@ -134,11 +134,11 @@ function standingsTable(t) {
     <p class="muted" style="font-size:13px">Источник: <a href="${t.source}" target="_blank">${esc(new URL(t.source).hostname)}</a>${t.ok ? "" : " · ⚠ последнее обновление не удалось"}</p>`;
 }
 
-function tabs(id, items, active, onPick) {
-  const el = document.getElementById(id);
-  el.innerHTML = items.map(([k, v]) => `<button class="chip ${k === active ? "active" : ""}" data-k="${k}">${esc(v)}</button>`).join("");
-  el.querySelectorAll(".chip").forEach((b) => (b.onclick = () => {
-    el.querySelectorAll(".chip").forEach((x) => x.classList.toggle("active", x === b));
+function tabs(id, items, active, onPick, cls = "chip") {
+  const el = typeof id === "string" ? document.getElementById(id) : id;
+  el.innerHTML = items.map(([k, v]) => `<button class="${cls} ${k === active ? "active" : ""}" data-k="${k}">${esc(v)}</button>`).join("");
+  el.querySelectorAll("button").forEach((b) => (b.onclick = () => {
+    el.querySelectorAll("button").forEach((x) => x.classList.toggle("active", x === b));
     onPick(b.dataset.k);
   }));
   onPick(active);
@@ -233,8 +233,8 @@ function pageTeam() {
 }
 
 function pageStats() {
-  $("#app").innerHTML = `<h1>Статистика</h1><p class="sub">Голы и передачи игроков в сезоне ${esc(T[0].season)}</p>
-    <div class="filters" id="stabs"></div><div id="sbody"></div>`;
+  $("#app").innerHTML = `<h1>Статистика</h1><p class="sub">Игры, голы и передачи игроков</p>
+    <div class="seg" id="sseg"></div><div class="filters" id="stabs"></div><div id="sbody"></div>`;
   // голы и передачи из телеграма → строки {t, name, goals, assists}
   const auto = [];
   for (const t of T) for (const m of t.matches) for (const g of m.goals || []) {
@@ -261,7 +261,7 @@ function pageStats() {
   };
   const leader = (k, label) => { const t = [...rows].sort((a, b) => (b[k] || 0) - (a[k] || 0))[0]; return `<div class="card leader"><div class="leader__val">${t ? t[k] || 0 : "–"}</div><div><div class="leader__label">${label}</div><div><b>${t ? esc(t.name) : "—"}</b></div></div></div>`; };
   const career = typeof CAREER_BEFORE !== "undefined" ? CAREER_BEFORE : [];
-  tabs("stabs", [["all", "Все турниры"], ...T.map((t) => [t.id, t.short]), ...(career.length ? [["career", "За всё время"]] : [])], "all", (f) => {
+  const render = (f) => {
     const agg = {};
     const src = f === "career" ? [...all, ...career] : all.filter((s) => f === "all" || s.t === f);
     for (const s of src) {
@@ -280,7 +280,13 @@ function pageStats() {
     $("#sbody").innerHTML = summary + `<div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">
       ${leader("goals", "Лучший бомбардир")}${leader("assists", "Лучший ассистент")}${leader("ga", "Гол + пас")}</div><h2>Все игроки</h2><div id="stable"></div>`;
     draw();
-  });
+  };
+  const tourTabs = () => tabs("stabs", [["all", "Все турниры"], ...T.map((t) => [t.id, t.short])], "all", render);
+  if (!career.length) { $("#sseg").remove(); return tourTabs(); }
+  tabs("sseg", [["season", "Сезон " + T[0].season], ["career", "За всё время"]], "season", (m) => {
+    $("#stabs").hidden = m === "career";
+    if (m === "career") render("career"); else tourTabs();
+  }, "seg__btn");
 }
 
 const TYPE_ICON = { news: "📰", photo: "📷", video: "🎬", clip: "📱" };
@@ -411,6 +417,7 @@ function openPlayer(name) {
   const p = PLAYERS.find((x) => x.name === name) || { name };
   const staff = STAFF.find((x) => x.name === name);
   const d = playerData(name);
+  const c = (typeof CAREER_BEFORE !== "undefined" ? CAREER_BEFORE : []).find((x) => x.name === name);
   const tile = (v, l) => `<div class="pm__tile"><b>${v}</b><span>${l}</span></div>`;
   const rows = T.filter((t) => d.tours[t.id]).map((t) => { const r = d.tours[t.id];
     return `<tr><td class="l"><span class="tag tag-${t.id}">${esc(t.short)}</span></td><td>${r.games || "–"}</td><td>${r.goals}</td><td>${r.assists}</td><td><b>${r.goals + r.assists}</b></td><td>${r.mvp || "–"}</td></tr>`; }).join("");
@@ -433,15 +440,19 @@ function openPlayer(name) {
         <div class="muted">${[p.num != null ? "№ " + p.num : "", POS_ONE[p.pos] || "", p.captain ? "капитан" : "", staff ? staff.role.toLowerCase() : ""].filter(Boolean).join(" · ")}</div>
       </div>
     </div>
-    ${(typeof CAREER_BEFORE !== "undefined" ? CAREER_BEFORE : []).some((x) => x.name === name) ? `<h3>Сезон ${esc(T[0].season)}</h3>` : ""}
-    <div class="pm__tiles">${tile(d.total.games, "игр")}${tile(d.total.goals, "голов")}${tile(d.total.assists, "передач")}${tile(d.total.goals + d.total.assists, "гол + пас")}${tile(d.total.mvp, "лучший игрок")}${d.total.yc ? tile(d.total.yc, "ЖК") : ""}</div>
-    ${(() => { const c = (typeof CAREER_BEFORE !== "undefined" ? CAREER_BEFORE : []).find((x) => x.name === name); if (!c) return "";
-      const g = (c.games || 0) + d.total.games, gl = (c.goals || 0) + d.total.goals, a = (c.assists || 0) + d.total.assists;
-      return `<h3>За всё время</h3><div class="pm__tiles">${tile(g, "игр")}${tile(gl, "голов")}${tile(a, "передач")}${tile(gl + a, "гол + пас")}</div>`; })()}
+    ${c ? `<div class="seg pm__seg"></div>` : ""}
+    <div class="pm__season"><div class="pm__tiles">${tile(d.total.games, "игр")}${tile(d.total.goals, "голов")}${tile(d.total.assists, "передач")}${tile(d.total.goals + d.total.assists, "гол + пас")}${tile(d.total.mvp, "лучший игрок")}${d.total.yc ? tile(d.total.yc, "ЖК") : ""}</div>
     ${rows ? `<h3>По турнирам</h3><div class="table-wrap"><table><thead><tr><th class="l">Турнир</th><th>И</th><th>Голы</th><th>Пасы</th><th>Г+П</th><th>⭐</th></tr></thead><tbody>${rows}</tbody></table></div>` : `<p class="muted" style="margin-top:16px">В этом сезоне пока без голов и передач.</p>`}
     ${games ? `<h3>Сыгранные матчи</h3><ul class="pm__games">${games}</ul>` : ""}
-    <p class="muted" style="font-size:12px;margin:14px 0 0">Сезон ${esc(T[0].season)} · голы и передачи по протоколам и телеграм-каналу команды</p>
+    <p class="muted" style="font-size:12px;margin:14px 0 0">Сезон ${esc(T[0].season)} · голы и передачи по протоколам и телеграм-каналу команды</p></div>
+    ${c ? (() => { const g = (c.games || 0) + d.total.games, gl = (c.goals || 0) + d.total.goals, a = (c.assists || 0) + d.total.assists;
+      return `<div class="pm__career" hidden><div class="pm__tiles">${tile(g, "игр")}${tile(gl, "голов")}${tile(a, "передач")}${tile(gl + a, "гол + пас")}</div>
+      <p class="muted" style="font-size:12px;margin:14px 0 0">Архив клуба до сезона ${esc(T[0].season)} + текущий сезон</p></div>`; })() : ""}
   </div>`;
+  if (c) tabs(box.querySelector(".pm__seg"), [["season", "Сезон " + T[0].season], ["career", "За всё время"]], "season", (m) => {
+    box.querySelector(".pm__season").hidden = m !== "season";
+    box.querySelector(".pm__career").hidden = m !== "career";
+  }, "seg__btn");
   const close = () => { box.remove(); document.removeEventListener("keydown", onKey); if (location.hash.startsWith("#player=")) history.replaceState(null, "", location.pathname + location.search); };
   const onKey = (e) => e.key === "Escape" && close();
   box.onclick = (e) => { if (e.target === box || e.target.closest(".pm__x")) close(); };
