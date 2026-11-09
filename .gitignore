@@ -3,3 +3,4 @@ node_modules/
 photo/
 .ocr-cache/
 *.traineddata
+ivent/

@@ -454,7 +454,12 @@ if (location.hash.startsWith("#player=")) openPlayer(decodeURIComponent(location
 // ---------- тема «Пятница, 13-е» (по времени Красноярска; для проверки — ?f13 в адресе) ----------
 (() => {
   const p = Object.fromEntries(new Intl.DateTimeFormat("en", { timeZone: "Asia/Krasnoyarsk", day: "numeric", weekday: "short" }).formatToParts(new Date()).map((x) => [x.type, x.value]));
-  if ((p.day === "13" && p.weekday === "Fri") || /[?&]f13\b/.test(location.search)) {
-    const s = document.createElement("script"); s.src = "friday13.js?v=1"; document.body.appendChild(s);
+  // превью: ?f13 включает тему до закрытия вкладки (на всех страницах), ?f13=0 — выключает
+  const q = new URLSearchParams(location.search);
+  try { if (q.has("f13")) q.get("f13") === "0" ? sessionStorage.removeItem("f13") : sessionStorage.setItem("f13", "1"); } catch {}
+  let preview = q.has("f13") && q.get("f13") !== "0";
+  try { preview = preview || sessionStorage.getItem("f13") === "1"; } catch {}
+  if ((p.day === "13" && p.weekday === "Fri") || preview) {
+    const s = document.createElement("script"); s.src = "friday13.js?v=2"; document.body.appendChild(s);
   }
 })();
