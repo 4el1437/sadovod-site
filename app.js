@@ -260,9 +260,11 @@ function pageStats() {
     document.querySelectorAll("th.sortable").forEach((th) => (th.onclick = () => { dir = th.dataset.k === key ? -dir : -1; key = th.dataset.k; draw(); }));
   };
   const leader = (k, label) => { const t = [...rows].sort((a, b) => (b[k] || 0) - (a[k] || 0))[0]; return `<div class="card leader"><div class="leader__val">${t ? t[k] || 0 : "–"}</div><div><div class="leader__label">${label}</div><div><b>${t ? esc(t.name) : "—"}</b></div></div></div>`; };
-  tabs("stabs", [["all", "Все турниры"], ...T.map((t) => [t.id, t.short])], "all", (f) => {
+  const career = typeof CAREER_BEFORE !== "undefined" ? CAREER_BEFORE : [];
+  tabs("stabs", [["all", "Все турниры"], ...T.map((t) => [t.id, t.short]), ...(career.length ? [["career", "За всё время"]] : [])], "all", (f) => {
     const agg = {};
-    for (const s of all.filter((s) => f === "all" || s.t === f)) {
+    const src = f === "career" ? [...all, ...career] : all.filter((s) => f === "all" || s.t === f);
+    for (const s of src) {
       const r = (agg[s.name] ||= { name: s.name, num: PLAYERS.find((p) => p.name === s.name)?.num ?? "", games: 0, goals: 0, assists: 0, yc: 0 });
       for (const k of ["games", "goals", "assists", "yc"]) r[k] += s[k] || 0;
     }
@@ -271,7 +273,9 @@ function pageStats() {
     // забито/пропущено — по итоговому счёту матчей (официальному), а не по постам с голами
     const done = T.filter((t) => f === "all" || t.id === f).flatMap((t) => t.matches).filter((m) => m.score);
     const ours = (m) => (m.home === m.us ? m.score[0] : m.score[1]), theirs = (m) => (m.home === m.us ? m.score[1] : m.score[0]);
-    const summary = `<p class="muted">Сыграно матчей: ${done.length} · забито ${done.reduce((s, m) => s + ours(m), 0)} · пропущено ${done.reduce((s, m) => s + theirs(m), 0)}
+    const summary = f === "career"
+      ? `<p class="muted">За всё время: архив клуба до сезона ${esc(T[0].season)} + текущий сезон (обновляется автоматически)</p>`
+      : `<p class="muted">Сыграно матчей: ${done.length} · забито ${done.reduce((s, m) => s + ours(m), 0)} · пропущено ${done.reduce((s, m) => s + theirs(m), 0)}
       · источник: <a href="https://t.me/${TELEGRAM.channel}" target="_blank">t.me/${TELEGRAM.channel}</a></p>`;
     $("#sbody").innerHTML = summary + `<div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">
       ${leader("goals", "Лучший бомбардир")}${leader("assists", "Лучший ассистент")}${leader("ga", "Гол + пас")}</div><h2>Все игроки</h2><div id="stable"></div>`;
@@ -429,7 +433,11 @@ function openPlayer(name) {
         <div class="muted">${[p.num != null ? "№ " + p.num : "", POS_ONE[p.pos] || "", p.captain ? "капитан" : "", staff ? staff.role.toLowerCase() : ""].filter(Boolean).join(" · ")}</div>
       </div>
     </div>
+    ${(typeof CAREER_BEFORE !== "undefined" ? CAREER_BEFORE : []).some((x) => x.name === name) ? `<h3>Сезон ${esc(T[0].season)}</h3>` : ""}
     <div class="pm__tiles">${tile(d.total.games, "игр")}${tile(d.total.goals, "голов")}${tile(d.total.assists, "передач")}${tile(d.total.goals + d.total.assists, "гол + пас")}${tile(d.total.mvp, "лучший игрок")}${d.total.yc ? tile(d.total.yc, "ЖК") : ""}</div>
+    ${(() => { const c = (typeof CAREER_BEFORE !== "undefined" ? CAREER_BEFORE : []).find((x) => x.name === name); if (!c) return "";
+      const g = (c.games || 0) + d.total.games, gl = (c.goals || 0) + d.total.goals, a = (c.assists || 0) + d.total.assists;
+      return `<h3>За всё время</h3><div class="pm__tiles">${tile(g, "игр")}${tile(gl, "голов")}${tile(a, "передач")}${tile(gl + a, "гол + пас")}</div>`; })()}
     ${rows ? `<h3>По турнирам</h3><div class="table-wrap"><table><thead><tr><th class="l">Турнир</th><th>И</th><th>Голы</th><th>Пасы</th><th>Г+П</th><th>⭐</th></tr></thead><tbody>${rows}</tbody></table></div>` : `<p class="muted" style="margin-top:16px">В этом сезоне пока без голов и передач.</p>`}
     ${games ? `<h3>Сыгранные матчи</h3><ul class="pm__games">${games}</ul>` : ""}
     <p class="muted" style="font-size:12px;margin:14px 0 0">Сезон ${esc(T[0].season)} · голы и передачи по протоколам и телеграм-каналу команды</p>
