@@ -145,10 +145,55 @@ const PLAYER_STATS = [
 // ---------------------------------------------------------------------
 //  ЗА ВСЁ ВРЕМЯ. Сколько у игрока было ДО сезона 2026/27.
 //  Текущий сезон сайт прибавляет сам, поэтому сюда — только архив.
-//  Если знаете итог «на сегодня» — вычтите из него цифры текущего сезона (вкладка «Все турниры»).
+//  Источник: «Стаститика Садовода.xlsx» (10.11.2026): итог за всё время минус сезон 2026/27 из того же файла.
 // ---------------------------------------------------------------------
 const CAREER_BEFORE = [
-  { name: "Александр Андриевич", games: 247, goals: 284, assists: 106 }, // на 09.11.2026 итог 250 / 288 / 111
+  { name: "Семён Проровский", games: 182, goals: 14, assists: 10 },
+  { name: "Усов", games: 47, goals: 0, assists: 5 },
+  { name: "Казынгашев", games: 62, goals: 10, assists: 7 },
+  { name: "Епанчинцев", games: 15, goals: 1, assists: 3 },
+  { name: "Бехруз", games: 42, goals: 4, assists: 0 },
+  { name: "Лукин", games: 85, goals: 25, assists: 9 },
+  { name: "Многогрешнев", games: 68, goals: 54, assists: 8 },
+  { name: "Артур Мустафин", games: 132, goals: 67, assists: 37 },
+  { name: "Мелешко", games: 70, goals: 23, assists: 4 },
+  { name: "Белявский", games: 60, goals: 23, assists: 5 },
+  { name: "Василий Прокофьев", games: 116, goals: 53, assists: 33 },
+  { name: "Куркин", games: 135, goals: 54, assists: 32 },
+  { name: "Андрей Суздаль", games: 31, goals: 35, assists: 16 },
+  { name: "Данил Скуратов", games: 81, goals: 15, assists: 9 },
+  { name: "Владислав Мурзин", games: 125, goals: 133, assists: 65 },
+  { name: "Чижевский", games: 53, goals: 23, assists: 4 },
+  { name: "Александр Андриевич", games: 247, goals: 284, assists: 106 },
+  { name: "Кирилл Герасимов", games: 123, goals: 62, assists: 31 },
+  { name: "Лев Мормель", games: 62, goals: 35, assists: 14 },
+  { name: "Андрей Пикалов", games: 32, goals: 12, assists: 8 },
+  { name: "Садыгов", games: 29, goals: 12, assists: 1 },
+  { name: "Ирхин", games: 79, goals: 51, assists: 43 },
+  { name: "Никита Трифанов", games: 84, goals: 23, assists: 33 },
+  { name: "Артём Лагерев", games: 27, goals: 0, assists: 0 },
+  { name: "Евгений Новиков", games: 75, goals: 15, assists: 18 },
+  { name: "Александр Воропаев", games: 35, goals: 9, assists: 6 },
+  { name: "Седых", games: 25, goals: 4, assists: 2 },
+  { name: "Булыгин", games: 25, goals: 0, assists: 3 },
+  { name: "Никифоров", games: 14, goals: 1, assists: 1 },
+  { name: "Анатолий Антропов", games: 31, goals: 11, assists: 9 },
+  { name: "Матвей Маклаков", games: 55, goals: 11, assists: 11 },
+  { name: "Александр Шурыгин", games: 16, goals: 11, assists: 9 },
+  { name: "Андрей Супрун", games: 22, goals: 8, assists: 10 },
+  { name: "Ярослав Ромашин", games: 10, goals: 1, assists: 0 },
+  { name: "Караван", games: 11, goals: 1, assists: 2 },
+  { name: "Иван Обороча", games: 0, goals: 0, assists: 0 },
+  { name: "Александр Дьяченко", games: 15, goals: 6, assists: 2 },
+  { name: "Попов", games: 18, goals: 8, assists: 4 },
+  { name: "Степан Мельников", games: 0, goals: 0, assists: 0 },
+  { name: "Александр Бредов", games: 15, goals: 1, assists: 2 },
+  { name: "Михаил Фалькенберг", games: 20, goals: 3, assists: 3 },
+  { name: "Вадим Засим", games: 21, goals: 3, assists: 2 },
+  { name: "Дорохов", games: 8, goals: 2, assists: 2 },
+  { name: "Максим Янгулов", games: 0, goals: 0, assists: 0 },
+  { name: "Даниил Кардашов", games: 8, goals: 0, assists: 0 },
+  { name: "Сергей Михаль", games: 8, goals: 2, assists: 2 },
 ];
 
 // ---------------------------------------------------------------------

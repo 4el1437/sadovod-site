@@ -4,3 +4,4 @@ photo/
 .ocr-cache/
 *.traineddata
 ivent/
+*.xlsx
