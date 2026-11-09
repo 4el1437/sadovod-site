@@ -269,12 +269,14 @@ function pageStats() {
       for (const k of ["games", "goals", "assists", "yc"]) r[k] += s[k] || 0;
     }
     rows = Object.values(agg).map((r) => ({ ...r, ga: r.goals + r.assists }));
+    // «За всё время» — только текущий состав (ушедшие игроки остаются в архиве CAREER_BEFORE)
+    if (f === "career") rows = rows.filter((r) => PLAYERS.some((p) => p.name === r.name));
     const played = T.filter((t) => f === "all" || t.id === f).flatMap((t) => t.matches).filter((m) => m.goals);
     // забито/пропущено — по итоговому счёту матчей (официальному), а не по постам с голами
     const done = T.filter((t) => f === "all" || t.id === f).flatMap((t) => t.matches).filter((m) => m.score);
     const ours = (m) => (m.home === m.us ? m.score[0] : m.score[1]), theirs = (m) => (m.home === m.us ? m.score[1] : m.score[0]);
     const summary = f === "career"
-      ? `<p class="muted">За всё время: архив клуба до сезона ${esc(T[0].season)} + текущий сезон (обновляется автоматически)</p>`
+      ? `<p class="muted">За всё время (игроки текущего состава): архив клуба до сезона ${esc(T[0].season)} + текущий сезон (обновляется автоматически)</p>`
       : `<p class="muted">Сыграно матчей: ${done.length} · забито ${done.reduce((s, m) => s + ours(m), 0)} · пропущено ${done.reduce((s, m) => s + theirs(m), 0)}
       · источник: <a href="https://t.me/${TELEGRAM.channel}" target="_blank">t.me/${TELEGRAM.channel}</a></p>`;
     $("#sbody").innerHTML = summary + `<div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">

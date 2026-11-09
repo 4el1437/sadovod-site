@@ -1,7 +1,7 @@
 // Файл создаётся автоматически скриптом update.js — не редактируйте вручную.
 // Ручные правки делайте в data.js (MANUAL_MATCHES / MANUAL_STANDINGS).
 const AUTO = {
- "updated": "2026-11-09T17:25:32.477Z",
+ "updated": "2026-11-09T18:09:21.377Z",
  "tournaments": {
   "city": {
    "standings": [
@@ -132,7 +132,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-09T17:25:32.477Z"
+   "at": "2026-11-09T18:09:21.377Z"
   },
   "fbl": {
    "standings": [
@@ -459,7 +459,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-09T17:25:32.477Z"
+   "at": "2026-11-09T18:09:21.377Z"
   },
   "cup": {
    "standings": [],
@@ -479,7 +479,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-09T17:25:32.477Z"
+   "at": "2026-11-09T18:09:21.377Z"
   }
  },
  "telegram": {
@@ -938,6 +938,26 @@ const AUTO = {
       "post": 2066
      },
      {
+      "score": "8:4",
+      "opp": true,
+      "post": 2067
+     },
+     {
+      "score": "8:5",
+      "opp": true,
+      "post": 2067
+     },
+     {
+      "score": "8:6",
+      "opp": true,
+      "post": 2067
+     },
+     {
+      "score": "8:7",
+      "opp": true,
+      "post": 2067
+     },
+     {
       "score": "8:8",
       "opp": true,
       "post": 2067
@@ -956,7 +976,7 @@ const AUTO = {
      "id": 2053,
      "photo": "https://cdn4.telesco.pe/file/XdkXcK5rzIlmkg1Qn3CAoybTmSeGXV6miyfHbvdTu8N732GzCyZzxs6saRfpEr1ur0elxGkKKFTIDhrkSFZNhm4OnE9NLZHh4YZQm9Cf3hhDSYR_AR_qvC67Iq_t4fvU50UvAcKzxf0VEcz9sGPL4yCNzet68YstlIkEK-Ki7BHwE9xXdEIBcexFRweL-XMuhpYlbd9vpt_ujsoUnttUCO13x3MA1YawhChdcNRdyC-LlvQ6yBdZrmEzfrK7BnCfFu0Gvf7wu4sJOc6aPEu1y0JZylWME6gpT4Ujand53RBuBuoiTfKShFgx0r7KcpIkEX_6Msf7MaXcp8cNbapuLQ.jpg"
     },
-    "finished": false,
+    "finished": true,
     "lineup": [
      "Ярослав Ромашин",
      "Лев Мормель",
@@ -971,7 +991,7 @@ const AUTO = {
    }
   ],
   "ok": true,
-  "at": "2026-11-09T17:25:32.477Z"
+  "at": "2026-11-09T18:09:21.377Z"
  },
  "vk": {
   "posts": [
@@ -1167,7 +1187,7 @@ const AUTO = {
   ],
   "albums": [],
   "ok": true,
-  "at": "2026-11-09T17:25:32.477Z",
+  "at": "2026-11-09T18:09:21.377Z",
   "via": "widget"
  }
 };

@@ -299,6 +299,13 @@ function tgMatches(posts, cfg) {
       const [ours, theirs] = [+g[1], +g[2]];
       const prev = cur.score || [0, 0];
       if (!cur.date) { const l = local(p.dt); cur.date = l.slice(0, 10); }
+      // «8:8 Матч окончен» — итоговый счёт, а не один гол
+      if (/матч (закончен|окончен)/i.test(g[3])) {
+        if (ours === prev[0]) for (let k = prev[1] + 1; k <= theirs; k++) cur.goals.push({ score: `${ours}:${k}`, opp: true, post: p.id });
+        cur.score = [ours, theirs];
+        cur.done = true;
+        continue;
+      }
       if (ours > prev[0]) {
         const rest = g[3].trim();
         const m = rest.match(/^([^(]*?)\s*(?:\(\s*([^)]*?)\s*\))?\s*$/);
