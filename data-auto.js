@@ -1,7 +1,7 @@
 // Файл создаётся автоматически скриптом update.js — не редактируйте вручную.
 // Ручные правки делайте в data.js (MANUAL_MATCHES / MANUAL_STANDINGS).
 const AUTO = {
- "updated": "2026-11-09T18:34:13.134Z",
+ "updated": "2026-11-09T19:30:29.834Z",
  "tournaments": {
   "city": {
    "standings": [
@@ -132,7 +132,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-09T18:34:13.134Z"
+   "at": "2026-11-09T19:30:29.834Z"
   },
   "fbl": {
    "standings": [
@@ -147,6 +147,26 @@ const AUTO = {
      "pts": 6
     },
     {
+     "team": "КАТТ",
+     "p": 2,
+     "w": 1,
+     "d": 1,
+     "l": 0,
+     "gf": 21,
+     "ga": 6,
+     "pts": 4
+    },
+    {
+     "team": "РУТРАНС",
+     "p": 2,
+     "w": 1,
+     "d": 1,
+     "l": 0,
+     "gf": 24,
+     "ga": 7,
+     "pts": 4
+    },
+    {
      "team": "СФУ",
      "p": 1,
      "w": 1,
@@ -154,16 +174,6 @@ const AUTO = {
      "l": 0,
      "gf": 22,
      "ga": 8,
-     "pts": 3
-    },
-    {
-     "team": "КФСПбГУГА",
-     "p": 1,
-     "w": 1,
-     "d": 0,
-     "l": 0,
-     "gf": 6,
-     "ga": 2,
      "pts": 3
     },
     {
@@ -187,34 +197,24 @@ const AUTO = {
      "pts": 3
     },
     {
-     "team": "КАТТ",
-     "p": 1,
-     "w": 0,
-     "d": 1,
-     "l": 0,
-     "gf": 4,
-     "ga": 4,
-     "pts": 1
-    },
-    {
-     "team": "РУТРАНС",
-     "p": 1,
-     "w": 0,
-     "d": 1,
-     "l": 0,
-     "gf": 4,
-     "ga": 4,
-     "pts": 1
-    },
-    {
-     "team": "Привал-строй",
-     "p": 0,
-     "w": 0,
+     "team": "АвтоЛаб",
+     "p": 2,
+     "w": 1,
      "d": 0,
-     "l": 0,
-     "gf": 0,
-     "ga": 0,
-     "pts": 0
+     "l": 1,
+     "gf": 11,
+     "ga": 11,
+     "pts": 3
+    },
+    {
+     "team": "КФСПбГУГА",
+     "p": 2,
+     "w": 1,
+     "d": 0,
+     "l": 1,
+     "gf": 9,
+     "ga": 22,
+     "pts": 3
     },
     {
      "team": "ПОБЕДА",
@@ -227,23 +227,13 @@ const AUTO = {
      "pts": 0
     },
     {
-     "team": "АвтоЛаб",
-     "p": 1,
-     "w": 0,
-     "d": 0,
-     "l": 1,
-     "gf": 5,
-     "ga": 6,
-     "pts": 0
-    },
-    {
      "team": "Контора",
-     "p": 1,
+     "p": 2,
      "w": 0,
      "d": 0,
-     "l": 1,
-     "gf": 3,
-     "ga": 5,
+     "l": 2,
+     "gf": 8,
+     "ga": 11,
      "pts": 0
     },
     {
@@ -264,6 +254,16 @@ const AUTO = {
      "l": 1,
      "gf": 8,
      "ga": 22,
+     "pts": 0
+    },
+    {
+     "team": "Привал-строй",
+     "p": 1,
+     "w": 0,
+     "d": 0,
+     "l": 1,
+     "gf": 2,
+     "ga": 17,
      "pts": 0
     }
    ],
@@ -459,7 +459,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-09T18:34:13.134Z"
+   "at": "2026-11-09T19:30:29.834Z"
   },
   "cup": {
    "standings": [],
@@ -479,7 +479,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-09T18:34:13.134Z"
+   "at": "2026-11-09T19:30:29.834Z"
   }
  },
  "telegram": {
@@ -850,7 +850,7 @@ const AUTO = {
     "announced": true,
     "lineupPost": {
      "id": 2040,
-     "photo": "https://cdn4.telesco.pe/file/J7EAKZCUWaYziH_Li6UO8356wO9o7ARADREf8VOr6tNgKs9Fk3ERyfQ0IaUIkmcQ4SeDfxQYXpaQs27fjjD_0GttmrQlJ98qx99guXqBe9kSG0eoR6fYmayx6Oe816JX-eT2ZOsiAv6YIN71otUVVy5A3oKTCoALJmjhsKoVWKxSBXnDA0yu4PU6kh5_hAkWmAykpeZbLbFj0j3CzRaMMSFzTvjUsz4UG9-5WEyTHGCEzgkEvM6Six0Li2aX3GVV5GaZqPmLbpQGhNln7rR9P4VzmkWU8FBcUChgjVqzRnPcbWH8wl7QjDbNfUgFq3r8C0A-uqkJSH1u4cIvwHpM1Q.jpg"
+     "photo": "https://cdn4.telesco.pe/file/Gailu-O5eo1EmsPH_UB5V4SnFSC5E076meWO6RwZc8020GzMHULBTR8hC1r-aWx-vqmlYveDlkBF8p7FgD6vTrMqYaF_955VIMLGHAWImPEqr8BnOMbpkl4btvldsV5jkSKLVWmDAshY-MCBIiuI2jqh46kLmPaQ0wADpWhkiShQc4AlWmOtM-FqXiJ3Q0ATS-0Ezhd8loN8BaDI679GCmRTmBKHiN8ZufMZ18vfbglV-3D-ERNve_3O50ia0bwqS8oR6nkkDN3uYhRENw6A8qAY8PIxJ_Vzr3JZK0-A-ux0jEhKP1_r7Hjw2KwfjVvKRG4H2jbPjrWou65YtMx4Dg.jpg"
     },
     "finished": true,
     "lineup": [
@@ -991,7 +991,7 @@ const AUTO = {
    }
   ],
   "ok": true,
-  "at": "2026-11-09T18:34:13.134Z"
+  "at": "2026-11-09T19:30:29.834Z"
  },
  "vk": {
   "posts": [
@@ -1187,7 +1187,7 @@ const AUTO = {
   ],
   "albums": [],
   "ok": true,
-  "at": "2026-11-09T18:34:13.134Z",
+  "at": "2026-11-09T19:30:29.834Z",
   "via": "widget"
  }
 };
