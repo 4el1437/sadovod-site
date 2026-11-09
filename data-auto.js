@@ -1,7 +1,7 @@
 // Файл создаётся автоматически скриптом update.js — не редактируйте вручную.
 // Ручные правки делайте в data.js (MANUAL_MATCHES / MANUAL_STANDINGS).
 const AUTO = {
- "updated": "2026-11-09T03:04:10.678Z",
+ "updated": "2026-11-09T07:47:19.386Z",
  "tournaments": {
   "city": {
    "standings": [
@@ -132,7 +132,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-09T03:04:10.678Z"
+   "at": "2026-11-09T07:47:19.386Z"
   },
   "fbl": {
    "standings": [
@@ -459,7 +459,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-09T03:04:10.678Z"
+   "at": "2026-11-09T07:47:19.386Z"
   },
   "cup": {
    "standings": [],
@@ -479,7 +479,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-09T03:04:10.678Z"
+   "at": "2026-11-09T07:47:19.386Z"
   }
  },
  "telegram": {
@@ -850,7 +850,7 @@ const AUTO = {
     "announced": true,
     "lineupPost": {
      "id": 2040,
-     "photo": "https://cdn4.telesco.pe/file/co8I_PKnMkwYXaNnVVcQO7SmDoaqXNtiqm6Qjfj61cXKNoYz4YQIIVe0A5WnuMHB_71j6lH4C_bpI2X_KDtH93fcgpbfmoz_ufjjOm4csiYm8kGQ4Ea9fYDXGKPmfHExf7jDzO26xhFZ02vgjKnVwaiXH_KoaxLhFbzGkCr3PCx9hYWzshyuEFWuUTg82cFdbdE8kTDTboDjiwRMo358XNLH38xV6tGiAhHJJG0NDMNvcwT82WYZoMLObzZvhNvXiM2BFmeapOswGHYka8FVphz0hb6q-GKPNTO_d74a-yxutaEUsJoyoRjYUGoamZilLu3dmjbSu19H1EFx_NVYpw.jpg"
+     "photo": "https://cdn4.telesco.pe/file/Iqry00TaiaPo1GoBx-_4LwsjayztbqImR3es4EREI3qo0r_xCCiRNq05BIaPTtLChbndYybaRL69lN1rDoIvj-G8tEuef2tgntV2PmmGY16wYjEcDoDiF53yfBAlv5nWOsFHRGixE4hwEGFnM4z_ZB8a5PichjsaXn5Cph5sSCvCnmOh0vHP4Hnb0NbvntPlNgFLKcJzngAkeOGaHlWK67MUhlmcSZCPM8AQ8TJsLFnMJUiTu9X-2NchpjFXVOpLIufHKSIUUehtpxbvF4krL7yeGu3Vb4b7ZlBLshd2FYYlYGhUoHfo08o5Ci8KbKK1plCALrvnYWbOpYgtM3LVjA.jpg"
     },
     "finished": true,
     "lineup": [
@@ -884,18 +884,18 @@ const AUTO = {
    }
   ],
   "ok": true,
-  "at": "2026-11-09T03:04:10.678Z"
+  "at": "2026-11-09T07:47:19.386Z"
  },
  "vk": {
   "posts": [
    {
     "id": 4053,
     "date": "2026-11-09T03:00:01.000Z",
-    "text": "❗ДЕНЬ МАТЧА❗\n\n💥ФК Садовод - Авалон💥\n\n2 тур 2 дивизиона ФБЛ\n📆 9 ноября\n⏰ 21:20\n🏟 СК КриМТ\n💬 Телеграм - текстовая трансляция\n\nПриглашаем всех поддержать нас! Идём за победой!⚽❤",
+    "text": "❗ДЕНЬ МАТЧА❗\n\n💥ФК Садовод - Автолаб💥\n\n2 тур 2 дивизиона ФБЛ\n📆 9 ноября\n⏰ 21:20\n🏟 СК КриМТ\n💬 Телеграм - текстовая трансляция\n\nПриглашаем всех поддержать нас! Идём за победой!⚽❤",
     "photos": [
      {
-      "big": "https://sun9-72.userapi.com/s/v1/ig2/9_DHYpY2xhIKeVIwexrofqO5_Dvn_oq3Ig60UvFPa6FJLulB5maOuCpSoYvYrqjpzddHNf0JSAm_EMERU7UHaBkV.jpg?quality=95&crop=0,0,1024,1536&as=32x48,48x72,72x108,108x162,160x240,240x360,360x540,480x720,540x810,640x960,720x1080,1024x1536&from=bu&cs=640x0",
-      "small": "https://sun9-72.userapi.com/s/v1/ig2/9_DHYpY2xhIKeVIwexrofqO5_Dvn_oq3Ig60UvFPa6FJLulB5maOuCpSoYvYrqjpzddHNf0JSAm_EMERU7UHaBkV.jpg?quality=95&crop=0,0,1024,1536&as=32x48,48x72,72x108,108x162,160x240,240x360,360x540,480x720,540x810,640x960,720x1080,1024x1536&from=bu&cs=640x0"
+      "big": "https://sun9-50.userapi.com/s/v1/ig2/ISMspt2CXBjFpoTRvCEglfcOAW3wmvV_63Usunw3KDfO-avtFNB7MXCo1tjlebCbSb7M5nXyC_Ax6uUDMODxw0KR.jpg?quality=95&crop=0,0,1024,1536&as=32x48,48x72,72x108,108x162,160x240,240x360,360x540,480x720,540x810,640x960,720x1080,1024x1536&from=bu&cs=640x0",
+      "small": "https://sun9-50.userapi.com/s/v1/ig2/ISMspt2CXBjFpoTRvCEglfcOAW3wmvV_63Usunw3KDfO-avtFNB7MXCo1tjlebCbSb7M5nXyC_Ax6uUDMODxw0KR.jpg?quality=95&crop=0,0,1024,1536&as=32x48,48x72,72x108,108x162,160x240,240x360,360x540,480x720,540x810,640x960,720x1080,1024x1536&from=bu&cs=640x0"
      }
     ],
     "video": null,
@@ -1067,7 +1067,7 @@ const AUTO = {
   ],
   "albums": [],
   "ok": true,
-  "at": "2026-11-09T03:04:10.678Z",
+  "at": "2026-11-09T07:47:19.386Z",
   "via": "widget"
  }
 };
