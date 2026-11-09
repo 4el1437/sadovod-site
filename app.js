@@ -450,3 +450,11 @@ layout();
 ({ home: pageHome, team: pageTeam, stats: pageStats, media: pageMedia, shop: pageShop })[document.body.dataset.page]();
 // ссылка вида team.html#player=Имя Фамилия открывает карточку сразу
 if (location.hash.startsWith("#player=")) openPlayer(decodeURIComponent(location.hash.slice(8)));
+
+// ---------- тема «Пятница, 13-е» (по времени Красноярска; для проверки — ?f13 в адресе) ----------
+(() => {
+  const p = Object.fromEntries(new Intl.DateTimeFormat("en", { timeZone: "Asia/Krasnoyarsk", day: "numeric", weekday: "short" }).formatToParts(new Date()).map((x) => [x.type, x.value]));
+  if ((p.day === "13" && p.weekday === "Fri") || /[?&]f13\b/.test(location.search)) {
+    const s = document.createElement("script"); s.src = "friday13.js?v=1"; document.body.appendChild(s);
+  }
+})();
