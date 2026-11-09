@@ -1,7 +1,7 @@
 // Файл создаётся автоматически скриптом update.js — не редактируйте вручную.
 // Ручные правки делайте в data.js (MANUAL_MATCHES / MANUAL_STANDINGS).
 const AUTO = {
- "updated": "2026-11-08T20:45:42.801Z",
+ "updated": "2026-11-09T00:40:22.187Z",
  "tournaments": {
   "city": {
    "standings": [
@@ -132,7 +132,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-08T20:45:42.801Z"
+   "at": "2026-11-09T00:40:22.187Z"
   },
   "fbl": {
    "standings": [
@@ -459,7 +459,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-08T20:45:42.801Z"
+   "at": "2026-11-09T00:40:22.187Z"
   },
   "cup": {
    "standings": [],
@@ -479,7 +479,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-08T20:45:42.801Z"
+   "at": "2026-11-09T00:40:22.187Z"
   }
  },
  "telegram": {
@@ -850,7 +850,7 @@ const AUTO = {
     "announced": true,
     "lineupPost": {
      "id": 2040,
-     "photo": "https://cdn4.telesco.pe/file/LlHI4UkcpqteS04h7DugCmm5M0fbRpJZO-EpiDPJ5qzxBEWYO0BAHdzSL-um8Y57Url6LUZRO769RJXSOnWoKHC47AmaHweawaIeufj0L5v5jc7TrX6u6v220e6UpLLLAbeyVzErfoEpRwnyi_G5FgWSTzjWuffCyI_F8z65YR4Qjo9-JC7KTpDFgYnQZv_7m3IIOihxmoQ8CbdehhYDaXlIrP6YNL_4qgf_rQgjhi5fE-2rnalTLRJ30xwgPfz8Dqeh1HayBKztM7ad7S6rwLK1vgrCii50_Ll96ndClQv0ll3Xyx4q7cZUYST4uTQT1BJHnWSDcOc6G7_7ZenpEg.jpg"
+     "photo": "https://cdn4.telesco.pe/file/co8I_PKnMkwYXaNnVVcQO7SmDoaqXNtiqm6Qjfj61cXKNoYz4YQIIVe0A5WnuMHB_71j6lH4C_bpI2X_KDtH93fcgpbfmoz_ufjjOm4csiYm8kGQ4Ea9fYDXGKPmfHExf7jDzO26xhFZ02vgjKnVwaiXH_KoaxLhFbzGkCr3PCx9hYWzshyuEFWuUTg82cFdbdE8kTDTboDjiwRMo358XNLH38xV6tGiAhHJJG0NDMNvcwT82WYZoMLObzZvhNvXiM2BFmeapOswGHYka8FVphz0hb6q-GKPNTO_d74a-yxutaEUsJoyoRjYUGoamZilLu3dmjbSu19H1EFx_NVYpw.jpg"
     },
     "finished": true,
     "lineup": [
@@ -871,10 +871,23 @@ const AUTO = {
    }
   ],
   "ok": true,
-  "at": "2026-11-08T20:45:42.801Z"
+  "at": "2026-11-09T00:40:22.187Z"
  },
  "vk": {
   "posts": [
+   {
+    "id": 4051,
+    "date": "2026-11-09T00:18:19.000Z",
+    "text": "❗ИТОГ МАТЧА❗\n\nНу есть же! Первая победа нашей команды в рамках 1 лиги! 🔥\n\nДальше больше!🌟",
+    "photos": [
+     {
+      "big": "https://sun9-37.userapi.com/s/v1/ig2/CFh4SgTTzmfHAWgq5WyQYPbReDfer64cHcyn_YzpMXIWBxzpUxb7u1iHYfjwKpA6QdkqHNwaXgmEudxJF_woyyAU.jpg?quality=95&crop=0,0,1254,1254&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,1080x1080,1254x1254&from=bu&cs=640x0",
+      "small": "https://sun9-37.userapi.com/s/v1/ig2/CFh4SgTTzmfHAWgq5WyQYPbReDfer64cHcyn_YzpMXIWBxzpUxb7u1iHYfjwKpA6QdkqHNwaXgmEudxJF_woyyAU.jpg?quality=95&crop=0,0,1254,1254&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,1080x1080,1254x1254&from=bu&cs=640x0"
+     }
+    ],
+    "video": null,
+    "link": "https://vk.ru/wall-214784904_4051"
+   },
    {
     "id": 4049,
     "date": "2026-11-08T14:03:32.000Z",
@@ -1028,7 +1041,7 @@ const AUTO = {
   ],
   "albums": [],
   "ok": true,
-  "at": "2026-11-08T20:45:42.801Z",
+  "at": "2026-11-09T00:40:22.187Z",
   "via": "widget"
  }
 };
