@@ -30,6 +30,8 @@
     stroke-dasharray: 400; stroke-dashoffset: 400; animation: f13-slash .5s ease-out forwards; filter: drop-shadow(0 0 4px #f00); }
   .f13-claws path:nth-child(2) { animation-delay: .06s } .f13-claws path:nth-child(3) { animation-delay: .12s } .f13-claws path:nth-child(4) { animation-delay: .18s }
   @keyframes f13-slash { to { stroke-dashoffset: 0 } }
+  .f13-scratch { position: relative; max-width: 1100px; margin: 0 auto; height: 0; z-index: 1; pointer-events: none; }
+  .f13-scratch .f13-claws { inset: auto; top: 14px; right: 16px; width: min(340px, 55vw); height: 150px; }
 
   .f13-peek { position: fixed; right: 0; bottom: 0; width: 300px; z-index: 50; cursor: pointer;
     transform: translateX(105%); transition: transform .9s cubic-bezier(.2,.8,.2,1); }
@@ -57,8 +59,14 @@
 
   // следы когтей на главном блоке
   const hero = document.querySelector(".hero");
-  if (hero) hero.insertAdjacentHTML("beforeend", `<svg class="f13-claws" viewBox="0 0 400 200" preserveAspectRatio="none" aria-hidden="true">
-    <path d="M250 20 Q300 90 330 190"/><path d="M275 12 Q325 85 355 185"/><path d="M300 8 Q348 80 378 175"/><path d="M325 10 Q368 75 398 160"/></svg>`);
+  const claws = `<svg class="f13-claws" viewBox="0 0 400 200" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M250 20 Q300 90 330 190"/><path d="M275 12 Q325 85 355 185"/><path d="M300 8 Q348 80 378 175"/><path d="M325 10 Q368 75 398 160"/></svg>`;
+  if (hero) hero.insertAdjacentHTML("beforeend", claws);
+  else {
+    // на остальных страницах — следы когтей справа от заголовка (вне #app, чтобы не пропадали при перерисовке)
+    const app = document.getElementById("app");
+    if (app) app.insertAdjacentHTML("beforebegin", `<div class="f13-scratch">${claws}</div>`);
+  }
 
   // маньяк-садовод выглядывает из-за края экрана
   const peek = document.createElement("div");
@@ -69,6 +77,6 @@
 
   const show = () => { peek.classList.add("on"); setTimeout(() => peek.classList.remove("on"), 4500); };
   peek.addEventListener("click", () => peek.classList.remove("on"));
-  setTimeout(show, 2500);
+  setTimeout(show, 1200);
   setInterval(show, 25000);
 })();
