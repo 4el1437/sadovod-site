@@ -86,6 +86,7 @@ function result(m) {
   return ours > theirs ? "W" : ours < theirs ? "L" : "D";
 }
 const RES_TXT = { W: "Победа", D: "Ничья", L: "Поражение" };
+const RES_LETTER = { W: "В", D: "Н", L: "П" };
 
 function matchCard(m) {
   const r = result(m);
@@ -174,7 +175,7 @@ function tournamentSummary(t) {
   const me = t.standings.find((r) => r.team === t.team);
   const place = me ? t.standings.indexOf(me) + 1 : null;
   const form = t.matches.filter((m) => m.score).sort((a, b) => b.date.localeCompare(a.date)).slice(0, 5)
-    .map((m) => `<span class="badge ${result(m)}" title="${esc(m.home)} ${m.score.join(":")} ${esc(m.away)}">${result(m)}</span>`).join(" ");
+    .map((m) => `<span class="badge ${result(m)}" title="${esc(m.home)} ${m.score.join(":")} ${esc(m.away)} — ${RES_TXT[result(m)]}">${RES_LETTER[result(m)]}</span>`).join(" ");
   return `<div class="card tsum">
     <div class="tsum__head"><span class="tag tag-${t.id}">${esc(t.short)}</span><span class="muted">как «${esc(t.team)}»</span></div>
     <div class="tsum__name">${esc(t.full)}</div>
@@ -199,6 +200,7 @@ function pageHome() {
       <div class="hero__stats">
         <div class="hero__stat"><b>${played.length}</b><span>сыграно</span></div>
         <div class="hero__stat"><b>${played.filter((m) => result(m) === "W").length}</b><span>побед</span></div>
+        ${played.some((m) => result(m) === "D") ? `<div class="hero__stat"><b>${played.filter((m) => result(m) === "D").length}</b><span>ничьих</span></div>` : ""}
         <div class="hero__stat"><b>${played.reduce((s, m) => s + (m.home === m.us ? m.score[0] : m.score[1]), 0)}</b><span>забито</span></div>
       </div>
     </section>
