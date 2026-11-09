@@ -1,7 +1,7 @@
 // Файл создаётся автоматически скриптом update.js — не редактируйте вручную.
 // Ручные правки делайте в data.js (MANUAL_MATCHES / MANUAL_STANDINGS).
 const AUTO = {
- "updated": "2026-11-09T07:47:19.386Z",
+ "updated": "2026-11-09T17:25:32.477Z",
  "tournaments": {
   "city": {
    "standings": [
@@ -132,7 +132,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-09T07:47:19.386Z"
+   "at": "2026-11-09T17:25:32.477Z"
   },
   "fbl": {
    "standings": [
@@ -459,7 +459,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-09T07:47:19.386Z"
+   "at": "2026-11-09T17:25:32.477Z"
   },
   "cup": {
    "standings": [],
@@ -479,7 +479,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-09T07:47:19.386Z"
+   "at": "2026-11-09T17:25:32.477Z"
   }
  },
  "telegram": {
@@ -850,7 +850,7 @@ const AUTO = {
     "announced": true,
     "lineupPost": {
      "id": 2040,
-     "photo": "https://cdn4.telesco.pe/file/Iqry00TaiaPo1GoBx-_4LwsjayztbqImR3es4EREI3qo0r_xCCiRNq05BIaPTtLChbndYybaRL69lN1rDoIvj-G8tEuef2tgntV2PmmGY16wYjEcDoDiF53yfBAlv5nWOsFHRGixE4hwEGFnM4z_ZB8a5PichjsaXn5Cph5sSCvCnmOh0vHP4Hnb0NbvntPlNgFLKcJzngAkeOGaHlWK67MUhlmcSZCPM8AQ8TJsLFnMJUiTu9X-2NchpjFXVOpLIufHKSIUUehtpxbvF4krL7yeGu3Vb4b7ZlBLshd2FYYlYGhUoHfo08o5Ci8KbKK1plCALrvnYWbOpYgtM3LVjA.jpg"
+     "photo": "https://cdn4.telesco.pe/file/J7EAKZCUWaYziH_Li6UO8356wO9o7ARADREf8VOr6tNgKs9Fk3ERyfQ0IaUIkmcQ4SeDfxQYXpaQs27fjjD_0GttmrQlJ98qx99guXqBe9kSG0eoR6fYmayx6Oe816JX-eT2ZOsiAv6YIN71otUVVy5A3oKTCoALJmjhsKoVWKxSBXnDA0yu4PU6kh5_hAkWmAykpeZbLbFj0j3CzRaMMSFzTvjUsz4UG9-5WEyTHGCEzgkEvM6Six0Li2aX3GVV5GaZqPmLbpQGhNln7rR9P4VzmkWU8FBcUChgjVqzRnPcbWH8wl7QjDbNfUgFq3r8C0A-uqkJSH1u4cIvwHpM1Q.jpg"
     },
     "finished": true,
     "lineup": [
@@ -873,21 +873,121 @@ const AUTO = {
     "t": "fbl",
     "opponent": "Автолаб",
     "round": "2 тур",
-    "goals": [],
-    "score": null,
+    "goals": [
+     {
+      "score": "1:0",
+      "scorer": "Ярослав Ромашин",
+      "assist": "Вадим Засим",
+      "post": 2054
+     },
+     {
+      "score": "2:0",
+      "scorer": "Андрей Суздаль",
+      "assist": "Александр Дьяченко",
+      "post": 2055
+     },
+     {
+      "score": "3:0",
+      "scorer": "Александр Дьяченко",
+      "assist": "Андрей Суздаль",
+      "post": 2056
+     },
+     {
+      "score": "4:0",
+      "scorer": "Ярослав Ромашин",
+      "assist": "Андрей Суздаль",
+      "post": 2057
+     },
+     {
+      "score": "4:1",
+      "opp": true,
+      "post": 2058
+     },
+     {
+      "score": "5:1",
+      "scorer": "Андрей Суздаль",
+      "assist": "Ярослав Ромашин",
+      "post": 2059
+     },
+     {
+      "score": "6:1",
+      "scorer": "Автогол",
+      "assist": null,
+      "post": 2062
+     },
+     {
+      "score": "6:2",
+      "opp": true,
+      "post": 2063
+     },
+     {
+      "score": "6:3",
+      "opp": true,
+      "post": 2064
+     },
+     {
+      "score": "7:3",
+      "scorer": "Владислав Мурзин",
+      "assist": "Лев Мормель",
+      "post": 2065
+     },
+     {
+      "score": "8:3",
+      "scorer": "Александр Андриевич",
+      "assist": "Кирилл Герасимов",
+      "post": 2066
+     },
+     {
+      "score": "8:8",
+      "opp": true,
+      "post": 2067
+     }
+    ],
+    "score": [
+     8,
+     8
+    ],
     "date": "2026-11-09",
     "time": "21:20",
     "venue": "СК КриМТ",
     "post": 2052,
     "announced": true,
-    "finished": false
+    "lineupPost": {
+     "id": 2053,
+     "photo": "https://cdn4.telesco.pe/file/XdkXcK5rzIlmkg1Qn3CAoybTmSeGXV6miyfHbvdTu8N732GzCyZzxs6saRfpEr1ur0elxGkKKFTIDhrkSFZNhm4OnE9NLZHh4YZQm9Cf3hhDSYR_AR_qvC67Iq_t4fvU50UvAcKzxf0VEcz9sGPL4yCNzet68YstlIkEK-Ki7BHwE9xXdEIBcexFRweL-XMuhpYlbd9vpt_ujsoUnttUCO13x3MA1YawhChdcNRdyC-LlvQ6yBdZrmEzfrK7BnCfFu0Gvf7wu4sJOc6aPEu1y0JZylWME6gpT4Ujand53RBuBuoiTfKShFgx0r7KcpIkEX_6Msf7MaXcp8cNbapuLQ.jpg"
+    },
+    "finished": false,
+    "lineup": [
+     "Ярослав Ромашин",
+     "Лев Мормель",
+     "Семён Проровский",
+     "Евгений Новиков",
+     "Артём Лагерев",
+     "Александр Дьяченко",
+     "Александр Андриевич",
+     "Кирилл Герасимов",
+     "Даниил Кардашов"
+    ]
    }
   ],
   "ok": true,
-  "at": "2026-11-09T07:47:19.386Z"
+  "at": "2026-11-09T17:25:32.477Z"
  },
  "vk": {
   "posts": [
+   {
+    "id": 4054,
+    "date": "2026-11-09T13:12:21.000Z",
+    "text": "❗СОСТАВ НА МАТЧ ❗",
+    "photos": [
+     {
+      "big": "https://sun9-45.userapi.com/s/v1/ig2/J4jx4h6YLgS9h6nML_xp__FkSqFojlByg_khmfqtm2D9jZGtuoep3K1632vqWZqpUpH1jCfpUQRbsczmLqo_kd_U.jpg?quality=95&crop=0,0,1122,1402&as=32x40,48x60,72x90,108x135,160x200,240x300,360x450,480x600,540x675,640x800,720x900,1080x1350,1122x1402&from=bu&cs=640x0",
+      "small": "https://sun9-45.userapi.com/s/v1/ig2/J4jx4h6YLgS9h6nML_xp__FkSqFojlByg_khmfqtm2D9jZGtuoep3K1632vqWZqpUpH1jCfpUQRbsczmLqo_kd_U.jpg?quality=95&crop=0,0,1122,1402&as=32x40,48x60,72x90,108x135,160x200,240x300,360x450,480x600,540x675,640x800,720x900,1080x1350,1122x1402&from=bu&cs=640x0"
+     }
+    ],
+    "video": null,
+    "link": "https://vk.ru/wall-214784904_4054"
+   },
    {
     "id": 4053,
     "date": "2026-11-09T03:00:01.000Z",
@@ -1067,7 +1167,7 @@ const AUTO = {
   ],
   "albums": [],
   "ok": true,
-  "at": "2026-11-09T07:47:19.386Z",
+  "at": "2026-11-09T17:25:32.477Z",
   "via": "widget"
  }
 };
