@@ -35,12 +35,26 @@ const T = TOURNAMENTS.map((t) => {
     const same = (m) => m.date === tm.date || (m.home + m.away).toLowerCase().includes(opp.toLowerCase()) && Math.abs(new Date(m.date) - new Date(tm.date)) < 3 * 864e5;
     const hit = [...matches.values()].find(same);
     if (hit) { if (!hit.time && tm.time) hit.time = tm.time; if (!hit.venue && tm.venue) hit.venue = tm.venue; if (tm.lineup?.length) hit.lineup = tm.lineup; if (tm.goals?.length) hit.goals = tm.goals; // авторы голов — по телеграму команды (в протоколах организаторов бывают ошибки в фамилиях)
-      if (!hit.score && tm.score && tm.finished) hit.score = hit.home === t.team ? tm.score : [tm.score[1], tm.score[0]]; if (!hit.round) hit.round = tidyRound(tm.round); }
-    else matches.set("tg" + tm.post, { date: tm.date, time: tm.time || "", home: t.team, away: opp, score: tm.finished ? tm.score : null, venue: tm.venue || "", announced: !tm.finished, round: tidyRound(tm.round), goals: tm.goals, lineup: tm.lineup, link: `https://t.me/${TELEGRAM.channel}/${tm.post}` });
+      if (!hit.score && tm.score && tm.finished) { hit.score = hit.home === t.team ? tm.score : [tm.score[1], tm.score[0]]; hit.tgScore = true; } if (!hit.round) hit.round = tidyRound(tm.round); }
+    else matches.set("tg" + tm.post, { date: tm.date, time: tm.time || "", home: t.team, away: opp, score: tm.finished ? tm.score : null, tgScore: tm.finished, venue: tm.venue || "", announced: !tm.finished, round: tidyRound(tm.round), goals: tm.goals, lineup: tm.lineup, link: `https://t.me/${TELEGRAM.channel}/${tm.post}` });
+  }
+  // счёт есть только в телеграме (организатор ещё не обновил таблицу) — сами дописываем матч в таблицу:
+  // победа 3, ничья 1, поражение 0, мячи — нам и сопернику. Как только придёт официальная таблица с этим матчем, правка исчезнет.
+  let standings = MANUAL_STANDINGS[t.id] || a.standings;
+  const extra = MANUAL_STANDINGS[t.id] || t.cup ? [] : [...matches.values()].filter((m) => m.tgScore && m.score);
+  if (extra.length) {
+    standings = standings.map((r) => ({ ...r }));
+    const row = (name) => standings.find((r) => r.team.toLowerCase() === name.toLowerCase()) || (standings.push({ team: name, p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, pts: 0 }), standings.at(-1));
+    for (const m of extra) for (const [team, f, g] of [[m.home, m.score[0], m.score[1]], [m.away, m.score[1], m.score[0]]]) {
+      const r = row(team);
+      r.p++; r.gf += f; r.ga += g;
+      if (f > g) { r.w++; r.pts += 3; } else if (f === g) { r.d++; r.pts += 1; } else r.l++;
+    }
+    standings.sort((x, y) => y.pts - x.pts || (y.gf - y.ga) - (x.gf - x.ga) || y.gf - x.gf);
   }
   return {
     ...t,
-    standings: MANUAL_STANDINGS[t.id] || a.standings,
+    standings,
     matches: [...matches.values()].map((m) => ({ ...m, t: t.id, us: t.team })),
     updated: a.at, ok: a.ok !== false,
   };
