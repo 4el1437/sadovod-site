@@ -12,7 +12,9 @@
     if (!who) {
       // первый заход — случайно; переходы по ссылкам — тот же образ; «Обновить» (F5) — другой
       const cur = sessionStorage.getItem("f13cur");
-      const reload = performance.getEntriesByType?.("navigation")[0]?.type === "reload";
+      // переход через наших летучих мышей — точно не «Обновить» (Chrome считает переход на тот же адрес обновлением)
+      const viaBats = sessionStorage.getItem("f13bats") === "1";
+      const reload = !viaBats && performance.getEntriesByType?.("navigation")[0]?.type === "reload";
       who = !cur ? (Math.random() < 0.5 ? "freddy" : "jason") : reload ? (cur === "freddy" ? "jason" : "freddy") : cur;
       sessionStorage.setItem("f13cur", who);
     }
