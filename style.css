@@ -207,3 +207,7 @@ html, body { overflow-x: hidden; }
 .pm__gline { font-weight: 700; display: flex; gap: 8px; align-items: center; }
 .pm__gcontrib { font-size: 14px; margin-top: 4px; }
 @media (max-width: 600px) { .pmodal { padding: 12px 8px; } .pm { padding: 18px 14px; } .pm__photo { width: 76px; height: 100px; } .pm__name { font-size: 19px; } }
+
+/* переход «Пятница 13-е»: пока грузится новая страница — тёмный экран вместо белого */
+html.f13-pre, html.f13-pre body { background: #000 !important; }
+html.f13-pre body > :not(.f13-veil) { visibility: hidden; }

@@ -75,6 +75,72 @@
   peek.innerHTML = `<div class="f13-say">Раз, два — Фредди заберёт тебя…</div><img src="img/event/krueger.png" alt="">`;
   document.body.appendChild(peek);
 
+  // ---------- переход между страницами: стая летучих мышей ----------
+  const BAT = `<svg viewBox="0 0 100 50"><path d="M50 22 L46 12 L44 18 C38 10 30 8 22 4 C25 12 18 17 4 14 C11 22 9 29 1 33 C17 29 29 33 37 44 C40 36 45 32 50 38 C55 32 60 36 63 44 C71 33 83 29 99 33 C91 29 89 22 96 14 C82 17 75 12 78 4 C70 8 62 10 56 18 L54 12 Z"/></svg>`;
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const batStyle = document.createElement("style");
+  batStyle.textContent = `
+  .f13-veil { position: fixed; inset: 0; z-index: 200; pointer-events: none; overflow: hidden;
+    background: radial-gradient(circle at 50% 45%, #ffe3c9 0 min(16vw, 120px), #e0503a calc(min(16vw, 120px) + 3px), #5a0707 calc(min(16vw, 120px) + 40px), #1a0202 45%, #000 80%); opacity: 0; transition: opacity .45s ease; }
+  .f13-veil.dark { opacity: 1; pointer-events: all; }
+  .f13-bat { position: absolute; left: 0; top: 0; width: var(--s); color: #000;
+    animation: f13-fly var(--d) cubic-bezier(.4,.1,.6,1) var(--w) both; filter: drop-shadow(0 0 5px rgba(255,60,40,.9)); }
+  .f13-bat svg { display: block; fill: #050000; animation: f13-flap .16s ease-in-out infinite alternate; transform-origin: 50% 45%; }
+  @keyframes f13-flap { from { transform: scaleY(1) } to { transform: scaleY(.55) } }
+  @keyframes f13-fly { from { transform: translate(var(--x0), var(--y0)) rotate(var(--r)) } to { transform: translate(var(--x1), var(--y1)) rotate(var(--r)) } }`;
+  document.head.appendChild(batStyle);
+
+  // out = true: мыши летят из-за края через экран; false: разлетаются из центра наружу
+  function swarm(veil, out) {
+    const W = innerWidth, H = innerHeight, n = W < 600 ? 22 : 38;
+    for (let i = 0; i < n; i++) {
+      const b = document.createElement("div");
+      b.className = "f13-bat";
+      b.innerHTML = BAT;
+      const s = 45 + Math.random() * 75;
+      let x0, y0, x1, y1;
+      if (out) { x0 = -120 - Math.random() * 200; y0 = H * (0.2 + Math.random() * 0.9); x1 = W + 150; y1 = y0 - H * (0.4 + Math.random() * 0.6); }
+      else { const a = Math.random() * Math.PI * 2, R = Math.max(W, H); x0 = W / 2 + (Math.random() - .5) * W * .5; y0 = H / 2 + (Math.random() - .5) * H * .5; x1 = x0 + Math.cos(a) * R; y1 = y0 + Math.sin(a) * R; }
+      const r = Math.atan2(y1 - y0, x1 - x0) * 57 / 4;
+      Object.entries({ "--s": s + "px", "--x0": x0 + "px", "--y0": y0 + "px", "--x1": x1 + "px", "--y1": y1 + "px", "--r": r + "deg",
+        "--d": (0.7 + Math.random() * 0.6) + "s", "--w": (Math.random() * (out ? 0.35 : 0.2)) + "s" }).forEach(([k, v]) => b.style.setProperty(k, v));
+      veil.appendChild(b);
+    }
+  }
+  function makeVeil() { const v = document.createElement("div"); v.className = "f13-veil"; v.setAttribute("aria-hidden", "true"); document.body.appendChild(v); return v; }
+
+  // прилёт на новую страницу
+  let arrived = false;
+  try { arrived = sessionStorage.getItem("f13bats") === "1"; sessionStorage.removeItem("f13bats"); } catch {}
+  if (arrived && !reduce) {
+    const v = makeVeil();
+    v.style.transition = "none";
+    v.classList.add("dark");
+    void v.offsetWidth;
+    v.style.transition = "opacity .6s ease";
+    swarm(v, false);
+    requestAnimationFrame(() => { document.documentElement.classList.remove("f13-pre"); setTimeout(() => v.classList.remove("dark"), 250); });
+    setTimeout(() => v.remove(), 1800);
+  }
+  document.documentElement.classList.remove("f13-pre");
+
+  // уход со страницы
+  document.addEventListener("click", (e) => {
+    const a = e.target.closest("a[href]");
+    if (!a || reduce || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    if (a.target && a.target !== "_self") return;
+    const url = new URL(a.href, location.href);
+    if (url.origin !== location.origin || !/\.html$|\/$/.test(url.pathname) || (url.pathname === location.pathname && url.hash)) return;
+    e.preventDefault();
+    const v = makeVeil();
+    swarm(v, true);
+    requestAnimationFrame(() => v.classList.add("dark"));
+    try { sessionStorage.setItem("f13bats", "1"); } catch {}
+    setTimeout(() => { location.href = url.href; }, 700);
+  });
+  // возврат кнопкой «назад» из кэша — убрать завесу
+  addEventListener("pageshow", (e) => { if (e.persisted) document.querySelectorAll(".f13-veil").forEach((v) => v.remove()); });
+
   const show = () => { peek.classList.add("on"); setTimeout(() => peek.classList.remove("on"), 4500); };
   peek.addEventListener("click", () => peek.classList.remove("on"));
   setTimeout(show, 1200);
