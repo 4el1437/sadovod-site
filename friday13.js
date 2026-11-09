@@ -1,6 +1,6 @@
 // Тема «Пятница, 13-е». Подключается из app.js, когда в Красноярске пятница 13-е
 // (или для проверки — откройте любую страницу с ?f13 в адресе).
-// Два образа чередуются от страницы к странице: Фредди (красный, когти) и Джейсон (ночное озеро, мачете, туман).
+// Два образа: на сессию выбирается один, при обновлении страницы (F5) меняется на другой — Фредди (красный, когти) и Джейсон (ночное озеро, мачете, туман).
 // Закрепить один для проверки: ?f13=freddy или ?f13=jason; снова чередовать: ?f13
 (function () {
   const q = new URLSearchParams(location.search).get("f13");
@@ -9,8 +9,13 @@
     if (q === "freddy" || q === "jason") sessionStorage.setItem("f13who", q);
     else if (q !== null) sessionStorage.removeItem("f13who");
     who = sessionStorage.getItem("f13who");
-    if (!who) { const last = sessionStorage.getItem("f13last"); who = last === "freddy" ? "jason" : last === "jason" ? "freddy" : Math.random() < 0.5 ? "freddy" : "jason"; }
-    sessionStorage.setItem("f13last", who);
+    if (!who) {
+      // первый заход — случайно; переходы по ссылкам — тот же образ; «Обновить» (F5) — другой
+      const cur = sessionStorage.getItem("f13cur");
+      const reload = performance.getEntriesByType?.("navigation")[0]?.type === "reload";
+      who = !cur ? (Math.random() < 0.5 ? "freddy" : "jason") : reload ? (cur === "freddy" ? "jason" : "freddy") : cur;
+      sessionStorage.setItem("f13cur", who);
+    }
   } catch { who = Math.random() < 0.5 ? "freddy" : "jason"; }
   const J = who === "jason";
 
