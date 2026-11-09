@@ -1,7 +1,7 @@
 // Файл создаётся автоматически скриптом update.js — не редактируйте вручную.
 // Ручные правки делайте в data.js (MANUAL_MATCHES / MANUAL_STANDINGS).
 const AUTO = {
- "updated": "2026-11-09T02:09:39.657Z",
+ "updated": "2026-11-09T03:04:10.678Z",
  "tournaments": {
   "city": {
    "standings": [
@@ -132,7 +132,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-09T02:09:39.657Z"
+   "at": "2026-11-09T03:04:10.678Z"
   },
   "fbl": {
    "standings": [
@@ -459,7 +459,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-09T02:09:39.657Z"
+   "at": "2026-11-09T03:04:10.678Z"
   },
   "cup": {
    "standings": [],
@@ -479,7 +479,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-09T02:09:39.657Z"
+   "at": "2026-11-09T03:04:10.678Z"
   }
  },
  "telegram": {
@@ -868,13 +868,39 @@ const AUTO = {
      "Рамиль Халимов",
      "Александр Шурыгин"
     ]
+   },
+   {
+    "t": "fbl",
+    "opponent": "Автолаб",
+    "round": "2 тур",
+    "goals": [],
+    "score": null,
+    "date": "2026-11-09",
+    "time": "21:20",
+    "venue": "СК КриМТ",
+    "post": 2052,
+    "announced": true,
+    "finished": false
    }
   ],
   "ok": true,
-  "at": "2026-11-09T02:09:39.657Z"
+  "at": "2026-11-09T03:04:10.678Z"
  },
  "vk": {
   "posts": [
+   {
+    "id": 4053,
+    "date": "2026-11-09T03:00:01.000Z",
+    "text": "❗ДЕНЬ МАТЧА❗\n\n💥ФК Садовод - Авалон💥\n\n2 тур 2 дивизиона ФБЛ\n📆 9 ноября\n⏰ 21:20\n🏟 СК КриМТ\n💬 Телеграм - текстовая трансляция\n\nПриглашаем всех поддержать нас! Идём за победой!⚽❤",
+    "photos": [
+     {
+      "big": "https://sun9-72.userapi.com/s/v1/ig2/9_DHYpY2xhIKeVIwexrofqO5_Dvn_oq3Ig60UvFPa6FJLulB5maOuCpSoYvYrqjpzddHNf0JSAm_EMERU7UHaBkV.jpg?quality=95&crop=0,0,1024,1536&as=32x48,48x72,72x108,108x162,160x240,240x360,360x540,480x720,540x810,640x960,720x1080,1024x1536&from=bu&cs=640x0",
+      "small": "https://sun9-72.userapi.com/s/v1/ig2/9_DHYpY2xhIKeVIwexrofqO5_Dvn_oq3Ig60UvFPa6FJLulB5maOuCpSoYvYrqjpzddHNf0JSAm_EMERU7UHaBkV.jpg?quality=95&crop=0,0,1024,1536&as=32x48,48x72,72x108,108x162,160x240,240x360,360x540,480x720,540x810,640x960,720x1080,1024x1536&from=bu&cs=640x0"
+     }
+    ],
+    "video": null,
+    "link": "https://vk.ru/wall-214784904_4053"
+   },
    {
     "id": 4051,
     "date": "2026-11-09T00:18:19.000Z",
@@ -1041,7 +1067,7 @@ const AUTO = {
   ],
   "albums": [],
   "ok": true,
-  "at": "2026-11-09T02:09:39.657Z",
+  "at": "2026-11-09T03:04:10.678Z",
   "via": "widget"
  }
 };
