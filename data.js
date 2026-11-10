@@ -67,7 +67,8 @@ const TOURNAMENTS = [
 // или вручную в MANUAL_MATCHES: { t: "fbl", date: "2026-11-15", ..., stream: "https://..." }.
 const LIVE = { repo: "4el1437/sadovod-site", branch: "live" };
 // Эфир из приложения FootballLive: при «Начать эфир» оно пишет ссылку для зрителей в stream.json
-// ветки «stream» (служебная, не трогать), сайт проверяет её раз в минуту и показывает плеер в окне матча.
+// ветки «stream» (служебная, не трогать). Сайт проверяет её раз в 30 секунд: идёт эфир — окно с плеером
+// сверху на всех страницах и в окне матча. Ссылка .m3u8 — прямой поток с видеосервера (MediaMTX), без VK.
 const APP_STREAM = { repo: "4el1437/sadovod-site", branch: "stream", file: "stream.json" };
 
 const TELEGRAM = {

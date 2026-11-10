@@ -52,7 +52,7 @@ const buildT = () => TOURNAMENTS.map((t) => {
   // Матч с «Садоводом» ищем по дате и сопернику, чужой (тестовый) — по дате и обеим командам; нет такого — добавляем.
   const us = (n) => [t.team, CLUB.name].some((x) => x.toLowerCase() === (n || "").toLowerCase());
   const lc = (n) => (n || "").toLowerCase();
-  for (const s of APP_STREAMS.filter((x) => x.t === t.id && x.date && /^https?:\/\/\S+$/.test(x.stream || ""))) { // «-» и прочий не-адрес — пропускаем (кнопка вела бы на 404)
+  for (const s of APP_STREAMS.filter((x) => x.t === t.id && x.date && /^https?:\/\/\S+$/.test(x.stream || "") && !(x.endedAt && isHls(x.stream)))) { // «-» и прочий не-адрес — пропускаем (кнопка вела бы на 404)
     const other = us(s.home) ? s.away : us(s.away) ? s.home : null;
     const hit = [...matches.values()].find((m) => m.date === s.date && (other
       ? lc(m.home) === lc(other) || lc(m.away) === lc(other)
@@ -512,6 +512,66 @@ document.addEventListener("click", (e) => { const el = e.target.closest("[data-p
 document.addEventListener("keydown", (e) => { if ((e.key === "Enter" || e.key === " ") && e.target.matches?.("[data-player]")) { e.preventDefault(); openPlayer(e.target.dataset.player); } });
 
 // ---------- окно матча: трансляция, голы, состав ----------
+// ---------- эфир напрямую из приложения: HLS с видеосервера (MediaMTX), плеер hls.js ----------
+function isHls(url) { return /\.m3u8(\?|$)/i.test(url || ""); }
+let hlsLib = null;
+const loadHls = () => hlsLib || (hlsLib = new Promise((ok, fail) => {
+  const s = document.createElement("script");
+  s.src = "https://cdn.jsdelivr.net/npm/hls.js@1.5.20/dist/hls.min.js";
+  s.onload = () => ok(window.Hls); s.onerror = () => { hlsLib = null; fail(); };
+  document.head.appendChild(s);
+}));
+// HLS-плеер в box (.mm__video). Потока ещё нет или он прервался — переподключаемся каждые 5 секунд.
+// Звук выключен до нажатия: браузеры не запускают видео со звуком без действия зрителя.
+function mountHls(box, url) {
+  if (box.dataset.mounted === url) return;
+  box._hls?.destroy(); clearTimeout(box._retry);
+  box.dataset.mounted = url;
+  box.innerHTML = `<video controls autoplay muted playsinline></video><div class="mm__wait">Подключаемся к трансляции…</div>`;
+  const video = box.querySelector("video"), wait = box.querySelector(".mm__wait");
+  const show = (t) => { wait.textContent = t; wait.hidden = !t; };
+  const again = () => { show("Трансляция ещё не началась или прервалась — переподключаемся…"); clearTimeout(box._retry); box._retry = setTimeout(start, 5000); };
+  video.addEventListener("playing", () => show(""));
+  async function start() {
+    if (!box.isConnected || box.dataset.mounted !== url) { box._hls?.destroy(); return; }
+    if (video.canPlayType("application/vnd.apple.mpegurl")) { // Safari / iPhone — HLS умеют сами
+      video.onerror = again; video.src = url; video.play().catch(() => {}); return;
+    }
+    let Hls; try { Hls = await loadHls(); } catch { show("Плеер не загрузился, обновите страницу"); return; }
+    if (!Hls.isSupported()) { show("Этот браузер не умеет показывать трансляцию"); return; }
+    box._hls?.destroy();
+    const hls = (box._hls = new Hls({ lowLatencyMode: true }));
+    hls.on(Hls.Events.ERROR, (_, d) => { if (d.fatal) { hls.destroy(); again(); } });
+    hls.on(Hls.Events.FRAG_LOADED, () => { if (!box.isConnected) hls.destroy(); });
+    hls.on(Hls.Events.MANIFEST_PARSED, () => video.play().catch(() => {}));
+    hls.loadSource(url); hls.attachMedia(video);
+  }
+  start();
+}
+
+// Окно прямого эфира над страницей (на всех страницах): последний эфир из приложения, начатый не раньше
+// 3 часов назад и не остановленный. Живёт вне #app — перерисовка страницы плеер не перезапускает.
+function activeAppStream() {
+  const fresh = (s) => /^https?:\/\//.test(s.stream || "") && !s.endedAt && Date.now() - Date.parse(s.startedAt) < 3 * 36e5;
+  return APP_STREAMS.filter(fresh).sort((a, b) => Date.parse(b.startedAt) - Date.parse(a.startedAt))[0] || null;
+}
+function renderLiveTop() {
+  const app = document.getElementById("app"); if (!app) return;
+  let top = document.getElementById("livetop");
+  const s = activeAppStream();
+  if (!s) { top?.remove(); return; }
+  if (!top) { top = document.createElement("section"); top.id = "livetop"; top.className = "container livetop"; app.before(top); }
+  if (top.dataset.stream === s.stream && top.dataset.title === s.home + s.away) return;
+  top.dataset.stream = s.stream; top.dataset.title = s.home + s.away;
+  const t = TBY[s.t];
+  const embed = !isHls(s.stream) && streamEmbed(s.stream);
+  top.innerHTML = `<div class="livetop__head"><span class="live-badge">● прямой эфир</span><b>${esc(s.home)} — ${esc(s.away)}</b>${t ? `<span class="muted">${esc(t.short)}</span>` : ""}</div>
+    ${isHls(s.stream) ? `<div class="mm__video livetop__video" data-stream="${esc(s.stream)}"></div>`
+      : embed ? `<div class="mm__video livetop__video"><iframe src="${embed}" allow="autoplay; encrypted-media; fullscreen; picture-in-picture" allowfullscreen></iframe></div>`
+      : `<a class="btn" href="${esc(s.stream)}" target="_blank">📺 Смотреть трансляцию</a>`}`;
+  const box = top.querySelector(".livetop__video[data-stream]"); if (box) mountHls(box, s.stream);
+}
+
 // ссылка на трансляцию → адрес встраиваемого плеера (VK видео / YouTube / Twitch)
 function streamEmbed(url) {
   let m;
@@ -559,13 +619,15 @@ function openMatch(key) {
   const m = ALL_MATCHES.find((x) => x.key === key);
   if (!m) return;
   document.querySelector(".pmodal--match")?.remove();
-  const src = m.stream && streamEmbed(m.stream);
+  const hls = isHls(m.stream);
+  const src = m.stream && !hls && streamEmbed(m.stream);
   const box = document.createElement("div");
   box.className = "pmodal pmodal--match";
   box.dataset.key = key;
   box.innerHTML = `<div class="pm mm" role="dialog" aria-modal="true" aria-label="${esc(m.home)} — ${esc(m.away)}">
     <button class="pm__x" aria-label="Закрыть">✕</button>
-    ${src ? `<div class="mm__video"><iframe src="${src}" data-stream="${esc(m.stream)}" allow="autoplay; encrypted-media; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>`
+    ${hls ? `<div class="mm__video" data-stream="${esc(m.stream)}"></div>`
+      : src ? `<div class="mm__video"><iframe src="${src}" data-stream="${esc(m.stream)}" allow="autoplay; encrypted-media; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>`
       : m.stream ? `<a class="btn mm__watch" href="${esc(m.stream)}" target="_blank">📺 Смотреть трансляцию</a>` : ""}
     <div class="mm__body">${matchBody(m)}</div>
   </div>`;
@@ -574,6 +636,7 @@ function openMatch(key) {
   box.onclick = (e) => { if (e.target === box || e.target.closest(".pm__x")) close(); };
   document.addEventListener("keydown", onKey);
   document.body.appendChild(box);
+  if (hls) mountHls(box.querySelector(".mm__video"), m.stream);
   tickCountdowns();
   history.replaceState(null, "", "#match=" + encodeURIComponent(key));
 }
@@ -606,27 +669,32 @@ async function pollLive() {
   } catch {}
 }
 
-// ---------- эфир из приложения FootballLive: stream.json из ветки APP_STREAM.branch раз в минуту ----------
-// Читаем через raw.githubusercontent.com, а не через API: у API 60 запросов в час на зрителя, и их уже
-// расходует pollLive во время матча. raw без лимита, но может отдавать файл с задержкой до ~5 минут.
+// ---------- эфир из приложения FootballLive: stream.json из ветки APP_STREAM.branch раз в 30 секунд ----------
+// Сначала GitHub API: свежий файл сразу; cache: "no-cache" — браузер переспрашивает с ETag, ответ 304 лимит
+// API (60 в час) не тратит. API не ответил (лимит, сеть) — raw.githubusercontent.com: без лимита, но с задержкой до ~5 минут.
 let appStreamsAt = null;
+async function fetchAppStreams() {
+  const api = `https://api.github.com/repos/${APP_STREAM.repo}/contents/${APP_STREAM.file}?ref=${APP_STREAM.branch}`;
+  try { const r = await fetch(api, { headers: { Accept: "application/vnd.github.raw+json" }, cache: "no-cache" }); if (r.ok) return await r.json(); } catch {}
+  const r = await fetch(`https://raw.githubusercontent.com/${APP_STREAM.repo}/${APP_STREAM.branch}/${APP_STREAM.file}?t=${Date.now()}`, { cache: "no-store" });
+  return r.ok ? r.json() : null;
+}
 async function pollAppStreams() {
   if (typeof APP_STREAM === "undefined" || document.hidden) return;
   try {
-    const r = await fetch(`https://raw.githubusercontent.com/${APP_STREAM.repo}/${APP_STREAM.branch}/${APP_STREAM.file}?t=${Date.now()}`, { cache: "no-store" });
-    if (!r.ok) return;
-    const j = await r.json();
-    if (!j.at || j.at === appStreamsAt) return;
+    const j = await fetchAppStreams();
+    if (!j || !j.at || j.at === appStreamsAt) { renderLiveTop(); return; } // 3 часа могли истечь
+    APP_STREAMS = Array.isArray(j.matches) ? j.matches : [];
+    renderLiveTop();
     appStreamsAt = j.at;
     const sig = () => JSON.stringify(ALL_MATCHES.map((m) => [m.key, m.stream, m.time]));
     const before = sig();
-    APP_STREAMS = Array.isArray(j.matches) ? j.matches : [];
     rebuild();
     if (sig() === before) return;
     if (document.body.dataset.page === "home") PAGE_FN();
     // открытое окно матча: плеер мог появиться — открываем заново (только если ссылка изменилась)
     const open = document.querySelector(".pmodal--match");
-    if (open) { const m = ALL_MATCHES.find((x) => x.key === open.dataset.key); if (m && m.stream && !open.querySelector(`iframe[data-stream="${CSS.escape(m.stream)}"]`)) openMatch(m.key); }
+    if (open) { const m = ALL_MATCHES.find((x) => x.key === open.dataset.key); if (m && m.stream && !open.querySelector(`[data-stream="${CSS.escape(m.stream)}"]`)) openMatch(m.key); }
     else if (location.hash.startsWith("#match=")) openMatch(decodeURIComponent(location.hash.slice(7)));
   } catch {}
 }
@@ -640,7 +708,7 @@ PAGE_FN();
 if (location.hash.startsWith("#player=")) openPlayer(decodeURIComponent(location.hash.slice(8)));
 if (location.hash.startsWith("#match=")) openMatch(decodeURIComponent(location.hash.slice(7)));
 pollLive(); setInterval(pollLive, 60000);
-pollAppStreams(); setInterval(pollAppStreams, 60000);
+pollAppStreams(); setInterval(pollAppStreams, 30000);
 document.addEventListener("visibilitychange", () => { if (!document.hidden) pollAppStreams(); });
 
 // ---------- тема «Пятница, 13-е» (по времени Красноярска; для проверки — ?f13 в адресе) ----------
