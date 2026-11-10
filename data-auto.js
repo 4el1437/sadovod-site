@@ -1,7 +1,7 @@
 // Файл создаётся автоматически скриптом update.js — не редактируйте вручную.
 // Ручные правки делайте в data.js (MANUAL_MATCHES / MANUAL_STANDINGS).
 const AUTO = {
- "updated": "2026-11-10T14:55:07.472Z",
+ "updated": "2026-11-10T14:55:53.003Z",
  "tournaments": {
   "city": {
    "standings": [
@@ -132,20 +132,10 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-10T14:55:07.472Z"
+   "at": "2026-11-10T14:55:53.003Z"
   },
   "fbl": {
    "standings": [
-    {
-     "team": "ВИТЭН",
-     "p": 2,
-     "w": 2,
-     "d": 0,
-     "l": 0,
-     "gf": 20,
-     "ga": 7,
-     "pts": 6
-    },
     {
      "team": "ОРИОН-МОТОРС (ВГ)",
      "p": 2,
@@ -157,21 +147,11 @@ const AUTO = {
      "pts": 6
     },
     {
-     "team": "СФУ",
-     "p": 2,
-     "w": 1,
-     "d": 1,
-     "l": 0,
-     "gf": 30,
-     "ga": 16,
-     "pts": 4
-    },
-    {
      "team": "КАТТ",
      "p": 2,
      "w": 1,
      "d": 1,
-     "l": 1,
+     "l": 0,
      "gf": 21,
      "ga": 6,
      "pts": 4
@@ -187,14 +167,24 @@ const AUTO = {
      "pts": 4
     },
     {
-     "team": "АвтоЛаб",
-     "p": 3,
+     "team": "СФУ",
+     "p": 1,
      "w": 1,
-     "d": 1,
-     "l": 1,
-     "gf": 19,
-     "ga": 19,
-     "pts": 4
+     "d": 0,
+     "l": 0,
+     "gf": 22,
+     "ga": 8,
+     "pts": 3
+    },
+    {
+     "team": "ВИТЭН",
+     "p": 1,
+     "w": 1,
+     "d": 0,
+     "l": 0,
+     "gf": 6,
+     "ga": 3,
+     "pts": 3
     },
     {
      "team": "Хавзак",
@@ -204,6 +194,16 @@ const AUTO = {
      "l": 1,
      "gf": 14,
      "ga": 13,
+     "pts": 3
+    },
+    {
+     "team": "АвтоЛаб",
+     "p": 2,
+     "w": 1,
+     "d": 0,
+     "l": 1,
+     "gf": 11,
+     "ga": 11,
      "pts": 3
     },
     {
@@ -247,6 +247,16 @@ const AUTO = {
      "pts": 0
     },
     {
+     "team": "Курама",
+     "p": 1,
+     "w": 0,
+     "d": 0,
+     "l": 1,
+     "gf": 8,
+     "ga": 22,
+     "pts": 0
+    },
+    {
      "team": "Привал-строй",
      "p": 1,
      "w": 0,
@@ -254,16 +264,6 @@ const AUTO = {
      "l": 1,
      "gf": 2,
      "ga": 17,
-     "pts": 0
-    },
-    {
-     "team": "Курама",
-     "p": 2,
-     "w": 0,
-     "d": 0,
-     "l": 2,
-     "gf": 12,
-     "ga": 36,
      "pts": 0
     }
    ],
@@ -569,7 +569,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-10T14:55:07.472Z"
+   "at": "2026-11-10T14:55:53.003Z"
   },
   "cup": {
    "standings": [],
@@ -589,7 +589,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-10T14:55:07.472Z"
+   "at": "2026-11-10T14:55:53.003Z"
   }
  },
  "telegram": {
@@ -1101,10 +1101,56 @@ const AUTO = {
    }
   ],
   "ok": true,
-  "at": "2026-11-10T14:55:07.472Z"
+  "at": "2026-11-10T14:55:53.003Z"
  },
  "vk": {
   "posts": [
+   {
+    "id": 4056,
+    "date": "2026-11-10T11:32:58.000Z",
+    "text": "Смотрим самые яркие моменты стартовой игры 1 лиги города Красноярска по футзалу⚽📸 \nhttps://vk.ru/album-214784904_310789701",
+    "photos": [
+     {
+      "big": "https://sun9-64.userapi.com/impg/MPXUDEoAhXo9eUp85YqtDZ_9zam6MglU7rzGnA/Lg8EGkDBkRM.jpg?size=604x402&quality=95&sign=534a22a46f71a65c58e323be4bd9e8d9&type=album",
+      "small": "https://sun9-64.userapi.com/impg/MPXUDEoAhXo9eUp85YqtDZ_9zam6MglU7rzGnA/Lg8EGkDBkRM.jpg?size=604x402&quality=95&sign=534a22a46f71a65c58e323be4bd9e8d9&type=album"
+     },
+     {
+      "big": "https://sun9-71.userapi.com/impg/2BL_tMQLYJu-hp1NLmLkC2ruyWiqiSifciDM5g/iQluKy1e70w.jpg?size=402x604&quality=95&sign=e1454f41480b83d732c1ddea08aadd0a&type=album",
+      "small": "https://sun9-71.userapi.com/impg/2BL_tMQLYJu-hp1NLmLkC2ruyWiqiSifciDM5g/iQluKy1e70w.jpg?size=402x604&quality=95&sign=e1454f41480b83d732c1ddea08aadd0a&type=album"
+     },
+     {
+      "big": "https://sun9-47.userapi.com/impg/wB_DxrAuIwpQYCZ1An57I7M5vPjtoxAieAcniA/oGCYeu-Pems.jpg?size=402x604&quality=95&sign=43ce4b304f6bcca27cae35811759cf46&type=album",
+      "small": "https://sun9-47.userapi.com/impg/wB_DxrAuIwpQYCZ1An57I7M5vPjtoxAieAcniA/oGCYeu-Pems.jpg?size=402x604&quality=95&sign=43ce4b304f6bcca27cae35811759cf46&type=album"
+     },
+     {
+      "big": "https://sun9-9.userapi.com/impg/6CC0L2i0RaQ4Om_KGqy9IeWejO7yue6npM0o7A/W2_OfOQjWV8.jpg?size=402x604&quality=95&sign=a9402fe992df05a71f0ae0b9e76e6080&type=album",
+      "small": "https://sun9-9.userapi.com/impg/6CC0L2i0RaQ4Om_KGqy9IeWejO7yue6npM0o7A/W2_OfOQjWV8.jpg?size=402x604&quality=95&sign=a9402fe992df05a71f0ae0b9e76e6080&type=album"
+     },
+     {
+      "big": "https://sun9-69.userapi.com/impg/-sLDl5toH2u9fdMtPad_YCV4kyiulFenf1Bh8g/EvrnwYLy7CU.jpg?size=402x604&quality=95&sign=ceeda2007dc268fb767eed703b41e038&type=album",
+      "small": "https://sun9-69.userapi.com/impg/-sLDl5toH2u9fdMtPad_YCV4kyiulFenf1Bh8g/EvrnwYLy7CU.jpg?size=402x604&quality=95&sign=ceeda2007dc268fb767eed703b41e038&type=album"
+     },
+     {
+      "big": "https://sun9-84.userapi.com/impg/O3gtp8Mo5vGTv8DdvqVL9cgqR5emaYK3Su_aPA/SLjViAvawu8.jpg?size=402x604&quality=95&sign=3921c96221fbb95ffd043cf19f38bfbd&type=album",
+      "small": "https://sun9-84.userapi.com/impg/O3gtp8Mo5vGTv8DdvqVL9cgqR5emaYK3Su_aPA/SLjViAvawu8.jpg?size=402x604&quality=95&sign=3921c96221fbb95ffd043cf19f38bfbd&type=album"
+     }
+    ],
+    "video": null,
+    "link": "https://vk.ru/wall-214784904_4056"
+   },
+   {
+    "id": 4055,
+    "date": "2026-11-10T10:48:16.000Z",
+    "text": "❗КОНЕЦ МАТЧА❗\n\nСами не поняли, как это произошло🫪\n\nБольше без экспериментов😂",
+    "photos": [
+     {
+      "big": "https://sun9-38.userapi.com/s/v1/ig2/ZSMClord1EA2Fod0zUtELR1QiZrqjHn0dIsF7Z-xBiTq0VwE2Vo0YXDfQeGRPucA8Zfe25Np4aXgVqhplADN0nnR.jpg?quality=95&crop=0,0,1122,1402&as=32x40,48x60,72x90,108x135,160x200,240x300,360x450,480x600,540x675,640x800,720x900,1080x1350,1122x1402&from=bu&cs=640x0",
+      "small": "https://sun9-38.userapi.com/s/v1/ig2/ZSMClord1EA2Fod0zUtELR1QiZrqjHn0dIsF7Z-xBiTq0VwE2Vo0YXDfQeGRPucA8Zfe25Np4aXgVqhplADN0nnR.jpg?quality=95&crop=0,0,1122,1402&as=32x40,48x60,72x90,108x135,160x200,240x300,360x450,480x600,540x675,640x800,720x900,1080x1350,1122x1402&from=bu&cs=640x0"
+     }
+    ],
+    "video": null,
+    "link": "https://vk.ru/wall-214784904_4055"
+   },
    {
     "id": 4054,
     "date": "2026-11-09T13:12:21.000Z",
@@ -1296,9 +1342,8 @@ const AUTO = {
    }
   ],
   "albums": [],
-  "ok": false,
-  "at": "2026-11-10T08:21:54.205Z",
-  "via": "widget",
-  "error": "виджет VK не вернул постов"
+  "ok": true,
+  "at": "2026-11-10T14:55:53.003Z",
+  "via": "widget"
  }
 };
