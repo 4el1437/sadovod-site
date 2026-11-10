@@ -1,0 +1,61 @@
+name: Онлайн матча
+
+# Каждые 10 минут проверяет, идёт ли сейчас матч (окно: за 40 мин до начала … 3 ч после).
+# Если идёт — раз в минуту читает телеграм и кладёт live.json в ветку «live».
+# Сайт во время матча забирает этот файл каждую минуту (без пересборки сайта).
+on:
+  schedule:
+    - cron: "3,13,23,33,43,53 * * * *"
+  workflow_dispatch:
+  push:                     # после правок онлайна — один прогон для проверки
+    branches: [main]
+    paths: [live.js, .github/workflows/live.yml]
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: live
+  cancel-in-progress: false
+
+jobs:
+  live:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Идёт ли матч
+        id: win
+        run: node live.js --window | tee -a "$GITHUB_OUTPUT"
+
+      - name: Онлайн раз в минуту
+        if: steps.win.outputs.until != '' || github.event_name == 'push'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          UNTIL: ${{ steps.win.outputs.until }}
+          ONCE: ${{ github.event_name == 'push' && steps.win.outputs.until == '' }}
+        run: |
+          if [ "$ONCE" = "true" ]; then UNTIL=$(( $(date +%s) + 1 )); fi
+          REMOTE="https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          publish() {
+            rm -rf /tmp/lv && mkdir /tmp/lv && cp live.json /tmp/lv/
+            ( cd /tmp/lv && git init -q -b live && git add live.json \
+              && git -c user.name=sadovod-bot -c user.email=actions@users.noreply.github.com commit -qm "live $(date -u +%H:%M)" \
+              && git push -qf "$REMOTE" live )
+          }
+          last=""
+          while [ "$(date +%s)" -lt "$UNTIL" ]; do
+            if node live.js; then
+              cur=$(node -e "const j=require('./live.json');console.log(JSON.stringify(j.matches))")
+              if [ "$cur" != "$last" ]; then publish && last="$cur" && echo "→ опубликовано"; fi
+            fi
+            sleep 60
+          done
+          # матч закончился — сразу обновляем основной сайт (таблицы, статистика)
+          if [ "$ONCE" != "true" ]; then gh workflow run update.yml || true; fi

@@ -16,11 +16,12 @@ const store = { get: (k) => { try { return localStorage.getItem(k); } catch { re
 
 // ---------- сборка данных: авто + ручные правки ----------
 const AUTO_DATA = typeof AUTO !== "undefined" ? AUTO : { tournaments: {} };
-const TG_MATCHES = AUTO_DATA.telegram?.matches || [];
+let TG_MATCHES = AUTO_DATA.telegram?.matches || [];
 // «КОБРА» → «Кобра», «1/16 ФИНАЛА» → «1/16 финала»
 const tidy = (s) => (s === s.toUpperCase() ? s.toLowerCase().replace(/(^|[\s-])(\S)/g, (m, a, b) => a + b.toUpperCase()) : s);
 const tidyRound = (s) => (s || "").toLowerCase();
-const T = TOURNAMENTS.map((t) => {
+// пересобирается заново, когда во время матча приходят онлайн-данные (live.json)
+const buildT = () => TOURNAMENTS.map((t) => {
   const a = AUTO_DATA.tournaments[t.id] || { standings: [], matches: [] };
   const matches = new Map(a.matches.map((m) => [m.id, { ...m }]));
   for (const mm of MANUAL_MATCHES.filter((m) => m.t === t.id)) {
@@ -34,9 +35,14 @@ const T = TOURNAMENTS.map((t) => {
     const opp = (MANUAL_STANDINGS[t.id] || a.standings).map((r) => r.team).find((n) => n.toLowerCase() === tm.opponent.toLowerCase()) || tidy(tm.opponent);
     const same = (m) => m.date === tm.date || (m.home + m.away).toLowerCase().includes(opp.toLowerCase()) && Math.abs(new Date(m.date) - new Date(tm.date)) < 3 * 864e5;
     const hit = [...matches.values()].find(same);
-    if (hit) { if (!hit.time && tm.time) hit.time = tm.time; if (!hit.venue && tm.venue) hit.venue = tm.venue; if (tm.lineup?.length) hit.lineup = tm.lineup; if (tm.goals?.length) hit.goals = tm.goals; // авторы голов — по телеграму команды (в протоколах организаторов бывают ошибки в фамилиях)
+    // счёт по ходу матча (пока нет «Матч окончен») — отдельно от итогового
+    const flip = (sc, home) => (sc ? (home === t.team ? sc : [sc[1], sc[0]]) : null);
+    if (hit) { if (tm.stream && !hit.stream) hit.stream = tm.stream; if (!tm.finished && tm.score && !hit.score) hit.liveScore = flip(tm.score, hit.home);
+      // минуты голов — из протокола, если он есть (в телеграме только время поста)
+      if (tm.goals?.length && hit.goals?.length) for (const g of tm.goals) { const o = hit.goals.find((x) => x.score === g.score && x.min != null); if (o && g.min == null) g.min = o.min; }
+      if (!hit.time && tm.time) hit.time = tm.time; if (!hit.venue && tm.venue) hit.venue = tm.venue; if (tm.lineup?.length) hit.lineup = tm.lineup; if (tm.goals?.length) hit.goals = tm.goals; // авторы голов — по телеграму команды (в протоколах организаторов бывают ошибки в фамилиях)
       if (!hit.score && tm.score && tm.finished) { hit.score = hit.home === t.team ? tm.score : [tm.score[1], tm.score[0]]; hit.tgScore = true; } if (!hit.round) hit.round = tidyRound(tm.round); }
-    else matches.set("tg" + tm.post, { date: tm.date, time: tm.time || "", home: t.team, away: opp, score: tm.finished ? tm.score : null, tgScore: tm.finished, venue: tm.venue || "", announced: !tm.finished, round: tidyRound(tm.round), goals: tm.goals, lineup: tm.lineup, link: `https://t.me/${TELEGRAM.channel}/${tm.post}` });
+    else matches.set("tg" + tm.post, { date: tm.date, time: tm.time || "", home: t.team, away: opp, score: tm.finished ? tm.score : null, tgScore: tm.finished, venue: tm.venue || "", announced: !tm.finished, round: tidyRound(tm.round), goals: tm.goals, lineup: tm.lineup, stream: tm.stream, liveScore: !tm.finished && tm.score ? tm.score : null });
   }
   // счёт есть только в телеграме (организатор ещё не обновил таблицу) — сами дописываем матч в таблицу:
   // победа 3, ничья 1, поражение 0, мячи — нам и сопернику. Как только придёт официальная таблица с этим матчем, правка исчезнет.
@@ -55,12 +61,13 @@ const T = TOURNAMENTS.map((t) => {
   return {
     ...t,
     standings,
-    matches: [...matches.values()].map((m) => ({ ...m, t: t.id, us: t.team })),
+    matches: [...matches.values()].map((m) => ({ ...m, t: t.id, us: t.team, key: t.id + ":" + m.date })),
     updated: a.at, ok: a.ok !== false,
   };
 });
-const TBY = Object.fromEntries(T.map((t) => [t.id, t]));
-const ALL_MATCHES = T.flatMap((t) => t.matches);
+let T, TBY, ALL_MATCHES;
+const rebuild = () => { T = buildT(); TBY = Object.fromEntries(T.map((t) => [t.id, t])); ALL_MATCHES = T.flatMap((t) => t.matches); };
+rebuild();
 const isUs = (m, name) => name === m.us;
 
 function layout() {
@@ -88,12 +95,17 @@ function result(m) {
 const RES_TXT = { W: "Победа", D: "Ничья", L: "Поражение" };
 const RES_LETTER = { W: "В", D: "Н", L: "П" };
 
+// идёт ли матч сейчас: от 30 минут до начала до 3 часов после, пока нет итогового счёта
+const kickoff = (m) => new Date(`${m.date}T${m.time || "12:00"}:00+0${TELEGRAM.tz ?? 7}:00`); // время Красноярска у любого зрителя
+const isLive = (m) => !m.score && !!m.time && Date.now() > kickoff(m) - 30 * 6e4 && Date.now() < +kickoff(m) + 3 * 36e5;
+
 function matchCard(m) {
   const r = result(m);
-  const center = m.score ? `<div class="match__score">${m.score[0]} : ${m.score[1]}</div>` : `<div class="match__vs">${esc(m.time || "vs")}</div>`;
-  const tag = r ? `<span class="badge ${r}">${RES_TXT[r]}</span>` : m.time ? `<span class="countdown" data-at="${m.date}T${m.time}"></span>` : "";
+  const live = isLive(m), sc = m.score || m.liveScore;
+  const center = sc ? `<div class="match__score">${sc[0]} : ${sc[1]}</div>` : `<div class="match__vs">${esc(m.time || "vs")}</div>`;
+  const tag = r ? `<span class="badge ${r}">${RES_TXT[r]}</span>` : live ? `<span class="live-badge">● онлайн</span>` : m.time ? `<span class="countdown" data-at="${m.date}T${m.time}"></span>` : "";
   const t = TBY[m.t];
-  return `<div class="card match">
+  return `<div class="card match match--link" data-match="${esc(m.key)}" tabindex="0" role="button" aria-label="Матч: ${esc(m.home)} — ${esc(m.away)}">
     <div class="match__meta"><span>${fmtDate(m.date)}${m.time ? " · " + esc(m.time) : ""}</span><span class="tag tag-${m.t}">${esc(t.short)}${m.round ? " · " + esc(m.round) : ""}</span></div>
     <div class="match__row">
       <div class="match__team ${isUs(m, m.home) ? "us" : ""}">${esc(m.home)}</div>${center}
@@ -101,7 +113,7 @@ function matchCard(m) {
     </div>
     <div class="match__foot"><span class="muted">${m.venue ? "📍 " + esc(m.venue) : ""}</span>${tag}</div>
     ${scorersLine(m)}
-    ${m.link ? `<div class="match__foot"><a href="${m.link}" target="_blank" class="muted">Подробнее →</a></div>` : ""}
+    <div class="match__more">${m.stream && !m.score ? "📺 трансляция · " : ""}${(m.goals || []).length ? "голы и состав" : "о матче"} →</div>
   </div>`;
 }
 
@@ -221,7 +233,7 @@ function pageHome() {
     $("#allm").innerHTML = list.map(matchCard).join("") || '<div class="card muted">Матчей пока нет</div>';
     tickCountdowns();
   });
-  tickCountdowns(); setInterval(tickCountdowns, 30000);
+  tickCountdowns(); window.__cd ||= setInterval(tickCountdowns, 30000);
 }
 
 const POS_NAMES = { ВРТ: "Вратари", ЗАЩ: "Защитники", ПЗ: "Полузащитники", НАП: "Нападающие" };
@@ -484,12 +496,110 @@ function openPlayer(name) {
 document.addEventListener("click", (e) => { const el = e.target.closest("[data-player]"); if (el) openPlayer(el.dataset.player); });
 document.addEventListener("keydown", (e) => { if ((e.key === "Enter" || e.key === " ") && e.target.matches?.("[data-player]")) { e.preventDefault(); openPlayer(e.target.dataset.player); } });
 
+// ---------- окно матча: трансляция, голы, состав ----------
+// ссылка на трансляцию → адрес встраиваемого плеера (VK видео / YouTube / Twitch)
+function streamEmbed(url) {
+  let m;
+  if ((m = url.match(/(?:video|live|clip)(-?\d+)_(\d+)/))) return `https://vkvideo.ru/video_ext.php?oid=${m[1]}&id=${m[2]}&hd=2`;
+  if ((m = url.match(/(?:youtu\.be\/|[?&]v=|\/live\/|\/embed\/|\/shorts\/)([\w-]{11})/))) return `https://www.youtube.com/embed/${m[1]}`;
+  if ((m = url.match(/twitch\.tv\/(\w+)/))) return `https://player.twitch.tv/?channel=${m[1]}&parent=${location.hostname}`;
+  return null;
+}
+const hhmm = (iso) => new Date(iso).toLocaleTimeString("ru-RU", { hour: "2-digit", minute: "2-digit", timeZone: "Asia/Krasnoyarsk" });
+
+function matchBody(m) {
+  const r = result(m), live = isLive(m), sc = m.score || m.liveScore, t = TBY[m.t];
+  const usHome = m.home === m.us;
+  // счёт в постах — «наши:соперник»; показываем как в шапке — «хозяева:гости»
+  const hs = (s) => { const [a, b] = s.split(":"); return usHome ? `${a}:${b}` : `${b}:${a}`; };
+  const who = (n) => (PLAYERS.some((p) => p.name === n) ? `<span class="mm__p" data-player="${esc(n)}" role="button" tabindex="0">${esc(n)}</span>` : esc(n));
+  const goals = (m.goals || []).map((g) => {
+    const time = g.min != null ? `${g.min}′` : g.at ? hhmm(g.at) : "";
+    const body = g.opp ? `<span class="muted">гол соперника</span>`
+      : /автогол/i.test(g.scorer || "") ? "автогол соперника" + (g.assist ? ` <span class="muted">(${who(g.assist)})</span>` : "")
+      : `${g.scorer ? who(g.scorer) : "—"}${g.assist ? ` <span class="muted">(пас: ${who(g.assist)})</span>` : ""}`;
+    return `<li class="mm__goal${g.opp ? " mm__goal--opp" : ""}"><span class="mm__gs">${hs(g.score)}</span><span class="mm__gw">${g.opp ? "" : "⚽ "}${body}</span><span class="mm__gt muted">${time}</span></li>`;
+  }).join("");
+  const squad = [...playedIn(m)];
+  const status = r ? `<span class="badge ${r}">${RES_TXT[r]}</span>`
+    : live ? `<span class="live-badge">● онлайн</span> <span class="muted">обновляется раз в минуту${liveAt ? " · " + hhmm(liveAt) : ""}</span>`
+    : m.time ? `<span class="countdown" data-at="${m.date}T${m.time}"></span>` : "";
+  return `
+    <div class="match__meta"><span>${fmtDate(m.date)}${m.time ? " · " + esc(m.time) : ""}</span><span class="tag tag-${m.t}">${esc(t.short)}${m.round ? " · " + esc(m.round) : ""}</span></div>
+    <div class="match__row mm__row">
+      <div class="match__team ${isUs(m, m.home) ? "us" : ""}">${esc(m.home)}</div>
+      ${sc ? `<div class="match__score">${sc[0]} : ${sc[1]}</div>` : `<div class="match__vs">${esc(m.time || "vs")}</div>`}
+      <div class="match__team ${isUs(m, m.away) ? "us" : ""}">${esc(m.away)}</div>
+    </div>
+    <div class="mm__status">${status}</div>
+    ${m.venue ? `<p class="muted" style="margin:10px 0 0">📍 ${esc(m.venue)}</p>` : ""}
+    <h3>Голы</h3>
+    ${goals ? `<ul class="mm__goals">${goals}</ul>` : `<p class="muted">${live || !m.score ? "Голов пока нет — здесь они появятся по ходу матча." : "Авторы голов не указаны."}</p>`}
+    ${m.mvp ? `<p style="margin:12px 0 0">⭐ Лучший игрок: ${who(m.mvp)}</p>` : ""}
+    ${squad.length ? `<h3>Состав</h3><div class="mm__squad">${squad.map((n) => `<span class="chip"${PLAYERS.some((p) => p.name === n) ? ` data-player="${esc(n)}" role="button" tabindex="0"` : ""}>${esc(n)}</span>`).join("")}</div>` : ""}
+    ${m.link && !/t\.me\//.test(m.link) ? `<p style="margin:16px 0 0"><a class="muted" href="${m.link}" target="_blank">Протокол у организаторов →</a></p>` : ""}`;
+}
+
+function openMatch(key) {
+  const m = ALL_MATCHES.find((x) => x.key === key);
+  if (!m) return;
+  document.querySelector(".pmodal--match")?.remove();
+  const src = m.stream && streamEmbed(m.stream);
+  const box = document.createElement("div");
+  box.className = "pmodal pmodal--match";
+  box.dataset.key = key;
+  box.innerHTML = `<div class="pm mm" role="dialog" aria-modal="true" aria-label="${esc(m.home)} — ${esc(m.away)}">
+    <button class="pm__x" aria-label="Закрыть">✕</button>
+    ${src ? `<div class="mm__video"><iframe src="${src}" allow="autoplay; encrypted-media; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>`
+      : m.stream ? `<a class="btn mm__watch" href="${esc(m.stream)}" target="_blank">📺 Смотреть трансляцию</a>` : ""}
+    <div class="mm__body">${matchBody(m)}</div>
+  </div>`;
+  const close = () => { box.remove(); document.removeEventListener("keydown", onKey); if (location.hash.startsWith("#match=")) history.replaceState(null, "", location.pathname + location.search); };
+  const onKey = (e) => e.key === "Escape" && !document.querySelector(".pmodal:not(.pmodal--match)") && close();
+  box.onclick = (e) => { if (e.target === box || e.target.closest(".pm__x")) close(); };
+  document.addEventListener("keydown", onKey);
+  document.body.appendChild(box);
+  tickCountdowns();
+  history.replaceState(null, "", "#match=" + encodeURIComponent(key));
+}
+document.addEventListener("click", (e) => {
+  if (e.target.closest("a, button, [data-player]")) return;
+  const el = e.target.closest("[data-match]"); if (el) openMatch(el.dataset.match);
+});
+document.addEventListener("keydown", (e) => { if ((e.key === "Enter" || e.key === " ") && e.target.matches?.("[data-match]")) { e.preventDefault(); openMatch(e.target.dataset.match); } });
+
+// ---------- онлайн во время матча: live.json из ветки «live» раз в минуту ----------
+// (кладёт .github/workflows/live.yml; GitHub API отдаёт свежий файл без кэша страниц)
+let liveAt = null;
+async function pollLive() {
+  if (typeof LIVE === "undefined" || !ALL_MATCHES.some(isLive)) return;
+  try {
+    const r = await fetch(`https://api.github.com/repos/${LIVE.repo}/contents/live.json?ref=${LIVE.branch}`, { headers: { Accept: "application/vnd.github.raw+json" }, cache: "no-cache" });
+    if (!r.ok) return;
+    const j = await r.json();
+    if (!j.at || j.at === liveAt) return;
+    liveAt = j.at;
+    const sig = () => JSON.stringify(ALL_MATCHES.map((m) => [m.key, m.score, m.liveScore, m.goals, m.stream]));
+    const before = sig();
+    const byPost = new Map(TG_MATCHES.map((m) => [m.post, m]));
+    for (const m of j.matches || []) byPost.set(m.post, { ...byPost.get(m.post), ...m, lineup: byPost.get(m.post)?.lineup || m.lineup });
+    TG_MATCHES = [...byPost.values()];
+    rebuild();
+    if (sig() !== before && document.body.dataset.page === "home") PAGE_FN(); // карточки матчей — только на главной
+    const open = document.querySelector(".pmodal--match");
+    if (open) { const m = ALL_MATCHES.find((x) => x.key === open.dataset.key); if (m) { open.querySelector(".mm__body").innerHTML = matchBody(m); tickCountdowns(); } }
+  } catch {}
+}
+
 // клик по посту с фото → просмотрщик (на любой странице)
 document.addEventListener("click", (e) => { const a = e.target.closest("[data-gallery]"); if (a) { e.preventDefault(); openGallery(ALL_CONTENT[+a.dataset.gallery].photos); } });
 layout();
-({ home: pageHome, team: pageTeam, stats: pageStats, media: pageMedia, shop: pageShop })[document.body.dataset.page]();
-// ссылка вида team.html#player=Имя Фамилия открывает карточку сразу
+const PAGE_FN = ({ home: pageHome, team: pageTeam, stats: pageStats, media: pageMedia, shop: pageShop })[document.body.dataset.page];
+PAGE_FN();
+// ссылка вида team.html#player=Имя Фамилия открывает карточку сразу, index.html#match=fbl:2026-11-15 — матч
 if (location.hash.startsWith("#player=")) openPlayer(decodeURIComponent(location.hash.slice(8)));
+if (location.hash.startsWith("#match=")) openMatch(decodeURIComponent(location.hash.slice(7)));
+pollLive(); setInterval(pollLive, 60000);
 
 // ---------- тема «Пятница, 13-е» (по времени Красноярска; для проверки — ?f13 в адресе) ----------
 (() => {

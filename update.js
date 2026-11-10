@@ -297,6 +297,9 @@ function tgMatches(posts, cfg) {
       continue;
     }
     if (!cur || cur.done) continue;
+    // ссылка на трансляцию (VK видео/лайв, YouTube, Twitch) — первая найденная
+    const st = flat.match(/https?:\/\/(?:(?:m\.)?vk\.(?:com|ru)\/(?:video|live|clip)[^\s]*|vkvideo\.ru\/[^\s]+|(?:www\.|m\.)?youtube\.com\/[^\s]+|youtu\.be\/[^\s]+|(?:www\.)?twitch\.tv\/[^\s]+)/i);
+    if (st && !cur.stream) cur.stream = st[0];
     const g = flat.match(/^\s*(\d+)\s*:\s*(\d+)\s*(.*)$/);
     if (g) {
       const [ours, theirs] = [+g[1], +g[2]];
@@ -304,7 +307,7 @@ function tgMatches(posts, cfg) {
       if (!cur.date) { const l = local(p.dt); cur.date = l.slice(0, 10); }
       // «8:8 Матч окончен» — итоговый счёт, а не один гол
       if (/матч (закончен|окончен)/i.test(g[3])) {
-        if (ours === prev[0]) for (let k = prev[1] + 1; k <= theirs; k++) cur.goals.push({ score: `${ours}:${k}`, opp: true, post: p.id });
+        if (ours === prev[0]) for (let k = prev[1] + 1; k <= theirs; k++) cur.goals.push({ score: `${ours}:${k}`, opp: true, post: p.id, at: p.dt });
         cur.score = [ours, theirs];
         cur.done = true;
         continue;
@@ -313,9 +316,9 @@ function tgMatches(posts, cfg) {
         const rest = g[3].trim();
         const m = rest.match(/^([^(]*?)\s*(?:\(\s*([^)]*?)\s*\))?\s*$/);
         const norm = (s) => (s || "").replace(/\s+/g, " ").trim();
-        cur.goals.push({ score: `${ours}:${theirs}`, scorer: norm(m?.[1]) || null, assist: norm(m?.[2]) || null, post: p.id });
+        cur.goals.push({ score: `${ours}:${theirs}`, scorer: norm(m?.[1]) || null, assist: norm(m?.[2]) || null, post: p.id, at: p.dt });
       } else if (theirs > prev[1]) {
-        cur.goals.push({ score: `${ours}:${theirs}`, opp: true, post: p.id });
+        cur.goals.push({ score: `${ours}:${theirs}`, opp: true, post: p.id, at: p.dt });
       }
       cur.score = [ours, theirs];
       continue;
@@ -556,4 +559,6 @@ async function main() {
     "const AUTO = " + JSON.stringify(result, null, 1) + ";\n");
   console.log("Сохранено в data-auto.js");
 }
-main();
+// live.js берёт отсюда разбор телеграма, не запуская полное обновление
+if (require.main === module) main();
+module.exports = { ctx, tgPosts, tgMatches, loadPrev };

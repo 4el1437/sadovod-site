@@ -220,3 +220,29 @@ html.f13-pre body > :not(.f13-veil) { visibility: hidden; }
 .seg__btn.active { color: var(--text); border-bottom-color: var(--green); }
 .pm__seg { margin-top: 18px; margin-bottom: 0; }
 [hidden] { display: none !important; }
+
+/* ---------- окно матча ---------- */
+.match--link { cursor: pointer; transition: box-shadow .15s, transform .15s; }
+.match--link:hover, .match--link:focus-visible { box-shadow: 0 6px 20px rgba(0,0,0,.12); transform: translateY(-1px); }
+.match__more { margin-top: 10px; font-size: 13px; color: var(--green); font-weight: 600; }
+.live-badge { display: inline-block; padding: 2px 10px; border-radius: 99px; font-size: 12px; font-weight: 700; color: #fff; background: var(--loss); animation: livePulse 1.6s ease-in-out infinite; }
+@keyframes livePulse { 50% { opacity: .55; } }
+@media (prefers-reduced-motion: reduce) { .live-badge { animation: none; } }
+.mm { max-width: 640px; }
+.mm .match__meta { padding-right: 40px; }
+.mm__row { margin-top: 4px; }
+.mm__row .match__score { font-size: 34px; }
+.mm__status { margin-top: 12px; text-align: center; font-size: 13px; }
+.mm__video { position: relative; aspect-ratio: 16 / 9; margin: 34px 0 16px; border-radius: 12px; overflow: hidden; background: #000; }
+.mm__video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.mm__watch { display: inline-block; margin: 36px 0 12px; }
+.mm__goals { list-style: none; padding: 0; margin: 0; display: grid; gap: 6px; }
+.mm__goal { display: grid; grid-template-columns: 52px 1fr auto; gap: 10px; align-items: baseline; padding: 8px 10px; border-radius: 10px; background: var(--green-light); font-size: 14px; }
+.mm__goal--opp { background: transparent; border: 1px solid var(--border); }
+.mm__gs { font-weight: 800; font-variant-numeric: tabular-nums; }
+.mm__gt { font-size: 12px; white-space: nowrap; }
+.mm__p { color: var(--green); font-weight: 600; cursor: pointer; }
+.mm__p:hover { text-decoration: underline; }
+.mm__squad { display: flex; flex-wrap: wrap; gap: 6px; }
+.mm__squad .chip { font-size: 13px; padding: 4px 12px; }
+@media (prefers-color-scheme: dark) { .mm__p, .match__more { color: #7fd69a; } }

@@ -55,7 +55,7 @@ jobs:
             sed -i "s|\"$f\"|\"$f?v=$V\"|g" _site/*.html
           done
           grep -h "v=$V" _site/index.html
-          rm _site/update.js
+          rm _site/update.js _site/live.js
 
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3

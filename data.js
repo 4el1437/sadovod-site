@@ -62,6 +62,11 @@ const TOURNAMENTS = [
 //  fromPost — с какого поста считать сезон (1973 = анонс 1/16 Кубка города, 1.11.2026).
 //  rules — по каким словам в анонсе матча понять турнир (проверяются по порядку).
 // ---------------------------------------------------------------------
+// Онлайн во время матча: .github/workflows/live.yml раз в минуту кладёт live.json в ветку «live»,
+// сайт забирает его отсюда. Трансляция — ссылка VK видео / YouTube / Twitch из постов канала
+// или вручную в MANUAL_MATCHES: { t: "fbl", date: "2026-11-15", ..., stream: "https://..." }.
+const LIVE = { repo: "4el1437/sadovod-site", branch: "live" };
+
 const TELEGRAM = {
   channel: "fcsadovod",
   fromPost: 1973,
