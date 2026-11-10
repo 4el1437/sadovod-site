@@ -52,7 +52,7 @@ const buildT = () => TOURNAMENTS.map((t) => {
   // Матч с «Садоводом» ищем по дате и сопернику, чужой (тестовый) — по дате и обеим командам; нет такого — добавляем.
   const us = (n) => [t.team, CLUB.name].some((x) => x.toLowerCase() === (n || "").toLowerCase());
   const lc = (n) => (n || "").toLowerCase();
-  for (const s of APP_STREAMS.filter((x) => x.t === t.id && x.date && x.stream)) {
+  for (const s of APP_STREAMS.filter((x) => x.t === t.id && x.date && /^https?:\/\/\S+$/.test(x.stream || ""))) { // «-» и прочий не-адрес — пропускаем (кнопка вела бы на 404)
     const other = us(s.home) ? s.away : us(s.away) ? s.home : null;
     const hit = [...matches.values()].find((m) => m.date === s.date && (other
       ? lc(m.home) === lc(other) || lc(m.away) === lc(other)
