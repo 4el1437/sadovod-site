@@ -205,9 +205,12 @@ async function vsport(t) {
   if (!pages.length) throw new Error("нет страниц: положите сохранённую страницу лиги в папку fbl/");
   const out = { standings: [], matches: [] };
   const byId = new Map();
-  for (const p of pages) {
-    const r = parseVsport(p.html, t, p.src);
-    if (r.standings.length) out.standings = r.standings; // последняя по времени
+  // свежесть страницы — по числу сыгранных игр в таблице, а не по времени файла
+  // (на GitHub после checkout у всех файлов одинаковое время изменения)
+  const played = (r) => r.standings.reduce((n, x) => n + x.p, 0) + r.matches.filter((m) => m.score).length / 100;
+  const parsed = pages.map((p, i) => ({ r: parseVsport(p.html, t, p.src), i })).sort((x, y) => played(x.r) - played(y.r) || x.i - y.i);
+  for (const { r } of parsed) {
+    if (r.standings.length) out.standings = r.standings; // самая свежая — последней
     for (const m of r.matches) byId.set(m.id, { ...byId.get(m.id), ...m, goals: m.goals || byId.get(m.id)?.goals, score: m.score || byId.get(m.id)?.score || null });
   }
   out.matches = [...byId.values()];
