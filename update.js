@@ -312,13 +312,16 @@ function tgMatches(posts, cfg) {
         cur.done = true;
         continue;
       }
+      // минута гола, если её написали в посте: «5:1 13' Андрей Суздаль (Ярослав Ромашин)» или «… 13 мин»
+      const mr = /(?:^|\s)(\d{1,2})\s*(?:'|’|′|мин\.?)(?=\s|$)/i;
+      const min = g[3].match(mr) ? +g[3].match(mr)[1] : undefined;
       if (ours > prev[0]) {
-        const rest = g[3].trim();
+        const rest = g[3].replace(mr, " ").trim();
         const m = rest.match(/^([^(]*?)\s*(?:\(\s*([^)]*?)\s*\))?\s*$/);
         const norm = (s) => (s || "").replace(/\s+/g, " ").trim();
-        cur.goals.push({ score: `${ours}:${theirs}`, scorer: norm(m?.[1]) || null, assist: norm(m?.[2]) || null, post: p.id, at: p.dt });
+        cur.goals.push({ score: `${ours}:${theirs}`, scorer: norm(m?.[1]) || null, assist: norm(m?.[2]) || null, post: p.id, at: p.dt, min });
       } else if (theirs > prev[1]) {
-        cur.goals.push({ score: `${ours}:${theirs}`, opp: true, post: p.id, at: p.dt });
+        cur.goals.push({ score: `${ours}:${theirs}`, opp: true, post: p.id, at: p.dt, min });
       }
       cur.score = [ours, theirs];
       continue;
