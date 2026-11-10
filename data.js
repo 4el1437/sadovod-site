@@ -40,7 +40,7 @@ const TOURNAMENTS = [
     // и загружают на GitHub в папку fbl/. Все страницы в папке объединяются, новые важнее.
     vsport: {
       dir: "fbl",
-      aliases: ["Сибирский федеральный университет"], // как ещё нас называют на vsport
+      aliases: ["Сибирский федеральный университет", "Садовод"], // как ещё нас называют на vsport
       urls: ["https://vsport.su/football/football-corporate/2-divizion-[fbl]---korporativnaia-futbolnaia-liga-202627/"],
     },
   },

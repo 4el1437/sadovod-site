@@ -1,7 +1,7 @@
 // Файл создаётся автоматически скриптом update.js — не редактируйте вручную.
 // Ручные правки делайте в data.js (MANUAL_MATCHES / MANUAL_STANDINGS).
 const AUTO = {
- "updated": "2026-11-10T08:21:54.205Z",
+ "updated": "2026-11-10T14:55:07.472Z",
  "tournaments": {
   "city": {
    "standings": [
@@ -132,10 +132,20 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-10T08:21:54.205Z"
+   "at": "2026-11-10T14:55:07.472Z"
   },
   "fbl": {
    "standings": [
+    {
+     "team": "ВИТЭН",
+     "p": 2,
+     "w": 2,
+     "d": 0,
+     "l": 0,
+     "gf": 20,
+     "ga": 7,
+     "pts": 6
+    },
     {
      "team": "ОРИОН-МОТОРС (ВГ)",
      "p": 2,
@@ -148,33 +158,43 @@ const AUTO = {
     },
     {
      "team": "СФУ",
-     "p": 1,
+     "p": 2,
      "w": 1,
-     "d": 0,
+     "d": 1,
      "l": 0,
-     "gf": 22,
-     "ga": 8,
-     "pts": 3
+     "gf": 30,
+     "ga": 16,
+     "pts": 4
     },
     {
-     "team": "КФСПбГУГА",
-     "p": 1,
+     "team": "КАТТ",
+     "p": 2,
      "w": 1,
-     "d": 0,
-     "l": 0,
-     "gf": 6,
-     "ga": 2,
-     "pts": 3
+     "d": 1,
+     "l": 1,
+     "gf": 21,
+     "ga": 6,
+     "pts": 4
     },
     {
-     "team": "ВИТЭН",
-     "p": 1,
+     "team": "РУТРАНС",
+     "p": 2,
      "w": 1,
-     "d": 0,
+     "d": 1,
      "l": 0,
-     "gf": 6,
-     "ga": 3,
-     "pts": 3
+     "gf": 24,
+     "ga": 7,
+     "pts": 4
+    },
+    {
+     "team": "АвтоЛаб",
+     "p": 3,
+     "w": 1,
+     "d": 1,
+     "l": 1,
+     "gf": 19,
+     "ga": 19,
+     "pts": 4
     },
     {
      "team": "Хавзак",
@@ -187,34 +207,14 @@ const AUTO = {
      "pts": 3
     },
     {
-     "team": "КАТТ",
-     "p": 1,
-     "w": 0,
-     "d": 1,
-     "l": 0,
-     "gf": 4,
-     "ga": 4,
-     "pts": 1
-    },
-    {
-     "team": "РУТРАНС",
-     "p": 1,
-     "w": 0,
-     "d": 1,
-     "l": 0,
-     "gf": 4,
-     "ga": 4,
-     "pts": 1
-    },
-    {
-     "team": "Привал-строй",
-     "p": 0,
-     "w": 0,
+     "team": "КФСПбГУГА",
+     "p": 2,
+     "w": 1,
      "d": 0,
-     "l": 0,
-     "gf": 0,
-     "ga": 0,
-     "pts": 0
+     "l": 1,
+     "gf": 9,
+     "ga": 22,
+     "pts": 3
     },
     {
      "team": "ПОБЕДА",
@@ -227,23 +227,13 @@ const AUTO = {
      "pts": 0
     },
     {
-     "team": "АвтоЛаб",
-     "p": 1,
-     "w": 0,
-     "d": 0,
-     "l": 1,
-     "gf": 5,
-     "ga": 6,
-     "pts": 0
-    },
-    {
      "team": "Контора",
-     "p": 1,
+     "p": 2,
      "w": 0,
      "d": 0,
-     "l": 1,
-     "gf": 3,
-     "ga": 5,
+     "l": 2,
+     "gf": 8,
+     "ga": 11,
      "pts": 0
     },
     {
@@ -257,13 +247,23 @@ const AUTO = {
      "pts": 0
     },
     {
-     "team": "Курама",
+     "team": "Привал-строй",
      "p": 1,
      "w": 0,
      "d": 0,
      "l": 1,
-     "gf": 8,
-     "ga": 22,
+     "gf": 2,
+     "ga": 17,
+     "pts": 0
+    },
+    {
+     "team": "Курама",
+     "p": 2,
+     "w": 0,
+     "d": 0,
+     "l": 2,
+     "gf": 12,
+     "ga": 36,
      "pts": 0
     }
    ],
@@ -456,10 +456,120 @@ const AUTO = {
       }
      ],
      "mvp": "Артур Мустафин"
+    },
+    {
+     "id": "vs-2026-11-09-АвтоЛаб",
+     "date": "2026-11-09",
+     "time": "",
+     "home": "АвтоЛаб",
+     "away": "СФУ",
+     "score": [
+      8,
+      8
+     ],
+     "venue": "",
+     "link": "https://vsport.su/football/football-corporate/2-divizion-[fbl]---korporativnaia-futbolnaia-liga-202627/",
+     "round": "",
+     "goals": [
+      {
+       "score": "1:0",
+       "min": 1,
+       "scorer": "Ярослав Ромашин",
+       "assist": "Вадим Засим"
+      },
+      {
+       "score": "2:0",
+       "min": 3,
+       "scorer": "Андрей Суздаль",
+       "assist": "Александр Дьяченко"
+      },
+      {
+       "score": "3:0",
+       "min": 9,
+       "scorer": "Александр Дьяченко",
+       "assist": "Андрей Суздаль"
+      },
+      {
+       "score": "4:0",
+       "min": 10,
+       "scorer": "Ярослав Ромашин",
+       "assist": "Андрей Суздаль"
+      },
+      {
+       "score": "4:1",
+       "opp": true,
+       "min": 12
+      },
+      {
+       "score": "5:1",
+       "min": 15,
+       "scorer": "Андрей Суздаль",
+       "assist": "Ярослав Ромашин"
+      },
+      {
+       "score": "6:2",
+       "opp": true,
+       "min": 24
+      },
+      {
+       "score": "6:3",
+       "opp": true,
+       "min": 25
+      },
+      {
+       "score": "7:3",
+       "min": 27,
+       "scorer": "Владислав Мурзин",
+       "assist": "Лев Мормель"
+      },
+      {
+       "score": "8:3",
+       "min": 30,
+       "scorer": "Александр Андриевич",
+       "assist": null
+      },
+      {
+       "score": "8:4",
+       "opp": true,
+       "min": 38
+      },
+      {
+       "score": "8:5",
+       "opp": true,
+       "min": 39
+      },
+      {
+       "score": "8:6",
+       "opp": true,
+       "min": 40
+      },
+      {
+       "score": "8:7",
+       "opp": true,
+       "min": 47
+      },
+      {
+       "score": "8:8",
+       "opp": true,
+       "min": 48
+      }
+     ],
+     "mvp": "Ярослав Ромашин"
+    },
+    {
+     "id": "vs-2026-11-15-РУТРАНС",
+     "date": "2026-11-15",
+     "time": "15:00",
+     "home": "РУТРАНС",
+     "away": "СФУ",
+     "score": null,
+     "venue": "Красноярский автотранспортный техникум",
+     "link": "https://vsport.su/football/football-corporate/2-divizion-[fbl]---korporativnaia-futbolnaia-liga-202627/",
+     "round": ""
     }
    ],
    "ok": true,
-   "at": "2026-11-10T08:21:54.205Z"
+   "at": "2026-11-10T14:55:07.472Z"
   },
   "cup": {
    "standings": [],
@@ -479,7 +589,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-10T08:21:54.205Z"
+   "at": "2026-11-10T14:55:07.472Z"
   }
  },
  "telegram": {
@@ -850,7 +960,7 @@ const AUTO = {
     "announced": true,
     "lineupPost": {
      "id": 2040,
-     "photo": "https://cdn4.telesco.pe/file/H1KX659nTvcD61ksyTeIaDXrrI59aozXIH9ghiWubeqzt59nVYCwUaFGbRh_1J2AtHPuwyhQcPfMpxizD_oksfqNyiKyf0InbPKKjYPBU1lVw110M3s4Oe0CLvlGbpBeJ6nbr93wVfEqJjhsVxdF2yGakp8V_PvoouSe15z1NRqXXK605hPXm7-qq1yNJE744iSdn35ZvLdSQQ15Ei1i0__BsVslO-aUO8P7Q_4n1aq4-pj3dtteG1I37kqa4HwhcjzVa-sB1B0qMwPF3m-yo26efcA7CDArG2won2nzLc1Mu2ZTJyivl78KxNodIJ-uGmOpRMiQ0jZMlrk9RH-54w.jpg"
+     "photo": "https://cdn4.telesco.pe/file/YHc03NDQgazLRGEcRfnsayLPFMTenBuL7aHF3mCgkwAbQ8M5Gy9SEuypdLjU5CFuiGLNi9xKU0_XYRHKcGfRttSK6E3MFHDpLYtSBKWK-MAFL-WdX0_8LjM7nHe-DDugI2-F46wwABj4ns8zKoN4E5LwFpHqF-P866Tug3g8fY5lw-t8WYNiBQfgb-w5DAaT1nZS81mN1fsQVJeXummGTucEc01A_X-Bxfv---kHODsjd7htkBCBUNYbjmc18dcFDycDXMcJ62d62TsCxAJ4jZvBIc2zT8ABIBb2UC6bL7NRFE8G65SD4vyCRV_Z3MGl5CCGNLx-ksG_cH_F9Kl4UQ.jpg"
     },
     "finished": true,
     "lineup": [
@@ -974,7 +1084,7 @@ const AUTO = {
     "announced": true,
     "lineupPost": {
      "id": 2053,
-     "photo": "https://cdn4.telesco.pe/file/suCsWevT7vkLlCJljn16Ou9IDmkih8iSATPCHtu8rqWgr3DUbjFdBK9Nb0bt98Yz1Oc2hJpRpsDwjNzuK9thYF7Qep7UeOot0m_v-23VPtXH08428vhrYnYIdFagUXHKhrFxYcc42wtL8hJ22C3Cr_3j9baDtlC05k3FiP0rfQkElTaiFdvHHfT6koZFPQlvXPsYWBVxEsdEhNlYas3P-QAxqxgcrk7n5DA5BqQWxSRz2qB1XsPGn5Sceh3ktGLeVPDvft1gc4jokYJA8b-qAIN51vElH918ztHyKmlkHSkc5PF1UBu5Sh6BxPprrcXlagxM2852navNrlyBbyU_Qw.jpg"
+     "photo": "https://cdn4.telesco.pe/file/T7KDzYyp3ww8wH-g14clKgrtce2FaZT-2xduT-r_z1wLZvoh_ymoyUKi9UgYfEJwZOKg-1cUUku9N_DW5FOwiMWOltsvFHu7W36U5Je9u-0E3ypBcGdETgsn-DrEBlU75CIa1T-K3G3duSqHPIyZjGr9WjCfUSARRytOt6U3N46FqDBBpM9XJ1h8aW7EVI1edBnz61gTUq35ZtJSJPgq7tTCWtwdwNCSCJCE3EGQ06mdl9z59VTu4viNbWICF57tAh2AtUXBHtpdp81zD0Kr5TGnAfnEA-JKHi8Q8UXhGv5Fdp_p2Usk1SDg-6cl4m6AHGqe75dW6S1u9vVNzpOMCw.jpg"
     },
     "finished": true,
     "lineup": [
@@ -991,7 +1101,7 @@ const AUTO = {
    }
   ],
   "ok": true,
-  "at": "2026-11-10T08:21:54.205Z"
+  "at": "2026-11-10T14:55:07.472Z"
  },
  "vk": {
   "posts": [
@@ -1186,8 +1296,9 @@ const AUTO = {
    }
   ],
   "albums": [],
-  "ok": true,
+  "ok": false,
   "at": "2026-11-10T08:21:54.205Z",
-  "via": "widget"
+  "via": "widget",
+  "error": "виджет VK не вернул постов"
  }
 };
