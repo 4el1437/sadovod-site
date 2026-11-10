@@ -66,6 +66,9 @@ const TOURNAMENTS = [
 // сайт забирает его отсюда. Трансляция — ссылка VK видео / YouTube / Twitch из постов канала
 // или вручную в MANUAL_MATCHES: { t: "fbl", date: "2026-11-15", ..., stream: "https://..." }.
 const LIVE = { repo: "4el1437/sadovod-site", branch: "live" };
+// Эфир из приложения FootballLive: при «Начать эфир» оно пишет ссылку для зрителей в stream.json
+// ветки «stream» (служебная, не трогать), сайт проверяет её раз в минуту и показывает плеер в окне матча.
+const APP_STREAM = { repo: "4el1437/sadovod-site", branch: "stream", file: "stream.json" };
 
 const TELEGRAM = {
   channel: "fcsadovod",

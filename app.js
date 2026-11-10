@@ -17,6 +17,8 @@ const store = { get: (k) => { try { return localStorage.getItem(k); } catch { re
 // ---------- сборка данных: авто + ручные правки ----------
 const AUTO_DATA = typeof AUTO !== "undefined" ? AUTO : { tournaments: {} };
 let TG_MATCHES = AUTO_DATA.telegram?.matches || [];
+// эфиры из приложения FootballLive (stream.json в ветке APP_STREAM.branch), см. pollAppStreams
+let APP_STREAMS = [];
 // «КОБРА» → «Кобра», «1/16 ФИНАЛА» → «1/16 финала»
 const tidy = (s) => (s === s.toUpperCase() ? s.toLowerCase().replace(/(^|[\s-])(\S)/g, (m, a, b) => a + b.toUpperCase()) : s);
 const tidyRound = (s) => (s || "").toLowerCase();
@@ -46,6 +48,19 @@ const buildT = () => TOURNAMENTS.map((t) => {
   }
   // счёт есть только в телеграме (организатор ещё не обновил таблицу) — сами дописываем матч в таблицу:
   // победа 3, ничья 1, поражение 0, мячи — нам и сопернику. Как только придёт официальная таблица с этим матчем, правка исчезнет.
+  // эфир из приложения: ссылка на трансляцию к матчу этого дня (самая свежая — важнее телеграма).
+  // Матч с «Садоводом» ищем по дате и сопернику, чужой (тестовый) — по дате и обеим командам; нет такого — добавляем.
+  const us = (n) => [t.team, CLUB.name].some((x) => x.toLowerCase() === (n || "").toLowerCase());
+  const lc = (n) => (n || "").toLowerCase();
+  for (const s of APP_STREAMS.filter((x) => x.t === t.id && x.date && x.stream)) {
+    const other = us(s.home) ? s.away : us(s.away) ? s.home : null;
+    const hit = [...matches.values()].find((m) => m.date === s.date && (other
+      ? lc(m.home) === lc(other) || lc(m.away) === lc(other)
+      : lc(m.home) === lc(s.home) && lc(m.away) === lc(s.away)));
+    if (hit) { hit.stream = s.stream; if (!hit.time && s.time) hit.time = s.time; }
+    else matches.set("app-" + s.matchId, { date: s.date, time: s.time || "", home: us(s.home) ? t.team : s.home, away: us(s.away) ? t.team : s.away,
+      score: null, venue: "", announced: true, stream: s.stream, appKey: other ? null : String(s.matchId).slice(0, 8) });
+  }
   let standings = MANUAL_STANDINGS[t.id] || a.standings;
   const extra = MANUAL_STANDINGS[t.id] || t.cup ? [] : [...matches.values()].filter((m) => m.tgScore && m.score);
   if (extra.length) {
@@ -61,7 +76,7 @@ const buildT = () => TOURNAMENTS.map((t) => {
   return {
     ...t,
     standings,
-    matches: [...matches.values()].map((m) => ({ ...m, t: t.id, us: t.team, key: t.id + ":" + m.date })),
+    matches: [...matches.values()].map((m) => ({ ...m, t: t.id, us: t.team, key: t.id + ":" + m.date + (m.appKey ? ":" + m.appKey : "") })),
     updated: a.at, ok: a.ok !== false,
   };
 });
@@ -550,7 +565,7 @@ function openMatch(key) {
   box.dataset.key = key;
   box.innerHTML = `<div class="pm mm" role="dialog" aria-modal="true" aria-label="${esc(m.home)} — ${esc(m.away)}">
     <button class="pm__x" aria-label="Закрыть">✕</button>
-    ${src ? `<div class="mm__video"><iframe src="${src}" allow="autoplay; encrypted-media; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>`
+    ${src ? `<div class="mm__video"><iframe src="${src}" data-stream="${esc(m.stream)}" allow="autoplay; encrypted-media; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>`
       : m.stream ? `<a class="btn mm__watch" href="${esc(m.stream)}" target="_blank">📺 Смотреть трансляцию</a>` : ""}
     <div class="mm__body">${matchBody(m)}</div>
   </div>`;
@@ -591,6 +606,31 @@ async function pollLive() {
   } catch {}
 }
 
+// ---------- эфир из приложения FootballLive: stream.json из ветки APP_STREAM.branch раз в минуту ----------
+// Читаем через raw.githubusercontent.com, а не через API: у API 60 запросов в час на зрителя, и их уже
+// расходует pollLive во время матча. raw без лимита, но может отдавать файл с задержкой до ~5 минут.
+let appStreamsAt = null;
+async function pollAppStreams() {
+  if (typeof APP_STREAM === "undefined" || document.hidden) return;
+  try {
+    const r = await fetch(`https://raw.githubusercontent.com/${APP_STREAM.repo}/${APP_STREAM.branch}/${APP_STREAM.file}?t=${Date.now()}`, { cache: "no-store" });
+    if (!r.ok) return;
+    const j = await r.json();
+    if (!j.at || j.at === appStreamsAt) return;
+    appStreamsAt = j.at;
+    const sig = () => JSON.stringify(ALL_MATCHES.map((m) => [m.key, m.stream, m.time]));
+    const before = sig();
+    APP_STREAMS = Array.isArray(j.matches) ? j.matches : [];
+    rebuild();
+    if (sig() === before) return;
+    if (document.body.dataset.page === "home") PAGE_FN();
+    // открытое окно матча: плеер мог появиться — открываем заново (только если ссылка изменилась)
+    const open = document.querySelector(".pmodal--match");
+    if (open) { const m = ALL_MATCHES.find((x) => x.key === open.dataset.key); if (m && m.stream && !open.querySelector(`iframe[data-stream="${CSS.escape(m.stream)}"]`)) openMatch(m.key); }
+    else if (location.hash.startsWith("#match=")) openMatch(decodeURIComponent(location.hash.slice(7)));
+  } catch {}
+}
+
 // клик по посту с фото → просмотрщик (на любой странице)
 document.addEventListener("click", (e) => { const a = e.target.closest("[data-gallery]"); if (a) { e.preventDefault(); openGallery(ALL_CONTENT[+a.dataset.gallery].photos); } });
 layout();
@@ -600,6 +640,8 @@ PAGE_FN();
 if (location.hash.startsWith("#player=")) openPlayer(decodeURIComponent(location.hash.slice(8)));
 if (location.hash.startsWith("#match=")) openMatch(decodeURIComponent(location.hash.slice(7)));
 pollLive(); setInterval(pollLive, 60000);
+pollAppStreams(); setInterval(pollAppStreams, 60000);
+document.addEventListener("visibilitychange", () => { if (!document.hidden) pollAppStreams(); });
 
 // ---------- тема «Пятница, 13-е» (по времени Красноярска; для проверки — ?f13 в адресе) ----------
 (() => {
