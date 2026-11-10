@@ -1,7 +1,7 @@
 // Файл создаётся автоматически скриптом update.js — не редактируйте вручную.
 // Ручные правки делайте в data.js (MANUAL_MATCHES / MANUAL_STANDINGS).
 const AUTO = {
- "updated": "2026-11-09T19:30:29.834Z",
+ "updated": "2026-11-10T00:50:26.511Z",
  "tournaments": {
   "city": {
    "standings": [
@@ -41,8 +41,8 @@ const AUTO = {
      "w": 1,
      "d": 0,
      "l": 0,
-     "gf": 2,
-     "ga": 0,
+     "gf": null,
+     "ga": null,
      "pts": 3
     },
     {
@@ -71,8 +71,8 @@ const AUTO = {
      "w": 0,
      "d": 0,
      "l": 1,
-     "gf": 0,
-     "ga": 2,
+     "gf": null,
+     "ga": null,
      "pts": 0
     },
     {
@@ -132,7 +132,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-09T19:30:29.834Z"
+   "at": "2026-11-10T00:50:26.511Z"
   },
   "fbl": {
    "standings": [
@@ -459,7 +459,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-09T19:30:29.834Z"
+   "at": "2026-11-10T00:50:26.511Z"
   },
   "cup": {
    "standings": [],
@@ -479,7 +479,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-09T19:30:29.834Z"
+   "at": "2026-11-10T00:50:26.511Z"
   }
  },
  "telegram": {
@@ -850,7 +850,7 @@ const AUTO = {
     "announced": true,
     "lineupPost": {
      "id": 2040,
-     "photo": "https://cdn4.telesco.pe/file/Gailu-O5eo1EmsPH_UB5V4SnFSC5E076meWO6RwZc8020GzMHULBTR8hC1r-aWx-vqmlYveDlkBF8p7FgD6vTrMqYaF_955VIMLGHAWImPEqr8BnOMbpkl4btvldsV5jkSKLVWmDAshY-MCBIiuI2jqh46kLmPaQ0wADpWhkiShQc4AlWmOtM-FqXiJ3Q0ATS-0Ezhd8loN8BaDI679GCmRTmBKHiN8ZufMZ18vfbglV-3D-ERNve_3O50ia0bwqS8oR6nkkDN3uYhRENw6A8qAY8PIxJ_Vzr3JZK0-A-ux0jEhKP1_r7Hjw2KwfjVvKRG4H2jbPjrWou65YtMx4Dg.jpg"
+     "photo": "https://cdn4.telesco.pe/file/nkwOInSGDrf9DYUbjq1lB8SJpXQPHYQ5rAQwMj2nJx8RUdFWXV36trxxFepdmzqfuGkNGn-FwtYnQ-0b-EXqoV43w7Tb-MsU6S2YFwcaWTkBJf8F19ZDesJpDr4Cy8KPA1_p6xLU4l7AMv93oU5DjW2JG2g0eGTHzC3kJM6WaxjFlrr1FWV0uNeM0UYFV6QC2rB4vxgbn_Sij7WD-lcxL5PnKBjmbHWrejDeN86Ncgt5qCr1_8poDiUKKrQlebDj7Y31-XRiF9dP0o50Dni5cZJY7r9KtjwC0f6eVz-YJDJpyrwc5LWR9TOkiL-6OPhOrDm6sFnD4oy5QvmDV3WXBQ.jpg"
     },
     "finished": true,
     "lineup": [
@@ -974,7 +974,7 @@ const AUTO = {
     "announced": true,
     "lineupPost": {
      "id": 2053,
-     "photo": "https://cdn4.telesco.pe/file/XdkXcK5rzIlmkg1Qn3CAoybTmSeGXV6miyfHbvdTu8N732GzCyZzxs6saRfpEr1ur0elxGkKKFTIDhrkSFZNhm4OnE9NLZHh4YZQm9Cf3hhDSYR_AR_qvC67Iq_t4fvU50UvAcKzxf0VEcz9sGPL4yCNzet68YstlIkEK-Ki7BHwE9xXdEIBcexFRweL-XMuhpYlbd9vpt_ujsoUnttUCO13x3MA1YawhChdcNRdyC-LlvQ6yBdZrmEzfrK7BnCfFu0Gvf7wu4sJOc6aPEu1y0JZylWME6gpT4Ujand53RBuBuoiTfKShFgx0r7KcpIkEX_6Msf7MaXcp8cNbapuLQ.jpg"
+     "photo": "https://cdn4.telesco.pe/file/suCsWevT7vkLlCJljn16Ou9IDmkih8iSATPCHtu8rqWgr3DUbjFdBK9Nb0bt98Yz1Oc2hJpRpsDwjNzuK9thYF7Qep7UeOot0m_v-23VPtXH08428vhrYnYIdFagUXHKhrFxYcc42wtL8hJ22C3Cr_3j9baDtlC05k3FiP0rfQkElTaiFdvHHfT6koZFPQlvXPsYWBVxEsdEhNlYas3P-QAxqxgcrk7n5DA5BqQWxSRz2qB1XsPGn5Sceh3ktGLeVPDvft1gc4jokYJA8b-qAIN51vElH918ztHyKmlkHSkc5PF1UBu5Sh6BxPprrcXlagxM2852navNrlyBbyU_Qw.jpg"
     },
     "finished": true,
     "lineup": [
@@ -991,7 +991,7 @@ const AUTO = {
    }
   ],
   "ok": true,
-  "at": "2026-11-09T19:30:29.834Z"
+  "at": "2026-11-10T00:50:26.511Z"
  },
  "vk": {
   "posts": [
@@ -1187,7 +1187,7 @@ const AUTO = {
   ],
   "albums": [],
   "ok": true,
-  "at": "2026-11-09T19:30:29.834Z",
+  "at": "2026-11-10T00:50:26.511Z",
   "via": "widget"
  }
 };
