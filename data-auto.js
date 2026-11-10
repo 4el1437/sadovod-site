@@ -1,10 +1,20 @@
 // Файл создаётся автоматически скриптом update.js — не редактируйте вручную.
 // Ручные правки делайте в data.js (MANUAL_MATCHES / MANUAL_STANDINGS).
 const AUTO = {
- "updated": "2026-11-10T00:50:26.511Z",
+ "updated": "2026-11-10T08:21:54.205Z",
  "tournaments": {
   "city": {
    "standings": [
+    {
+     "team": "ГУФСИН",
+     "p": 2,
+     "w": 2,
+     "d": 0,
+     "l": 0,
+     "gf": 4,
+     "ga": 2,
+     "pts": 6
+    },
     {
      "team": "СтройИнновация",
      "p": 1,
@@ -36,23 +46,13 @@ const AUTO = {
      "pts": 3
     },
     {
-     "team": "ГУФСИН",
-     "p": 1,
-     "w": 1,
-     "d": 0,
-     "l": 0,
-     "gf": null,
-     "ga": null,
-     "pts": 3
-    },
-    {
      "team": "МК24-ДзержинеЦ",
-     "p": 1,
+     "p": 2,
      "w": 1,
      "d": 0,
-     "l": 0,
-     "gf": 3,
-     "ga": 2,
+     "l": 1,
+     "gf": 5,
+     "ga": 6,
      "pts": 3
     },
     {
@@ -132,7 +132,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-10T00:50:26.511Z"
+   "at": "2026-11-10T08:21:54.205Z"
   },
   "fbl": {
    "standings": [
@@ -147,26 +147,6 @@ const AUTO = {
      "pts": 6
     },
     {
-     "team": "КАТТ",
-     "p": 2,
-     "w": 1,
-     "d": 1,
-     "l": 0,
-     "gf": 21,
-     "ga": 6,
-     "pts": 4
-    },
-    {
-     "team": "РУТРАНС",
-     "p": 2,
-     "w": 1,
-     "d": 1,
-     "l": 0,
-     "gf": 24,
-     "ga": 7,
-     "pts": 4
-    },
-    {
      "team": "СФУ",
      "p": 1,
      "w": 1,
@@ -174,6 +154,16 @@ const AUTO = {
      "l": 0,
      "gf": 22,
      "ga": 8,
+     "pts": 3
+    },
+    {
+     "team": "КФСПбГУГА",
+     "p": 1,
+     "w": 1,
+     "d": 0,
+     "l": 0,
+     "gf": 6,
+     "ga": 2,
      "pts": 3
     },
     {
@@ -197,24 +187,34 @@ const AUTO = {
      "pts": 3
     },
     {
-     "team": "АвтоЛаб",
-     "p": 2,
-     "w": 1,
-     "d": 0,
-     "l": 1,
-     "gf": 11,
-     "ga": 11,
-     "pts": 3
+     "team": "КАТТ",
+     "p": 1,
+     "w": 0,
+     "d": 1,
+     "l": 0,
+     "gf": 4,
+     "ga": 4,
+     "pts": 1
     },
     {
-     "team": "КФСПбГУГА",
-     "p": 2,
-     "w": 1,
+     "team": "РУТРАНС",
+     "p": 1,
+     "w": 0,
+     "d": 1,
+     "l": 0,
+     "gf": 4,
+     "ga": 4,
+     "pts": 1
+    },
+    {
+     "team": "Привал-строй",
+     "p": 0,
+     "w": 0,
      "d": 0,
-     "l": 1,
-     "gf": 9,
-     "ga": 22,
-     "pts": 3
+     "l": 0,
+     "gf": 0,
+     "ga": 0,
+     "pts": 0
     },
     {
      "team": "ПОБЕДА",
@@ -227,13 +227,23 @@ const AUTO = {
      "pts": 0
     },
     {
-     "team": "Контора",
-     "p": 2,
+     "team": "АвтоЛаб",
+     "p": 1,
      "w": 0,
      "d": 0,
-     "l": 2,
-     "gf": 8,
-     "ga": 11,
+     "l": 1,
+     "gf": 5,
+     "ga": 6,
+     "pts": 0
+    },
+    {
+     "team": "Контора",
+     "p": 1,
+     "w": 0,
+     "d": 0,
+     "l": 1,
+     "gf": 3,
+     "ga": 5,
      "pts": 0
     },
     {
@@ -254,16 +264,6 @@ const AUTO = {
      "l": 1,
      "gf": 8,
      "ga": 22,
-     "pts": 0
-    },
-    {
-     "team": "Привал-строй",
-     "p": 1,
-     "w": 0,
-     "d": 0,
-     "l": 1,
-     "gf": 2,
-     "ga": 17,
      "pts": 0
     }
    ],
@@ -459,7 +459,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-10T00:50:26.511Z"
+   "at": "2026-11-10T08:21:54.205Z"
   },
   "cup": {
    "standings": [],
@@ -479,7 +479,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-10T00:50:26.511Z"
+   "at": "2026-11-10T08:21:54.205Z"
   }
  },
  "telegram": {
@@ -850,7 +850,7 @@ const AUTO = {
     "announced": true,
     "lineupPost": {
      "id": 2040,
-     "photo": "https://cdn4.telesco.pe/file/nkwOInSGDrf9DYUbjq1lB8SJpXQPHYQ5rAQwMj2nJx8RUdFWXV36trxxFepdmzqfuGkNGn-FwtYnQ-0b-EXqoV43w7Tb-MsU6S2YFwcaWTkBJf8F19ZDesJpDr4Cy8KPA1_p6xLU4l7AMv93oU5DjW2JG2g0eGTHzC3kJM6WaxjFlrr1FWV0uNeM0UYFV6QC2rB4vxgbn_Sij7WD-lcxL5PnKBjmbHWrejDeN86Ncgt5qCr1_8poDiUKKrQlebDj7Y31-XRiF9dP0o50Dni5cZJY7r9KtjwC0f6eVz-YJDJpyrwc5LWR9TOkiL-6OPhOrDm6sFnD4oy5QvmDV3WXBQ.jpg"
+     "photo": "https://cdn4.telesco.pe/file/H1KX659nTvcD61ksyTeIaDXrrI59aozXIH9ghiWubeqzt59nVYCwUaFGbRh_1J2AtHPuwyhQcPfMpxizD_oksfqNyiKyf0InbPKKjYPBU1lVw110M3s4Oe0CLvlGbpBeJ6nbr93wVfEqJjhsVxdF2yGakp8V_PvoouSe15z1NRqXXK605hPXm7-qq1yNJE744iSdn35ZvLdSQQ15Ei1i0__BsVslO-aUO8P7Q_4n1aq4-pj3dtteG1I37kqa4HwhcjzVa-sB1B0qMwPF3m-yo26efcA7CDArG2won2nzLc1Mu2ZTJyivl78KxNodIJ-uGmOpRMiQ0jZMlrk9RH-54w.jpg"
     },
     "finished": true,
     "lineup": [
@@ -991,7 +991,7 @@ const AUTO = {
    }
   ],
   "ok": true,
-  "at": "2026-11-10T00:50:26.511Z"
+  "at": "2026-11-10T08:21:54.205Z"
  },
  "vk": {
   "posts": [
@@ -1187,7 +1187,7 @@ const AUTO = {
   ],
   "albums": [],
   "ok": true,
-  "at": "2026-11-10T00:50:26.511Z",
+  "at": "2026-11-10T08:21:54.205Z",
   "via": "widget"
  }
 };
