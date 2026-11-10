@@ -91,7 +91,7 @@ const MANUAL_STANDINGS = {
 };
 
 // ---------------------------------------------------------------------
-//  СОСТАВ. captain: true — капитан. pos: ВРТ вратарь, ЗАЩ защитник, ПЗ полузащитник, НАП нападающий
+//  СОСТАВ. captain: true — капитан. injured: true — травма (показывается в составе и статистике, даже без игр). pos: ВРТ вратарь, ЗАЩ защитник, ПЗ полузащитник, НАП нападающий
 //  Собрано из заявки goalstream + авторов голов в телеграме. Проверьте, уберите лишних, добавьте номера.
 //  Имя пишется «Имя Фамилия» — так же, как в постах канала (по нему считается статистика).
 // ---------------------------------------------------------------------
@@ -100,9 +100,9 @@ const PLAYERS = [
   { num: 99  , name: "Вадим Засим",            pos: "ЗАЩ", photo: "img/players/zasim.jpg" },
   { num: 81  , name: "Сергей Михаль",          pos: "ВРТ", photo: "img/players/mihal.jpg" },
   { num: 22  , name: "Ярослав Ромашин",        pos: "ЗАЩ", photo: "img/players/romashin.jpg" },
-  { num: 13  , name: "Анатолий Антропов",      pos: "ЗАЩ", photo: "img/players/antropov.jpg" },
+  { num: 13  , name: "Анатолий Антропов",      pos: "ЗАЩ", photo: "img/players/antropov.jpg", injured: true },
   { num: 3   , name: "Андрей Супрун",          pos: "ВРТ", photo: "img/players/suprun.jpg" },
-  { num: 42  , name: "Матвей Маклаков",        pos: "ЗАЩ", photo: "img/players/maklakov.jpg" },
+  { num: 42  , name: "Матвей Маклаков",        pos: "ЗАЩ", photo: "img/players/maklakov.jpg", injured: true },
   { num: 25  , name: "Лев Мормель",            pos: "НАП", photo: "img/players/mormel.jpg" },
   { num: 97  , name: "Иван Обороча",           pos: "ПЗ",  photo: "img/players/oborocha.jpg?v=2" },
   { num: 9   , name: "Максим Янгулов",         pos: "НАП", photo: "img/players/yangulov.jpg?v=2" },
@@ -111,7 +111,7 @@ const PLAYERS = [
   { num: 8   , name: "Михаил Фалькенберг",     pos: "ПЗ",  photo: "img/players/falkinberg.jpg?v=2" },
   { num: 55  , name: "Артём Лагерев",          pos: "ВРТ", photo: "img/players/lagerev.jpg" },
   { num: 10  , name: "Александр Дьяченко",     pos: "НАП", photo: "img/players/dyachenko.jpg" },
-  { num: 19  , name: "Никита Трифанов",        pos: "НАП", photo: "img/players/trifanov.jpg" },
+  { num: 19  , name: "Никита Трифанов",        pos: "НАП", photo: "img/players/trifanov.jpg", injured: true },
   { num: 95  , name: "Александр Воропаев",     pos: "ПЗ",  photo: "img/players/voropaev.jpg" },
   { num: 17  , name: "Александр Андриевич",    pos: "НАП", captain: true, photo: "img/players/andrievich.jpg" },
   { num: 7   , name: "Владислав Мурзин",       pos: "ПЗ",  photo: "img/players/murzin.jpg" },
@@ -119,7 +119,7 @@ const PLAYERS = [
   { num: 12  , name: "Артур Мустафин",         pos: "ЗАЩ", photo: "img/players/mustafin.jpg" },
   { num: 11  , name: "Кирилл Герасимов",       pos: "ЗАЩ", photo: "img/players/gerasimov.jpg" },
   { num: 18  , name: "Данил Скуратов",         pos: "НАП", photo: "" },
-  { num: 47  , name: "Александр Бредов",       pos: "ПЗ",  photo: "img/players/bredov.jpg" },
+  { num: 47  , name: "Александр Бредов",       pos: "ПЗ",  photo: "img/players/bredov.jpg", injured: true },
   { num: 23  , name: "Рамиль Халимов",         pos: "ЗАЩ", photo: "" },
   { num: 5   , name: "Андрей Пикалов",         pos: "ЗАЩ", photo: "img/players/pikalov.jpg" },
   { num: 82  , name: "Андрей Суздаль",         pos: "НАП", photo: "img/players/suzdal.jpg" },
