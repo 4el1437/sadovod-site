@@ -242,7 +242,7 @@ function personCard(p, sub, num) {
   const isPl = PLAYERS.some((x) => x.name === p.name);
   return `<div class="card person${isPl ? " person--link" : ""}"${isPl ? ` data-player="${esc(p.name)}" tabindex="0" role="button" aria-label="Статистика: ${esc(p.name)}"` : ""}>
     <div class="person__photo">${p.photo ? `<img src="${p.photo}" alt="" loading="lazy" onerror="this.replaceWith('${initials(p.name)}')">` : initials(p.name)}${num != null ? `<span class="person__num">${num}</span>` : ""}${p.captain ? `<span class="person__cap" title="Капитан">C</span>` : ""}</div>
-    <div class="person__body"><div class="person__name">${esc(p.name)}</div><div class="person__role">${esc(sub)}${p.captain ? " · капитан" : ""}${p.injured ? " · 🤕 травма" : ""}</div></div></div>`;
+    <div class="person__body"><div class="person__name">${esc(p.name)}</div><div class="person__role">${esc(sub)}${p.captain ? " · капитан" : ""}</div></div></div>`;
 }
 function pageTeam() {
   $("#app").innerHTML = `
@@ -284,7 +284,7 @@ function pageStats() {
     const sorted = [...rows].sort((a, b) => (typeof a[key] === "string" ? a[key].localeCompare(b[key]) : (a[key] || 0) - (b[key] || 0)) * dir || b.goals - a.goals || a.name.localeCompare(b.name));
     $("#stable").innerHTML = `<div class="table-wrap"><table>
       <thead><tr>${cols.map(([k, t, c]) => `<th class="sortable ${c || ""}" data-k="${k}">${t}${k === key ? (dir < 0 ? " ▼" : " ▲") : ""}</th>`).join("")}</tr></thead>
-      <tbody>${sorted.map((r) => `<tr class="row-link" data-player="${esc(r.name)}">${cols.map(([k, , c]) => `<td class="${c || ""}">${esc(r[k] ?? "")}${k === "name" && PLAYERS.find((p) => p.name === r.name)?.injured ? ' <span class="muted" title="Травма">🤕 травма</span>' : ""}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
+      <tbody>${sorted.map((r) => `<tr class="row-link" data-player="${esc(r.name)}">${cols.map(([k, , c]) => `<td class="${c || ""}">${esc(r[k] ?? "")}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
     document.querySelectorAll("th.sortable").forEach((th) => (th.onclick = () => { dir = th.dataset.k === key ? -dir : -1; key = th.dataset.k; draw(); }));
   };
   const leader = (k, label) => { const t = [...rows].sort((a, b) => (b[k] || 0) - (a[k] || 0))[0]; return `<div class="card leader"><div class="leader__val">${t ? t[k] || 0 : "–"}</div><div><div class="leader__label">${label}</div><div><b>${t ? esc(t.name) : "—"}</b></div></div></div>`; };
@@ -470,7 +470,7 @@ function openPlayer(name) {
       <div class="pm__photo">${p.photo ? `<img src="${p.photo}" alt="">` : initials(name)}</div>
       <div>
         <div class="pm__name">${esc(name)}${p.captain ? ' <span class="person__cap" style="position:static;display:inline-grid;width:24px;height:24px;font-size:13px">C</span>' : ""}</div>
-        <div class="muted">${[p.num != null ? "№ " + p.num : "", POS_ONE[p.pos] || "", p.captain ? "капитан" : "", p.injured ? "🤕 травма" : "", staff ? staff.role.toLowerCase() : ""].filter(Boolean).join(" · ")}</div>
+        <div class="muted">${[p.num != null ? "№ " + p.num : "", POS_ONE[p.pos] || "", p.captain ? "капитан" : "", staff ? staff.role.toLowerCase() : ""].filter(Boolean).join(" · ")}</div>
       </div>
     </div>
     ${c ? `<div class="seg pm__seg"></div>` : ""}
