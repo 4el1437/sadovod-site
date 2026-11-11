@@ -1,7 +1,7 @@
 // Файл создаётся автоматически скриптом update.js — не редактируйте вручную.
 // Ручные правки делайте в data.js (MANUAL_MATCHES / MANUAL_STANDINGS).
 const AUTO = {
- "updated": "2026-11-11T14:48:58.375Z",
+ "updated": "2026-11-11T14:59:17.691Z",
  "tournaments": {
   "city": {
    "standings": [
@@ -132,7 +132,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-11T14:48:58.375Z"
+   "at": "2026-11-11T14:59:17.691Z"
   },
   "fbl": {
    "standings": [
@@ -569,7 +569,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-11T14:48:58.375Z"
+   "at": "2026-11-11T14:59:17.691Z"
   },
   "cup": {
    "standings": [],
@@ -589,7 +589,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-11T14:48:58.375Z"
+   "at": "2026-11-11T14:59:17.691Z"
   }
  },
  "telegram": {
@@ -598,111 +598,14 @@ const AUTO = {
     "t": "cup",
     "opponent": "КОБРА",
     "round": "1/16 ФИНАЛА",
-    "goals": [
-     {
-      "score": "1:0",
-      "scorer": "Максим Янгулов",
-      "assist": "Иван Обороча",
-      "post": 1978,
-      "at": "2026-11-01T11:13:15+00:00"
-     },
-     {
-      "score": "2:0",
-      "scorer": "Степан Мельников",
-      "assist": "Артур Мустафин",
-      "post": 1979,
-      "at": "2026-11-01T11:17:06+00:00"
-     },
-     {
-      "score": "3:0",
-      "scorer": "Александр Андриевич",
-      "assist": "Александр Дьяченко",
-      "post": 1981,
-      "at": "2026-11-01T11:29:12+00:00"
-     },
-     {
-      "score": "4:0",
-      "scorer": "Артур Мустафин",
-      "assist": "Вадим Засим",
-      "post": 1982,
-      "at": "2026-11-01T11:29:16+00:00"
-     },
-     {
-      "score": "4:1",
-      "opp": true,
-      "post": 1983,
-      "at": "2026-11-01T11:44:33+00:00"
-     },
-     {
-      "score": "5:1",
-      "scorer": "Степан Мельников",
-      "assist": "Александр Андриевич",
-      "post": 1984,
-      "at": "2026-11-01T11:44:56+00:00"
-     },
-     {
-      "score": "6:1",
-      "scorer": "Автогол",
-      "assist": "Артур Мустафин",
-      "post": 1985,
-      "at": "2026-11-01T11:45:06+00:00"
-     },
-     {
-      "score": "6:2",
-      "opp": true,
-      "post": 1986,
-      "at": "2026-11-01T11:45:48+00:00"
-     },
-     {
-      "score": "6:3",
-      "opp": true,
-      "post": 1987,
-      "at": "2026-11-01T11:49:16+00:00"
-     },
-     {
-      "score": "7:3",
-      "scorer": "Степан Мельников",
-      "assist": "Артур Мустафин",
-      "post": 1988,
-      "at": "2026-11-01T11:51:32+00:00"
-     },
-     {
-      "score": "8:3",
-      "scorer": "Василий Прокофьев",
-      "assist": "Максим Янгулов",
-      "post": 1989,
-      "at": "2026-11-01T11:59:31+00:00"
-     }
-    ],
-    "score": [
-     8,
-     3
-    ],
+    "goals": [],
+    "score": null,
     "date": "2026-11-01",
     "time": "18:00",
     "venue": "МСК «Сопка»",
     "post": 1973,
     "announced": true,
-    "lineupPost": {
-     "id": 1976,
-     "photo": "https://cdn4.telesco.pe/file/J1B5fW7Sj3XfxWLsx_fnVb1e27ElNoDg5oqB6P3LeW3Q7LferxkCbTNzkvhs6gsam5M0rPO8gyYKfxdjwfTHPt_uaHoLWDO-eEm7t8IZfuUlYvydqmzmGwevyCArSEzAa4AbPxqi3azJHM6gyaXwlnIzKCGgfbhvuiAbj8-a9Ay6REAFksW-OONmrCwP5GD9b9fZXRV_PmuojEtrC50PRQDObDw3bTq6B37P8UzxJKctydJKTuErj83wn4outFXqrU6IS9JY10RZ7qudkBPyMYti09nGaHqaqSaMbOgUzStmyVjL7XdA5YAETWpllsiM6bqVZTBXWtA4_3mPxOP5SA.jpg"
-    },
-    "stream": "https://vk.ru/live-214784904_456239379",
-    "finished": true,
-    "lineup": [
-     "Семён Проровский",
-     "Сергей Михаль",
-     "Иван Обороча",
-     "Максим Янгулов",
-     "Степан Мельников",
-     "Михаил Фалькенберг",
-     "Александр Дьяченко",
-     "Александр Воропаев",
-     "Александр Андриевич",
-     "Василий Прокофьев",
-     "Артур Мустафин",
-     "Вадим Засим"
-    ]
+    "finished": false
    },
    {
     "t": "fbl",
@@ -1164,10 +1067,77 @@ const AUTO = {
      "Кирилл Герасимов",
      "Даниил Кардашов"
     ]
+   },
+   {
+    "t": "city",
+    "opponent": "ФК ФАВОРИТ",
+    "round": "2 тур",
+    "goals": [
+     {
+      "score": "0:1",
+      "opp": true,
+      "post": 2079,
+      "at": "2026-11-11T13:47:17+00:00"
+     },
+     {
+      "score": "0:2",
+      "opp": true,
+      "post": 2080,
+      "at": "2026-11-11T13:53:05+00:00"
+     },
+     {
+      "score": "1:2",
+      "scorer": "Автогол",
+      "assist": null,
+      "post": 2081,
+      "at": "2026-11-11T13:56:29+00:00"
+     },
+     {
+      "score": "2:2",
+      "scorer": "Владислав Мурзин",
+      "assist": "Александр Андриевич",
+      "post": 2082,
+      "at": "2026-11-11T14:19:06+00:00"
+     },
+     {
+      "score": "3:2",
+      "scorer": "Иван Обороча",
+      "assist": "Андрей Супрун",
+      "post": 2083,
+      "at": "2026-11-11T14:35:40+00:00"
+     },
+     {
+      "score": "4:2",
+      "scorer": "Степан Мельников",
+      "assist": "Александр Андриевич",
+      "post": 2084,
+      "at": "2026-11-11T14:35:47+00:00"
+     }
+    ],
+    "score": [
+     4,
+     2
+    ],
+    "date": "2026-11-11",
+    "time": "20:30",
+    "venue": "СК Металлург",
+    "post": 2076,
+    "announced": true,
+    "lineupPost": {
+     "id": 2077,
+     "photo": "https://cdn4.telesco.pe/file/Zp9zWFWKMOfLWM21sfD1--kEUXkISE6hDm7p69Jer7X4aTfyvxGKXLVxB7RJ0ZYgCeT-6UFQb2ddJKHb1r4bksxAp9PGr-7l38XbGub_H2I9jECnQ0NBq_LfK5KWIg_z4U4J9djfVOQxOJ21RkOPX6K2xKkMfvKQgT_HUtjpM8noq75DkdkVK1HMk3zkV3zkwR7QOaOEHnqBKkPt2w7SSf5K4xi9FB1ks49EqPhoDHquhK-BZYggGl9HmLLQ4kh-LTYQV0q2WtINoGdZ0PPOFTSM7EKN2vA5crbIOZMpetgxGxK3m1b-iBeYvRT5xeq-1kwdnfxY2_oPw0gPQjguzQ.jpg"
+    },
+    "finished": true,
+    "lineup": [
+     "Максим Янгулов",
+     "Михаил Фалькенберг",
+     "Семён Проровский",
+     "Андрей Супрун"
+    ]
    }
   ],
   "ok": true,
-  "at": "2026-11-11T14:48:58.375Z"
+  "at": "2026-11-11T14:59:17.691Z"
  },
  "vk": {
   "posts": [
@@ -1448,7 +1418,7 @@ const AUTO = {
   ],
   "albums": [],
   "ok": true,
-  "at": "2026-11-11T14:48:58.375Z",
+  "at": "2026-11-11T14:59:17.691Z",
   "via": "widget"
  }
 };

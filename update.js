@@ -280,14 +280,19 @@ function tgMatches(posts, cfg) {
     if (cur && !cur.done && /состав на/i.test(flat) && p.photos?.length) cur.lineupPost = { id: p.id, photo: p.photos[0] };
     // шапка матча
     const rule = /садовод/i.test(flat) && rules.find((r) => r.re.test(flat));
-    const opp = flat.match(/САДОВОД\s*(?:🆚|vs|-|–)\s*([^💥⚽️❗📆📅🏆\n]+?)(?:\s*[💥⚽️❗]|\s+\d|\s+🏆|\s+📅|\s+📆|$)/i);
-    if (rule && opp) {
+    // соперник: «Садовод - Соперник» или наоборот «ФК Соперник - ФК Садовод»
+    const opp = flat.match(/САДОВОД\s*(?:🆚|vs|-|–)\s*([^💥⚽️❗📆📅🏆\n]+?)(?:\s*[💥⚽️❗]|\s+\d|\s+🏆|\s+📅|\s+📆|$)/i)
+      || flat.match(/(?:^|[❗️⚽️💥\s])([^❗️⚽️💥📆📅🏆\n«»-]{2,40}?)\s*(?:🆚|vs|-|–)\s*(?:ФК\s*)?«?САДОВОД/i);
+    // анонс без названия турнира («ФК Садовод - ФК ФАВОРИТ, 📆 11 ноября») — турнир возьмём из шапки матча
+    const bare = !rule && opp && announceInfo(p.text).date;
+    if ((rule || bare) && opp) {
       const opponent = opp[1].replace(/[«»"]/g, "").trim();
       const round = flat.match(/(1\/\d+ финала|\d+ тур|финал|полуфинал)/i)?.[1] || "";
       if (!cur || cur.done || cur.opponent.toLowerCase() !== opponent.toLowerCase()) {
-        cur = { t: rule.t, opponent, round, goals: [], score: null, date: "", time: "", venue: "", done: false, post: p.id, announced: false };
+        cur = { t: rule ? rule.t : null, opponent, round, goals: [], score: null, date: "", time: "", venue: "", done: false, post: p.id, announced: false };
         res.push(cur);
       }
+      if (rule && !cur.t) cur.t = rule.t;
       // анонс: дата, время, место (повторные анонсы дополняют пустые поля)
       const info = announceInfo(p.text);
       if (info.date) { cur.date ||= info.date; cur.announced = true; }
@@ -328,7 +333,7 @@ function tgMatches(posts, cfg) {
     }
     if (/матч (закончен|окончен)/i.test(flat)) cur.done = true;
   }
-  return res.filter((m) => m.goals.length || m.done || m.announced).map(({ done, ...m }) => ({ ...m, finished: done }));
+  return res.filter((m) => m.t && (m.goals.length || m.done || m.announced)).map(({ done, ...m }) => ({ ...m, finished: done }));
 }
 
 // =====================================================================
