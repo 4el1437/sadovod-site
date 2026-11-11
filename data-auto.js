@@ -1,7 +1,7 @@
 // Файл создаётся автоматически скриптом update.js — не редактируйте вручную.
 // Ручные правки делайте в data.js (MANUAL_MATCHES / MANUAL_STANDINGS).
 const AUTO = {
- "updated": "2026-11-11T01:53:47.622Z",
+ "updated": "2026-11-11T09:16:38.822Z",
  "tournaments": {
   "city": {
    "standings": [
@@ -132,7 +132,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-11T01:53:47.622Z"
+   "at": "2026-11-11T09:16:38.822Z"
   },
   "fbl": {
    "standings": [
@@ -569,7 +569,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-11T01:53:47.622Z"
+   "at": "2026-11-11T09:16:38.822Z"
   },
   "cup": {
    "standings": [],
@@ -589,7 +589,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-11T01:53:47.622Z"
+   "at": "2026-11-11T09:16:38.822Z"
   }
  },
  "telegram": {
@@ -1010,7 +1010,7 @@ const AUTO = {
     "announced": true,
     "lineupPost": {
      "id": 2040,
-     "photo": "https://cdn4.telesco.pe/file/smt6Nlxn38AceE5i7IBqMfXntVePMT1NQ_fycioIvKpvmm9bOUgU7iSz5vFdMH6t0s3rtZLT_n4fFjjBbvAsaSCgyjMZMx39WWPyx-NFJ-QjE0fg0nNrL8ozgGw8pUJPXSOfMHstNrwrYuFyCoBrhx9WBMCmFBxchU4JQ3sQJ8WPs4K5QSyA-0lzk3aj4HdB1RJ2EEdvrxgca5U-V5lrC-IbJyZbnIUUefXhs1KIqamXQMYtYvVQeXai3GIn9QbStwtDeDWcp0wlW71SJB62Ua17vq9Sc5mXqzLMeMUSwE67Uu1wJQ7pdDYesE4_2agtUXvFJL5L4nQvy8arP1MfJw.jpg"
+     "photo": "https://cdn4.telesco.pe/file/QzYWMWZZZU6pQ4aWDTMR6qTo0kXDXc7Gv7-b72_JRKDGWld78H-DlRTbBjgtBYTt98ofJvwHEJ4O6ZGdo3IU0daEfS2oygsPpkpw3jisD3sRdrYVpLyQ6Tv8LfFTt_Rv54ZvtzeNXGHWrBd6JDAWa9XZX3IbD_UQEz7fwqq0KqW1Zc5DQYY-0uMBJT3O1FMLPgWR6ZPIycnpJdwxibHlFhVqKpcXKftW1DhkDt1ndzQyrRAFwf7cQPWHMCgvjWs-uinejHDHeZKw3MK09-3J_55Ghy4lUo0mz3NcTj57w5s1j3XhuvogrXMut818BCb8-15vK24C0KokeAN28hWQ4Q.jpg"
     },
     "finished": true,
     "lineup": [
@@ -1150,7 +1150,7 @@ const AUTO = {
     "announced": true,
     "lineupPost": {
      "id": 2053,
-     "photo": "https://cdn4.telesco.pe/file/X44EAScP6iOghC_xxeWYFHYx62NI2RNC5b1ukIXyySmavY31iN28qtRGNHPm04u7XotHIO11z9wezJ6WMqt4TlRUaJkD0sTaMgnZ9_bT5D330KbBgPLJsNj-XwyDxnb2Ikwmq6FuZY2LmzdXxAEdpe7uW06miaRptTKunw5BbIsZjWJ174xkudr627pJ4C2InAdT1ZYKDiewMvE1FDoZZVB6R-yd1EP09f4qHUAeubBwOsBCiT7RJFNYDHluQCGGHmbblF2D3gwusRL3vb1v2lV90aGgjApVi8xsLfovnfaNabDJRp-QA77Nwt6J2gNFLyTm2Dh7NyPVOeRUIhRJoA.jpg"
+     "photo": "https://cdn4.telesco.pe/file/sGTZE4SGkt58rGrolZFWwRrZiM8fXKqVRsMCdrBLx5tl6iiRS8VgSs_SJm_QjBiH3eJsfGT9iXRijt7qAF90-cMk9XQgWTsk3P9j_knnO_SGxISDckrtBphKKjlILpEMi1jRxnbd89Kvm5-jWSmaIMbsuIHMaSd3j30cUiT-nevkcyL_wTO3HbMy7EO0V-PYp5GA9kA-EtCujSFiao94aHhMVhrEVidkdkA7NNFFLYsjL92IFdbwkqCIcI4hmJ97JdmAxiBWZTyASLdA88E3E9A5KBSmV7WPHSe5wQmPcnmjZWNnqNxL9uhW0TTLkCihSTVYBYC-XT0X2iWdY0_MSQ.jpg"
     },
     "finished": true,
     "lineup": [
@@ -1167,10 +1167,36 @@ const AUTO = {
    }
   ],
   "ok": true,
-  "at": "2026-11-11T01:53:47.622Z"
+  "at": "2026-11-11T09:16:38.822Z"
  },
  "vk": {
   "posts": [
+   {
+    "id": 4059,
+    "date": "2026-11-11T09:11:34.000Z",
+    "text": "❗ФК Садовод - ФК ФАВОРИТ❗\n\n📆 11 ноября \n⏰ 20:30\n🏟 СК Металлург\nСмотри трансляцию, читай новости здесь или приходи поддержать нас лично!",
+    "photos": [
+     {
+      "big": "https://sun9-52.userapi.com/s/v1/ig2/fJyIqkxql5geZB2cAEpNT6sfzuL4baoP1O--xXxURnysgW5uWB5tTRZR3OtG0MjZ18DDlVO6daMFbJeDBe0_YD4Y.jpg?quality=95&crop=0,0,1254,1254&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,1080x1080,1254x1254&from=bu&cs=640x0",
+      "small": "https://sun9-52.userapi.com/s/v1/ig2/fJyIqkxql5geZB2cAEpNT6sfzuL4baoP1O--xXxURnysgW5uWB5tTRZR3OtG0MjZ18DDlVO6daMFbJeDBe0_YD4Y.jpg?quality=95&crop=0,0,1254,1254&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,1080x1080,1254x1254&from=bu&cs=640x0"
+     }
+    ],
+    "video": null,
+    "link": "https://vk.ru/wall-214784904_4059"
+   },
+   {
+    "id": 4058,
+    "date": "2026-11-11T03:00:01.000Z",
+    "text": "«Садовод» — «Спартак»: голы матча и победный результат 🏆🌟",
+    "photos": [],
+    "video": {
+     "title": "Видео от ФК «Садовод» | Красноярск",
+     "image": "https://iv.okcdn.ru/getVideoPreview?id=21215260445278&idx=0&type=39&tkn=6PQTFabgl5MNwUx6mzCF6_ms9H0&fn=vid_x&scl=4",
+     "clip": false,
+     "link": "https://vk.ru/video-214784904_456239387"
+    },
+    "link": "https://vk.ru/wall-214784904_4058"
+   },
    {
     "id": 4056,
     "date": "2026-11-10T11:32:58.000Z",
@@ -1409,7 +1435,7 @@ const AUTO = {
   ],
   "albums": [],
   "ok": true,
-  "at": "2026-11-11T01:53:47.622Z",
+  "at": "2026-11-11T09:16:38.822Z",
   "via": "widget"
  }
 };
