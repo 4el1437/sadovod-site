@@ -1,7 +1,7 @@
 // Файл создаётся автоматически скриптом update.js — не редактируйте вручную.
 // Ручные правки делайте в data.js (MANUAL_MATCHES / MANUAL_STANDINGS).
 const AUTO = {
- "updated": "2026-11-11T09:16:38.822Z",
+ "updated": "2026-11-11T14:48:58.375Z",
  "tournaments": {
   "city": {
    "standings": [
@@ -132,7 +132,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-11T09:16:38.822Z"
+   "at": "2026-11-11T14:48:58.375Z"
   },
   "fbl": {
    "standings": [
@@ -569,7 +569,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-11T09:16:38.822Z"
+   "at": "2026-11-11T14:48:58.375Z"
   },
   "cup": {
    "standings": [],
@@ -589,7 +589,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-11T09:16:38.822Z"
+   "at": "2026-11-11T14:48:58.375Z"
   }
  },
  "telegram": {
@@ -1010,7 +1010,7 @@ const AUTO = {
     "announced": true,
     "lineupPost": {
      "id": 2040,
-     "photo": "https://cdn4.telesco.pe/file/QzYWMWZZZU6pQ4aWDTMR6qTo0kXDXc7Gv7-b72_JRKDGWld78H-DlRTbBjgtBYTt98ofJvwHEJ4O6ZGdo3IU0daEfS2oygsPpkpw3jisD3sRdrYVpLyQ6Tv8LfFTt_Rv54ZvtzeNXGHWrBd6JDAWa9XZX3IbD_UQEz7fwqq0KqW1Zc5DQYY-0uMBJT3O1FMLPgWR6ZPIycnpJdwxibHlFhVqKpcXKftW1DhkDt1ndzQyrRAFwf7cQPWHMCgvjWs-uinejHDHeZKw3MK09-3J_55Ghy4lUo0mz3NcTj57w5s1j3XhuvogrXMut818BCb8-15vK24C0KokeAN28hWQ4Q.jpg"
+     "photo": "https://cdn4.telesco.pe/file/ol1izuXbKj4-1xdWUFNSH2PtuXC5_Z1uu2xpVliG8fFRoFWPsTK7CpMjiNFGTN67ax96acaQ49fKH8fPeyUAxqncDZv6QD0xtg1nxdFBTuFQAOwMJJ3O3RHU5yNMyfE6z3BWWatzwDOb79P8yxRx2-qyf1W8Mr3mNZ3rjGvKZfBgofs1GyIPfCK4i6A5FDGo_5Q8fgPJ8bz6SvbBTgXV9dM72iDH4-Z_OAPV9T7YYlXN5zbTK5jMK0WJ2TWUIciVLhr_IHyrzoVW4OsBi4I2nI0gABFHFb-odlmKr00OLeb_fvq8bNns5uOib9IlXBDdmCzy4PCoOjLLuRLdZEQ-fw.jpg"
     },
     "finished": true,
     "lineup": [
@@ -1150,7 +1150,7 @@ const AUTO = {
     "announced": true,
     "lineupPost": {
      "id": 2053,
-     "photo": "https://cdn4.telesco.pe/file/sGTZE4SGkt58rGrolZFWwRrZiM8fXKqVRsMCdrBLx5tl6iiRS8VgSs_SJm_QjBiH3eJsfGT9iXRijt7qAF90-cMk9XQgWTsk3P9j_knnO_SGxISDckrtBphKKjlILpEMi1jRxnbd89Kvm5-jWSmaIMbsuIHMaSd3j30cUiT-nevkcyL_wTO3HbMy7EO0V-PYp5GA9kA-EtCujSFiao94aHhMVhrEVidkdkA7NNFFLYsjL92IFdbwkqCIcI4hmJ97JdmAxiBWZTyASLdA88E3E9A5KBSmV7WPHSe5wQmPcnmjZWNnqNxL9uhW0TTLkCihSTVYBYC-XT0X2iWdY0_MSQ.jpg"
+     "photo": "https://cdn4.telesco.pe/file/D6UbWfzrSze3lwCnePUCMpiz_2AYTNeTINLgrIUpVUzlIl3PeWDHZB8JTHTrdTsZ96e8NqT6y77GmJ6wd6cc8GoQ9fuo0ANQaqfYY3SXObFNfeH7p8yU_jNhxV8RQeL3BKTJ9k9yYPcFGr2SJEmkuGFZ6zqcjb4Fs9_dq5Jg9_uSNXrMbsnzCaxbDflWQGPaRROxdFz-ccicWnmxDjBiQGxHam38Sz7v85IyCg-2QF7HG4Xlj26mSCn3bDrZkvwmgGHtpKx86oeLuGD9SPKe_SQYI7lyjMds4O2PZPGwSdOOG_z0BRPg21vKXsOBo_6YwDLj14NJQ-WumUR3-UmDgw.jpg"
     },
     "finished": true,
     "lineup": [
@@ -1167,10 +1167,23 @@ const AUTO = {
    }
   ],
   "ok": true,
-  "at": "2026-11-11T09:16:38.822Z"
+  "at": "2026-11-11T14:48:58.375Z"
  },
  "vk": {
   "posts": [
+   {
+    "id": 4061,
+    "date": "2026-11-11T13:00:02.000Z",
+    "text": "❗СОСТАВ НА МАТЧ❗",
+    "photos": [
+     {
+      "big": "https://sun9-50.userapi.com/s/v1/ig2/bvX5H_uSA6H08OBs0_8WiUjEAXCwBZ9H2EY_d9eZiq4Ef0-kCVpT9hwce9-Gc81KtcQr2hFmiWNp5Wsig2hvU3sL.jpg?quality=95&crop=0,0,1122,1402&as=32x40,48x60,72x90,108x135,160x200,240x300,360x450,480x600,540x675,640x800,720x900,1080x1350,1122x1402&from=bu&cs=640x0",
+      "small": "https://sun9-50.userapi.com/s/v1/ig2/bvX5H_uSA6H08OBs0_8WiUjEAXCwBZ9H2EY_d9eZiq4Ef0-kCVpT9hwce9-Gc81KtcQr2hFmiWNp5Wsig2hvU3sL.jpg?quality=95&crop=0,0,1122,1402&as=32x40,48x60,72x90,108x135,160x200,240x300,360x450,480x600,540x675,640x800,720x900,1080x1350,1122x1402&from=bu&cs=640x0"
+     }
+    ],
+    "video": null,
+    "link": "https://vk.ru/wall-214784904_4061"
+   },
    {
     "id": 4059,
     "date": "2026-11-11T09:11:34.000Z",
@@ -1435,7 +1448,7 @@ const AUTO = {
   ],
   "albums": [],
   "ok": true,
-  "at": "2026-11-11T09:16:38.822Z",
+  "at": "2026-11-11T14:48:58.375Z",
   "via": "widget"
  }
 };
