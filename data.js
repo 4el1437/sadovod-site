@@ -76,7 +76,7 @@ const TELEGRAM = {
   fromPost: 1973,
   tz: 7, // Красноярск, UTC+7
   rules: [
-    { t: "cup",  match: "кубок город" },
+    { t: "cup",  match: "куб\\S* город" },
     { t: "fbl",  match: "фбл" },
     { t: "city", match: "чемпионат.{0,20}город|лиги города" },
   ],

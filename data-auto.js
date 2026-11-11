@@ -1,10 +1,30 @@
 // Файл создаётся автоматически скриптом update.js — не редактируйте вручную.
 // Ручные правки делайте в data.js (MANUAL_MATCHES / MANUAL_STANDINGS).
 const AUTO = {
- "updated": "2026-11-11T15:06:00.165Z",
+ "updated": "2026-11-11T15:15:53.747Z",
  "tournaments": {
   "city": {
    "standings": [
+    {
+     "team": "СтройИнновация",
+     "p": 2,
+     "w": 2,
+     "d": 0,
+     "l": 0,
+     "gf": 5,
+     "ga": 3,
+     "pts": 6
+    },
+    {
+     "team": "Садовод",
+     "p": 2,
+     "w": 2,
+     "d": 0,
+     "l": 0,
+     "gf": 9,
+     "ga": 4,
+     "pts": 6
+    },
     {
      "team": "ГУФСИН",
      "p": 2,
@@ -16,33 +36,13 @@ const AUTO = {
      "pts": 6
     },
     {
-     "team": "СтройИнновация",
-     "p": 1,
-     "w": 1,
-     "d": 0,
-     "l": 0,
-     "gf": null,
-     "ga": null,
-     "pts": 3
-    },
-    {
      "team": "Магистраль-ФК ФАВОРИТ",
-     "p": 1,
+     "p": 2,
      "w": 1,
      "d": 0,
-     "l": 0,
-     "gf": 7,
-     "ga": 2,
-     "pts": 3
-    },
-    {
-     "team": "Садовод",
-     "p": 1,
-     "w": 1,
-     "d": 0,
-     "l": 0,
-     "gf": 5,
-     "ga": 2,
+     "l": 1,
+     "gf": 9,
+     "ga": 6,
      "pts": 3
     },
     {
@@ -66,22 +66,22 @@ const AUTO = {
      "pts": 0
     },
     {
-     "team": "Тотем",
-     "p": 1,
-     "w": 0,
-     "d": 0,
-     "l": 1,
-     "gf": null,
-     "ga": null,
-     "pts": 0
-    },
-    {
      "team": "Спартак",
      "p": 1,
      "w": 0,
      "d": 0,
      "l": 1,
      "gf": 2,
+     "ga": 5,
+     "pts": 0
+    },
+    {
+     "team": "Тотем",
+     "p": 2,
+     "w": 0,
+     "d": 0,
+     "l": 2,
+     "gf": 3,
      "ga": 5,
      "pts": 0
     },
@@ -126,13 +126,16 @@ const AUTO = {
      "time": "20:45",
      "home": "Магистраль-ФК ФАВОРИТ",
      "away": "Садовод",
-     "score": null,
+     "score": [
+      2,
+      4
+     ],
      "venue": "СК Металлург",
      "link": "https://www.goalstream.org/match/106433878/0d560778"
     }
    ],
    "ok": true,
-   "at": "2026-11-11T15:06:00.165Z"
+   "at": "2026-11-11T15:15:53.747Z"
   },
   "fbl": {
    "standings": [
@@ -569,7 +572,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-11T15:06:00.165Z"
+   "at": "2026-11-11T15:15:53.747Z"
   },
   "cup": {
    "standings": [],
@@ -589,7 +592,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-11T15:06:00.165Z"
+   "at": "2026-11-11T15:15:53.747Z"
   }
  },
  "telegram": {
@@ -598,14 +601,112 @@ const AUTO = {
     "t": "cup",
     "opponent": "КОБРА",
     "round": "1/16 ФИНАЛА",
-    "goals": [],
-    "score": null,
+    "goals": [
+     {
+      "score": "1:0",
+      "scorer": "Максим Янгулов",
+      "assist": "Иван Обороча",
+      "post": 1978,
+      "at": "2026-11-01T11:13:15+00:00"
+     },
+     {
+      "score": "2:0",
+      "scorer": "Степан Мельников",
+      "assist": "Артур Мустафин",
+      "post": 1979,
+      "at": "2026-11-01T11:17:06+00:00"
+     },
+     {
+      "score": "3:0",
+      "scorer": "Александр Андриевич",
+      "assist": "Александр Дьяченко",
+      "post": 1981,
+      "at": "2026-11-01T11:29:12+00:00"
+     },
+     {
+      "score": "4:0",
+      "scorer": "Артур Мустафин",
+      "assist": "Вадим Засим",
+      "post": 1982,
+      "at": "2026-11-01T11:29:16+00:00"
+     },
+     {
+      "score": "4:1",
+      "opp": true,
+      "post": 1983,
+      "at": "2026-11-01T11:44:33+00:00"
+     },
+     {
+      "score": "5:1",
+      "scorer": "Степан Мельников",
+      "assist": "Александр Андриевич",
+      "post": 1984,
+      "at": "2026-11-01T11:44:56+00:00"
+     },
+     {
+      "score": "6:1",
+      "scorer": "Автогол",
+      "assist": "Артур Мустафин",
+      "post": 1985,
+      "at": "2026-11-01T11:45:06+00:00"
+     },
+     {
+      "score": "6:2",
+      "opp": true,
+      "post": 1986,
+      "at": "2026-11-01T11:45:48+00:00"
+     },
+     {
+      "score": "6:3",
+      "opp": true,
+      "post": 1987,
+      "at": "2026-11-01T11:49:16+00:00"
+     },
+     {
+      "score": "7:3",
+      "scorer": "Степан Мельников",
+      "assist": "Артур Мустафин",
+      "post": 1988,
+      "at": "2026-11-01T11:51:32+00:00"
+     },
+     {
+      "score": "8:3",
+      "scorer": "Василий Прокофьев",
+      "assist": "Максим Янгулов",
+      "post": 1989,
+      "at": "2026-11-01T11:59:31+00:00"
+     }
+    ],
+    "score": [
+     8,
+     3
+    ],
     "date": "2026-11-01",
     "time": "18:00",
     "venue": "МСК «Сопка»",
     "post": 1973,
     "announced": true,
-    "finished": false
+    "lineupPost": {
+     "id": 1976,
+     "photo": "https://cdn4.telesco.pe/file/J1B5fW7Sj3XfxWLsx_fnVb1e27ElNoDg5oqB6P3LeW3Q7LferxkCbTNzkvhs6gsam5M0rPO8gyYKfxdjwfTHPt_uaHoLWDO-eEm7t8IZfuUlYvydqmzmGwevyCArSEzAa4AbPxqi3azJHM6gyaXwlnIzKCGgfbhvuiAbj8-a9Ay6REAFksW-OONmrCwP5GD9b9fZXRV_PmuojEtrC50PRQDObDw3bTq6B37P8UzxJKctydJKTuErj83wn4outFXqrU6IS9JY10RZ7qudkBPyMYti09nGaHqaqSaMbOgUzStmyVjL7XdA5YAETWpllsiM6bqVZTBXWtA4_3mPxOP5SA.jpg"
+    },
+    "stream": "https://vk.ru/live-214784904_456239379",
+    "endAt": "2026-11-01T12:14:38+00:00",
+    "finished": true,
+    "lineup": [
+     "Семён Проровский",
+     "Сергей Михаль",
+     "Иван Обороча",
+     "Максим Янгулов",
+     "Степан Мельников",
+     "Михаил Фалькенберг",
+     "Александр Дьяченко",
+     "Александр Воропаев",
+     "Александр Андриевич",
+     "Василий Прокофьев",
+     "Артур Мустафин",
+     "Вадим Засим"
+    ]
    },
    {
     "t": "fbl",
@@ -916,6 +1017,7 @@ const AUTO = {
      "id": 2040,
      "photo": "https://cdn4.telesco.pe/file/ol1izuXbKj4-1xdWUFNSH2PtuXC5_Z1uu2xpVliG8fFRoFWPsTK7CpMjiNFGTN67ax96acaQ49fKH8fPeyUAxqncDZv6QD0xtg1nxdFBTuFQAOwMJJ3O3RHU5yNMyfE6z3BWWatzwDOb79P8yxRx2-qyf1W8Mr3mNZ3rjGvKZfBgofs1GyIPfCK4i6A5FDGo_5Q8fgPJ8bz6SvbBTgXV9dM72iDH4-Z_OAPV9T7YYlXN5zbTK5jMK0WJ2TWUIciVLhr_IHyrzoVW4OsBi4I2nI0gABFHFb-odlmKr00OLeb_fvq8bNns5uOib9IlXBDdmCzy4PCoOjLLuRLdZEQ-fw.jpg"
     },
+    "stream": "https://vk.ru/live-218166313_456239634",
     "endAt": "2026-11-08T11:57:52+00:00",
     "finished": true,
     "lineup": [
@@ -1135,6 +1237,7 @@ const AUTO = {
      "id": 2077,
      "photo": "https://cdn4.telesco.pe/file/Zp9zWFWKMOfLWM21sfD1--kEUXkISE6hDm7p69Jer7X4aTfyvxGKXLVxB7RJ0ZYgCeT-6UFQb2ddJKHb1r4bksxAp9PGr-7l38XbGub_H2I9jECnQ0NBq_LfK5KWIg_z4U4J9djfVOQxOJ21RkOPX6K2xKkMfvKQgT_HUtjpM8noq75DkdkVK1HMk3zkV3zkwR7QOaOEHnqBKkPt2w7SSf5K4xi9FB1ks49EqPhoDHquhK-BZYggGl9HmLLQ4kh-LTYQV0q2WtINoGdZ0PPOFTSM7EKN2vA5crbIOZMpetgxGxK3m1b-iBeYvRT5xeq-1kwdnfxY2_oPw0gPQjguzQ.jpg"
     },
+    "stream": "https://vk.ru/live-218166313_456239636",
     "endAt": "2026-11-11T14:44:47+00:00",
     "finished": true,
     "lineup": [
@@ -1146,7 +1249,7 @@ const AUTO = {
    }
   ],
   "ok": true,
-  "at": "2026-11-11T15:06:00.165Z"
+  "at": "2026-11-11T15:15:53.747Z"
  },
  "vk": {
   "posts": [
@@ -1427,7 +1530,7 @@ const AUTO = {
   ],
   "albums": [],
   "ok": true,
-  "at": "2026-11-11T15:06:00.165Z",
+  "at": "2026-11-11T15:15:53.747Z",
   "via": "widget"
  }
 };

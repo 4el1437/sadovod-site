@@ -133,15 +133,22 @@ const RES_LETTER = { W: "В", D: "Н", L: "П" };
 // идёт ли матч сейчас: от 30 минут до начала до 3 часов после, пока нет итогового счёта
 const kickoff = (m) => new Date(`${m.date}T${m.time || "12:00"}:00+0${TELEGRAM.tz ?? 7}:00`); // время Красноярска у любого зрителя
 const isLive = (m) => !m.score && !!m.time && Date.now() > kickoff(m) - 30 * 6e4 && Date.now() < +kickoff(m) + 3 * 36e5;
+// В данных время — красноярское; зрителю показываем по его часам (в подсказке — время Красноярска).
+const pad2 = (n) => String(n).padStart(2, "0");
+const localTime = (m) => { const d = kickoff(m); return `${pad2(d.getHours())}:${pad2(d.getMinutes())}`; };
+const localDay = (m) => { if (!m.time) return m.date; const d = kickoff(m); return `${d.getFullYear()}-${pad2(d.getMonth() + 1)}-${pad2(d.getDate())}`; };
+const sameTz = (m) => !m.time || localTime(m) === m.time.padStart(5, "0");
+const whenText = (m) => `${fmtDate(localDay(m))}${m.time ? ` · <span${sameTz(m) ? "" : ` title="${esc(m.time)} по Красноярску"`}>${localTime(m)}</span>` : ""}`;
+const countdownTag = (m) => `<span class="countdown" data-at="${kickoff(m).toISOString()}"></span>`;
 
 function matchCard(m) {
   const r = result(m);
   const live = isLive(m), sc = m.score || m.liveScore;
-  const center = sc ? `<div class="match__score">${sc[0]} : ${sc[1]}</div>` : `<div class="match__vs">${esc(m.time || "vs")}</div>`;
-  const tag = r ? `<span class="badge ${r}">${RES_TXT[r]}</span>` : live ? `<span class="live-badge">● онлайн</span>` : m.time ? `<span class="countdown" data-at="${m.date}T${m.time}"></span>` : "";
+  const center = sc ? `<div class="match__score">${sc[0]} : ${sc[1]}</div>` : `<div class="match__vs">${m.time ? localTime(m) : "vs"}</div>`;
+  const tag = r ? `<span class="badge ${r}">${RES_TXT[r]}</span>` : live ? `<span class="live-badge">● онлайн</span>` : m.time ? countdownTag(m) : "";
   const t = TBY[m.t];
   return `<div class="card match match--link" data-match="${esc(m.key)}" tabindex="0" role="button" aria-label="Матч: ${esc(m.home)} — ${esc(m.away)}">
-    <div class="match__meta"><span>${fmtDate(m.date)}${m.time ? " · " + esc(m.time) : ""}</span><span class="tag tag-${m.t}">${esc(t.short)}${m.round ? " · " + esc(m.round) : ""}</span></div>
+    <div class="match__meta"><span>${whenText(m)}</span><span class="tag tag-${m.t}">${esc(t.short)}${m.round ? " · " + esc(m.round) : ""}</span></div>
     <div class="match__row">
       <div class="match__team ${isUs(m, m.home) ? "us" : ""}">${esc(m.home)}</div>${center}
       <div class="match__team ${isUs(m, m.away) ? "us" : ""}">${esc(m.away)}</div>
@@ -237,7 +244,7 @@ function tournamentSummary(t) {
 
 function pageHome() {
   const now = new Date();
-  const when = (m) => new Date(`${m.date}T${m.time || "23:59"}`);
+  const when = (m) => (m.time ? kickoff(m) : new Date(`${m.date}T23:59:00+07:00`));
   const played = ALL_MATCHES.filter((m) => m.score).sort((a, b) => when(b) - when(a));
   const upcoming = ALL_MATCHES.filter((m) => !m.score && when(m) >= new Date(now - 3 * 36e5)).sort((a, b) => when(a) - when(b));
   $("#app").innerHTML = `
@@ -600,7 +607,44 @@ function streamEmbed(url) {
   if ((m = url.match(/twitch\.tv\/(\w+)/))) return `https://player.twitch.tv/?channel=${m[1]}&parent=${location.hostname}`;
   return null;
 }
-const hhmm = (iso) => new Date(iso).toLocaleTimeString("ru-RU", { hour: "2-digit", minute: "2-digit", timeZone: "Asia/Krasnoyarsk" });
+const hhmm = (iso) => new Date(iso).toLocaleTimeString("ru-RU", { hour: "2-digit", minute: "2-digit" }); // по часам зрителя
+
+// видео к матчу: трансляция (ссылка из телеграма или приложения) + ролики из VK про этот матч
+// (пост в VK не раньше дня матча и не позже чем через 5 дней, в тексте или названии — соперник)
+function matchVideos(m) {
+  const lc = (x) => (x || "").toLowerCase();
+  const list = [];
+  if (m.stream) list.push({ url: m.stream, title: isLive(m) ? "Прямая трансляция" : "Трансляция матча" });
+  const other = isUs(m, m.home) ? m.away : m.home;
+  const words = lc(other).replace(/[«»"]/g, "").split(/[\s-]+/).filter((w) => w.length >= 4 && w !== "садовод");
+  const day = Date.parse(m.date + "T00:00:00+07:00");
+  const vid = (u) => u.match(/(?:video|live|clip)(-?\d+_\d+)/)?.[1];
+  const seen = new Set(list.map((v) => vid(v.url)));
+  for (const p of AUTO_DATA.vk?.posts || []) {
+    if (!p.video?.link || !words.length) continue;
+    const dt = Date.parse(p.date);
+    if (!(dt >= day && dt < day + 6 * 864e5)) continue;
+    const txt = lc(`${p.text} ${p.video.title}`);
+    if (!words.some((w) => txt.includes(w))) continue;
+    const id = vid(p.video.link);
+    if (!id || seen.has(id)) continue;
+    seen.add(id);
+    const title = /гол|момент|обзор|хайлайт/i.test(txt) ? "Голы и лучшие моменты" : p.video.title && !/^видео от/i.test(p.video.title) ? p.video.title : "Видео матча";
+    list.push({ url: p.video.link, title });
+  }
+  return list;
+}
+function videoBlock(v) {
+  if (isHls(v.url)) return `<div class="mm__video mm__video--in" data-stream="${esc(v.url)}"></div>`;
+  const src = streamEmbed(v.url);
+  return src ? `<div class="mm__video mm__video--in"><iframe src="${src}" data-stream="${esc(v.url)}" allow="autoplay; encrypted-media; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>`
+    : `<a class="btn" href="${esc(v.url)}" target="_blank">📺 Смотреть</a>`;
+}
+function matchMedia(m) {
+  const vs = matchVideos(m);
+  if (!vs.length) return "";
+  return `<h3>${vs.length > 1 ? "Трансляция и видео" : "Трансляция"}</h3>${vs.map((v) => `<p class="muted mm__vt">${esc(v.title)}</p>${videoBlock(v)}`).join("")}`;
+}
 
 function matchBody(m) {
   const r = result(m), live = isLive(m), sc = m.score || m.liveScore, t = TBY[m.t];
@@ -615,22 +659,27 @@ function matchBody(m) {
       : `${g.scorer ? who(g.scorer) : "—"}${g.assist ? ` <span class="muted">(пас: ${who(g.assist)})</span>` : ""}`;
     return `<li class="mm__goal${g.opp ? " mm__goal--opp" : ""}"><span class="mm__gs">${hs(g.score)}</span><span class="mm__gw">${g.opp ? "" : "⚽ "}${body}</span><span class="mm__gt muted">${time}</span></li>`;
   }).join("");
-  const squad = [...playedIn(m)];
   const status = r ? `<span class="badge ${r}">${RES_TXT[r]}</span>`
     : live ? `<span class="live-badge">● онлайн</span> <span class="muted">обновляется раз в минуту${liveAt ? " · " + hhmm(liveAt) : ""}</span>`
-    : m.time ? `<span class="countdown" data-at="${m.date}T${m.time}"></span>` : "";
+    : m.time ? countdownTag(m) : "";
   return `
-    <div class="match__meta"><span>${fmtDate(m.date)}${m.time ? " · " + esc(m.time) : ""}</span><span class="tag tag-${m.t}">${esc(t.short)}${m.round ? " · " + esc(m.round) : ""}</span></div>
+    <div class="match__meta"><span>${whenText(m)}</span><span class="tag tag-${m.t}">${esc(t.short)}${m.round ? " · " + esc(m.round) : ""}</span></div>
     <div class="match__row mm__row">
       <div class="match__team ${isUs(m, m.home) ? "us" : ""}">${esc(m.home)}</div>
-      ${sc ? `<div class="match__score">${sc[0]} : ${sc[1]}</div>` : `<div class="match__vs">${esc(m.time || "vs")}</div>`}
+      ${sc ? `<div class="match__score">${sc[0]} : ${sc[1]}</div>` : `<div class="match__vs">${m.time ? localTime(m) : "vs"}</div>`}
       <div class="match__team ${isUs(m, m.away) ? "us" : ""}">${esc(m.away)}</div>
     </div>
     <div class="mm__status">${status}</div>
     ${m.venue ? `<p class="muted" style="margin:10px 0 0">📍 ${esc(m.venue)}</p>` : ""}
     <h3>Голы</h3>
     ${goals ? `<ul class="mm__goals">${goals}</ul>` : `<p class="muted">${live || !m.score ? "Голов пока нет — здесь они появятся по ходу матча." : "Авторы голов не указаны."}</p>`}
-    ${m.mvp ? `<p style="margin:12px 0 0">⭐ Лучший игрок: ${who(m.mvp)}</p>` : ""}
+    ${m.mvp ? `<p style="margin:12px 0 0">⭐ Лучший игрок: ${who(m.mvp)}</p>` : ""}`;
+}
+
+// под видео: состав и протокол (видео между ними не перерисовывается при онлайн-обновлениях)
+function matchRest(m) {
+  const squad = [...playedIn(m)];
+  return `
     ${squad.length ? `<h3>Состав</h3><div class="mm__squad">${squad.map((n) => `<span class="chip"${PLAYERS.some((p) => p.name === n) ? ` data-player="${esc(n)}" role="button" tabindex="0"` : ""}>${esc(n)}</span>`).join("")}</div>` : ""}
     ${m.link && !/t\.me\//.test(m.link) ? `<p style="margin:16px 0 0"><a class="muted" href="${m.link}" target="_blank">Протокол у организаторов →</a></p>` : ""}`;
 }
@@ -639,24 +688,21 @@ function openMatch(key) {
   const m = ALL_MATCHES.find((x) => x.key === key);
   if (!m) return;
   document.querySelector(".pmodal--match")?.remove();
-  const hls = isHls(m.stream);
-  const src = m.stream && !hls && streamEmbed(m.stream);
   const box = document.createElement("div");
   box.className = "pmodal pmodal--match";
   box.dataset.key = key;
   box.innerHTML = `<div class="pm mm" role="dialog" aria-modal="true" aria-label="${esc(m.home)} — ${esc(m.away)}">
     <button class="pm__x" aria-label="Закрыть">✕</button>
-    ${hls ? `<div class="mm__video" data-stream="${esc(m.stream)}"></div>`
-      : src ? `<div class="mm__video"><iframe src="${src}" data-stream="${esc(m.stream)}" allow="autoplay; encrypted-media; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>`
-      : m.stream ? `<a class="btn mm__watch" href="${esc(m.stream)}" target="_blank">📺 Смотреть трансляцию</a>` : ""}
     <div class="mm__body">${matchBody(m)}</div>
+    <div class="mm__media">${matchMedia(m)}</div>
+    <div class="mm__rest">${matchRest(m)}</div>
   </div>`;
   const close = () => { box.remove(); document.removeEventListener("keydown", onKey); if (location.hash.startsWith("#match=")) history.replaceState(null, "", location.pathname + location.search); };
   const onKey = (e) => e.key === "Escape" && !document.querySelector(".pmodal:not(.pmodal--match)") && close();
   box.onclick = (e) => { if (e.target === box || e.target.closest(".pm__x")) close(); };
   document.addEventListener("keydown", onKey);
   document.body.appendChild(box);
-  if (hls) mountHls(box.querySelector(".mm__video"), m.stream);
+  box.querySelectorAll(".mm__media .mm__video[data-stream]").forEach((el) => mountHls(el, el.dataset.stream));
   tickCountdowns();
   history.replaceState(null, "", "#match=" + encodeURIComponent(key));
 }
@@ -685,7 +731,8 @@ async function pollLive() {
     rebuild();
     if (sig() !== before && document.body.dataset.page === "home") PAGE_FN(); // карточки матчей — только на главной
     const open = document.querySelector(".pmodal--match");
-    if (open) { const m = ALL_MATCHES.find((x) => x.key === open.dataset.key); if (m) { open.querySelector(".mm__body").innerHTML = matchBody(m); tickCountdowns(); } }
+    if (open) { const m = ALL_MATCHES.find((x) => x.key === open.dataset.key); if (m) { open.querySelector(".mm__body").innerHTML = matchBody(m); open.querySelector(".mm__rest").innerHTML = matchRest(m); tickCountdowns();
+      if (m.stream && !open.querySelector(`[data-stream="${CSS.escape(m.stream)}"]`)) openMatch(m.key); } } // появилась трансляция — показать плеер
   } catch {}
 }
 

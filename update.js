@@ -269,6 +269,9 @@ function announceInfo(text) {
   return out;
 }
 
+// ссылка на трансляцию (VK видео/лайв, YouTube, Twitch)
+const STREAM_RE = /https?:\/\/(?:(?:m\.)?vk\.(?:com|ru)\/(?:video|live|clip)[^\s]*|vkvideo\.ru\/[^\s]+|(?:www\.|m\.)?youtube\.com\/[^\s]+|youtu\.be\/[^\s]+|(?:www\.)?twitch\.tv\/[^\s]+)/i;
+
 function tgMatches(posts, cfg) {
   const rules = cfg.rules.map((r) => ({ ...r, re: new RegExp(r.match, "i") }));
   const local = (dt) => new Date(new Date(dt).getTime() + cfg.tz * 36e5).toISOString(); // время Красноярска
@@ -286,7 +289,7 @@ function tgMatches(posts, cfg) {
     // анонс без названия турнира («ФК Садовод - ФК ФАВОРИТ, 📆 11 ноября») — турнир возьмём из шапки матча
     const bare = !rule && opp && announceInfo(p.text).date;
     if ((rule || bare) && opp) {
-      const opponent = opp[1].replace(/[«»"]/g, "").trim();
+      const opponent = opp[1].replace(/[«»"]/g, "").replace(/[^\p{L}\p{N})]+$/u, "").trim(); // хвостовые эмодзи («Кобра☄️») — прочь
       const round = flat.match(/(1\/\d+ финала|\d+ тур|финал|полуфинал)/i)?.[1] || "";
       if (!cur || cur.done || cur.opponent.toLowerCase() !== opponent.toLowerCase()) {
         cur = { t: rule ? rule.t : null, opponent, round, goals: [], score: null, date: "", time: "", venue: "", done: false, post: p.id, announced: false };
@@ -299,11 +302,14 @@ function tgMatches(posts, cfg) {
       if (info.time) cur.time ||= info.time;
       if (info.venue) cur.venue ||= info.venue;
       if (round && !cur.round) cur.round = round;
+      // ссылка на эфир часто прямо в шапке: «ФК ФАВОРИТ - ФК Садовод … https://vk.ru/live-…»
+      const hs = flat.match(STREAM_RE);
+      if (hs && !cur.stream) cur.stream = hs[0];
       continue;
     }
     if (!cur || cur.done) continue;
     // ссылка на трансляцию (VK видео/лайв, YouTube, Twitch) — первая найденная
-    const st = flat.match(/https?:\/\/(?:(?:m\.)?vk\.(?:com|ru)\/(?:video|live|clip)[^\s]*|vkvideo\.ru\/[^\s]+|(?:www\.|m\.)?youtube\.com\/[^\s]+|youtu\.be\/[^\s]+|(?:www\.)?twitch\.tv\/[^\s]+)/i);
+    const st = flat.match(STREAM_RE);
     if (st && !cur.stream) cur.stream = st[0];
     const g = flat.match(/^\s*(\d+)\s*:\s*(\d+)\s*(.*)$/);
     if (g) {
