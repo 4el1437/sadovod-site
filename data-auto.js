@@ -1,7 +1,7 @@
 // Файл создаётся автоматически скриптом update.js — не редактируйте вручную.
 // Ручные правки делайте в data.js (MANUAL_MATCHES / MANUAL_STANDINGS).
 const AUTO = {
- "updated": "2026-11-11T17:21:04.807Z",
+ "updated": "2026-11-11T23:36:46.915Z",
  "tournaments": {
   "city": {
    "standings": [
@@ -214,7 +214,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-11T17:21:04.807Z"
+   "at": "2026-11-11T23:36:46.915Z"
   },
   "fbl": {
    "standings": [
@@ -662,7 +662,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-11T17:21:04.807Z"
+   "at": "2026-11-11T23:36:46.915Z"
   },
   "cup": {
    "standings": [],
@@ -693,7 +693,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-11T17:21:04.807Z"
+   "at": "2026-11-11T23:36:46.915Z"
   }
  },
  "telegram": {
@@ -1116,7 +1116,7 @@ const AUTO = {
     "announced": true,
     "lineupPost": {
      "id": 2040,
-     "photo": "https://cdn4.telesco.pe/file/qodixBLjpbvb9anEiDqie8HXK0iQyUT8LFFQBjYNwzs5XuaODp_lLOoOAMqcLoMPNkFIEzq7TCiAUESCe3J6uo4dioU_zPz7QkZn0isAJzFl8C96uvafsGJp8flGhaklsVBbJoRRregb-otKiVVxmaBBxq7so3Xqa4BT3nlZJtzPFa4CRCsMdbfeEGkquvKZ5oL6N9eyaREJ59XV7qy8mB_R04w8uqZOrGrGisgl0NWr8egwmsEefPaGm6Q4vEqR3w43Lam-fcDenaA500YLmV6L-irzId-iTSv0zIjjE7eYtTnfsYLJoXhNyzgvlcZno9PjwzPnNXu8KHrZPg2o4g.jpg"
+     "photo": "https://cdn4.telesco.pe/file/F4hvfa_11ky0JITDsL4jJBhwNA9GHNU_myeM3jjWqkTEK_AEXCt5tQFfLoHlSrR6_pTroipPrEI3E3S0t3WF7qrCuJubnQZPP5m5y5SluwKpWNfagy1gL3Q95Phq1WapHOkZVpWVjlgY1IOs7-s39Ce02cKI8-vLvxkkrQtjNfAgO914vyxK8CIZOu1XA7nYB4SqOmfrbqJebMJ_UltUK4VzfQAigo1P2kTht5Bb_ZSQ3FMl6pepIp27OrNCXQgzwnsQauCUL58SmwuwstPjQXoAi2cKY_zyhSRts-BBe61_lDDVjQVbwkfkwp4CxTwXa924uDc_RVa0mQFIVO9Z-Q.jpg"
     },
     "stream": "https://vk.ru/live-218166313_456239634",
     "endAt": "2026-11-08T11:57:52+00:00",
@@ -1263,7 +1263,7 @@ const AUTO = {
     "announced": true,
     "lineupPost": {
      "id": 2053,
-     "photo": "https://cdn4.telesco.pe/file/GXrD-HuxuuUbNmxZowOKOUqpThzA9e5MwlIjOKq2uS9StrFdyifQj3CxJCF8oo0piMycV-L6-yKbK2DpOwbn9c1QR-AnXSer8hscTljBqWsg0ndSYNx42cpJtnZ3mNs-wCc7_fLCxRfbydsHmZ5J11pYgpsFwPKLA8VCNlanizbWtTugDlhIaBaiy2poLmeKiA2lCQlJmgqB6kFSQ0qwTTjExZ4jsGCTfTRgkGEq4rThVDYwS3j6VJIBUxkSyIAykJFSxzeHirrkNkcaNLCjbfZTzzg9lRhfzv0pnFOrSwkzeEay5uySnUDNYVzrZrd21BJXmOjOwZ7i0Gagl8ruqg.jpg"
+     "photo": "https://cdn4.telesco.pe/file/WiiGH_OrvctdWypsulitBx8xYTZeAntpqTuikFPrOQw-H8YyKZuLBnRZE62W46IaED2FaFyldvOUk7MIqBOQWSAJeGDJhM_LGIvRQqLcvP75UtpWc7DxTVv6QMqTRqKWpqHWToRcS-ki9uyr2VgsO9iJLE_ysCsFy35sYhaa6LQ3ijyVYubORfFkf5yDfPObKvyNXbW7iShwjlgGeDjK9qv8OqMaEFjxFjRYVVcIBII_zvpsSDH8sgObo5ph8p-NfCBM9DWd7Ip1ce1t3O5nRPzv584e1T3CSvrif-a5c3Bh6dM3bLLtLmZo7TpVj_7ClN8knuE509m9CsAmhNb1cA.jpg"
     },
     "endAt": "2026-11-09T15:20:33+00:00",
     "finished": true,
@@ -1336,7 +1336,7 @@ const AUTO = {
     "announced": true,
     "lineupPost": {
      "id": 2077,
-     "photo": "https://cdn4.telesco.pe/file/Zp9zWFWKMOfLWM21sfD1--kEUXkISE6hDm7p69Jer7X4aTfyvxGKXLVxB7RJ0ZYgCeT-6UFQb2ddJKHb1r4bksxAp9PGr-7l38XbGub_H2I9jECnQ0NBq_LfK5KWIg_z4U4J9djfVOQxOJ21RkOPX6K2xKkMfvKQgT_HUtjpM8noq75DkdkVK1HMk3zkV3zkwR7QOaOEHnqBKkPt2w7SSf5K4xi9FB1ks49EqPhoDHquhK-BZYggGl9HmLLQ4kh-LTYQV0q2WtINoGdZ0PPOFTSM7EKN2vA5crbIOZMpetgxGxK3m1b-iBeYvRT5xeq-1kwdnfxY2_oPw0gPQjguzQ.jpg"
+     "photo": "https://cdn4.telesco.pe/file/WODDgiEhrEUQqROIzzYl_iOdZ1KUgekvtz2GU6RU5_n3Bl5fopIPo8icnulXdAAXImmifwtt2qo2luITsIXPVE-mZuMMPc-NSiNB6fvLPxPlrp42FZ6pEd7jbgywRMksv5XVRrYoCQFiZK8EYKERZx5RTEH47D3ZIbUnYz9kWQNPRXJusuZmpb7igHoJYI2r6pX5vU157_8uPn2UNHtPkqoLaF2rr_PKzYDp2MqMfi6hbJ31lpwDwSVhXKN9HySRDWsz6obOawJZjBuOanO8Xclf2p_GNIIqAfKfsBYzJCIzKBxxe5_twX5X7WfwpLejFE9vTG0LS7uDO8zsRpgR_Q.jpg"
     },
     "stream": "https://vk.ru/live-218166313_456239636",
     "endAt": "2026-11-11T14:44:47+00:00",
@@ -1350,7 +1350,7 @@ const AUTO = {
    }
   ],
   "ok": true,
-  "at": "2026-11-11T17:21:04.807Z"
+  "at": "2026-11-11T23:36:46.915Z"
  },
  "vk": {
   "posts": [
@@ -1644,7 +1644,7 @@ const AUTO = {
   ],
   "albums": [],
   "ok": true,
-  "at": "2026-11-11T17:21:04.807Z",
+  "at": "2026-11-11T23:36:46.915Z",
   "via": "widget"
  }
 };
