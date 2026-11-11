@@ -1,7 +1,7 @@
 // Файл создаётся автоматически скриптом update.js — не редактируйте вручную.
 // Ручные правки делайте в data.js (MANUAL_MATCHES / MANUAL_STANDINGS).
 const AUTO = {
- "updated": "2026-11-11T14:59:17.691Z",
+ "updated": "2026-11-11T15:06:00.165Z",
  "tournaments": {
   "city": {
    "standings": [
@@ -132,7 +132,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-11T14:59:17.691Z"
+   "at": "2026-11-11T15:06:00.165Z"
   },
   "fbl": {
    "standings": [
@@ -569,7 +569,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-11T14:59:17.691Z"
+   "at": "2026-11-11T15:06:00.165Z"
   },
   "cup": {
    "standings": [],
@@ -589,7 +589,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-11T14:59:17.691Z"
+   "at": "2026-11-11T15:06:00.165Z"
   }
  },
  "telegram": {
@@ -834,6 +834,7 @@ const AUTO = {
      "id": 1993,
      "photo": "https://cdn4.telesco.pe/file/h6CRb0EETyPQHwpQRWpZm6pXpz5zMlEgBpOQmcDcESqnzuiPcv7OMhyoegJ-B8ZtL6Xp3fLo97dJFRp49F3c_goy4Y-Hz1XdFg5I1jZipoI4lsCN0x6V1JZNwKTfV55RELVkNqovKaDSo-UMDG-CuVH6F2mp_7DB9hhni2-zv7aZrpmggfopQwHxcX6cTsFtrTx0kumZRS5EAnxAXAkFoHOYWoYWOPbY12y9ojiPNMwARcWCFM2D-JWHPLOk1w5SD4Fu6rsnFFfqOjLewXLbVzFcwhsHrdsVirS5O0eg6XwawdClcu3mwMRo-jTFrBBHVknAq5RD4LACLJtTMfyIZw.jpg"
     },
+    "endAt": "2026-11-02T14:58:58+00:00",
     "finished": true,
     "lineup": [
      "Семён Проровский",
@@ -915,6 +916,7 @@ const AUTO = {
      "id": 2040,
      "photo": "https://cdn4.telesco.pe/file/ol1izuXbKj4-1xdWUFNSH2PtuXC5_Z1uu2xpVliG8fFRoFWPsTK7CpMjiNFGTN67ax96acaQ49fKH8fPeyUAxqncDZv6QD0xtg1nxdFBTuFQAOwMJJ3O3RHU5yNMyfE6z3BWWatzwDOb79P8yxRx2-qyf1W8Mr3mNZ3rjGvKZfBgofs1GyIPfCK4i6A5FDGo_5Q8fgPJ8bz6SvbBTgXV9dM72iDH4-Z_OAPV9T7YYlXN5zbTK5jMK0WJ2TWUIciVLhr_IHyrzoVW4OsBi4I2nI0gABFHFb-odlmKr00OLeb_fvq8bNns5uOib9IlXBDdmCzy4PCoOjLLuRLdZEQ-fw.jpg"
     },
+    "endAt": "2026-11-08T11:57:52+00:00",
     "finished": true,
     "lineup": [
      "Семён Проровский",
@@ -1015,31 +1017,36 @@ const AUTO = {
       "score": "8:4",
       "opp": true,
       "post": 2067,
-      "at": "2026-11-09T15:20:33+00:00"
+      "at": "2026-11-09T15:20:33+00:00",
+      "fin": true
      },
      {
       "score": "8:5",
       "opp": true,
       "post": 2067,
-      "at": "2026-11-09T15:20:33+00:00"
+      "at": "2026-11-09T15:20:33+00:00",
+      "fin": true
      },
      {
       "score": "8:6",
       "opp": true,
       "post": 2067,
-      "at": "2026-11-09T15:20:33+00:00"
+      "at": "2026-11-09T15:20:33+00:00",
+      "fin": true
      },
      {
       "score": "8:7",
       "opp": true,
       "post": 2067,
-      "at": "2026-11-09T15:20:33+00:00"
+      "at": "2026-11-09T15:20:33+00:00",
+      "fin": true
      },
      {
       "score": "8:8",
       "opp": true,
       "post": 2067,
-      "at": "2026-11-09T15:20:33+00:00"
+      "at": "2026-11-09T15:20:33+00:00",
+      "fin": true
      }
     ],
     "score": [
@@ -1055,6 +1062,7 @@ const AUTO = {
      "id": 2053,
      "photo": "https://cdn4.telesco.pe/file/D6UbWfzrSze3lwCnePUCMpiz_2AYTNeTINLgrIUpVUzlIl3PeWDHZB8JTHTrdTsZ96e8NqT6y77GmJ6wd6cc8GoQ9fuo0ANQaqfYY3SXObFNfeH7p8yU_jNhxV8RQeL3BKTJ9k9yYPcFGr2SJEmkuGFZ6zqcjb4Fs9_dq5Jg9_uSNXrMbsnzCaxbDflWQGPaRROxdFz-ccicWnmxDjBiQGxHam38Sz7v85IyCg-2QF7HG4Xlj26mSCn3bDrZkvwmgGHtpKx86oeLuGD9SPKe_SQYI7lyjMds4O2PZPGwSdOOG_z0BRPg21vKXsOBo_6YwDLj14NJQ-WumUR3-UmDgw.jpg"
     },
+    "endAt": "2026-11-09T15:20:33+00:00",
     "finished": true,
     "lineup": [
      "Ярослав Ромашин",
@@ -1127,6 +1135,7 @@ const AUTO = {
      "id": 2077,
      "photo": "https://cdn4.telesco.pe/file/Zp9zWFWKMOfLWM21sfD1--kEUXkISE6hDm7p69Jer7X4aTfyvxGKXLVxB7RJ0ZYgCeT-6UFQb2ddJKHb1r4bksxAp9PGr-7l38XbGub_H2I9jECnQ0NBq_LfK5KWIg_z4U4J9djfVOQxOJ21RkOPX6K2xKkMfvKQgT_HUtjpM8noq75DkdkVK1HMk3zkV3zkwR7QOaOEHnqBKkPt2w7SSf5K4xi9FB1ks49EqPhoDHquhK-BZYggGl9HmLLQ4kh-LTYQV0q2WtINoGdZ0PPOFTSM7EKN2vA5crbIOZMpetgxGxK3m1b-iBeYvRT5xeq-1kwdnfxY2_oPw0gPQjguzQ.jpg"
     },
+    "endAt": "2026-11-11T14:44:47+00:00",
     "finished": true,
     "lineup": [
      "Максим Янгулов",
@@ -1137,7 +1146,7 @@ const AUTO = {
    }
   ],
   "ok": true,
-  "at": "2026-11-11T14:59:17.691Z"
+  "at": "2026-11-11T15:06:00.165Z"
  },
  "vk": {
   "posts": [
@@ -1418,7 +1427,7 @@ const AUTO = {
   ],
   "albums": [],
   "ok": true,
-  "at": "2026-11-11T14:59:17.691Z",
+  "at": "2026-11-11T15:06:00.165Z",
   "via": "widget"
  }
 };

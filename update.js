@@ -312,9 +312,10 @@ function tgMatches(posts, cfg) {
       if (!cur.date) { const l = local(p.dt); cur.date = l.slice(0, 10); }
       // «8:8 Матч окончен» — итоговый счёт, а не один гол
       if (/матч (закончен|окончен)/i.test(g[3])) {
-        if (ours === prev[0]) for (let k = prev[1] + 1; k <= theirs; k++) cur.goals.push({ score: `${ours}:${k}`, opp: true, post: p.id, at: p.dt });
+        if (ours === prev[0]) for (let k = prev[1] + 1; k <= theirs; k++) cur.goals.push({ score: `${ours}:${k}`, opp: true, post: p.id, at: p.dt, fin: true }); // время поста — конец матча, не время гола
         cur.score = [ours, theirs];
         cur.done = true;
+        cur.endAt = p.dt;
         continue;
       }
       // минута гола, если её написали в посте: «5:1 13' Андрей Суздаль (Ярослав Ромашин)» или «… 13 мин»
@@ -331,7 +332,7 @@ function tgMatches(posts, cfg) {
       cur.score = [ours, theirs];
       continue;
     }
-    if (/матч (закончен|окончен)/i.test(flat)) cur.done = true;
+    if (/матч (закончен|окончен)/i.test(flat)) { cur.done = true; cur.endAt = p.dt; }
   }
   return res.filter((m) => m.t && (m.goals.length || m.done || m.announced)).map(({ done, ...m }) => ({ ...m, finished: done }));
 }

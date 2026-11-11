@@ -22,6 +22,25 @@ let APP_STREAMS = [];
 // «КОБРА» → «Кобра», «1/16 ФИНАЛА» → «1/16 финала»
 const tidy = (s) => (s === s.toUpperCase() ? s.toLowerCase().replace(/(^|[\s-])(\S)/g, (m, a, b) => a + b.toUpperCase()) : s);
 const tidyRound = (s) => (s || "").toLowerCase();
+
+// Минута гола, если её нет ни в протоколе, ни в посте: оцениваем по времени поста в телеграме.
+// Тайм — HALF минут (в data.js у турнира можно задать half), перерыв 5 минут.
+// Если есть пост «Матч окончен», второй тайм растягиваем до него (задержки, тайм-ауты).
+const HALF = 25, BREAK = 5;
+function estMinutes(m, half = HALF) {
+  if (!m.goals?.length || !m.date || !/^\d{1,2}:\d{2}$/.test(m.time || "")) return m;
+  const start = Date.parse(`${m.date}T${m.time.padStart(5, "0")}:00+07:00`);
+  const end = m.endAt ? (Date.parse(m.endAt) - start) / 6e4 : 0;
+  const second = end > half + BREAK + 10 ? end - half - BREAK : half; // сколько реально длился 2-й тайм
+  m.goals = m.goals.map((g) => {
+    if (g.min != null || g.fin || !g.at) return g;
+    const e = (Date.parse(g.at) - start) / 6e4;
+    if (!(e > -5 && e < 150)) return g; // пост явно не в матче (или время начала неверное)
+    const raw = e <= half ? e : e < half + BREAK ? half : half + ((e - half - BREAK) * half) / second;
+    return { ...g, min: Math.min(2 * half, Math.max(1, Math.ceil(raw))), est: true };
+  });
+  return m;
+}
 // пересобирается заново, когда во время матча приходят онлайн-данные (live.json)
 const buildT = () => TOURNAMENTS.map((t) => {
   const a = AUTO_DATA.tournaments[t.id] || { standings: [], matches: [] };
@@ -42,9 +61,10 @@ const buildT = () => TOURNAMENTS.map((t) => {
     if (hit) { if (tm.stream && !hit.stream) hit.stream = tm.stream; if (!tm.finished && tm.score && !hit.score) hit.liveScore = flip(tm.score, hit.home);
       // минуты голов — из протокола, если он есть (в телеграме только время поста)
       if (tm.goals?.length && hit.goals?.length) for (const g of tm.goals) { const o = hit.goals.find((x) => x.score === g.score && x.min != null); if (o && g.min == null) g.min = o.min; }
+      if (tm.endAt) hit.endAt = tm.endAt;
       if (!hit.time && tm.time) hit.time = tm.time; if (!hit.venue && tm.venue) hit.venue = tm.venue; if (tm.lineup?.length) hit.lineup = tm.lineup; if (tm.goals?.length) hit.goals = tm.goals; // авторы голов — по телеграму команды (в протоколах организаторов бывают ошибки в фамилиях)
       if (!hit.score && tm.score && tm.finished) { hit.score = hit.home === t.team ? tm.score : [tm.score[1], tm.score[0]]; hit.tgScore = true; } if (!hit.round) hit.round = tidyRound(tm.round); }
-    else matches.set("tg" + tm.post, { date: tm.date, time: tm.time || "", home: t.team, away: opp, score: tm.finished ? tm.score : null, tgScore: tm.finished, venue: tm.venue || "", announced: !tm.finished, round: tidyRound(tm.round), goals: tm.goals, lineup: tm.lineup, stream: tm.stream, liveScore: !tm.finished && tm.score ? tm.score : null });
+    else matches.set("tg" + tm.post, { date: tm.date, time: tm.time || "", home: t.team, away: opp, score: tm.finished ? tm.score : null, tgScore: tm.finished, venue: tm.venue || "", announced: !tm.finished, round: tidyRound(tm.round), goals: tm.goals, endAt: tm.endAt, lineup: tm.lineup, stream: tm.stream, liveScore: !tm.finished && tm.score ? tm.score : null });
   }
   // счёт есть только в телеграме (организатор ещё не обновил таблицу) — сами дописываем матч в таблицу:
   // победа 3, ничья 1, поражение 0, мячи — нам и сопернику. Как только придёт официальная таблица с этим матчем, правка исчезнет.
@@ -76,7 +96,7 @@ const buildT = () => TOURNAMENTS.map((t) => {
   return {
     ...t,
     standings,
-    matches: [...matches.values()].map((m) => ({ ...m, t: t.id, us: t.team, key: t.id + ":" + m.date + (m.appKey ? ":" + m.appKey : "") })),
+    matches: [...matches.values()].map((m) => ({ ...estMinutes(m, t.half), t: t.id, us: t.team, key: t.id + ":" + m.date + (m.appKey ? ":" + m.appKey : "") })),
     updated: a.at, ok: a.ok !== false,
   };
 });
@@ -589,7 +609,7 @@ function matchBody(m) {
   const hs = (s) => { const [a, b] = s.split(":"); return usHome ? `${a}:${b}` : `${b}:${a}`; };
   const who = (n) => (PLAYERS.some((p) => p.name === n) ? `<span class="mm__p" data-player="${esc(n)}" role="button" tabindex="0">${esc(n)}</span>` : esc(n));
   const goals = (m.goals || []).map((g) => {
-    const time = g.min != null ? `${g.min}′` : g.at ? hhmm(g.at) : "";
+    const time = g.min != null ? `${g.est ? "≈" : ""}${g.min}′` : g.at ? hhmm(g.at) : "";
     const body = g.opp ? `<span class="muted">гол соперника</span>`
       : /автогол/i.test(g.scorer || "") ? "автогол соперника" + (g.assist ? ` <span class="muted">(${who(g.assist)})</span>` : "")
       : `${g.scorer ? who(g.scorer) : "—"}${g.assist ? ` <span class="muted">(пас: ${who(g.assist)})</span>` : ""}`;
