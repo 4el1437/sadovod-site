@@ -1,7 +1,7 @@
 // Файл создаётся автоматически скриптом update.js — не редактируйте вручную.
 // Ручные правки делайте в data.js (MANUAL_MATCHES / MANUAL_STANDINGS).
 const AUTO = {
- "updated": "2026-11-11T15:45:34.011Z",
+ "updated": "2026-11-11T15:52:37.193Z",
  "tournaments": {
   "city": {
    "standings": [
@@ -118,7 +118,8 @@ const AUTO = {
       2
      ],
      "venue": "МСК Сопка",
-     "link": "https://www.goalstream.org/match/106433874/53090338"
+     "link": "https://www.goalstream.org/match/106433874/53090338",
+     "round": "1 тур"
     },
     {
      "id": "gs106433878",
@@ -131,11 +132,89 @@ const AUTO = {
       4
      ],
      "venue": "СК Металлург",
-     "link": "https://www.goalstream.org/match/106433878/0d560778"
+     "link": "https://www.goalstream.org/match/106433878/0d560778",
+     "round": "2 тур"
+    },
+    {
+     "id": "kf-2026-11-22-Садовод-СИАЛ",
+     "date": "2026-11-22",
+     "time": "18:00",
+     "home": "Садовод",
+     "away": "СИАЛ",
+     "score": null,
+     "venue": "МСК Сопка",
+     "link": "https://www.goalstream.org/season/1097848#/schedule",
+     "round": "3 тур"
+    },
+    {
+     "id": "kf-2026-11-23-ГУФСИН-Садовод",
+     "date": "2026-11-23",
+     "time": "21:30",
+     "home": "ГУФСИН",
+     "away": "Садовод",
+     "score": null,
+     "venue": "СК Тотем",
+     "link": "https://www.goalstream.org/season/1097848#/schedule",
+     "round": "4 тур"
+    },
+    {
+     "id": "kf-2026-12-06-Садовод-МК24-ДзержинеЦ",
+     "date": "2026-12-06",
+     "time": "18:00",
+     "home": "Садовод",
+     "away": "МК24-ДзержинеЦ",
+     "score": null,
+     "venue": "МСК Сопка",
+     "link": "https://www.goalstream.org/season/1097848#/schedule",
+     "round": "5 тур"
+    },
+    {
+     "id": "kf-2026-12-13-Легенда-Садовод",
+     "date": "2026-12-13",
+     "time": "16:00",
+     "home": "Легенда",
+     "away": "Садовод",
+     "score": null,
+     "venue": "СК №7 СФУ",
+     "link": "https://www.goalstream.org/season/1097848#/schedule",
+     "round": "6 тур"
+    },
+    {
+     "id": "kf-2026-12-20-Садовод-Тотем",
+     "date": "2026-12-20",
+     "time": "18:00",
+     "home": "Садовод",
+     "away": "Тотем",
+     "score": null,
+     "venue": "МСК Сопка",
+     "link": "https://www.goalstream.org/season/1097848#/schedule",
+     "round": "7 тур"
+    },
+    {
+     "id": "kf-2026-12-27-Садовод-Killprice",
+     "date": "2026-12-27",
+     "time": "18:00",
+     "home": "Садовод",
+     "away": "Killprice",
+     "score": null,
+     "venue": "МСК Сопка",
+     "link": "https://www.goalstream.org/season/1097848#/schedule",
+     "round": "8 тур"
+    },
+    {
+     "id": "kf-2027-01-05-СтройИнновация-Садовод",
+     "date": "2027-01-05",
+     "time": "21:30",
+     "home": "СтройИнновация",
+     "away": "Садовод",
+     "score": null,
+     "venue": "СК Тотем",
+     "link": "https://www.goalstream.org/season/1097848#/schedule",
+     "round": "9 тур"
     }
    ],
    "ok": true,
-   "at": "2026-11-11T15:45:34.011Z"
+   "at": "2026-11-11T15:52:37.193Z"
   },
   "fbl": {
    "standings": [
@@ -583,7 +662,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-11T15:45:34.011Z"
+   "at": "2026-11-11T15:52:37.193Z"
   },
   "cup": {
    "standings": [],
@@ -600,10 +679,21 @@ const AUTO = {
      ],
      "venue": "МСК Сопка",
      "link": "https://www.goalstream.org/match/106434151/2dadb76e"
+    },
+    {
+     "id": "kf-2027-01-17-Тотем-Садовод",
+     "date": "2027-01-17",
+     "time": "",
+     "home": "Тотем",
+     "away": "Садовод",
+     "score": null,
+     "venue": "",
+     "link": "https://www.goalstream.org/season/1100650#/schedule",
+     "round": "1/8 финала"
     }
    ],
    "ok": true,
-   "at": "2026-11-11T15:45:34.011Z"
+   "at": "2026-11-11T15:52:37.193Z"
   }
  },
  "telegram": {
@@ -1260,7 +1350,7 @@ const AUTO = {
    }
   ],
   "ok": true,
-  "at": "2026-11-11T15:45:34.011Z"
+  "at": "2026-11-11T15:52:37.193Z"
  },
  "vk": {
   "posts": [
@@ -1554,7 +1644,7 @@ const AUTO = {
   ],
   "albums": [],
   "ok": true,
-  "at": "2026-11-11T15:45:34.011Z",
+  "at": "2026-11-11T15:52:37.193Z",
   "via": "widget"
  }
 };

@@ -127,6 +127,68 @@ async function goalstream(t) {
 }
 
 // =====================================================================
+//  KRASFB.RU — сайт Федерации футбола Красноярска. Те же сезоны goalstream,
+//  но готовым HTML: полное расписание (с временем и стадионом) и таблица с мячами.
+//  goalstream JSON отдаёт только ~10 ближайших матчей лиги, а HTML-виджет часто
+//  не отвечает — без krasfb пропадали наши будущие игры.
+// =====================================================================
+const RU_MON = ["января","февраля","марта","апреля","мая","июня","июля","августа","сентября","октября","ноября","декабря"];
+async function krasfb(t) {
+  const id = t.goalstream.seasonId, base = "https://krasfb.ru";
+  const out = { standings: [], matches: [] };
+  for (const kind of ["y", "n"]) { // y — сыгранные, n — предстоящие
+    const html = await get(`${base}/matches/${id}/${kind}`, 2);
+    for (const day of html.split('class="schedule-day-card').slice(1)) {
+      const d = day.match(/schedule-day-title[^>]*>\s*(\d{1,2})\s+(\S+)\s+(\d{4})/);
+      const mi = d ? RU_MON.indexOf(d[2].toLowerCase()) : -1;
+      if (mi < 0) continue;
+      const date = `${d[3]}-${pad(mi + 1)}-${pad(d[1])}`;
+      const table = day.split('class="d-block d-md-none')[0]; // только десктопная таблица, карточки — дубль
+      for (const row of table.split("<tr").slice(1)) {
+        const home = strip(row.match(/team-home-sm">([^<]*)</)?.[1] || ""), away = strip(row.match(/team-away-sm">([^<]*)</)?.[1] || "");
+        if (!home || !away) continue;
+        const res = strip(row.split("result-cell-sm")[1]?.replace(/^[^>]*>/, "") || "");
+        const upcoming = /result-upcoming|fa-clock/.test(row); // у предстоящих в этой ячейке время «18:00», не счёт
+        const sc = !upcoming && res.match(/(\d+)\s*:\s*(\d+)(?!\d)/), tm = upcoming && res.match(/(\d{1,2}:\d{2})/);
+        const round = strip(row.match(/tour-badge-sm">([^<]*)</)?.[1] || "").replace(/Тур/, "тур").replace(/Финал/, "финал");
+        out.matches.push({ id: `kf-${date}-${home}-${away}`, date, time: tm ? tm[1] : "", home, away,
+          score: sc ? [+sc[1], +sc[2]] : null, venue: strip(row.match(/stadium-cell-sm">([\s\S]*?)<\/td>/)?.[1] || ""),
+          link: t.source, round });
+      }
+    }
+  }
+  // таблица: № Команда И В Н П ВП ПП З-П РГ О
+  try {
+    const st = await get(`${base}/stages/${id}`, 2);
+    for (const row of st.split("<tr").slice(1)) {
+      const c = [...row.matchAll(/<td[^>]*>([\s\S]*?)<\/td>/g)].map((x) => strip(x[1]));
+      const zp = c.find((x) => /^\d+\s*-\s*\d+$/.test(x));
+      if (c.length < 10 || !zp || !c[1]) continue;
+      const [gf, ga] = zp.split("-").map(Number);
+      out.standings.push({ team: c[1], p: num(c[2]), w: num(c[3]), d: num(c[4]), l: num(c[5]), gf, ga, pts: num(c[c.length - 1]) });
+    }
+  } catch (e) { console.log(`   таблица krasfb не загрузилась (${e.message})`); }
+  out.matches = out.matches.filter((m) => m.home === t.team || m.away === t.team);
+  return out;
+}
+
+// город и кубок: goalstream + krasfb. Таблица — из krasfb (там сразу мячи), матчи — объединяем.
+const mkey = (m) => `${m.date}|${m.home}|${m.away}`;
+async function cityLeague(t) {
+  let gs = null, kf = null;
+  try { gs = await goalstream(t); } catch (e) { console.log(`   goalstream: ${e.message}`); }
+  try { kf = await krasfb(t); } catch (e) { console.log(`   krasfb: ${e.message}`); }
+  if (!gs && !kf) throw new Error("ни goalstream, ни krasfb не ответили");
+  const matches = [...(gs?.matches || [])], seen = new Set(matches.map(mkey));
+  for (const m of kf?.matches || []) {
+    const hit = matches.find((x) => mkey(x) === mkey(m));
+    if (hit) { if (!hit.time) hit.time = m.time; if (!hit.venue) hit.venue = m.venue; if (!hit.round) hit.round = m.round; if (!hit.score) hit.score = m.score; }
+    else if (!seen.has(mkey(m))) { seen.add(mkey(m)); matches.push(m); }
+  }
+  return { standings: kf?.standings.length ? kf.standings : gs?.standings || [], matches };
+}
+
+// =====================================================================
 //  VSPORT.SU (ФБЛ). Скрипты сайт не пускает, поэтому основной путь —
 //  сохранённые страницы лиги в папке fbl/ (Ctrl+S в браузере → загрузить на GitHub).
 //  Если сайт вдруг ответит напрямую — берём и его. Все страницы объединяются.
@@ -512,10 +574,15 @@ async function main() {
     const old = prev.tournaments?.[t.id] || { standings: [], matches: [] };
     process.stdout.write(`▶ ${t.name} … `);
     try {
-      const fresh = t.goalstream ? await goalstream(t) : t.vsport ? await vsport(t) : { standings: [], matches: [] };
+      const fresh = t.goalstream ? await cityLeague(t) : t.vsport ? await vsport(t) : { standings: [], matches: [] };
       // слияние матчей: новые данные важнее, старые сыгранные сохраняем
       const byId = new Map(old.matches.map((m) => [m.id, m]));
       for (const m of fresh.matches) byId.set(m.id, { ...byId.get(m.id), ...m, score: m.score || byId.get(m.id)?.score || null });
+      // один и тот же матч мог прийти и с goalstream (gs…), и с krasfb (kf-…) в разные запуски — оставляем gs
+      // и несыгранный kf-матч, пропавший из расписания (перенесли) — тоже убираем
+      const freshIds = new Set(fresh.matches.map((m) => m.id));
+      if (t.goalstream) for (const [id, m] of byId) if (id.startsWith("kf-") && !m.score && !freshIds.has(id) && fresh.matches.some((x) => x.id.startsWith("kf-"))) byId.delete(id);
+      if (t.goalstream) for (const [id, m] of byId) if (id.startsWith("kf-") && [...byId.values()].some((x) => x !== m && mkey(x) === mkey(m))) byId.delete(id);
       result.tournaments[t.id] = {
         standings: fresh.standings.length ? fresh.standings : old.standings,
         matches: [...byId.values()].sort((a, b) => (a.date + a.time).localeCompare(b.date + b.time)),
