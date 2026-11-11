@@ -1,7 +1,7 @@
 // Файл создаётся автоматически скриптом update.js — не редактируйте вручную.
 // Ручные правки делайте в data.js (MANUAL_MATCHES / MANUAL_STANDINGS).
 const AUTO = {
- "updated": "2026-11-11T15:33:22.904Z",
+ "updated": "2026-11-11T15:34:59.439Z",
  "tournaments": {
   "city": {
    "standings": [
@@ -135,7 +135,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-11T15:33:22.904Z"
+   "at": "2026-11-11T15:34:59.439Z"
   },
   "fbl": {
    "standings": [
@@ -572,7 +572,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-11T15:33:22.904Z"
+   "at": "2026-11-11T15:34:59.439Z"
   },
   "cup": {
    "standings": [],
@@ -591,9 +591,8 @@ const AUTO = {
      "link": "https://www.goalstream.org/match/106434151/2dadb76e"
     }
    ],
-   "ok": false,
-   "at": "2026-11-11T15:32:13.091Z",
-   "error": "fetch failed"
+   "ok": true,
+   "at": "2026-11-11T15:34:59.439Z"
   }
  },
  "telegram": {
@@ -1250,7 +1249,7 @@ const AUTO = {
    }
   ],
   "ok": true,
-  "at": "2026-11-11T15:33:22.904Z"
+  "at": "2026-11-11T15:34:59.439Z"
  },
  "vk": {
   "posts": [
@@ -1531,7 +1530,7 @@ const AUTO = {
   ],
   "albums": [],
   "ok": true,
-  "at": "2026-11-11T15:33:22.904Z",
+  "at": "2026-11-11T15:34:59.439Z",
   "via": "widget"
  }
 };
