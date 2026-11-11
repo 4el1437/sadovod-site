@@ -89,6 +89,30 @@ async function goalstream(t) {
     all.push({ id: 'gs' + m.id, date, time: m.time || '', home: m.home.name, away: m.away.name, homeId: m.home.id, awayId: m.away.id,
       score: sc ? [+sc[1], +sc[2]] : null, venue: (m.stadium && m.stadium.name) || '', link: base + m.href });
   }
+  // JSON-виджет отдаёт только ~10 ближайших матчей — старые игры (и их мячи в таблице) терялись.
+  // Полный календарь сезона — HTML-виджет расписания; добавляем из него матчи, которых нет в JSON.
+  try {
+    const html = await get(`${base}/widget?new_template=1&mod=gchampionship&name=schedule&subject=gchampionship_season_${t.goalstream.seasonId}`);
+    const EN = ["january","february","march","april","may","june","july","august","september","october","november","december"];
+    const known = new Set(all.map((m) => m.id));
+    let date = "";
+    for (const part of html.split(/(?=<div class="b-vs__content-header date">)|(?=<tr>)/)) {
+      const d = part.match(/b-vs__content-header date">\s*<span>\s*(\d{1,2}) ([^\s,<]+),? (\d{4})/);
+      if (d) { // «3 November 2026» или «3 ноября 2026» — смотря какой язык отдал сайт
+        const mo = d[2].toLowerCase(), i = EN.indexOf(mo) >= 0 ? EN.indexOf(mo) : ["января","февраля","марта","апреля","мая","июня","июля","августа","сентября","октября","ноября","декабря"].indexOf(mo);
+        date = i >= 0 ? `${d[3]}-${pad(i + 1)}-${pad(d[1])}` : "";
+        continue;
+      }
+      const href = part.match(/href="(\/match\/(\d+)\/\w+)"/);
+      const clubs = [...part.matchAll(/href="\/club\/(\d+)" class="club_link"[^>]*>([^<]+)</g)];
+      if (!href || clubs.length < 2 || !date || known.has("gs" + href[2])) continue;
+      const sc = strip(part.split("td-score-vs")[1]?.split("</td>")[0] || "").match(/(\d+)\s*:\s*(\d+)/);
+      known.add("gs" + href[2]);
+      all.push({ id: "gs" + href[2], date, time: part.match(/match-time[^>]*>(\d{1,2}:\d{2})/)?.[1] || "",
+        home: strip(clubs[0][2]), away: strip(clubs[1][2]), homeId: +clubs[0][1], awayId: +clubs[1][1],
+        score: sc ? [+sc[1], +sc[2]] : null, venue: strip(part.match(/href="\/stadium\/\d+"[^>]*>([^<]+)</)?.[1] || ""), link: base + href[1] });
+    }
+  } catch (e) { console.log(`   полный календарь не загрузился (${e.message}) — мячи только по последним матчам`); }
   // мячи забитые/пропущенные для таблицы — считаем по всем сыгранным матчам
   const goals = {};
   for (const m of all) if (m.score) {
