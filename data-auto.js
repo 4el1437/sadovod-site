@@ -1,7 +1,7 @@
 // Файл создаётся автоматически скриптом update.js — не редактируйте вручную.
 // Ручные правки делайте в data.js (MANUAL_MATCHES / MANUAL_STANDINGS).
 const AUTO = {
- "updated": "2026-11-11T15:34:59.439Z",
+ "updated": "2026-11-11T15:45:34.011Z",
  "tournaments": {
   "city": {
    "standings": [
@@ -135,7 +135,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-11T15:34:59.439Z"
+   "at": "2026-11-11T15:45:34.011Z"
   },
   "fbl": {
    "standings": [
@@ -569,10 +569,21 @@ const AUTO = {
      "venue": "Красноярский автотранспортный техникум",
      "link": "https://vsport.su/football/football-corporate/2-divizion-[fbl]---korporativnaia-futbolnaia-liga-202627/",
      "round": ""
+    },
+    {
+     "id": "vs-2026-11-15-Хавзак",
+     "date": "2026-11-15",
+     "time": "19:00",
+     "home": "СФУ",
+     "away": "Хавзак",
+     "score": null,
+     "venue": "Спорткомплекс СФУ",
+     "link": "https://vsport.su/football/football-corporate/2-divizion-[fbl]---korporativnaia-futbolnaia-liga-202627/",
+     "round": ""
     }
    ],
    "ok": true,
-   "at": "2026-11-11T15:34:59.439Z"
+   "at": "2026-11-11T15:45:34.011Z"
   },
   "cup": {
    "standings": [],
@@ -592,7 +603,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-11T15:34:59.439Z"
+   "at": "2026-11-11T15:45:34.011Z"
   }
  },
  "telegram": {
@@ -1249,10 +1260,23 @@ const AUTO = {
    }
   ],
   "ok": true,
-  "at": "2026-11-11T15:34:59.439Z"
+  "at": "2026-11-11T15:45:34.011Z"
  },
  "vk": {
   "posts": [
+   {
+    "id": 4062,
+    "date": "2026-11-11T15:42:54.000Z",
+    "text": "",
+    "photos": [],
+    "video": {
+     "title": "Магистраль-ФК ФАВОРИТ - ФК Садовод",
+     "image": "https://sun9-62.userapi.com/impg/Vofa0i_0pQaqtL_dPcW93rlJ1iczHQLtriB_eQ/wKkYeczd-4Y.jpg?size=800x450&quality=95&keep_aspect_ratio=1&background=000000&sign=a790b301bbba4cf79794990b64c39333&type=video_thumb",
+     "clip": false,
+     "link": "https://vk.ru/video-218166313_456239636"
+    },
+    "link": "https://vk.ru/wall-214784904_4062"
+   },
    {
     "id": 4061,
     "date": "2026-11-11T13:00:02.000Z",
@@ -1530,7 +1554,7 @@ const AUTO = {
   ],
   "albums": [],
   "ok": true,
-  "at": "2026-11-11T15:34:59.439Z",
+  "at": "2026-11-11T15:45:34.011Z",
   "via": "widget"
  }
 };
