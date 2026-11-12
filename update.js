@@ -293,21 +293,41 @@ async function vsport(t) {
       pages.push({ html: new TextDecoder(/charset=["']?(windows-1251|cp1251)/i.test(head) ? "windows-1251" : "utf-8").decode(buf), src: f.f });
     }
   }
-  // 2) попытка скачать напрямую (обычно не пускает)
-  for (const url of t.vsport.urls || []) {
-    try { pages.push({ html: await get(url, 1), src: url }); } catch (e) { console.log(`   vsport напрямую недоступен (${e.message}), беру сохранённые страницы: ${pages.length}`); }
+  // 2) страницы с сайта. vsport каждую неделю выкладывает НОВЫЙ пост лиги с новым адресом
+  //    (…liga-202627/, …liga-2026272765/, …), старые остаются со своей неделей. Поэтому смотрим
+  //    список постов (t.vsport.list) и берём все, чей адрес начинается с t.vsport.prefix.
+  //    Пост на следующую неделю бывает без таблицы — тогда из него берётся только расписание.
+  const urls = [];
+  if (t.vsport.list && t.vsport.prefix) {
+    try {
+      const list = await get(t.vsport.list, 2);
+      for (const m of list.matchAll(/href=['"]([^'"]+)['"]/g))
+        if (m[1].includes("/" + t.vsport.prefix) && !urls.includes(m[1])) urls.push(m[1]); // в списке новые — первыми
+      console.log(`   постов лиги в списке vsport: ${urls.length}`);
+    } catch (e) { console.log(`   список постов vsport не загрузился (${e.message})`); }
   }
-  if (!pages.length) throw new Error("нет страниц: положите сохранённую страницу лиги в папку fbl/");
+  for (const u of t.vsport.urls || []) if (!urls.includes(u)) urls.push(u); // из настроек — как запасные (старее найденных)
+  for (const [i, url] of urls.reverse().entries()) { // от старых к новым
+    try { pages.push({ html: await get(url, 2), src: url, rank: 1000 + i }); }
+    catch (e) { console.log(`   vsport: ${url.split("/").slice(-2, -1)[0]} не загрузился (${e.message})`); }
+  }
+  if (!pages.length) throw new Error("нет страниц: ни vsport, ни сохранённых в папке fbl/");
+  pages.forEach((p, i) => { p.rank ??= i; }); // сохранённые файлы — старше скачанных
+
   const out = { standings: [], matches: [] };
   const byId = new Map();
-  // свежесть страницы — по числу сыгранных игр в таблице, а не по времени файла
-  // (на GitHub после checkout у всех файлов одинаковое время изменения)
-  const played = (r) => r.standings.reduce((n, x) => n + x.p, 0) + r.matches.filter((m) => m.score).length / 100;
-  const parsed = pages.map((p, i) => ({ r: parseVsport(p.html, t, p.src), i })).sort((x, y) => played(x.r) - played(y.r) || x.i - y.i);
-  for (const { r } of parsed) {
-    if (r.standings.length) out.standings = r.standings; // самая свежая — последней
-    for (const m of r.matches) byId.set(m.id, { ...byId.get(m.id), ...m, goals: m.goals || byId.get(m.id)?.goals, score: m.score || byId.get(m.id)?.score || null });
+  const parsed = [];
+  for (const p of pages) {
+    try { parsed.push({ r: parseVsport(p.html, t, p.src), rank: p.rank }); }
+    catch (e) { console.log(`   не разобрал страницу ${p.src}: ${e.message}`); }
   }
+  // таблица — со страницы, где больше всего сыгранных игр (при равенстве — с более новой)
+  const played = (r) => r.standings.reduce((n, x) => n + x.p, 0);
+  const best = parsed.filter((x) => x.r.standings.length).sort((a, b) => played(a.r) - played(b.r) || a.rank - b.rank).pop();
+  if (best) out.standings = best.r.standings;
+  // матчи — со всех страниц, от старых к новым: новая страница уточняет время и место, счёт не теряется
+  for (const { r } of parsed.sort((a, b) => a.rank - b.rank))
+    for (const m of r.matches) byId.set(m.id, { ...byId.get(m.id), ...m, goals: m.goals || byId.get(m.id)?.goals, score: m.score || byId.get(m.id)?.score || null });
   out.matches = [...byId.values()];
   return out;
 }

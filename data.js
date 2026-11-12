@@ -41,9 +41,12 @@ const TOURNAMENTS = [
     vsport: {
       dir: "fbl",
       aliases: ["Сибирский федеральный университет", "Садовод"], // как ещё нас называют на vsport
-      // 12.11.2026 vsport сменил адрес лиги (…202627 → …2026272765); по старому — застывшая копия.
-      // Свежей считается страница, где больше сыгранных игр, так что старый адрес не мешает.
-      urls: [
+      // vsport каждую неделю выкладывает новый пост лиги с новым адресом (…202627/, …2026272765/, …).
+      // Скрипт сам находит все посты в списке list, чей адрес начинается с prefix. Новый сезон —
+      // поменять prefix (и urls). Таблица — из поста с наибольшим числом игр, матчи — из всех.
+      list: "https://vsport.su/football/football-corporate/",
+      prefix: "2-divizion-[fbl]---korporativnaia-futbolnaia-liga-202627",
+      urls: [ // запасные, если список постов не откроется
         "https://vsport.su/football/football-corporate/2-divizion-[fbl]---korporativnaia-futbolnaia-liga-2026272765/",
         "https://vsport.su/football/football-corporate/2-divizion-[fbl]---korporativnaia-futbolnaia-liga-202627/",
       ],
