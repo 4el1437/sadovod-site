@@ -2,6 +2,9 @@
 # Сервер Timeweb: каждую минуту (cron). Если сейчас окно матча (за 40 мин до начала … конец),
 # собирает live.json из телеграма и, если он изменился, кладёт в ветку «live» (force-push).
 # Сайт во время матча читает этот файл через api.github.com раз в минуту.
+# всё тело в { … exit; } — bash читает его целиком до запуска, поэтому git reset,
+# обновляющий этот же файл посреди работы, не ломает текущий прогон
+{
 set -u
 cd /opt/sadovod-site || exit 1
 exec 8>/tmp/sadovod-live.lock
@@ -26,3 +29,5 @@ rm -rf /tmp/lv && mkdir /tmp/lv && cp live.json /tmp/lv/
   && git -c user.name=sadovod-bot -c user.email=actions@users.noreply.github.com commit -qm "live $(date -u +%H:%M)" \
   && git push -qf git@github.com:4el1437/sadovod-site.git live ) \
   && echo "$cur" > $STATE/live-last && echo "$(date '+%F %T') → live.json опубликован"
+exit 0
+}

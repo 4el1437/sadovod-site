@@ -2,6 +2,9 @@
 # Сервер Timeweb: каждые 10 минут (cron) собирает данные и пушит их в GitHub.
 # Пуш в main сам запускает публикацию сайта (.github/workflows/update.yml).
 # Код на сервере не правится — всегда берём свежий main с GitHub.
+# всё тело в { … exit; } — bash читает его целиком до запуска, поэтому git reset,
+# обновляющий этот же файл посреди работы, не ломает текущий прогон
+{
 set -u
 cd /opt/sadovod-site || exit 1
 exec 9>/tmp/sadovod-update.lock
@@ -27,3 +30,5 @@ if [ "$cur" != "$(cat /var/lib/sadovod/built 2>/dev/null)" ] || [ ! -e /var/www/
   mkdir -p /var/lib/sadovod
   bash server/build-site.sh && echo "$cur" > /var/lib/sadovod/built && echo "→ сайт пересобран"
 fi
+exit 0
+}
