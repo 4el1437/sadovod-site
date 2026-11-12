@@ -25,21 +25,30 @@ function loadPrev() {
 }
 
 // ---------- сеть ----------
-async function get(url, tries = 3) {
+const decode = (buf, ct = "") => {
+  const head = ct + buf.slice(0, 2000).toString("latin1");
+  return new TextDecoder(/charset=["']?(windows-1251|cp1251)/i.test(head) ? "windows-1251" : "utf-8").decode(buf);
+};
+// запасной путь — curl: с российского сервера t.me иногда «висит» на соединении у Node, а curl проходит
+function curlGet(url, timeoutMs) {
+  const { execFileSync } = require("child_process");
+  const buf = execFileSync("curl", ["-sSfLg", "-m", String(Math.ceil(timeoutMs / 1000)), "-A", "Mozilla/5.0 (SadovodSiteUpdater)", "-H", "Accept-Language: ru,en", url],
+    { maxBuffer: 50e6, stdio: ["ignore", "pipe", "pipe"] });
+  return decode(buf);
+}
+async function get(url, tries = 3, timeoutMs = 90000) {
   let last;
   for (let i = 0; i < tries; i++) {
     try {
       const res = await fetch(url, {
         headers: { "User-Agent": "Mozilla/5.0 (SadovodSiteUpdater)", "Accept-Language": "ru,en" },
-        signal: AbortSignal.timeout(90000),
+        signal: AbortSignal.timeout(timeoutMs),
       });
       if (!res.ok) throw new Error("HTTP " + res.status);
-      const buf = Buffer.from(await res.arrayBuffer());
-      const ct = (res.headers.get("content-type") || "") + buf.slice(0, 2000).toString("latin1");
-      const enc = /charset=["']?(windows-1251|cp1251)/i.test(ct) ? "windows-1251" : "utf-8";
-      return new TextDecoder(enc).decode(buf);
+      return decode(Buffer.from(await res.arrayBuffer()), res.headers.get("content-type") || "");
     } catch (e) {
       last = e;
+      if (!/^HTTP /.test(e.message)) try { return curlGet(url, Math.min(timeoutMs, 30000)); } catch (e2) { last = e2; }
       console.log(`   повтор ${i + 1}/${tries}: ${url} (${e.message})`);
     }
   }
@@ -320,7 +329,7 @@ async function tgPosts(cfg) {
   const stopAt = Math.max(cfg.fromPost - 1, known.length ? Math.max(...known) - 40 : 0); // перечитываем последние ~40 постов (правки)
   let before = null;
   for (let page = 0; page < 60; page++) {
-    const html = await get(`https://t.me/s/${cfg.channel}${before ? "?before=" + before : ""}`);
+    const html = await get(`https://t.me/s/${cfg.channel}${before ? "?before=" + before : ""}`, 5, 15000);
     const ids = [];
     for (const p of html.split('data-post="').slice(1)) {
       const id = +p.split('"')[0].split("/")[1];
