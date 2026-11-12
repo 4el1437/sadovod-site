@@ -8,7 +8,7 @@ const CLUB = {
   name: "Садовод",
   fullName: "ФК «Садовод»",
   city: "Красноярск",
-  logo: "https://img.goalstream.org/img_r_186x186/public/gclub_club/b6/18/87/860b25_be72.png?c=4e99",
+  logo: "img/logo.png", // локальная копия: goalstream.org из части сетей не открывается, и страница «висела» на загрузке
   telegram: "https://web.telegram.org/a/#-1001982461808",
   goalstream: "https://www.goalstream.org/club/92446934",
 };
