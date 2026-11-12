@@ -1,10 +1,11 @@
 // Общая логика: шапка, футер и отрисовка страниц из data.js + data-auto.js
 const PAGES = [
-  ["index.html", "Главная"],
-  ["team.html", "Команда"],
-  ["stats.html", "Статистика"],
-  ["media.html", "Контент"],
-  ["shop.html", "Магазин"],
+  // чистые адреса: fcsadovod.ru/, /team, /stats … (nginx и GitHub Pages сами находят team.html)
+  ["./", "Главная"],
+  ["team", "Команда"],
+  ["stats", "Статистика"],
+  ["media", "Контент"],
+  ["shop", "Магазин"],
 ];
 const $ = (s) => document.querySelector(s);
 const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
@@ -106,13 +107,14 @@ rebuild();
 const isUs = (m, name) => name === m.us;
 
 function layout() {
-  const cur = location.pathname.split("/").pop() || "index.html";
+  const page = (location.pathname.split("/").pop() || "index").replace(/\.html$/, "");
+  const cur = page === "index" ? "./" : page;
   // checked — время последней проверки источников (ставит сервер при каждом прогоне, даже если данные не изменились)
   const updAt = AUTO_DATA.checked || AUTO_DATA.updated;
   const upd = updAt ? new Date(updAt).toLocaleString("ru-RU", { dateStyle: "short", timeStyle: "short" }) : "—";
   document.body.insertAdjacentHTML("afterbegin", `
     <header class="header"><div class="header__in">
-      <a class="brand" href="index.html"><img src="${CLUB.logo}" alt="" onerror="this.style.display='none'">${esc(CLUB.fullName)}</a>
+      <a class="brand" href="./"><img src="${CLUB.logo}" alt="" onerror="this.style.display='none'">${esc(CLUB.fullName)}</a>
       <button class="burger" aria-label="Меню" onclick="document.querySelector('.nav').classList.toggle('open')">☰</button>
       <nav class="nav">${PAGES.map(([h, t]) => `<a href="${h}" class="${h === cur ? "active" : ""}">${t}</a>`).join("")}</nav>
     </div></header>`);
@@ -773,7 +775,7 @@ document.addEventListener("click", (e) => { const a = e.target.closest("[data-ga
 layout();
 const PAGE_FN = ({ home: pageHome, team: pageTeam, stats: pageStats, media: pageMedia, shop: pageShop })[document.body.dataset.page];
 PAGE_FN();
-// ссылка вида team.html#player=Имя Фамилия открывает карточку сразу, index.html#match=fbl:2026-11-15 — матч
+// ссылка вида team#player=Имя Фамилия открывает карточку сразу, /#match=fbl:2026-11-15 — матч
 if (location.hash.startsWith("#player=")) openPlayer(decodeURIComponent(location.hash.slice(8)));
 if (location.hash.startsWith("#match=")) openMatch(decodeURIComponent(location.hash.slice(7)));
 pollLive(); setInterval(pollLive, 60000);
@@ -789,6 +791,6 @@ document.addEventListener("visibilitychange", () => { if (!document.hidden) poll
   let preview = q.has("f13") && q.get("f13") !== "0";
   try { preview = preview || sessionStorage.getItem("f13") === "1"; } catch {}
   if ((p.day === "13" && p.weekday === "Fri") || preview) {
-    const s = document.createElement("script"); s.src = "friday13.js?v=9"; document.body.appendChild(s);
+    const s = document.createElement("script"); s.src = "friday13.js?v=10"; document.body.appendChild(s);
   }
 })();

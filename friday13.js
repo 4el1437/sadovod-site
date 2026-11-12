@@ -195,7 +195,7 @@
     if (!a || reduce || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
     if (a.target && a.target !== "_self") return;
     const url = new URL(a.href, location.href);
-    if (url.origin !== location.origin || !/\.html$|\/$/.test(url.pathname) || (url.pathname === location.pathname && url.hash)) return;
+    if (url.origin !== location.origin || !/\.html$|\/$|\/(team|stats|media|shop)$/.test(url.pathname) || (url.pathname === location.pathname && url.hash)) return;
     e.preventDefault();
     const v = makeVeil();
     swarm(v, true);
