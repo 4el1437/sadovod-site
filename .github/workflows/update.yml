@@ -1,9 +1,16 @@
 name: Обновление данных и публикация
 
+# Данные собирает сервер Timeweb (server/run-update.sh, cron каждые 10 мин) и пушит в main.
+# Здесь — только публикация сайта на каждый пуш. Собрать данные силами GitHub —
+# кнопка «Run workflow» с галочкой «update» (запасной вариант, если сервер недоступен;
+# vsport отсюда не открывается — ФБЛ возьмётся из сохранённых страниц fbl/).
 on:
-  schedule:
-    - cron: "7,27,47 * * * *"   # каждые 20 минут, не ровно в :00/:20/:40 — GitHub чаще пропускает «круглые» минуты
-  workflow_dispatch:         # кнопка «Run workflow» вручную
+  workflow_dispatch:
+    inputs:
+      update:
+        description: "Собрать данные здесь (если сервер не работает)"
+        type: boolean
+        default: false
   push:
     branches: [main]
 
@@ -30,14 +37,17 @@ jobs:
           node-version: 22
 
       - name: Библиотеки для распознавания составов
+        if: inputs.update
         run: npm install --no-audit --no-fund
 
       - name: Загрузка таблиц, матчей, статистики и VK
+        if: inputs.update
         run: node update.js
         env:
           VK_TOKEN: ${{ secrets.VK_TOKEN }}
 
       - name: Сохранить обновлённые данные в репозиторий
+        if: inputs.update
         run: |
           git config user.name "sadovod-bot"
           git config user.email "actions@users.noreply.github.com"
