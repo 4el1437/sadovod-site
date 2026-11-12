@@ -1,7 +1,7 @@
 // Файл создаётся автоматически скриптом update.js — не редактируйте вручную.
 // Ручные правки делайте в data.js (MANUAL_MATCHES / MANUAL_STANDINGS).
 const AUTO = {
- "updated": "2026-11-12T17:10:06.504Z",
+ "updated": "2026-11-12T17:20:06.582Z",
  "tournaments": {
   "city": {
    "standings": [
@@ -214,7 +214,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-12T17:10:06.504Z"
+   "at": "2026-11-12T17:20:06.582Z"
   },
   "fbl": {
    "standings": [
@@ -662,7 +662,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-12T17:10:06.504Z"
+   "at": "2026-11-12T17:20:06.582Z"
   },
   "cup": {
    "standings": [],
@@ -693,7 +693,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-12T17:10:06.504Z"
+   "at": "2026-11-12T17:20:06.582Z"
   }
  },
  "telegram": {
@@ -1350,7 +1350,7 @@ const AUTO = {
    }
   ],
   "ok": true,
-  "at": "2026-11-12T17:10:06.504Z"
+  "at": "2026-11-12T17:20:06.582Z"
  },
  "vk": {
   "posts": [
@@ -1656,9 +1656,8 @@ const AUTO = {
    }
   ],
   "albums": [],
-  "ok": false,
-  "at": "2026-11-12T14:44:57.598Z",
-  "via": "widget",
-  "error": "fetch failed"
+  "ok": true,
+  "at": "2026-11-12T17:20:06.582Z",
+  "via": "widget"
  }
 };
