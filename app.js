@@ -107,7 +107,9 @@ const isUs = (m, name) => name === m.us;
 
 function layout() {
   const cur = location.pathname.split("/").pop() || "index.html";
-  const upd = AUTO_DATA.updated ? new Date(AUTO_DATA.updated).toLocaleString("ru-RU", { dateStyle: "short", timeStyle: "short" }) : "—";
+  // checked — время последней проверки источников (ставит сервер при каждом прогоне, даже если данные не изменились)
+  const updAt = AUTO_DATA.checked || AUTO_DATA.updated;
+  const upd = updAt ? new Date(updAt).toLocaleString("ru-RU", { dateStyle: "short", timeStyle: "short" }) : "—";
   document.body.insertAdjacentHTML("afterbegin", `
     <header class="header"><div class="header__in">
       <a class="brand" href="index.html"><img src="${CLUB.logo}" alt="" onerror="this.style.display='none'">${esc(CLUB.fullName)}</a>

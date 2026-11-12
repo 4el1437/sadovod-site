@@ -15,7 +15,10 @@ echo "=== $(date '+%F %T')"
 git fetch -q origin main && git reset -q --hard origin/main || exit 1
 cmp -s package.json .deps-installed 2>/dev/null || { npm install --no-audit --no-fund --silent && cp package.json .deps-installed; }
 
-node update.js 2>&1 | grep -v '^   повтор'
+mkdir -p /var/lib/sadovod
+node update.js > /tmp/sadovod-update.out 2>&1; rc=$?
+grep -v '^   повтор' /tmp/sadovod-update.out
+[ $rc -eq 0 ] && date -u +%FT%TZ > /var/lib/sadovod/checked
 
 # коммитим, только если поменялись данные сайта (кэш телеграма сам по себе — не повод)
 if ! git diff --quiet -- data-auto.js lineups.json; then
@@ -24,11 +27,8 @@ if ! git diff --quiet -- data-auto.js lineups.json; then
     commit -qm "Обновление данных $(date '+%Y-%m-%d %H:%M')" && git push -q origin main && echo "→ запушено"
 fi
 
-# сайт fcsadovod.ru (nginx на этом сервере) — пересобираем, если поменялся код или данные
-cur=$(git rev-parse HEAD)
-if [ "$cur" != "$(cat /var/lib/sadovod/built 2>/dev/null)" ] || [ ! -e /var/www/fcsadovod/current ]; then
-  mkdir -p /var/lib/sadovod
-  bash server/build-site.sh && echo "$cur" > /var/lib/sadovod/built && echo "→ сайт пересобран"
-fi
+# сайт fcsadovod.ru (nginx на этом сервере) — пересобираем каждый прогон (доли секунды),
+# чтобы на сайте было время последней проверки, а не последнего изменения данных
+bash server/build-site.sh && echo "→ сайт пересобран"
 exit 0
 }

@@ -9,8 +9,11 @@ mkdir -p $NEW
 cp *.html *.css *.js $NEW/
 cp -r img $NEW/
 rm -f $NEW/update.js $NEW/live.js
+# время последней проверки источников (run-update.sh пишет его после каждого успешного прогона update.js)
+CHECKED=$(cat /var/lib/sadovod/checked 2>/dev/null || true)
+[ -n "$CHECKED" ] && echo "AUTO.checked = \"$CHECKED\";" >> $NEW/data-auto.js
 # версия в ссылках меняется только при изменении самих файлов — иначе браузеры зря качают заново
-V=$(cat app.js data.js data-auto.js style.css | md5sum | cut -c1-10)
+V=$(cat app.js data.js data-auto.js style.css /var/lib/sadovod/checked 2>/dev/null | md5sum | cut -c1-10)
 for f in app.js data.js data-auto.js style.css; do
   sed -i "s|\"$f\"|\"$f?v=$V\"|g" $NEW/*.html
 done
