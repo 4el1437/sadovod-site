@@ -1,7 +1,7 @@
 // Файл создаётся автоматически скриптом update.js — не редактируйте вручную.
 // Ручные правки делайте в data.js (MANUAL_MATCHES / MANUAL_STANDINGS).
 const AUTO = {
- "updated": "2026-11-11T23:36:46.915Z",
+ "updated": "2026-11-12T04:22:20.186Z",
  "tournaments": {
   "city": {
    "standings": [
@@ -214,7 +214,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-11T23:36:46.915Z"
+   "at": "2026-11-12T04:22:20.186Z"
   },
   "fbl": {
    "standings": [
@@ -662,7 +662,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-11T23:36:46.915Z"
+   "at": "2026-11-12T04:22:20.186Z"
   },
   "cup": {
    "standings": [],
@@ -693,7 +693,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-11T23:36:46.915Z"
+   "at": "2026-11-12T04:22:20.186Z"
   }
  },
  "telegram": {
@@ -1116,7 +1116,7 @@ const AUTO = {
     "announced": true,
     "lineupPost": {
      "id": 2040,
-     "photo": "https://cdn4.telesco.pe/file/F4hvfa_11ky0JITDsL4jJBhwNA9GHNU_myeM3jjWqkTEK_AEXCt5tQFfLoHlSrR6_pTroipPrEI3E3S0t3WF7qrCuJubnQZPP5m5y5SluwKpWNfagy1gL3Q95Phq1WapHOkZVpWVjlgY1IOs7-s39Ce02cKI8-vLvxkkrQtjNfAgO914vyxK8CIZOu1XA7nYB4SqOmfrbqJebMJ_UltUK4VzfQAigo1P2kTht5Bb_ZSQ3FMl6pepIp27OrNCXQgzwnsQauCUL58SmwuwstPjQXoAi2cKY_zyhSRts-BBe61_lDDVjQVbwkfkwp4CxTwXa924uDc_RVa0mQFIVO9Z-Q.jpg"
+     "photo": "https://cdn4.telesco.pe/file/oDpbW3YeulrwPJtcCZDys1GN0-9fZScUYFRXlyzAXNrYUYwVkSbNwruclRQSP0Da-fpBChH6X8ptik45IYZ3n90ZjEpHAEwUqlfs1tidj95cgoged2op71KGEc2CBjJduULPM6V3BDFwjmMMFiKOEmiLaIUaDtLrLELfxeHyn3Qza3Kp36e58GOFUunsB00JvsmKeOUc2CiTc_IV2alM2R5UR8FwIJ7RMYpKlBc4NVteEGP1_MJ12p3Fa7UPmm_tCubk7IVtNt60tt2Y1jkgW_F8mmq1NKvFS1jkZQympb4P7DxqPFv1W23xROOzJRMxqNZzs935n8PqQg5BS7ogJw.jpg"
     },
     "stream": "https://vk.ru/live-218166313_456239634",
     "endAt": "2026-11-08T11:57:52+00:00",
@@ -1263,7 +1263,7 @@ const AUTO = {
     "announced": true,
     "lineupPost": {
      "id": 2053,
-     "photo": "https://cdn4.telesco.pe/file/WiiGH_OrvctdWypsulitBx8xYTZeAntpqTuikFPrOQw-H8YyKZuLBnRZE62W46IaED2FaFyldvOUk7MIqBOQWSAJeGDJhM_LGIvRQqLcvP75UtpWc7DxTVv6QMqTRqKWpqHWToRcS-ki9uyr2VgsO9iJLE_ysCsFy35sYhaa6LQ3ijyVYubORfFkf5yDfPObKvyNXbW7iShwjlgGeDjK9qv8OqMaEFjxFjRYVVcIBII_zvpsSDH8sgObo5ph8p-NfCBM9DWd7Ip1ce1t3O5nRPzv584e1T3CSvrif-a5c3Bh6dM3bLLtLmZo7TpVj_7ClN8knuE509m9CsAmhNb1cA.jpg"
+     "photo": "https://cdn4.telesco.pe/file/FfshmrLH91Hc9PonJ7WCpVOdIM8FF-0_Ot6axGbF42U-wMh88PDCgNxYwY6xEO5mTNCddYBi_QjZGS8SnZ2sS9xs3t0I2hqUjH_cMnqxHonBFMCggM3Fj2EPplxSwjzi9CLiZXdQr16LYjiShO_emu0CpR_1rI44NmCObT3DHTSRvLLII6S1a2X_Wl3AJlfib1RY9zpwiO0TrhHkEgH0ueuQvlMbgygySy6TFS5tFdgcCkr-YQ_7M1jdcWkv_YWUTL63RnCuwkOqZuCOP-bfQVquzXfpNm6fiTJStO5_miVNA_iOt1IGZqtBtyRessasYOESA1Z1u1-0Ffw1lrtdZQ.jpg"
     },
     "endAt": "2026-11-09T15:20:33+00:00",
     "finished": true,
@@ -1350,10 +1350,23 @@ const AUTO = {
    }
   ],
   "ok": true,
-  "at": "2026-11-11T23:36:46.915Z"
+  "at": "2026-11-12T04:22:20.186Z"
  },
  "vk": {
   "posts": [
+   {
+    "id": 4065,
+    "date": "2026-11-12T03:00:01.000Z",
+    "text": "❗ИТОГ МАТЧА❗\n\nВээээй! Очень интенсивный, эмоциональный и крутой матч! Вот это команда!🥵\n\nДальше больше!🌟",
+    "photos": [
+     {
+      "big": "https://sun9-68.userapi.com/s/v1/ig2/v-sjZYmXkiFFsc5FF2h6xCQCtfryNAubQ65WyiF2EjlhyN7yrBgZhGEg7fmNfXiGIZFBWjY0N2GM20-iSpzW8Ufq.jpg?quality=95&crop=0,0,1254,1254&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,1080x1080,1254x1254&from=bu&cs=640x0",
+      "small": "https://sun9-68.userapi.com/s/v1/ig2/v-sjZYmXkiFFsc5FF2h6xCQCtfryNAubQ65WyiF2EjlhyN7yrBgZhGEg7fmNfXiGIZFBWjY0N2GM20-iSpzW8Ufq.jpg?quality=95&crop=0,0,1254,1254&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,1080x1080,1254x1254&from=bu&cs=640x0"
+     }
+    ],
+    "video": null,
+    "link": "https://vk.ru/wall-214784904_4065"
+   },
    {
     "id": 4062,
     "date": "2026-11-11T15:42:54.000Z",
@@ -1644,7 +1657,7 @@ const AUTO = {
   ],
   "albums": [],
   "ok": true,
-  "at": "2026-11-11T23:36:46.915Z",
+  "at": "2026-11-12T04:22:20.186Z",
   "via": "widget"
  }
 };
