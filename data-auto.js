@@ -1,7 +1,7 @@
 // Файл создаётся автоматически скриптом update.js — не редактируйте вручную.
 // Ручные правки делайте в data.js (MANUAL_MATCHES / MANUAL_STANDINGS).
 const AUTO = {
- "updated": "2026-11-12T10:01:53.019Z",
+ "updated": "2026-11-12T14:44:57.598Z",
  "tournaments": {
   "city": {
    "standings": [
@@ -214,7 +214,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-12T10:01:53.019Z"
+   "at": "2026-11-12T14:44:57.598Z"
   },
   "fbl": {
    "standings": [
@@ -230,12 +230,12 @@ const AUTO = {
     },
     {
      "team": "ОРИОН-МОТОРС (ВГ)",
-     "p": 2,
+     "p": 3,
      "w": 2,
      "d": 0,
      "l": 0,
-     "gf": 16,
-     "ga": 14,
+     "gf": 20,
+     "ga": 19,
      "pts": 6
     },
     {
@@ -299,6 +299,16 @@ const AUTO = {
      "pts": 3
     },
     {
+     "team": "Привал-строй",
+     "p": 2,
+     "w": 1,
+     "d": 0,
+     "l": 1,
+     "gf": 7,
+     "ga": 21,
+     "pts": 3
+    },
+    {
      "team": "ПОБЕДА",
      "p": 0,
      "w": 0,
@@ -329,16 +339,6 @@ const AUTO = {
      "pts": 0
     },
     {
-     "team": "Привал-строй",
-     "p": 1,
-     "w": 0,
-     "d": 0,
-     "l": 1,
-     "gf": 2,
-     "ga": 17,
-     "pts": 0
-    },
-    {
      "team": "Курама",
      "p": 2,
      "w": 0,
@@ -361,7 +361,7 @@ const AUTO = {
       22
      ],
      "venue": "",
-     "link": "https://vsport.su/football/football-corporate/2-divizion-[fbl]---korporativnaia-futbolnaia-liga-202627/",
+     "link": "https://vsport.su/football/football-corporate/2-divizion-[fbl]---korporativnaia-futbolnaia-liga-2026272765/",
      "round": "",
      "goals": [
       {
@@ -550,7 +550,7 @@ const AUTO = {
       8
      ],
      "venue": "",
-     "link": "https://vsport.su/football/football-corporate/2-divizion-[fbl]---korporativnaia-futbolnaia-liga-202627/",
+     "link": "https://vsport.su/football/football-corporate/2-divizion-[fbl]---korporativnaia-futbolnaia-liga-2026272765/",
      "round": "",
      "goals": [
       {
@@ -646,7 +646,7 @@ const AUTO = {
      "away": "СФУ",
      "score": null,
      "venue": "Красноярский автотранспортный техникум",
-     "link": "https://vsport.su/football/football-corporate/2-divizion-[fbl]---korporativnaia-futbolnaia-liga-202627/",
+     "link": "https://vsport.su/football/football-corporate/2-divizion-[fbl]---korporativnaia-futbolnaia-liga-2026272765/",
      "round": ""
     },
     {
@@ -657,12 +657,12 @@ const AUTO = {
      "away": "Хавзак",
      "score": null,
      "venue": "Спорткомплекс СФУ",
-     "link": "https://vsport.su/football/football-corporate/2-divizion-[fbl]---korporativnaia-futbolnaia-liga-202627/",
+     "link": "https://vsport.su/football/football-corporate/2-divizion-[fbl]---korporativnaia-futbolnaia-liga-2026272765/",
      "round": ""
     }
    ],
    "ok": true,
-   "at": "2026-11-12T10:01:53.019Z"
+   "at": "2026-11-12T14:44:57.598Z"
   },
   "cup": {
    "standings": [],
@@ -693,7 +693,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-12T10:01:53.019Z"
+   "at": "2026-11-12T14:44:57.598Z"
   }
  },
  "telegram": {
@@ -1350,7 +1350,7 @@ const AUTO = {
    }
   ],
   "ok": true,
-  "at": "2026-11-12T10:01:53.019Z"
+  "at": "2026-11-12T14:44:57.598Z"
  },
  "vk": {
   "posts": [
@@ -1657,7 +1657,7 @@ const AUTO = {
   ],
   "albums": [],
   "ok": true,
-  "at": "2026-11-12T10:01:53.019Z",
+  "at": "2026-11-12T14:44:57.598Z",
   "via": "widget"
  }
 };
