@@ -20,3 +20,10 @@ if ! git diff --quiet -- data-auto.js lineups.json; then
   git -c user.name=sadovod-bot -c user.email=actions@users.noreply.github.com \
     commit -qm "Обновление данных $(date '+%Y-%m-%d %H:%M')" && git push -q origin main && echo "→ запушено"
 fi
+
+# сайт fcsadovod.ru (nginx на этом сервере) — пересобираем, если поменялся код или данные
+cur=$(git rev-parse HEAD)
+if [ "$cur" != "$(cat /var/lib/sadovod/built 2>/dev/null)" ] || [ ! -e /var/www/fcsadovod/current ]; then
+  mkdir -p /var/lib/sadovod
+  bash server/build-site.sh && echo "$cur" > /var/lib/sadovod/built && echo "→ сайт пересобран"
+fi
