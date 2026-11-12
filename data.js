@@ -35,13 +35,18 @@ const TOURNAMENTS = [
     full: "Корпоративная футбольная лига (ФБЛ) — 2 дивизион",
     season: "2026/27",
     team: "СФУ", // в этом турнире играем под названием «СФУ»
-    source: "https://vsport.su/football/football-corporate/2-divizion-[fbl]---korporativnaia-futbolnaia-liga-202627/",
+    source: "https://vsport.su/football/football-corporate/2-divizion-[fbl]---korporativnaia-futbolnaia-liga-2026272765/",
     // vsport не пускает скрипты, поэтому страницу лиги сохраняют в браузере (Ctrl+S)
     // и загружают на GitHub в папку fbl/. Все страницы в папке объединяются, новые важнее.
     vsport: {
       dir: "fbl",
       aliases: ["Сибирский федеральный университет", "Садовод"], // как ещё нас называют на vsport
-      urls: ["https://vsport.su/football/football-corporate/2-divizion-[fbl]---korporativnaia-futbolnaia-liga-202627/"],
+      // 12.11.2026 vsport сменил адрес лиги (…202627 → …2026272765); по старому — застывшая копия.
+      // Свежей считается страница, где больше сыгранных игр, так что старый адрес не мешает.
+      urls: [
+        "https://vsport.su/football/football-corporate/2-divizion-[fbl]---korporativnaia-futbolnaia-liga-2026272765/",
+        "https://vsport.su/football/football-corporate/2-divizion-[fbl]---korporativnaia-futbolnaia-liga-202627/",
+      ],
     },
   },
   {
