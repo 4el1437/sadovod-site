@@ -111,7 +111,7 @@ function layout() {
   const cur = page === "index" ? "./" : page;
   // checked — время последней проверки источников (ставит сервер при каждом прогоне, даже если данные не изменились)
   const updAt = AUTO_DATA.checked || AUTO_DATA.updated;
-  const upd = updAt ? new Date(updAt).toLocaleString("ru-RU", { dateStyle: "short", timeStyle: "short" }) : "—";
+  const upd = updAt ? new Date(updAt).toLocaleString("ru-RU", { dateStyle: "short", timeStyle: "short", timeZone: "Asia/Krasnoyarsk" }) : "—";
   document.body.insertAdjacentHTML("afterbegin", `
     <header class="header"><div class="header__in">
       <a class="brand" href="./"><img src="${CLUB.logo}" alt="" onerror="this.style.display='none'">${esc(CLUB.fullName)}</a>
@@ -137,12 +137,11 @@ const RES_LETTER = { W: "В", D: "Н", L: "П" };
 // идёт ли матч сейчас: от 30 минут до начала до 3 часов после, пока нет итогового счёта
 const kickoff = (m) => new Date(`${m.date}T${m.time || "12:00"}:00+0${TELEGRAM.tz ?? 7}:00`); // время Красноярска у любого зрителя
 const isLive = (m) => !m.score && !!m.time && Date.now() > kickoff(m) - 30 * 6e4 && Date.now() < +kickoff(m) + 3 * 36e5;
-// В данных время — красноярское; зрителю показываем по его часам (в подсказке — время Красноярска).
+// Время везде показываем красноярское — у любого зрителя, в каком бы поясе ни стоял его браузер.
 const pad2 = (n) => String(n).padStart(2, "0");
-const localTime = (m) => { const d = kickoff(m); return `${pad2(d.getHours())}:${pad2(d.getMinutes())}`; };
-const localDay = (m) => { if (!m.time) return m.date; const d = kickoff(m); return `${d.getFullYear()}-${pad2(d.getMonth() + 1)}-${pad2(d.getDate())}`; };
-const sameTz = (m) => !m.time || localTime(m) === m.time.padStart(5, "0");
-const whenText = (m) => `${fmtDate(localDay(m))}${m.time ? ` · <span${sameTz(m) ? "" : ` title="${esc(m.time)} по Красноярску"`}>${localTime(m)}</span>` : ""}`;
+const localTime = (m) => m.time.padStart(5, "0");
+const localDay = (m) => m.date;
+const whenText = (m) => `${fmtDate(localDay(m))}${m.time ? ` · ${localTime(m)}` : ""}`;
 const countdownTag = (m) => `<span class="countdown" data-at="${kickoff(m).toISOString()}"></span>`;
 
 function matchCard(m) {
@@ -611,7 +610,7 @@ function streamEmbed(url) {
   if ((m = url.match(/twitch\.tv\/(\w+)/))) return `https://player.twitch.tv/?channel=${m[1]}&parent=${location.hostname}`;
   return null;
 }
-const hhmm = (iso) => new Date(iso).toLocaleTimeString("ru-RU", { hour: "2-digit", minute: "2-digit" }); // по часам зрителя
+const hhmm = (iso) => new Date(iso).toLocaleTimeString("ru-RU", { hour: "2-digit", minute: "2-digit", timeZone: "Asia/Krasnoyarsk" }); // по Красноярску
 
 // видео к матчу: трансляция (ссылка из телеграма или приложения) + ролики из VK про этот матч
 // (пост в VK не раньше дня матча и не позже чем через 5 дней, в тексте или названии — соперник)
