@@ -1,7 +1,7 @@
 // Файл создаётся автоматически скриптом update.js — не редактируйте вручную.
 // Ручные правки делайте в data.js (MANUAL_MATCHES / MANUAL_STANDINGS).
 const AUTO = {
- "updated": "2026-11-13T01:00:04.306Z",
+ "updated": "2026-11-13T09:40:04.017Z",
  "tournaments": {
   "city": {
    "standings": [
@@ -214,7 +214,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-13T01:00:04.306Z"
+   "at": "2026-11-13T09:40:04.017Z"
   },
   "fbl": {
    "standings": [
@@ -662,7 +662,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-13T01:00:04.306Z"
+   "at": "2026-11-13T09:40:04.017Z"
   },
   "cup": {
    "standings": [],
@@ -693,7 +693,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-13T01:00:04.306Z"
+   "at": "2026-11-13T09:40:04.017Z"
   }
  },
  "telegram": {
@@ -1336,7 +1336,7 @@ const AUTO = {
     "announced": true,
     "lineupPost": {
      "id": 2077,
-     "photo": "https://cdn4.telesco.pe/file/FCP4J4wpzI2zxkb4A_gw4qii1_VHK3VRGzZcPjpqcv5ZO_-GeAQjTZP_rSj27mfQad3l2Vo0dyRFq82FPfmKSKjaqvjlHccqdNjPUxAgcYQqB3iQWKA0nICoEb3TdmTji0Y51bMMZIz4w6fTCfNCnY3JQ4Ank2CjVYj0QK0wm8I7-mtC3ZeA5VINiSvbVZ3bIwmOT9SVXq1bHhjJdbwm0yBk4g2r5uoq4uFxDSSF9V9VdttN7Xn7xjVCzM0tieb3RYGKXYpLIaofTA9aRCB0rZaTge3RlxqMVY4ogVGmOX650gLSsakmDlnQbi9WihOZROrbSOXWX_4gqmJq9HymeQ.jpg"
+     "photo": "https://cdn4.telesco.pe/file/X1kPaifjafF4kHyyyj-Hoz3dcc0XoXMVzzkGQTNC2va_abFDVG4mN6FuvetDDfe-fOq7ONodBiv2T9aCOlECf_YE3BKtHuWV6EiYfjtF95eRsKxMGhLf1a9JmYyOgtr5s53HluwXvRO5tEqTAALWLKcCwTlqTx_7_mFdBGJysTnHnFTm0X14LCoYXoC1YkxB-YjalUV8YKccdYgBUhCLyVEmV3YzTbfqPe-msr4DkAR9PHxkivWLeCsTBuhI_XxNOWwU2tQ1WPEfogau53jSuTnwkEbWpq19T6clXSo9H5l1BP8Im712XE5Tpgg98rqYj-Pt_uEj3vTXOSzBUIubZA.jpg"
     },
     "stream": "https://vk.ru/live-218166313_456239636",
     "endAt": "2026-11-11T14:44:47+00:00",
@@ -1350,7 +1350,7 @@ const AUTO = {
    }
   ],
   "ok": true,
-  "at": "2026-11-13T01:00:04.306Z"
+  "at": "2026-11-13T09:40:04.017Z"
  },
  "vk": {
   "posts": [
@@ -1657,7 +1657,7 @@ const AUTO = {
   ],
   "albums": [],
   "ok": true,
-  "at": "2026-11-13T01:00:04.306Z",
+  "at": "2026-11-13T09:40:04.017Z",
   "via": "widget"
  }
 };
