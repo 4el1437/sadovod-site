@@ -1,7 +1,7 @@
 // Файл создаётся автоматически скриптом update.js — не редактируйте вручную.
 // Ручные правки делайте в data.js (MANUAL_MATCHES / MANUAL_STANDINGS).
 const AUTO = {
- "updated": "2026-11-13T14:40:04.307Z",
+ "updated": "2026-11-13T20:20:06.611Z",
  "tournaments": {
   "city": {
    "standings": [
@@ -214,7 +214,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-13T14:40:04.307Z"
+   "at": "2026-11-13T20:20:06.611Z"
   },
   "fbl": {
    "standings": [
@@ -662,7 +662,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-13T14:40:04.307Z"
+   "at": "2026-11-13T20:20:06.611Z"
   },
   "cup": {
    "standings": [],
@@ -693,7 +693,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-13T14:40:04.307Z"
+   "at": "2026-11-13T20:20:06.611Z"
   }
  },
  "telegram": {
@@ -1350,7 +1350,7 @@ const AUTO = {
    }
   ],
   "ok": true,
-  "at": "2026-11-13T14:40:04.307Z"
+  "at": "2026-11-13T20:20:06.611Z"
  },
  "vk": {
   "posts": [
@@ -1426,7 +1426,7 @@ const AUTO = {
     "photos": [],
     "video": {
      "title": "Видео от ФК «Садовод» | Красноярск",
-     "image": "https://iv.okcdn.ru/getVideoPreview?id=21215260445278&idx=0&type=39&tkn=6PQTFabgl5MNwUx6mzCF6_ms9H0&fn=vid_x&scl=4",
+     "image": "https://sun9-7.userapi.com/impg/LMyjyO_Lhc1qgoeXo2AlD4xz0p41zO5ySakQ8w/ZRSo44iyRrw.jpg?size=800x450&quality=95&keep_aspect_ratio=1&background=000000&sign=2793a1829d53da361f69b98f13ba8f4c&type=video_thumb",
      "clip": false,
      "link": "https://vk.ru/video-214784904_456239387"
     },
@@ -1670,7 +1670,7 @@ const AUTO = {
   ],
   "albums": [],
   "ok": true,
-  "at": "2026-11-13T14:40:04.307Z",
+  "at": "2026-11-13T20:20:06.611Z",
   "via": "widget"
  }
 };
