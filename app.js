@@ -790,6 +790,6 @@ document.addEventListener("visibilitychange", () => { if (!document.hidden) poll
   let preview = q.has("f13") && q.get("f13") !== "0";
   try { preview = preview || sessionStorage.getItem("f13") === "1"; } catch {}
   if ((p.day === "13" && p.weekday === "Fri") || preview) {
-    const s = document.createElement("script"); s.src = "friday13.js?v=10"; document.body.appendChild(s);
+    const s = document.createElement("script"); s.src = "friday13.js?v=11"; document.body.appendChild(s);
   }
 })();

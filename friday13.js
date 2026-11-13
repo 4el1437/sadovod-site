@@ -210,4 +210,16 @@
   peek.addEventListener("click", () => peek.classList.remove("on"));
   setTimeout(show, 1200);
   setInterval(show, 25000);
+
+  // Семён Проровский на ивент — «добро пожаловать в ад»: своё фото в карточках, а в окне игрока — весь постер
+  const hellStyle = document.createElement("style");
+  hellStyle.textContent = ".f13-poster { display: block; width: 100%; border-radius: 12px; margin-top: 14px; }";
+  document.head.appendChild(hellStyle);
+  const hell = () => document.querySelectorAll('img[src*="players/prorovskiy"]').forEach((img) => {
+    img.src = "img/event/prorovskiy-hell.jpg";
+    const head = img.closest(".pm__head");
+    if (head && !head.parentNode.querySelector(".f13-poster")) head.insertAdjacentHTML("afterend", '<img class="f13-poster" src="img/event/prorovskiy-poster.jpg" alt="Добро пожаловать в ад">');
+  });
+  hell();
+  new MutationObserver(hell).observe(document.body, { childList: true, subtree: true });
 })();
