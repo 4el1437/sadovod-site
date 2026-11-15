@@ -147,6 +147,7 @@ const PLAYERS = [
   { num: 82  , name: "Андрей Суздаль",         pos: "НАП", photo: "img/players/suzdal.jpg" },
   { num: 69  , name: "Александр Шурыгин",      pos: "ПЗ",  photo: "img/players/shurigin.jpg" },
   { num: 93  , name: "Даниил Кардашов",        pos: "ЗАЩ", photo: "" },
+  { num: null, name: "Григорий Ирхин",         pos: "ПЗ",  photo: "img/players/irkhin.jpg" },
 ];
 
 // Тренеры и руководство
@@ -192,7 +193,7 @@ const CAREER_BEFORE = [
   { name: "Лев Мормель", games: 62, goals: 35, assists: 14 },
   { name: "Андрей Пикалов", games: 32, goals: 12, assists: 8 },
   { name: "Садыгов", games: 29, goals: 12, assists: 1 },
-  { name: "Ирхин", games: 79, goals: 51, assists: 43 },
+  { name: "Григорий Ирхин", games: 79, goals: 51, assists: 43 },
   { name: "Никита Трифанов", games: 84, goals: 23, assists: 33 },
   { name: "Артём Лагерев", games: 27, goals: 0, assists: 0 },
   { name: "Евгений Новиков", games: 75, goals: 15, assists: 18 },
