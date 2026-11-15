@@ -100,7 +100,9 @@ const buildT = () => TOURNAMENTS.map((t) => {
   return {
     ...t,
     standings,
-    matches: [...matches.values()].map((m) => ({ ...estMinutes(m, t.half), t: t.id, us: t.team, key: t.id + ":" + m.date + (m.appKey ? ":" + m.appKey : "") })),
+    // ключ окна матча — турнир:дата; если в этот день матчей несколько — ещё и соперник (иначе открывался чужой матч)
+    matches: [...matches.values()].map((m, _, all) => ({ ...estMinutes(m, t.half), t: t.id, us: t.team, key: t.id + ":" + m.date + (m.appKey ? ":" + m.appKey
+      : all.filter((x) => x.date === m.date && !x.appKey).length > 1 ? ":" + (m.home === t.team ? m.away : m.home).toLowerCase() : "") })),
     updated: a.at, ok: a.ok !== false,
   };
 });
@@ -691,8 +693,10 @@ function matchRest(m) {
 }
 
 function openMatch(key) {
-  const m = ALL_MATCHES.find((x) => x.key === key);
+  // старые ссылки «#match=fbl:2026-11-15» на день с двумя матчами — открываем первый из них
+  const m = ALL_MATCHES.find((x) => x.key === key) || ALL_MATCHES.find((x) => x.key.startsWith(key + ":"));
   if (!m) return;
+  key = m.key;
   document.querySelector(".pmodal--match")?.remove();
   const box = document.createElement("div");
   box.className = "pmodal pmodal--match";
