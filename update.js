@@ -437,7 +437,11 @@ function tgMatches(posts, cfg) {
     // ссылка на трансляцию (VK видео/лайв, YouTube, Twitch) — первая найденная
     const st = streamOf(p, flat);
     if (st && !cur.stream) cur.stream = st;
-    const g = flat.match(/^\s*(\d+)\s*:\s*(\d+)\s*(.*)$/);
+    // счёт «10:5»; опечатки «10.5», «10-5» — только если это ровно +1 гол к прошлому счёту (а не дата «15.11»)
+    const g0 = flat.match(/^\s*(\d+)\s*([:.,\-–;])\s*(\d+)\b\s*(.*)$/);
+    const pv = cur.score || [0, 0];
+    const g = g0 && (g0[2] === ":" || (+g0[1] === pv[0] + 1 && +g0[3] === pv[1]) || (+g0[1] === pv[0] && +g0[3] === pv[1] + 1))
+      ? [g0[0], g0[1], g0[3], g0[4]] : null;
     if (g) {
       const [ours, theirs] = [+g[1], +g[2]];
       const prev = cur.score || [0, 0];
