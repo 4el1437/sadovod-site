@@ -55,8 +55,11 @@ const buildT = () => TOURNAMENTS.map((t) => {
   for (const tm of TG_MATCHES.filter((m) => m.t === t.id)) {
     // название соперника — как в турнирной таблице, если он там есть («ВИТЭН», а не «Витэн»)
     const opp = (MANUAL_STANDINGS[t.id] || a.standings).map((r) => r.team).find((n) => n.toLowerCase() === tm.opponent.toLowerCase()) || tidy(tm.opponent);
-    const same = (m) => m.date === tm.date || (m.home + m.away).toLowerCase().includes(opp.toLowerCase()) && Math.abs(new Date(m.date) - new Date(tm.date)) < 3 * 864e5;
-    const hit = [...matches.values()].find(same);
+    // сначала — по сопернику (±3 дня); по одной дате — только если в этот день у нас один матч (бывает два в день)
+    const all = [...matches.values()];
+    const sameDay = all.filter((m) => m.date === tm.date);
+    const hit = all.find((m) => (m.home + m.away).toLowerCase().includes(opp.toLowerCase()) && Math.abs(new Date(m.date) - new Date(tm.date)) < 3 * 864e5)
+      || (sameDay.length === 1 ? sameDay[0] : null);
     // счёт по ходу матча (пока нет «Матч окончен») — отдельно от итогового
     const flip = (sc, home) => (sc ? (home === t.team ? sc : [sc[1], sc[0]]) : null);
     if (hit) { if (tm.stream && !hit.stream) hit.stream = tm.stream; if (!tm.finished && tm.score && !hit.score) hit.liveScore = flip(tm.score, hit.home);

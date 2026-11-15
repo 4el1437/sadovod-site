@@ -46,7 +46,8 @@ async function main() {
       const s = startOf(m);
       if (!s || now < s - BEFORE || now > s + AFTER) continue;
       // матч из телеграма уже закончился — окно закрывается через 10 минут после финального поста
-      const fin = tg.find((x) => x.t === m.t && x.date === m.date && x.finished);
+      // (в один день бывает два матча — берём тот, что начинался в пределах 1,5 ч от этого)
+      const fin = tg.find((x) => x.t === m.t && x.date === m.date && x.finished && Math.abs((startOf(x) ?? s) - s) < 90 * 6e4);
       const end = fin ? (Date.parse(fin.endedAt) || now) + AFTER_END : s + AFTER;
       if (end > now) until = Math.max(until, Math.floor(end / 1000));
     }
