@@ -168,6 +168,9 @@ function matchCard(m) {
   </div>`;
 }
 
+// «Семен» в посте = «Семён» в составе: имя приводим к написанию из PLAYERS (ё/е и регистр не важны)
+const fold = (n) => String(n || "").toLowerCase().replace(/ё/g, "е").replace(/\s+/g, " ").trim();
+const canon = (n) => PLAYERS.find((p) => fold(p.name) === fold(n))?.name || n;
 // кто сыграл матч: ручной состав (MANUAL_LINEUPS) или распознанная картинка + авторы голов/передач
 function playedIn(m) {
   // ключ «турнир:дата», а если в день два матча — «турнир:дата:соперник» (регистр не важен)
@@ -322,10 +325,10 @@ function pageStats() {
   const auto = [];
   for (const t of T) for (const m of t.matches) for (const g of m.goals || []) {
     if (g.opp) continue;
-    if (g.scorer && !/автогол/i.test(g.scorer)) auto.push({ t: t.id, name: g.scorer, goals: 1 });
-    if (g.assist) auto.push({ t: t.id, name: g.assist, assists: 1 });
+    if (g.scorer && !/автогол/i.test(g.scorer)) auto.push({ t: t.id, name: canon(g.scorer), goals: 1 });
+    if (g.assist) auto.push({ t: t.id, name: canon(g.assist), assists: 1 });
   }
-  for (const t of T) for (const m of t.matches) if (m.score) for (const n of playedIn(m)) auto.push({ t: t.id, name: n, games: 1 });
+  for (const t of T) for (const m of t.matches) if (m.score) for (const n of new Set([...playedIn(m)].map(canon))) auto.push({ t: t.id, name: n, games: 1 });
   const all = [...auto, ...PLAYER_STATS];
   if (!all.length) {
     $("#sbody").innerHTML = `<div class="card empty"><div class="empty__icon">📊</div><h2>Статистика скоро появится</h2><p class="muted">Голы и передачи подтягиваются из телеграм-канала команды.</p><a class="btn" href="${CLUB.telegram}" target="_blank">Телеграм-канал</a></div>`;
@@ -483,11 +486,11 @@ function playerData(name) {
     let g = 0, a = 0; const mins = [];
     for (const e of m.goals || []) {
       if (e.opp) continue;
-      if (e.scorer === name) { g++; if (e.min) mins.push(e.min + "'"); }
-      if (e.assist === name) a++;
+      if (e.scorer && canon(e.scorer) === name) { g++; if (e.min) mins.push(e.min + "'"); }
+      if (e.assist && canon(e.assist) === name) a++;
     }
     const mvp = m.mvp === name;
-    const played = !!m.score && playedIn(m).has(name);
+    const played = !!m.score && [...playedIn(m)].some((n) => canon(n) === name);
     if (!g && !a && !mvp && !played) continue;
     const r = (tours[t.id] ||= { goals: 0, assists: 0, mvp: 0, matches: 0, games: 0 });
     r.goals += g; r.assists += a; r.mvp += mvp ? 1 : 0; r.matches++; r.games += played ? 1 : 0;
