@@ -727,15 +727,24 @@ document.addEventListener("click", (e) => {
 });
 document.addEventListener("keydown", (e) => { if ((e.key === "Enter" || e.key === " ") && e.target.matches?.("[data-match]")) { e.preventDefault(); openMatch(e.target.dataset.match); } });
 
-// ---------- онлайн во время матча: live.json из ветки «live» раз в минуту ----------
+// ---------- онлайн во время матча: live.json с нашего сервера раз в 15 с (на github.io — из ветки «live» раз в минуту) ----------
 // (кладёт .github/workflows/live.yml; GitHub API отдаёт свежий файл без кэша страниц)
-let liveAt = null;
+let liveAt = null, liveGh = 0;
+const OWN_HOST = /(^|\.)fcsadovod\.ru$/.test(location.hostname);
 async function pollLive() {
   if (typeof LIVE === "undefined" || !ALL_MATCHES.some(isLive)) return;
   try {
-    const r = await fetch(`https://api.github.com/repos/${LIVE.repo}/contents/live.json?ref=${LIVE.branch}`, { headers: { Accept: "application/vnd.github.raw+json" }, cache: "no-cache" });
-    if (!r.ok) return;
-    const j = await r.json();
+    // на своём домене (fcsadovod.ru) — файл прямо с нашего сервера, без задержек и лимитов GitHub;
+    // на зеркале github.io или если сервер не ответил — через GitHub API
+    let j = null;
+    if (OWN_HOST) try { const r = await fetch(`/live.json?t=${Date.now()}`, { cache: "no-store" }); if (r.ok) j = await r.json(); } catch {}
+    if (!j) {
+      if (OWN_HOST && Date.now() - liveGh < 6e4) return; // GitHub — не чаще раза в минуту (лимит 60 запросов в час)
+      liveGh = Date.now();
+      const r = await fetch(`https://api.github.com/repos/${LIVE.repo}/contents/live.json?ref=${LIVE.branch}`, { headers: { Accept: "application/vnd.github.raw+json" }, cache: "no-cache" });
+      if (!r.ok) return;
+      j = await r.json();
+    }
     if (!j.at || j.at === liveAt) return;
     liveAt = j.at;
     const sig = () => JSON.stringify(ALL_MATCHES.map((m) => [m.key, m.score, m.liveScore, m.goals, m.stream]));
@@ -789,7 +798,7 @@ PAGE_FN();
 // ссылка вида team#player=Имя Фамилия открывает карточку сразу, /#match=fbl:2026-11-15 — матч
 if (location.hash.startsWith("#player=")) openPlayer(decodeURIComponent(location.hash.slice(8)));
 if (location.hash.startsWith("#match=")) openMatch(decodeURIComponent(location.hash.slice(7)));
-pollLive(); setInterval(pollLive, 60000);
+pollLive(); setInterval(pollLive, OWN_HOST ? 15000 : 60000);
 pollAppStreams(); setInterval(pollAppStreams, 30000);
 document.addEventListener("visibilitychange", () => { if (!document.hidden) pollAppStreams(); });
 
