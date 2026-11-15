@@ -1,7 +1,7 @@
 // Файл создаётся автоматически скриптом update.js — не редактируйте вручную.
 // Ручные правки делайте в data.js (MANUAL_MATCHES / MANUAL_STANDINGS).
 const AUTO = {
- "updated": "2026-11-15T09:00:06.433Z",
+ "updated": "2026-11-15T09:10:06.576Z",
  "tournaments": {
   "city": {
    "standings": [
@@ -214,7 +214,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-15T09:00:06.433Z"
+   "at": "2026-11-15T09:10:06.576Z"
   },
   "fbl": {
    "standings": [
@@ -662,7 +662,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-15T09:00:06.433Z"
+   "at": "2026-11-15T09:10:06.576Z"
   },
   "cup": {
    "standings": [],
@@ -693,7 +693,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-15T09:00:06.433Z"
+   "at": "2026-11-15T09:10:06.576Z"
   }
  },
  "telegram": {
@@ -1336,7 +1336,7 @@ const AUTO = {
     "announced": true,
     "lineupPost": {
      "id": 2077,
-     "photo": "https://cdn4.telesco.pe/file/sBFuFI4Z5dmGQLvqhNYstIWoaTcBrzXp__D1bj94WT5ijRuD4l_QHmlEVBMOxDz_e6NeOXMcNs3mg5gu7aiufm7FdZ0Tl1YNj6pEaEWDTMelKPH24qiplrDMoASYinHZ8wOfrMPKwY15QC_xgD_wuLs9kWuQLI8UhEATOxP9oEWGnv0H0IrpNtG4d_M95TFPVlyMAiNqN88TWIB0RGge3GbNn42zgPCf2TG785dTy1aut-_aLNPdb2i7yqku4ojGcw42YUKfqWPGJR74318ih7xIapK6hCKoUB3ljumMfEai1Qsbmn-odoObXlCNCWF3qtLSG0ldWynDyisHArKhVA.jpg"
+     "photo": "https://cdn4.telesco.pe/file/li7MbZjVL6s1GEozbAyLUhDriv2dVHp9vlhCVb6vD1ymTKG4f9lHIj9ErHCedpg0tDFIgxGEiDziOnTPdyDKjUayZM0hxERA7XY0wfkb4dMMEWS4CpLA5BMHcz3i7uZzFdtfTU-C-CtrWr0EGlSW53WiAyMthktOXbT34g18vKlXE5w_qTFN6AqIs8fMjsBeY2E2BIUDVC-tdaEPPW_SHKDvShjI740BF8i8MlFq39KYCyRuJulowOkGJhlKCqYAbWIN7jGfLoU56gFvsjf_PlD8qXEIwBr8lw5iZ01MZJ5oAgVI0Mx2CjvXDmHX6jZUj3jM-Wy_XnYuxQ-FH5snfQ.jpg"
     },
     "stream": "https://vk.ru/live-218166313_456239636",
     "endAt": "2026-11-11T14:44:47+00:00",
@@ -1456,10 +1456,17 @@ const AUTO = {
       "assist": "Андрей Суздаль",
       "post": 2109,
       "at": "2026-11-15T08:59:47+00:00"
+     },
+     {
+      "score": "9:8",
+      "scorer": "Андрей Суздаль",
+      "assist": "Анатолий Антропов",
+      "post": 2110,
+      "at": "2026-11-15T09:00:45+00:00"
      }
     ],
     "score": [
-     8,
+     9,
      8
     ],
     "date": "2026-11-15",
@@ -1471,7 +1478,7 @@ const AUTO = {
    }
   ],
   "ok": true,
-  "at": "2026-11-15T09:00:06.433Z"
+  "at": "2026-11-15T09:10:06.576Z"
  },
  "vk": {
   "posts": [
@@ -1817,7 +1824,7 @@ const AUTO = {
   ],
   "albums": [],
   "ok": true,
-  "at": "2026-11-15T09:00:06.433Z",
+  "at": "2026-11-15T09:10:06.576Z",
   "via": "widget"
  }
 };
