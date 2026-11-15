@@ -1,7 +1,7 @@
 // Файл создаётся автоматически скриптом update.js — не редактируйте вручную.
 // Ручные правки делайте в data.js (MANUAL_MATCHES / MANUAL_STANDINGS).
 const AUTO = {
- "updated": "2026-11-15T08:20:06.695Z",
+ "updated": "2026-11-15T08:30:04.211Z",
  "tournaments": {
   "city": {
    "standings": [
@@ -214,7 +214,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-15T08:20:06.695Z"
+   "at": "2026-11-15T08:30:04.211Z"
   },
   "fbl": {
    "standings": [
@@ -662,7 +662,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-15T08:20:06.695Z"
+   "at": "2026-11-15T08:30:04.211Z"
   },
   "cup": {
    "standings": [],
@@ -693,7 +693,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-15T08:20:06.695Z"
+   "at": "2026-11-15T08:30:04.211Z"
   }
  },
  "telegram": {
@@ -1116,7 +1116,7 @@ const AUTO = {
     "announced": true,
     "lineupPost": {
      "id": 2040,
-     "photo": "https://cdn4.telesco.pe/file/JeSPu9kxjn1w5jdWAN7ojOauGg-1uewUEe6TXw1qbQ5vC88wJb6MQFeVkfAxmNBOOYvafH1nQ3dLcoTHPz9iuU7795T2lyIc0DCVxsifZ5yWwBzGugwcY53lgjUNCWWo3CXaR_rrO1aCe0GzEIKNo0HRjoFWn755dXfrz9DbE4YzZzbrQLloR_BwYVDOfu8wnwshWENvksOKcmrIzqBKqagO7hIjhvK8eMsdGpPEXUOQqucIGc49LkVU0TxK5ZtXmy2c5v4nDtc3WwvkoOCTyTAWZJXdNIuUTdrM6rNgiVkHGXTyS3SKA9CxWv6WFJWwkVHz1ps5XeFJUttY9WF_8A.jpg"
+     "photo": "https://cdn4.telesco.pe/file/Y7Sekvrru9-4oWSM2WM0E0KiIVU8tDye3bVWl7AeZXCFVZ4emFPncLymqedl3dgNLybuYa-kpaIFUg9T9zLE7ZacvEdZrAdE7jCCSEW9vsj0nuC8xtasnob5gJmLgv9wyzRbkkbzstlhDytpSQPsCOI9wkdfCVPuF5CgC4-DWSoYos06XdPV9sH1BydWaVxRGlMPDv7nxMehThsDooIdW0RCRqPJnfuIs8mhagiSC4AaMxnh145R9MYpPdo6-5_TIMHAyu2A97-hQB6Uw7zBgihl3DjCBWmmzqDrejZEHVREqktQ6q_iLfT3AQwjyAgVoaVFJ4fRiA8thoDkLAJKAQ.jpg"
     },
     "stream": "https://vk.ru/live-218166313_456239634",
     "endAt": "2026-11-08T11:57:52+00:00",
@@ -1365,11 +1365,23 @@ const AUTO = {
       "assist": null,
       "post": 2093,
       "at": "2026-11-15T08:16:52+00:00"
+     },
+     {
+      "score": "1:2",
+      "opp": true,
+      "post": 2094,
+      "at": "2026-11-15T08:22:53+00:00"
+     },
+     {
+      "score": "1:3",
+      "opp": true,
+      "post": 2095,
+      "at": "2026-11-15T08:23:32+00:00"
      }
     ],
     "score": [
      1,
-     1
+     3
     ],
     "date": "2026-11-15",
     "time": "15:00",
@@ -1380,7 +1392,7 @@ const AUTO = {
    }
   ],
   "ok": true,
-  "at": "2026-11-15T08:20:06.695Z"
+  "at": "2026-11-15T08:30:04.211Z"
  },
  "vk": {
   "posts": [
@@ -1726,7 +1738,7 @@ const AUTO = {
   ],
   "albums": [],
   "ok": true,
-  "at": "2026-11-15T08:20:06.695Z",
+  "at": "2026-11-15T08:30:04.211Z",
   "via": "widget"
  }
 };
