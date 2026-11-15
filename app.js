@@ -66,7 +66,8 @@ const buildT = () => TOURNAMENTS.map((t) => {
       // минуты голов — из протокола, если он есть (в телеграме только время поста)
       if (tm.goals?.length && hit.goals?.length) for (const g of tm.goals) { const o = hit.goals.find((x) => x.score === g.score && x.min != null); if (o && g.min == null) g.min = o.min; }
       if (tm.endAt) hit.endAt = tm.endAt;
-      if (!hit.time && tm.time) hit.time = tm.time; if (!hit.venue && tm.venue) hit.venue = tm.venue; if (tm.lineup?.length) hit.lineup = tm.lineup; if (tm.goals?.length) hit.goals = tm.goals; // авторы голов — по телеграму команды (в протоколах организаторов бывают ошибки в фамилиях)
+      // время начала — по телеграму команды («Стартуем в 19:15!» точнее расписания лиги), если не задано вручную в data.js
+      if (tm.time && !MANUAL_MATCHES.some((x) => x.t === t.id && x.date === hit.date && x.time === hit.time)) hit.time = tm.time; if (!hit.venue && tm.venue) hit.venue = tm.venue; if (tm.lineup?.length) hit.lineup = tm.lineup; if (tm.goals?.length) hit.goals = tm.goals; // авторы голов — по телеграму команды (в протоколах организаторов бывают ошибки в фамилиях)
       if (!hit.score && tm.score && tm.finished) { hit.score = hit.home === t.team ? tm.score : [tm.score[1], tm.score[0]]; hit.tgScore = true; } if (!hit.round) hit.round = tidyRound(tm.round); }
     else matches.set("tg" + tm.post, { date: tm.date, time: tm.time || "", home: t.team, away: opp, score: tm.finished ? tm.score : null, tgScore: tm.finished, venue: tm.venue || "", announced: !tm.finished, round: tidyRound(tm.round), goals: tm.goals, endAt: tm.endAt, lineup: tm.lineup, stream: tm.stream, liveScore: !tm.finished && tm.score ? tm.score : null });
   }
