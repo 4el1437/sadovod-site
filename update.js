@@ -358,7 +358,10 @@ async function tgPosts(cfg) {
       const text = unhtml(p.match(/tgme_widget_message_text[^>]*>([\s\S]*?)<\/div>/)?.[1] || "").trim();
       const dt = p.match(/datetime="([^"]+)"/)?.[1] || "";
       const photos = [...p.matchAll(/tgme_widget_message_photo_wrap[^>]*background-image:url\('([^']+)'\)/g)].map((m) => m[1]);
-      if (id >= cfg.fromPost) cache[id] = { id, dt, text, photos };
+      // ссылки, спрятанные под словом («Ссылка на трансляцию» → vk.ru/wall…) и в превью ссылки
+      const block = p.split('class="tgme_widget_message_footer')[0];
+      const links = [...new Set([...block.matchAll(/href="(https?:\/\/[^"]+)"/g)].map((m) => unhtml(m[1])).filter((u) => !/^https?:\/\/(t\.me|telegram\.org)\//.test(u)))];
+      if (id >= cfg.fromPost) cache[id] = { id, dt, text, photos, links };
     }
     if (!ids.length) break;
     const min = Math.min(...ids);
@@ -392,6 +395,14 @@ function tgMatches(posts, cfg) {
   const local = (dt) => new Date(new Date(dt).getTime() + cfg.tz * 36e5).toISOString(); // время Красноярска
   const res = [];
   let cur = null;
+  // пост VK «wall-…_N» с видео → ссылка на само видео (из data-auto.js)
+  const vkVideo = new Map((loadPrev().vk?.posts || []).filter((x) => x.video?.link).map((x) => [String(x.id), x.video.link]));
+  const streamOf = (p, flat) => {
+    const st = flat.match(STREAM_RE)?.[0] || (p.links || []).find((u) => STREAM_RE.test(u));
+    if (st) return st;
+    const w = (p.links || []).map((u) => u.match(/vk\.(?:com|ru)\/wall-?\d+_(\d+)/)).find(Boolean);
+    return w ? vkVideo.get(w[1]) || w.input : null;
+  };
   for (const p of posts) {
     const flat = p.text.replace(/\s+/g, " ");
     // картинка «Состав на матч» → к текущему матчу (до проверки шапки: такой пост может её повторять)
@@ -418,14 +429,14 @@ function tgMatches(posts, cfg) {
       if (info.venue) cur.venue ||= info.venue;
       if (round && !cur.round) cur.round = round;
       // ссылка на эфир часто прямо в шапке: «ФК ФАВОРИТ - ФК Садовод … https://vk.ru/live-…»
-      const hs = flat.match(STREAM_RE);
-      if (hs && !cur.stream) cur.stream = hs[0];
+      const hs = streamOf(p, flat);
+      if (hs && !cur.stream) cur.stream = hs;
       continue;
     }
     if (!cur || cur.done) continue;
     // ссылка на трансляцию (VK видео/лайв, YouTube, Twitch) — первая найденная
-    const st = flat.match(STREAM_RE);
-    if (st && !cur.stream) cur.stream = st[0];
+    const st = streamOf(p, flat);
+    if (st && !cur.stream) cur.stream = st;
     const g = flat.match(/^\s*(\d+)\s*:\s*(\d+)\s*(.*)$/);
     if (g) {
       const [ours, theirs] = [+g[1], +g[2]];
