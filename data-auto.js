@@ -1,7 +1,7 @@
 // Файл создаётся автоматически скриптом update.js — не редактируйте вручную.
 // Ручные правки делайте в data.js (MANUAL_MATCHES / MANUAL_STANDINGS).
 const AUTO = {
- "updated": "2026-11-14T13:10:06.970Z",
+ "updated": "2026-11-15T04:30:06.561Z",
  "tournaments": {
   "city": {
    "standings": [
@@ -214,7 +214,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-14T13:10:06.970Z"
+   "at": "2026-11-15T04:30:06.561Z"
   },
   "fbl": {
    "standings": [
@@ -662,7 +662,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-14T13:10:06.970Z"
+   "at": "2026-11-15T04:30:06.561Z"
   },
   "cup": {
    "standings": [],
@@ -693,7 +693,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-14T13:10:06.970Z"
+   "at": "2026-11-15T04:30:06.561Z"
   }
  },
  "telegram": {
@@ -1347,13 +1347,39 @@ const AUTO = {
      "Семён Проровский",
      "Андрей Супрун"
     ]
+   },
+   {
+    "t": "fbl",
+    "opponent": "Рутранс",
+    "round": "3 тур",
+    "goals": [],
+    "score": null,
+    "date": "2026-11-15",
+    "time": "15:00",
+    "venue": "СК КАТТ",
+    "post": 2090,
+    "announced": true,
+    "finished": false
    }
   ],
   "ok": true,
-  "at": "2026-11-14T13:10:06.970Z"
+  "at": "2026-11-15T04:30:06.561Z"
  },
  "vk": {
   "posts": [
+   {
+    "id": 4068,
+    "date": "2026-11-15T04:28:24.000Z",
+    "text": "«Садовод» — «ФК ФАВОРИТ»: голы матча и победный результат 🏆🌟",
+    "photos": [],
+    "video": {
+     "title": "Видео от ФК «Садовод» | Красноярск",
+     "image": "https://sun9-47.userapi.com/impg/jpowzu6OUMBsvvzefjE411JIfM5TLlrom2CzMw/vkNzgLzMyYk.jpg?size=800x450&quality=95&keep_aspect_ratio=1&background=000000&sign=a150351867a1524ce6e1012dcace5a57&type=video_thumb",
+     "clip": false,
+     "link": "https://vk.ru/video-214784904_456239391"
+    },
+    "link": "https://vk.ru/wall-214784904_4068"
+   },
    {
     "id": 4067,
     "date": "2026-11-13T14:34:08.000Z",
@@ -1670,7 +1696,7 @@ const AUTO = {
   ],
   "albums": [],
   "ok": true,
-  "at": "2026-11-14T13:10:06.970Z",
+  "at": "2026-11-15T04:30:06.561Z",
   "via": "widget"
  }
 };
