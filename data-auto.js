@@ -1,7 +1,7 @@
 // Файл создаётся автоматически скриптом update.js — не редактируйте вручную.
 // Ручные правки делайте в data.js (MANUAL_MATCHES / MANUAL_STANDINGS).
 const AUTO = {
- "updated": "2026-11-15T09:10:06.576Z",
+ "updated": "2026-11-15T09:52:22.972Z",
  "tournaments": {
   "city": {
    "standings": [
@@ -214,7 +214,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-15T09:10:06.576Z"
+   "at": "2026-11-15T09:52:22.972Z"
   },
   "fbl": {
    "standings": [
@@ -662,7 +662,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-15T09:10:06.576Z"
+   "at": "2026-11-15T09:52:22.972Z"
   },
   "cup": {
    "standings": [],
@@ -693,7 +693,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-15T09:10:06.576Z"
+   "at": "2026-11-15T09:52:22.972Z"
   }
  },
  "telegram": {
@@ -1474,11 +1474,12 @@ const AUTO = {
     "venue": "СК КАТТ",
     "post": 2090,
     "announced": true,
-    "finished": false
+    "endAt": "2026-11-15T09:36:13+00:00",
+    "finished": true
    }
   ],
   "ok": true,
-  "at": "2026-11-15T09:10:06.576Z"
+  "at": "2026-11-15T09:52:22.972Z"
  },
  "vk": {
   "posts": [
@@ -1824,7 +1825,7 @@ const AUTO = {
   ],
   "albums": [],
   "ok": true,
-  "at": "2026-11-15T09:10:06.576Z",
+  "at": "2026-11-15T09:52:22.972Z",
   "via": "widget"
  }
 };
