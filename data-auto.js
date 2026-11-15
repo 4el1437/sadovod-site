@@ -1,7 +1,7 @@
 // Файл создаётся автоматически скриптом update.js — не редактируйте вручную.
 // Ручные правки делайте в data.js (MANUAL_MATCHES / MANUAL_STANDINGS).
 const AUTO = {
- "updated": "2026-11-15T10:40:06.674Z",
+ "updated": "2026-11-15T12:20:04.396Z",
  "tournaments": {
   "city": {
    "standings": [
@@ -214,7 +214,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-15T10:40:06.674Z"
+   "at": "2026-11-15T12:20:04.396Z"
   },
   "fbl": {
    "standings": [
@@ -662,7 +662,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-15T10:40:06.674Z"
+   "at": "2026-11-15T12:20:04.396Z"
   },
   "cup": {
    "standings": [],
@@ -693,7 +693,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-15T10:40:06.674Z"
+   "at": "2026-11-15T12:20:04.396Z"
   }
  },
  "telegram": {
@@ -1476,10 +1476,33 @@ const AUTO = {
     "announced": true,
     "endAt": "2026-11-15T09:36:13+00:00",
     "finished": true
+   },
+   {
+    "t": "fbl",
+    "opponent": "Хавзак",
+    "round": "4 тур",
+    "goals": [
+     {
+      "score": "0:1",
+      "opp": true,
+      "post": 2114,
+      "at": "2026-11-15T12:15:52+00:00"
+     }
+    ],
+    "score": [
+     0,
+     1
+    ],
+    "date": "2026-11-15",
+    "time": "19:15",
+    "venue": "",
+    "post": 2112,
+    "announced": false,
+    "finished": false
    }
   ],
   "ok": true,
-  "at": "2026-11-15T10:40:06.674Z"
+  "at": "2026-11-15T12:20:04.396Z"
  },
  "vk": {
   "posts": [
@@ -1490,7 +1513,7 @@ const AUTO = {
     "photos": [],
     "video": {
      "title": "ФК Садовод - Хавзак. 4 тур фбл 2 дивизион",
-     "image": "https://iv.okcdn.ru/getVideoPreview?mid=1&type=32&tkn=eV3j7nSQVsFidmwI5anOhZWmOlU&fn=vid_l",
+     "image": "https://iv.okcdn.ru/getVideoPreview?mid=16561789290453&type=32&tkn=Ts-hUEVq1n0TQmW-Ikx5_qPbFic&fn=vid_l",
      "clip": false,
      "link": "https://vk.ru/video-214784904_456239392"
     },
@@ -1838,7 +1861,7 @@ const AUTO = {
   ],
   "albums": [],
   "ok": true,
-  "at": "2026-11-15T10:40:06.674Z",
+  "at": "2026-11-15T12:20:04.396Z",
   "via": "widget"
  }
 };
