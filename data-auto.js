@@ -1,7 +1,7 @@
 // Файл создаётся автоматически скриптом update.js — не редактируйте вручную.
 // Ручные правки делайте в data.js (MANUAL_MATCHES / MANUAL_STANDINGS).
 const AUTO = {
- "updated": "2026-11-15T04:30:06.561Z",
+ "updated": "2026-11-15T06:40:06.245Z",
  "tournaments": {
   "city": {
    "standings": [
@@ -214,7 +214,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-15T04:30:06.561Z"
+   "at": "2026-11-15T06:40:06.245Z"
   },
   "fbl": {
    "standings": [
@@ -662,7 +662,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-15T04:30:06.561Z"
+   "at": "2026-11-15T06:40:06.245Z"
   },
   "cup": {
    "standings": [],
@@ -693,7 +693,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-15T04:30:06.561Z"
+   "at": "2026-11-15T06:40:06.245Z"
   }
  },
  "telegram": {
@@ -1363,10 +1363,23 @@ const AUTO = {
    }
   ],
   "ok": true,
-  "at": "2026-11-15T04:30:06.561Z"
+  "at": "2026-11-15T06:40:06.245Z"
  },
  "vk": {
   "posts": [
+   {
+    "id": 4069,
+    "date": "2026-11-15T06:37:17.000Z",
+    "text": "❗ДЕНЬ МАТЧА❗\n\n💥ФК Садовод - Рутранс💥\n\n3 тур 2 дивизиона ФБЛ\n📆 15 ноября\n⏰ 15:00\n🏟 СК КАТТ\n💬 Телеграм - текстовая трансляция\n\n💥ФК Садовод - Хавзак💥\n\n4 тур 2 дивизиона ФБЛ\n\n📆 15 ноября\n⏰ 19:00\n🏟 МФК СФУ \n💬 Телеграм - текстовая трансляция\n\nПриглашаем всех поддержать нас! Идём за победой!⚽❤",
+    "photos": [
+     {
+      "big": "https://sun9-51.userapi.com/s/v1/ig2/N0sgVMk6riilVkT34bIgenUXpo7O8MExkeOmyUFSZ4fP1Y8kvvScLQ6nFWeUPt5XaiDiMtMND4Ubpj4q4gR5dYSq.jpg?quality=95&crop=0,0,1024,1535&as=32x48,48x72,72x108,108x162,160x240,240x360,360x540,480x720,540x809,640x959,720x1079,1024x1535&from=bu&cs=640x0",
+      "small": "https://sun9-51.userapi.com/s/v1/ig2/N0sgVMk6riilVkT34bIgenUXpo7O8MExkeOmyUFSZ4fP1Y8kvvScLQ6nFWeUPt5XaiDiMtMND4Ubpj4q4gR5dYSq.jpg?quality=95&crop=0,0,1024,1535&as=32x48,48x72,72x108,108x162,160x240,240x360,360x540,480x720,540x809,640x959,720x1079,1024x1535&from=bu&cs=640x0"
+     }
+    ],
+    "video": null,
+    "link": "https://vk.ru/wall-214784904_4069"
+   },
    {
     "id": 4068,
     "date": "2026-11-15T04:28:24.000Z",
@@ -1696,7 +1709,7 @@ const AUTO = {
   ],
   "albums": [],
   "ok": true,
-  "at": "2026-11-15T04:30:06.561Z",
+  "at": "2026-11-15T06:40:06.245Z",
   "via": "widget"
  }
 };
