@@ -1,7 +1,7 @@
 // Файл создаётся автоматически скриптом update.js — не редактируйте вручную.
 // Ручные правки делайте в data.js (MANUAL_MATCHES / MANUAL_STANDINGS).
 const AUTO = {
- "updated": "2026-11-15T17:10:07.212Z",
+ "updated": "2026-11-15T23:20:06.749Z",
  "tournaments": {
   "city": {
    "standings": [
@@ -214,7 +214,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-15T17:10:07.212Z"
+   "at": "2026-11-15T23:20:06.749Z"
   },
   "fbl": {
    "standings": [
@@ -639,6 +639,114 @@ const AUTO = {
      "mvp": "Ярослав Ромашин"
     },
     {
+     "id": "vs-2026-11-15-Хавзак",
+     "date": "2026-11-15",
+     "time": "",
+     "home": "СФУ",
+     "away": "Хавзак",
+     "score": [
+      11,
+      5
+     ],
+     "venue": "",
+     "link": "https://vsport.su/football/football-corporate/2-divizion-[fbl]---korporativnaia-futbolnaia-liga-2026272765/",
+     "round": "",
+     "goals": [
+      {
+       "score": "0:1",
+       "opp": true,
+       "min": 1
+      },
+      {
+       "score": "1:1",
+       "min": 6,
+       "scorer": "Андрей Суздаль",
+       "assist": "Александр Дьяченко"
+      },
+      {
+       "score": "1:2",
+       "opp": true,
+       "min": 17
+      },
+      {
+       "score": "2:2",
+       "min": 22,
+       "scorer": "Анатолий Антропов",
+       "assist": "Андрей Суздаль"
+      },
+      {
+       "score": "2:3",
+       "opp": true,
+       "min": 23
+      },
+      {
+       "score": "2:4",
+       "opp": true,
+       "min": 24
+      },
+      {
+       "score": "3:4",
+       "min": 25,
+       "scorer": "Василий Прокофьев",
+       "assist": "Андрей Суздаль"
+      },
+      {
+       "score": "4:4",
+       "min": 29,
+       "scorer": "Александр Андриевич",
+       "assist": "Семен Проровский"
+      },
+      {
+       "score": "5:4",
+       "min": 35,
+       "scorer": "Александр Андриевич",
+       "assist": null
+      },
+      {
+       "score": "6:4",
+       "min": 36,
+       "scorer": "Александр Андриевич",
+       "assist": null
+      },
+      {
+       "score": "7:4",
+       "min": 38,
+       "scorer": "Александр Дьяченко",
+       "assist": "Василий Прокофьев"
+      },
+      {
+       "score": "7:5",
+       "opp": true,
+       "min": 42
+      },
+      {
+       "score": "8:5",
+       "min": 43,
+       "scorer": "Кирилл Герасимов",
+       "assist": "Александр Воропаев"
+      },
+      {
+       "score": "9:5",
+       "min": 45,
+       "scorer": "Александр Андриевич",
+       "assist": null
+      },
+      {
+       "score": "10:5",
+       "min": 48,
+       "scorer": "Артур Мустафин",
+       "assist": "Анатолий Антропов"
+      },
+      {
+       "score": "11:5",
+       "min": 50,
+       "scorer": "Андрей Суздаль",
+       "assist": "Анатолий Антропов"
+      }
+     ],
+     "mvp": "Александр Андриевич"
+    },
+    {
      "id": "vs-2026-11-15-РУТРАНС",
      "date": "2026-11-15",
      "time": "15:00",
@@ -648,21 +756,10 @@ const AUTO = {
      "venue": "Красноярский автотранспортный техникум",
      "link": "https://vsport.su/football/football-corporate/2-divizion-[fbl]---korporativnaia-futbolnaia-liga-2026272765/",
      "round": ""
-    },
-    {
-     "id": "vs-2026-11-15-Хавзак",
-     "date": "2026-11-15",
-     "time": "19:00",
-     "home": "СФУ",
-     "away": "Хавзак",
-     "score": null,
-     "venue": "Спорткомплекс СФУ",
-     "link": "https://vsport.su/football/football-corporate/2-divizion-[fbl]---korporativnaia-futbolnaia-liga-2026272765/",
-     "round": ""
     }
    ],
    "ok": true,
-   "at": "2026-11-15T17:10:07.212Z"
+   "at": "2026-11-15T23:20:06.749Z"
   },
   "cup": {
    "standings": [],
@@ -693,7 +790,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-15T17:10:07.212Z"
+   "at": "2026-11-15T23:20:06.749Z"
   }
  },
  "telegram": {
@@ -1605,7 +1702,7 @@ const AUTO = {
    }
   ],
   "ok": true,
-  "at": "2026-11-15T17:10:07.212Z"
+  "at": "2026-11-15T23:20:06.749Z"
  },
  "vk": {
   "posts": [
@@ -1977,7 +2074,7 @@ const AUTO = {
   ],
   "albums": [],
   "ok": true,
-  "at": "2026-11-15T17:10:07.212Z",
+  "at": "2026-11-15T23:20:06.749Z",
   "via": "widget"
  }
 };
