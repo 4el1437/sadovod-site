@@ -170,7 +170,11 @@ function matchCard(m) {
 
 // кто сыграл матч: ручной состав (MANUAL_LINEUPS) или распознанная картинка + авторы голов/передач
 function playedIn(m) {
-  const manual = typeof MANUAL_LINEUPS !== "undefined" ? MANUAL_LINEUPS[`${m.t}:${m.date}`] : null;
+  // ключ «турнир:дата», а если в день два матча — «турнир:дата:соперник» (регистр не важен)
+  const opp = (m.home === m.us ? m.away : m.home) || "";
+  const ml = typeof MANUAL_LINEUPS !== "undefined" ? MANUAL_LINEUPS : {};
+  const mk = Object.keys(ml).find((k) => k.toLowerCase() === `${m.t}:${m.date}:${opp}`.toLowerCase());
+  const manual = ml[mk] || ml[`${m.t}:${m.date}`] || null;
   const set = new Set(manual || m.lineup || []);
   if (!manual) for (const g of m.goals || []) {
     if (g.opp) continue;
