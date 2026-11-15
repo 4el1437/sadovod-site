@@ -1,7 +1,7 @@
 // Файл создаётся автоматически скриптом update.js — не редактируйте вручную.
 // Ручные правки делайте в data.js (MANUAL_MATCHES / MANUAL_STANDINGS).
 const AUTO = {
- "updated": "2026-11-15T13:12:26.172Z",
+ "updated": "2026-11-15T13:30:03.754Z",
  "tournaments": {
   "city": {
    "standings": [
@@ -214,7 +214,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-15T13:12:26.172Z"
+   "at": "2026-11-15T13:30:03.754Z"
   },
   "fbl": {
    "standings": [
@@ -662,7 +662,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-15T13:12:26.172Z"
+   "at": "2026-11-15T13:30:03.754Z"
   },
   "cup": {
    "standings": [],
@@ -693,7 +693,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-15T13:12:26.172Z"
+   "at": "2026-11-15T13:30:03.754Z"
   }
  },
  "telegram": {
@@ -1605,7 +1605,7 @@ const AUTO = {
    }
   ],
   "ok": true,
-  "at": "2026-11-15T13:12:26.172Z"
+  "at": "2026-11-15T13:30:03.754Z"
  },
  "vk": {
   "posts": [
@@ -1616,7 +1616,7 @@ const AUTO = {
     "photos": [],
     "video": {
      "title": "ФК Садовод - Хавзак. 4 тур фбл 2 дивизион",
-     "image": "https://iv.okcdn.ru/getVideoPreview?mid=16561789290453&type=32&tkn=Ts-hUEVq1n0TQmW-Ikx5_qPbFic&fn=vid_l",
+     "image": "https://iv.okcdn.ru/getVideoPreview?mid=16561789290453&type=39&tkn=EZLOx_u9NuA5gAYBI6iv8EeF58Y&fn=vid_x",
      "clip": false,
      "link": "https://vk.ru/video-214784904_456239392"
     },
@@ -1964,7 +1964,7 @@ const AUTO = {
   ],
   "albums": [],
   "ok": true,
-  "at": "2026-11-15T13:12:26.172Z",
+  "at": "2026-11-15T13:30:03.754Z",
   "via": "widget"
  }
 };
