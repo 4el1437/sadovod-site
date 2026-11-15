@@ -1,7 +1,7 @@
 // Файл создаётся автоматически скриптом update.js — не редактируйте вручную.
 // Ручные правки делайте в data.js (MANUAL_MATCHES / MANUAL_STANDINGS).
 const AUTO = {
- "updated": "2026-11-15T16:50:06.754Z",
+ "updated": "2026-11-15T17:10:07.212Z",
  "tournaments": {
   "city": {
    "standings": [
@@ -214,7 +214,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-15T16:50:06.754Z"
+   "at": "2026-11-15T17:10:07.212Z"
   },
   "fbl": {
    "standings": [
@@ -662,7 +662,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-15T16:50:06.754Z"
+   "at": "2026-11-15T17:10:07.212Z"
   },
   "cup": {
    "standings": [],
@@ -693,7 +693,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-15T16:50:06.754Z"
+   "at": "2026-11-15T17:10:07.212Z"
   }
  },
  "telegram": {
@@ -1605,10 +1605,23 @@ const AUTO = {
    }
   ],
   "ok": true,
-  "at": "2026-11-15T16:50:06.754Z"
+  "at": "2026-11-15T17:10:07.212Z"
  },
  "vk": {
   "posts": [
+   {
+    "id": 4072,
+    "date": "2026-11-15T17:01:31.000Z",
+    "text": "❗ИТОГИ ДНЯ❗\n\nПод не грустный дэнс, по спортзалам, в футбольном угаре прошлись сегодня по 2 дивизиону ФБЛ!🤪",
+    "photos": [
+     {
+      "big": "https://sun9-64.userapi.com/s/v1/ig2/42vNaDsAJSi-wVBBEGN4MDyLFxCjf9KIS-Z1KcSqTNrXfGB7VNYsF0DibNau46OMYXgiFEtu2hQzJiwbfUnGapdI.jpg?quality=95&crop=0,0,1122,1402&as=32x40,48x60,72x90,108x135,160x200,240x300,360x450,480x600,540x675,640x800,720x900,1080x1350,1122x1402&from=bu&cs=640x0",
+      "small": "https://sun9-64.userapi.com/s/v1/ig2/42vNaDsAJSi-wVBBEGN4MDyLFxCjf9KIS-Z1KcSqTNrXfGB7VNYsF0DibNau46OMYXgiFEtu2hQzJiwbfUnGapdI.jpg?quality=95&crop=0,0,1122,1402&as=32x40,48x60,72x90,108x135,160x200,240x300,360x450,480x600,540x675,640x800,720x900,1080x1350,1122x1402&from=bu&cs=640x0"
+     }
+    ],
+    "video": null,
+    "link": "https://vk.ru/wall-214784904_4072"
+   },
    {
     "id": 4070,
     "date": "2026-11-15T10:36:17.000Z",
@@ -1964,7 +1977,7 @@ const AUTO = {
   ],
   "albums": [],
   "ok": true,
-  "at": "2026-11-15T16:50:06.754Z",
+  "at": "2026-11-15T17:10:07.212Z",
   "via": "widget"
  }
 };
