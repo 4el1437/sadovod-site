@@ -1,7 +1,7 @@
 // Файл создаётся автоматически скриптом update.js — не редактируйте вручную.
 // Ручные правки делайте в data.js (MANUAL_MATCHES / MANUAL_STANDINGS).
 const AUTO = {
- "updated": "2026-11-15T23:20:06.749Z",
+ "updated": "2026-11-16T00:00:04.191Z",
  "tournaments": {
   "city": {
    "standings": [
@@ -136,14 +136,14 @@ const AUTO = {
      "round": "2 тур"
     },
     {
-     "id": "kf-2026-11-22-Садовод-СИАЛ",
+     "id": "gs106433883",
      "date": "2026-11-22",
      "time": "18:00",
      "home": "Садовод",
      "away": "СИАЛ",
      "score": null,
      "venue": "МСК Сопка",
-     "link": "https://www.goalstream.org/season/1097848#/schedule",
+     "link": "https://www.goalstream.org/match/106433883/868f90de",
      "round": "3 тур"
     },
     {
@@ -214,7 +214,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-15T23:20:06.749Z"
+   "at": "2026-11-16T00:00:04.191Z"
   },
   "fbl": {
    "standings": [
@@ -759,7 +759,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-15T23:20:06.749Z"
+   "at": "2026-11-16T00:00:04.191Z"
   },
   "cup": {
    "standings": [],
@@ -790,7 +790,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-15T23:20:06.749Z"
+   "at": "2026-11-16T00:00:04.191Z"
   }
  },
  "telegram": {
@@ -1702,7 +1702,7 @@ const AUTO = {
    }
   ],
   "ok": true,
-  "at": "2026-11-15T23:20:06.749Z"
+  "at": "2026-11-16T00:00:04.191Z"
  },
  "vk": {
   "posts": [
@@ -2074,7 +2074,7 @@ const AUTO = {
   ],
   "albums": [],
   "ok": true,
-  "at": "2026-11-15T23:20:06.749Z",
+  "at": "2026-11-16T00:00:04.191Z",
   "via": "widget"
  }
 };
