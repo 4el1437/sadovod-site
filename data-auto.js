@@ -1,7 +1,7 @@
 // Файл создаётся автоматически скриптом update.js — не редактируйте вручную.
 // Ручные правки делайте в data.js (MANUAL_MATCHES / MANUAL_STANDINGS).
 const AUTO = {
- "updated": "2026-11-16T04:30:07.066Z",
+ "updated": "2026-11-16T08:10:06.941Z",
  "tournaments": {
   "city": {
    "standings": [
@@ -214,7 +214,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-16T04:30:07.066Z"
+   "at": "2026-11-16T08:10:06.941Z"
   },
   "fbl": {
    "standings": [
@@ -749,20 +749,117 @@ const AUTO = {
     {
      "id": "vs-2026-11-15-РУТРАНС",
      "date": "2026-11-15",
-     "time": "15:00",
+     "time": "",
      "home": "РУТРАНС",
      "away": "СФУ",
      "score": [
       8,
       9
      ],
-     "venue": "- 8:9 (4:1) Красноярский автотранспортный техникум",
+     "venue": "",
      "link": "https://vsport.su/football/football-corporate/2-divizion-[fbl]---korporativnaia-futbolnaia-liga-2026272765/",
-     "round": ""
+     "round": "",
+     "goals": [
+      {
+       "score": "0:1",
+       "opp": true,
+       "min": 3
+      },
+      {
+       "score": "1:1",
+       "min": 8,
+       "scorer": "Александр Дьяченко",
+       "assist": null
+      },
+      {
+       "score": "1:2",
+       "opp": true,
+       "min": 15
+      },
+      {
+       "score": "1:3",
+       "opp": true,
+       "min": 16
+      },
+      {
+       "score": "1:4",
+       "opp": true,
+       "min": 23
+      },
+      {
+       "score": "2:4",
+       "min": 27,
+       "scorer": "Александр Андриевич",
+       "assist": null
+      },
+      {
+       "score": "3:4",
+       "min": 31,
+       "scorer": "Александр Воропаев",
+       "assist": "Андрей Суздаль"
+      },
+      {
+       "score": "4:4",
+       "min": 32,
+       "scorer": "Андрей Суздаль",
+       "assist": "Александр Дьяченко"
+      },
+      {
+       "score": "4:5",
+       "opp": true,
+       "min": 33
+      },
+      {
+       "score": "5:5",
+       "min": 34,
+       "scorer": "Александр Дьяченко",
+       "assist": "Андрей Пикалов"
+      },
+      {
+       "score": "6:5",
+       "min": 35,
+       "scorer": "Артур Мустафин",
+       "assist": "Матвей Маклаков"
+      },
+      {
+       "score": "6:6",
+       "opp": true,
+       "min": 36
+      },
+      {
+       "score": "7:6",
+       "min": 38,
+       "scorer": "Андрей Суздаль",
+       "assist": "Василий Прокофьев"
+      },
+      {
+       "score": "7:7",
+       "opp": true,
+       "min": 41
+      },
+      {
+       "score": "7:8",
+       "opp": true,
+       "min": 45
+      },
+      {
+       "score": "8:8",
+       "min": 48,
+       "scorer": "Анатолий Антропов",
+       "assist": "Данил Скуратов"
+      },
+      {
+       "score": "9:8",
+       "min": 49,
+       "scorer": "Андрей Суздаль",
+       "assist": "Анатолий Антропов"
+      }
+     ],
+     "mvp": "Александр Дьяченко"
     }
    ],
    "ok": true,
-   "at": "2026-11-16T04:30:07.066Z"
+   "at": "2026-11-16T08:10:06.941Z"
   },
   "cup": {
    "standings": [],
@@ -793,7 +890,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-16T04:30:07.066Z"
+   "at": "2026-11-16T08:10:06.941Z"
   }
  },
  "telegram": {
@@ -1705,7 +1802,7 @@ const AUTO = {
    }
   ],
   "ok": true,
-  "at": "2026-11-16T04:30:07.066Z"
+  "at": "2026-11-16T08:10:06.941Z"
  },
  "vk": {
   "posts": [
@@ -2077,7 +2174,7 @@ const AUTO = {
   ],
   "albums": [],
   "ok": true,
-  "at": "2026-11-16T04:30:07.066Z",
+  "at": "2026-11-16T08:10:06.941Z",
   "via": "widget"
  }
 };
