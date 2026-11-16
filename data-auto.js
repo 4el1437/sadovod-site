@@ -1,7 +1,7 @@
 // Файл создаётся автоматически скриптом update.js — не редактируйте вручную.
 // Ручные правки делайте в data.js (MANUAL_MATCHES / MANUAL_STANDINGS).
 const AUTO = {
- "updated": "2026-11-16T00:00:04.191Z",
+ "updated": "2026-11-16T04:30:07.066Z",
  "tournaments": {
   "city": {
    "standings": [
@@ -214,7 +214,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-16T00:00:04.191Z"
+   "at": "2026-11-16T04:30:07.066Z"
   },
   "fbl": {
    "standings": [
@@ -752,14 +752,17 @@ const AUTO = {
      "time": "15:00",
      "home": "РУТРАНС",
      "away": "СФУ",
-     "score": null,
-     "venue": "Красноярский автотранспортный техникум",
+     "score": [
+      8,
+      9
+     ],
+     "venue": "- 8:9 (4:1) Красноярский автотранспортный техникум",
      "link": "https://vsport.su/football/football-corporate/2-divizion-[fbl]---korporativnaia-futbolnaia-liga-2026272765/",
      "round": ""
     }
    ],
    "ok": true,
-   "at": "2026-11-16T00:00:04.191Z"
+   "at": "2026-11-16T04:30:07.066Z"
   },
   "cup": {
    "standings": [],
@@ -790,7 +793,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-16T00:00:04.191Z"
+   "at": "2026-11-16T04:30:07.066Z"
   }
  },
  "telegram": {
@@ -1702,7 +1705,7 @@ const AUTO = {
    }
   ],
   "ok": true,
-  "at": "2026-11-16T00:00:04.191Z"
+  "at": "2026-11-16T04:30:07.066Z"
  },
  "vk": {
   "posts": [
@@ -2074,7 +2077,7 @@ const AUTO = {
   ],
   "albums": [],
   "ok": true,
-  "at": "2026-11-16T00:00:04.191Z",
+  "at": "2026-11-16T04:30:07.066Z",
   "via": "widget"
  }
 };
