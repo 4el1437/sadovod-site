@@ -17,6 +17,9 @@ const store = { get: (k) => { try { return localStorage.getItem(k); } catch { re
 
 // ---------- сборка данных: авто + ручные правки ----------
 const AUTO_DATA = typeof AUTO !== "undefined" ? AUTO : { tournaments: {} };
+// «Семен» в посте = «Семён» в составе: имя приводим к написанию из PLAYERS (ё/е и регистр не важны)
+const fold = (n) => String(n || "").toLowerCase().replace(/ё/g, "е").replace(/\s+/g, " ").trim();
+const canon = (n) => PLAYERS.find((p) => fold(p.name) === fold(n))?.name || n;
 let TG_MATCHES = AUTO_DATA.telegram?.matches || [];
 // эфиры из приложения FootballLive (stream.json в ветке APP_STREAM.branch), см. pollAppStreams
 let APP_STREAMS = [];
@@ -102,7 +105,9 @@ const buildT = () => TOURNAMENTS.map((t) => {
     ...t,
     standings,
     // ключ окна матча — турнир:дата; если в этот день матчей несколько — ещё и соперник (иначе открывался чужой матч)
-    matches: [...matches.values()].map((m, _, all) => ({ ...estMinutes(m, t.half), t: t.id, us: t.team, key: t.id + ":" + m.date + (m.appKey ? ":" + m.appKey
+    matches: [...matches.values()].map((m, _, all) => ({ // имена в голах/составе — как в PLAYERS («Семен» → «Семён»), иначе игрок не кликается и не попадает в статистику
+      ...estMinutes({ ...m, goals: m.goals?.map((g) => ({ ...g, scorer: g.scorer && canon(g.scorer), assist: g.assist && canon(g.assist) })), lineup: m.lineup?.map(canon), mvp: m.mvp && canon(m.mvp) }, t.half),
+      t: t.id, us: t.team, key: t.id + ":" + m.date + (m.appKey ? ":" + m.appKey
       : all.filter((x) => x.date === m.date && !x.appKey).length > 1 ? ":" + (m.home === t.team ? m.away : m.home).toLowerCase() : "") })),
     updated: a.at, ok: a.ok !== false,
   };
@@ -168,9 +173,6 @@ function matchCard(m) {
   </div>`;
 }
 
-// «Семен» в посте = «Семён» в составе: имя приводим к написанию из PLAYERS (ё/е и регистр не важны)
-const fold = (n) => String(n || "").toLowerCase().replace(/ё/g, "е").replace(/\s+/g, " ").trim();
-const canon = (n) => PLAYERS.find((p) => fold(p.name) === fold(n))?.name || n;
 // кто сыграл матч: ручной состав (MANUAL_LINEUPS) или распознанная картинка + авторы голов/передач
 function playedIn(m) {
   // ключ «турнир:дата», а если в день два матча — «турнир:дата:соперник» (регистр не важен)
