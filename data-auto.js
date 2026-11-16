@@ -1,7 +1,7 @@
 // Файл создаётся автоматически скриптом update.js — не редактируйте вручную.
 // Ручные правки делайте в data.js (MANUAL_MATCHES / MANUAL_STANDINGS).
 const AUTO = {
- "updated": "2026-11-16T13:20:06.737Z",
+ "updated": "2026-11-16T17:20:03.712Z",
  "tournaments": {
   "city": {
    "standings": [
@@ -214,7 +214,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-16T13:20:06.737Z"
+   "at": "2026-11-16T17:20:03.712Z"
   },
   "fbl": {
    "standings": [
@@ -856,10 +856,65 @@ const AUTO = {
       }
      ],
      "mvp": "Александр Дьяченко"
+    },
+    {
+     "id": "vs-2026-11-22-ГСУ СК",
+     "date": "2026-11-22",
+     "time": "15:00",
+     "home": "ГСУ СК",
+     "away": "СФУ",
+     "score": null,
+     "venue": "Спорткомплекс СОПКА",
+     "link": "https://vsport.su/football/football-corporate/2-divizion-[fbl]---korporativnaia-futbolnaia-liga-2026272765/",
+     "round": ""
+    },
+    {
+     "id": "vs-2026-11-29-ПОБЕДА",
+     "date": "2026-11-29",
+     "time": "19:00",
+     "home": "СФУ",
+     "away": "ПОБЕДА",
+     "score": null,
+     "venue": "Спорткомплекс СФУ",
+     "link": "https://vsport.su/football/football-corporate/2-divizion-[fbl]---korporativnaia-futbolnaia-liga-2026272765/",
+     "round": ""
+    },
+    {
+     "id": "vs-2026-12-05-ВИТЭН",
+     "date": "2026-12-05",
+     "time": "20:00",
+     "home": "ВИТЭН",
+     "away": "СФУ",
+     "score": null,
+     "venue": "Спорткомплекс ВОЛНА",
+     "link": "https://vsport.su/football/football-corporate/2-divizion-[fbl]---korporativnaia-futbolnaia-liga-2026272765/",
+     "round": ""
+    },
+    {
+     "id": "vs-2026-12-09-ОРИОН-МОТОРС (ВГ)",
+     "date": "2026-12-09",
+     "time": "20:15",
+     "home": "ОРИОН-МОТОРС (ВГ)",
+     "away": "СФУ",
+     "score": null,
+     "venue": "Красноярский автотранспортный техникум",
+     "link": "https://vsport.su/football/football-corporate/2-divizion-[fbl]---korporativnaia-futbolnaia-liga-2026272765/",
+     "round": ""
+    },
+    {
+     "id": "vs-2026-12-12-ГСУ СК",
+     "date": "2026-12-12",
+     "time": "10:30",
+     "home": "ГСУ СК",
+     "away": "СФУ",
+     "score": null,
+     "venue": "Спорткомплекс СОПКА",
+     "link": "https://vsport.su/football/football-corporate/2-divizion-[fbl]---korporativnaia-futbolnaia-liga-2026272765/",
+     "round": ""
     }
    ],
    "ok": true,
-   "at": "2026-11-16T13:20:06.737Z"
+   "at": "2026-11-16T17:20:03.712Z"
   },
   "cup": {
    "standings": [],
@@ -890,7 +945,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-16T13:20:06.737Z"
+   "at": "2026-11-16T17:20:03.712Z"
   }
  },
  "telegram": {
@@ -1802,7 +1857,7 @@ const AUTO = {
    }
   ],
   "ok": true,
-  "at": "2026-11-16T13:20:06.737Z"
+  "at": "2026-11-16T17:20:03.712Z"
  },
  "vk": {
   "posts": [
@@ -2187,7 +2242,7 @@ const AUTO = {
   ],
   "albums": [],
   "ok": true,
-  "at": "2026-11-16T13:20:06.737Z",
+  "at": "2026-11-16T17:20:03.712Z",
   "via": "widget"
  }
 };
