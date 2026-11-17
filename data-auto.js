@@ -1,7 +1,7 @@
 // Файл создаётся автоматически скриптом update.js — не редактируйте вручную.
 // Ручные правки делайте в data.js (MANUAL_MATCHES / MANUAL_STANDINGS).
 const AUTO = {
- "updated": "2026-11-16T19:40:03.878Z",
+ "updated": "2026-11-17T00:00:03.665Z",
  "tournaments": {
   "city": {
    "standings": [
@@ -147,14 +147,14 @@ const AUTO = {
      "round": "3 тур"
     },
     {
-     "id": "kf-2026-11-23-ГУФСИН-Садовод",
+     "id": "gs106433889",
      "date": "2026-11-23",
      "time": "21:30",
      "home": "ГУФСИН",
      "away": "Садовод",
      "score": null,
      "venue": "СК Тотем",
-     "link": "https://www.goalstream.org/season/1097848#/schedule",
+     "link": "https://www.goalstream.org/match/106433889/33fbf2f6",
      "round": "4 тур"
     },
     {
@@ -214,7 +214,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-16T19:40:03.878Z"
+   "at": "2026-11-17T00:00:03.665Z"
   },
   "fbl": {
    "standings": [
@@ -914,7 +914,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-16T19:40:03.878Z"
+   "at": "2026-11-17T00:00:03.665Z"
   },
   "cup": {
    "standings": [],
@@ -945,7 +945,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-16T19:40:03.878Z"
+   "at": "2026-11-17T00:00:03.665Z"
   }
  },
  "telegram": {
@@ -1857,7 +1857,7 @@ const AUTO = {
    }
   ],
   "ok": true,
-  "at": "2026-11-16T19:40:03.878Z"
+  "at": "2026-11-17T00:00:03.665Z"
  },
  "vk": {
   "posts": [
@@ -2242,7 +2242,7 @@ const AUTO = {
   ],
   "albums": [],
   "ok": true,
-  "at": "2026-11-16T19:40:03.878Z",
+  "at": "2026-11-17T00:00:03.665Z",
   "via": "widget"
  }
 };
