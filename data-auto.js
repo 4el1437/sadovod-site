@@ -1,7 +1,7 @@
 // Файл создаётся автоматически скриптом update.js — не редактируйте вручную.
 // Ручные правки делайте в data.js (MANUAL_MATCHES / MANUAL_STANDINGS).
 const AUTO = {
- "updated": "2026-11-17T00:00:03.665Z",
+ "updated": "2026-11-17T08:40:03.427Z",
  "tournaments": {
   "city": {
    "standings": [
@@ -214,7 +214,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-17T00:00:03.665Z"
+   "at": "2026-11-17T08:40:03.427Z"
   },
   "fbl": {
    "standings": [
@@ -914,7 +914,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-17T00:00:03.665Z"
+   "at": "2026-11-17T08:40:03.427Z"
   },
   "cup": {
    "standings": [],
@@ -945,7 +945,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-17T00:00:03.665Z"
+   "at": "2026-11-17T08:40:03.427Z"
   }
  },
  "telegram": {
@@ -1857,10 +1857,43 @@ const AUTO = {
    }
   ],
   "ok": true,
-  "at": "2026-11-17T00:00:03.665Z"
+  "at": "2026-11-17T08:40:03.427Z"
  },
  "vk": {
   "posts": [
+   {
+    "id": 4074,
+    "date": "2026-11-17T08:35:29.000Z",
+    "text": "⚽Смотрим фото с игры 4 тура ФБЛ!\n⚡«ФК Садовод» - «Хавзак»⚡\n\nhttps://vk.ru/album-214784904_310845388 👈🏻",
+    "photos": [
+     {
+      "big": "https://sun9-63.userapi.com/impg/uDjVP_Rsa1ZgI4eE1SbCzODy1YRnpSEl6sqSfA/3Zkf78GdY98.jpg?size=604x402&quality=95&sign=171d478aa3e71f5ad919fd1af7925d19&type=album",
+      "small": "https://sun9-63.userapi.com/impg/uDjVP_Rsa1ZgI4eE1SbCzODy1YRnpSEl6sqSfA/3Zkf78GdY98.jpg?size=604x402&quality=95&sign=171d478aa3e71f5ad919fd1af7925d19&type=album"
+     },
+     {
+      "big": "https://sun9-7.userapi.com/impg/ngdK1kIITRlnsMbBSHKRCHhdTqrcI5_YH95qnA/JQRoCZcqHGI.jpg?size=402x604&quality=95&sign=5127b9499d55cce766ac3633740bb050&type=album",
+      "small": "https://sun9-7.userapi.com/impg/ngdK1kIITRlnsMbBSHKRCHhdTqrcI5_YH95qnA/JQRoCZcqHGI.jpg?size=402x604&quality=95&sign=5127b9499d55cce766ac3633740bb050&type=album"
+     },
+     {
+      "big": "https://sun9-38.userapi.com/impg/gSdv79-CiFEBVgFvdU-_26wHg-wo81Sgel3WNg/fAYEh_OJ_sU.jpg?size=402x604&quality=95&sign=e78cb8464ad9931255e4f8229feaaee3&type=album",
+      "small": "https://sun9-38.userapi.com/impg/gSdv79-CiFEBVgFvdU-_26wHg-wo81Sgel3WNg/fAYEh_OJ_sU.jpg?size=402x604&quality=95&sign=e78cb8464ad9931255e4f8229feaaee3&type=album"
+     },
+     {
+      "big": "https://sun9-47.userapi.com/impg/MYjTP9wpUaZ_xR3NlIVWA2Gmgkygp3PpOiRBUg/P0eEsmJ8cns.jpg?size=402x604&quality=95&sign=d5da5a39dfd84a1e678431c24d3ce1f3&type=album",
+      "small": "https://sun9-47.userapi.com/impg/MYjTP9wpUaZ_xR3NlIVWA2Gmgkygp3PpOiRBUg/P0eEsmJ8cns.jpg?size=402x604&quality=95&sign=d5da5a39dfd84a1e678431c24d3ce1f3&type=album"
+     },
+     {
+      "big": "https://sun9-80.userapi.com/impg/_21lZzCogNsjExhB6ogUHhIJfLRwtuQ9OMFm0g/OyG6wYIGVrc.jpg?size=604x402&quality=95&sign=ba8ca5fe8db5806385deee72d4be86b7&type=album",
+      "small": "https://sun9-80.userapi.com/impg/_21lZzCogNsjExhB6ogUHhIJfLRwtuQ9OMFm0g/OyG6wYIGVrc.jpg?size=604x402&quality=95&sign=ba8ca5fe8db5806385deee72d4be86b7&type=album"
+     },
+     {
+      "big": "https://sun9-87.userapi.com/impg/wWpC82ITbS7s6vznfk5--pc1TVe86xZjIADheA/59g2gbuoAEU.jpg?size=402x604&quality=95&sign=4b8613817b8c2e27038267f7986b5f04&type=album",
+      "small": "https://sun9-87.userapi.com/impg/wWpC82ITbS7s6vznfk5--pc1TVe86xZjIADheA/59g2gbuoAEU.jpg?size=402x604&quality=95&sign=4b8613817b8c2e27038267f7986b5f04&type=album"
+     }
+    ],
+    "video": null,
+    "link": "https://vk.ru/wall-214784904_4074"
+   },
    {
     "id": 4073,
     "date": "2026-11-16T11:37:28.000Z",
@@ -2242,7 +2275,7 @@ const AUTO = {
   ],
   "albums": [],
   "ok": true,
-  "at": "2026-11-17T00:00:03.665Z",
+  "at": "2026-11-17T08:40:03.427Z",
   "via": "widget"
  }
 };
