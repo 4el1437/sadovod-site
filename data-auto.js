@@ -1,7 +1,7 @@
 // Файл создаётся автоматически скриптом update.js — не редактируйте вручную.
 // Ручные правки делайте в data.js (MANUAL_MATCHES / MANUAL_STANDINGS).
 const AUTO = {
- "updated": "2026-11-17T16:30:03.950Z",
+ "updated": "2026-11-18T08:20:03.804Z",
  "tournaments": {
   "city": {
    "standings": [
@@ -214,7 +214,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-17T16:30:03.950Z"
+   "at": "2026-11-18T08:20:03.804Z"
   },
   "fbl": {
    "standings": [
@@ -914,7 +914,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-17T16:30:03.950Z"
+   "at": "2026-11-18T08:20:03.804Z"
   },
   "cup": {
    "standings": [],
@@ -945,7 +945,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-17T16:30:03.950Z"
+   "at": "2026-11-18T08:20:03.804Z"
   }
  },
  "telegram": {
@@ -1857,7 +1857,7 @@ const AUTO = {
    }
   ],
   "ok": true,
-  "at": "2026-11-17T16:30:03.950Z"
+  "at": "2026-11-18T08:20:03.804Z"
  },
  "vk": {
   "posts": [
@@ -1952,8 +1952,8 @@ const AUTO = {
     "text": "«Садовод» — «ФК ФАВОРИТ»: голы матча и победный результат 🏆🌟",
     "photos": [],
     "video": {
-     "title": "Видео от ФК «Садовод» | Красноярск",
-     "image": "https://sun9-47.userapi.com/impg/jpowzu6OUMBsvvzefjE411JIfM5TLlrom2CzMw/vkNzgLzMyYk.jpg?size=800x450&quality=95&keep_aspect_ratio=1&background=000000&sign=a150351867a1524ce6e1012dcace5a57&type=video_thumb",
+     "title": "Видео недоступно",
+     "image": "",
      "clip": false,
      "link": "https://vk.ru/video-214784904_456239391"
     },
@@ -2275,7 +2275,7 @@ const AUTO = {
   ],
   "albums": [],
   "ok": true,
-  "at": "2026-11-17T16:30:03.950Z",
+  "at": "2026-11-18T08:20:03.804Z",
   "via": "widget"
  }
 };
