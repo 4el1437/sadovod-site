@@ -1,7 +1,7 @@
 // Файл создаётся автоматически скриптом update.js — не редактируйте вручную.
 // Ручные правки делайте в data.js (MANUAL_MATCHES / MANUAL_STANDINGS).
 const AUTO = {
- "updated": "2026-11-18T16:20:04.278Z",
+ "updated": "2026-11-21T10:50:04.394Z",
  "tournaments": {
   "city": {
    "standings": [
@@ -47,13 +47,13 @@ const AUTO = {
     },
     {
      "team": "МК24-ДзержинеЦ",
-     "p": 2,
-     "w": 1,
+     "p": 3,
+     "w": 2,
      "d": 0,
      "l": 1,
-     "gf": 5,
-     "ga": 6,
-     "pts": 3
+     "gf": 12,
+     "ga": 8,
+     "pts": 6
     },
     {
      "team": "СИАЛ",
@@ -87,12 +87,12 @@ const AUTO = {
     },
     {
      "team": "Тотем",
-     "p": 2,
+     "p": 3,
      "w": 0,
      "d": 0,
-     "l": 2,
-     "gf": 3,
-     "ga": 7,
+     "l": 3,
+     "gf": 5,
+     "ga": 14,
      "pts": 0
     },
     {
@@ -214,10 +214,20 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-18T16:20:04.278Z"
+   "at": "2026-11-21T10:50:04.394Z"
   },
   "fbl": {
    "standings": [
+    {
+     "team": "КАТТ",
+     "p": 4,
+     "w": 3,
+     "d": 1,
+     "l": 0,
+     "gf": 50,
+     "ga": 18,
+     "pts": 10
+    },
     {
      "team": "СФУ",
      "p": 4,
@@ -227,16 +237,6 @@ const AUTO = {
      "gf": 50,
      "ga": 29,
      "pts": 10
-    },
-    {
-     "team": "КАТТ",
-     "p": 3,
-     "w": 2,
-     "d": 1,
-     "l": 0,
-     "gf": 30,
-     "ga": 10,
-     "pts": 7
     },
     {
      "team": "ПОБЕДА",
@@ -340,12 +340,12 @@ const AUTO = {
     },
     {
      "team": "Контора",
-     "p": 3,
+     "p": 4,
      "w": 0,
      "d": 0,
-     "l": 3,
-     "gf": 8,
-     "ga": 25,
+     "l": 4,
+     "gf": 16,
+     "ga": 45,
      "pts": 0
     }
    ],
@@ -914,7 +914,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-18T16:20:04.278Z"
+   "at": "2026-11-21T10:50:04.394Z"
   },
   "cup": {
    "standings": [],
@@ -945,7 +945,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-18T16:20:04.278Z"
+   "at": "2026-11-21T10:50:04.394Z"
   }
  },
  "telegram": {
@@ -1854,14 +1854,81 @@ const AUTO = {
     "stream": "https://vk.ru/video-214784904_456239392",
     "endAt": "2026-11-15T13:09:09+00:00",
     "finished": true
+   },
+   {
+    "t": "city",
+    "opponent": "СИАЛ",
+    "round": "3 ТУР",
+    "goals": [],
+    "score": null,
+    "date": "2026-11-22",
+    "time": "18:00",
+    "venue": "МСК «Сопка»",
+    "post": 2146,
+    "announced": true,
+    "finished": false
    }
   ],
-  "ok": false,
-  "at": "2026-11-18T14:40:04.108Z",
-  "error": "Command failed: curl -sSfLg -m 15 -A Mozilla/5.0 (SadovodSiteUpdater) -H Accept-Language: ru,en https://t.me/s/fcsadovod\ncurl: (28) Connection timed out after 15002 milliseconds\n"
+  "ok": true,
+  "at": "2026-11-21T10:50:04.394Z"
  },
  "vk": {
   "posts": [
+   {
+    "id": 4078,
+    "date": "2026-11-20T18:57:57.000Z",
+    "text": "❗ ЧЕМПИОНАТ ГОРОДА КРАСНОЯРСКА ПО ФУТЗАЛУ❗\n\n🏆3 ТУР\n\nФК САДОВОД 🆚 СИАЛ\n📅 Дата: 22 ноября 2026 года\n🕕 Время: 18:00\n📍 Место: МСК «Сопка»\n\nНам нужна ваша поддержка! Приходите на трибуны, заряжайте команду своей энергией и помогайте нам двигаться вперёд!❤\n\nОДНА КОМАНДА — ОДНА ЦЕЛЬ — ТОЛЬКО ПОБЕДА!🔥",
+    "photos": [
+     {
+      "big": "https://sun9-50.userapi.com/s/v1/ig2/Xp77dkuRrrLGk4BDZfZK9EmFxRaEgBjzQmqWhWKfxLwZ8m2avVZovChFbcFbIYX4Uu6zyx6DMDRwPnrA8pt9sgjf.jpg?quality=95&crop=0,0,1024,1535&as=32x48,48x72,72x108,108x162,160x240,240x360,360x540,480x720,540x809,640x959,720x1079,1024x1535&from=bu&cs=640x0",
+      "small": "https://sun9-50.userapi.com/s/v1/ig2/Xp77dkuRrrLGk4BDZfZK9EmFxRaEgBjzQmqWhWKfxLwZ8m2avVZovChFbcFbIYX4Uu6zyx6DMDRwPnrA8pt9sgjf.jpg?quality=95&crop=0,0,1024,1535&as=32x48,48x72,72x108,108x162,160x240,240x360,360x540,480x720,540x809,640x959,720x1079,1024x1535&from=bu&cs=640x0"
+     }
+    ],
+    "video": null,
+    "link": "https://vk.ru/wall-214784904_4078"
+   },
+   {
+    "id": 4077,
+    "date": "2026-11-20T16:31:33.000Z",
+    "text": "Подхватили волну хайпа GTA 6. Решили посмотреть, как бы выглядели наши ребята в стиле популярной игры!😍\n\nА вы уже успели поиграть в новую GTA?🤔",
+    "photos": [
+     {
+      "big": "https://sun9-53.userapi.com/impg/so_ry_ZQUouBgDTbGRXtuj3FRlgTkH-lmxyQTw/nW0599LZ0XQ.jpg?size=604x604&quality=95&sign=954ec07f95d443432feb4f0c8e5b11f0&type=album",
+      "small": "https://sun9-53.userapi.com/impg/so_ry_ZQUouBgDTbGRXtuj3FRlgTkH-lmxyQTw/nW0599LZ0XQ.jpg?size=604x604&quality=95&sign=954ec07f95d443432feb4f0c8e5b11f0&type=album"
+     },
+     {
+      "big": "https://sun9-66.userapi.com/impg/bpfAi-iZfKPKZdJOzdDxCvWTNmAbTKpHDYs1bA/zP6u-TE-iEQ.jpg?size=604x604&quality=95&sign=c0bee6dce5e62110166e6afb0c2ea2ee&type=album",
+      "small": "https://sun9-66.userapi.com/impg/bpfAi-iZfKPKZdJOzdDxCvWTNmAbTKpHDYs1bA/zP6u-TE-iEQ.jpg?size=604x604&quality=95&sign=c0bee6dce5e62110166e6afb0c2ea2ee&type=album"
+     },
+     {
+      "big": "https://sun9-37.userapi.com/impg/8bxbibF2GVt-AwXc7NxmLNl6l8m7oeZ7nv0UAw/-GQfuS9mOVA.jpg?size=604x604&quality=95&sign=cb44a3bb157547b62d052f7085c3d754&type=album",
+      "small": "https://sun9-37.userapi.com/impg/8bxbibF2GVt-AwXc7NxmLNl6l8m7oeZ7nv0UAw/-GQfuS9mOVA.jpg?size=604x604&quality=95&sign=cb44a3bb157547b62d052f7085c3d754&type=album"
+     },
+     {
+      "big": "https://sun9-46.userapi.com/impg/Igh9-5Ei0l6Qx5fPf6iqP4WmtAOtJpq2weBW5w/9CNSw05qY2E.jpg?size=566x604&quality=95&sign=177eb8aa851e901600781b41e7e5fd59&type=album",
+      "small": "https://sun9-46.userapi.com/impg/Igh9-5Ei0l6Qx5fPf6iqP4WmtAOtJpq2weBW5w/9CNSw05qY2E.jpg?size=566x604&quality=95&sign=177eb8aa851e901600781b41e7e5fd59&type=album"
+     },
+     {
+      "big": "https://sun9-2.userapi.com/impg/CNuB5z74O5tdOEgUSCRQwCQKCtGdj7WM5fW3Ew/EcTDJWM635g.jpg?size=604x604&quality=95&sign=b1b50e4949463c0afb41ba2b43f048e6&type=album",
+      "small": "https://sun9-2.userapi.com/impg/CNuB5z74O5tdOEgUSCRQwCQKCtGdj7WM5fW3Ew/EcTDJWM635g.jpg?size=604x604&quality=95&sign=b1b50e4949463c0afb41ba2b43f048e6&type=album"
+     }
+    ],
+    "video": null,
+    "link": "https://vk.ru/wall-214784904_4077"
+   },
+   {
+    "id": 4076,
+    "date": "2026-11-19T12:47:45.000Z",
+    "text": "⚽ Футбол и футзал — без задержек и лишнего шума!\n\nНадоело искать рабочие ссылки на матчи? Постоянно переключаться между десятком вкладок в надежде увидеть гол?\n\nДобро пожаловать в «Прямую Передачу» — телеграм-канал, где\nживут прямые эфиры Красноярского футбола и футзала.\n\nМы — официальная организация по трансляциям:\n✅ Прямые эфиры матчей чемпионата города Красноярска по футболу и футзалу\n✅ Трансляции чемпионата Красноярского края по футболу и футзалу\n✅ Сотрудничаем с ЕФЛ (Енисейской Футбольной Лигой) и другими частными турнирами\n✅ Футбол и футзал в одном месте — не нужно прыгать по каналам\n✅ Уютное сообщество — уже более 100 человек следят за игрой вместе с тобой\n\nДля связи и вопросов: Семён Проровский — 8 902 992-70-25.\n\nНе пропусти следующий гол. Подключайся к эфиру 👇\n🔗 https://t.me/PPLiveFootbal",
+    "photos": [
+     {
+      "big": "https://sun9-62.userapi.com/s/v1/ig2/eWLGJCFkwlOfTLEAmO4-PykzD7_9GLNqP3nekvx9U3oiSAp6Fo6DJcZ6-JYtWl4IEqvj_zvtSeduAX3TREde3SUa.jpg?quality=95&crop=0,0,1213,1296&as=32x34,48x51,72x77,108x115,160x171,240x256,360x385,480x513,540x577,640x684,720x769,1080x1154,1213x1296&from=bu&cs=640x0",
+      "small": "https://sun9-62.userapi.com/s/v1/ig2/eWLGJCFkwlOfTLEAmO4-PykzD7_9GLNqP3nekvx9U3oiSAp6Fo6DJcZ6-JYtWl4IEqvj_zvtSeduAX3TREde3SUa.jpg?quality=95&crop=0,0,1213,1296&as=32x34,48x51,72x77,108x115,160x171,240x256,360x385,480x513,540x577,640x684,720x769,1080x1154,1213x1296&from=bu&cs=640x0"
+     }
+    ],
+    "video": null,
+    "link": "https://vk.ru/wall-214784904_4076"
+   },
    {
     "id": 4074,
     "date": "2026-11-17T08:35:29.000Z",
@@ -2276,7 +2343,7 @@ const AUTO = {
   ],
   "albums": [],
   "ok": true,
-  "at": "2026-11-18T16:20:04.278Z",
+  "at": "2026-11-21T10:50:04.394Z",
   "via": "widget"
  }
 };
