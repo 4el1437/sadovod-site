@@ -1,7 +1,7 @@
 // Файл создаётся автоматически скриптом update.js — не редактируйте вручную.
 // Ручные правки делайте в data.js (MANUAL_MATCHES / MANUAL_STANDINGS).
 const AUTO = {
- "updated": "2026-11-22T01:10:04.294Z",
+ "updated": "2026-11-22T01:20:04.339Z",
  "tournaments": {
   "city": {
    "standings": [
@@ -214,7 +214,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-22T01:10:04.294Z"
+   "at": "2026-11-22T01:20:04.339Z"
   },
   "fbl": {
    "standings": [
@@ -914,7 +914,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-22T01:10:04.294Z"
+   "at": "2026-11-22T01:20:04.339Z"
   },
   "cup": {
    "standings": [],
@@ -945,7 +945,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-22T01:10:04.294Z"
+   "at": "2026-11-22T01:20:04.339Z"
   }
  },
  "telegram": {
@@ -1869,9 +1869,8 @@ const AUTO = {
     "finished": false
    }
   ],
-  "ok": false,
-  "at": "2026-11-22T00:40:04.072Z",
-  "error": "Command failed: curl -sSfLg -m 15 -A Mozilla/5.0 (SadovodSiteUpdater) -H Accept-Language: ru,en https://t.me/s/fcsadovod?before=2107\ncurl: (28) Connection timed out after 15002 milliseconds\n"
+  "ok": true,
+  "at": "2026-11-22T01:20:04.339Z"
  },
  "vk": {
   "posts": [
@@ -2344,7 +2343,7 @@ const AUTO = {
   ],
   "albums": [],
   "ok": true,
-  "at": "2026-11-22T01:10:04.294Z",
+  "at": "2026-11-22T01:20:04.339Z",
   "via": "widget"
  }
 };
