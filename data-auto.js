@@ -1,7 +1,7 @@
 // Файл создаётся автоматически скриптом update.js — не редактируйте вручную.
 // Ручные правки делайте в data.js (MANUAL_MATCHES / MANUAL_STANDINGS).
 const AUTO = {
- "updated": "2026-11-22T16:20:03.917Z",
+ "updated": "2026-11-22T16:30:03.771Z",
  "tournaments": {
   "city": {
    "standings": [
@@ -214,7 +214,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-22T16:20:03.917Z"
+   "at": "2026-11-22T16:30:03.771Z"
   },
   "fbl": {
    "standings": [
@@ -914,7 +914,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-22T16:20:03.917Z"
+   "at": "2026-11-22T16:30:03.771Z"
   },
   "cup": {
    "standings": [],
@@ -945,7 +945,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-22T16:20:03.917Z"
+   "at": "2026-11-22T16:30:03.771Z"
   }
  },
  "telegram": {
@@ -1968,6 +1968,19 @@ const AUTO = {
  "vk": {
   "posts": [
    {
+    "id": 4085,
+    "date": "2026-11-22T16:28:56.000Z",
+    "text": "❗ИТОГ МАТЧА❗\n\nВторая домашня победа против очень опытного соперника! Уже завтра играем с Гуфсином, времени расслабляться нет!💪\n\nДальше больше!🌟",
+    "photos": [
+     {
+      "big": "https://sun9-49.userapi.com/s/v1/ig2/fLT9p_IYwmHYRFBRzg8qVXOhE2B-KS_NjGGvGXRoPMoEFpqhKRgFEEuNpr8BHR812zKi8ZGXR2Fr-tEgdalOxkTz.jpg?quality=95&crop=0,0,1254,1254&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,1080x1080,1254x1254&from=bu&cs=640x0",
+      "small": "https://sun9-49.userapi.com/s/v1/ig2/fLT9p_IYwmHYRFBRzg8qVXOhE2B-KS_NjGGvGXRoPMoEFpqhKRgFEEuNpr8BHR812zKi8ZGXR2Fr-tEgdalOxkTz.jpg?quality=95&crop=0,0,1254,1254&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,1080x1080,1254x1254&from=bu&cs=640x0"
+     }
+    ],
+    "video": null,
+    "link": "https://vk.ru/wall-214784904_4085"
+   },
+   {
     "id": 4084,
     "date": "2026-11-22T10:38:17.000Z",
     "text": "ФК Садовод - СИАЛ. 3 тур 1 лиги города Красноярска по футзалу",
@@ -2501,7 +2514,7 @@ const AUTO = {
   ],
   "albums": [],
   "ok": true,
-  "at": "2026-11-22T16:20:03.917Z",
+  "at": "2026-11-22T16:30:03.771Z",
   "via": "widget"
  }
 };
