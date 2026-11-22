@@ -1,7 +1,7 @@
 // Файл создаётся автоматически скриптом update.js — не редактируйте вручную.
 // Ручные правки делайте в data.js (MANUAL_MATCHES / MANUAL_STANDINGS).
 const AUTO = {
- "updated": "2026-11-22T12:20:03.640Z",
+ "updated": "2026-11-22T12:40:04.027Z",
  "tournaments": {
   "city": {
    "standings": [
@@ -214,7 +214,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-22T12:20:03.640Z"
+   "at": "2026-11-22T12:40:04.027Z"
   },
   "fbl": {
    "standings": [
@@ -914,7 +914,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-22T12:20:03.640Z"
+   "at": "2026-11-22T12:40:04.027Z"
   },
   "cup": {
    "standings": [],
@@ -945,7 +945,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-22T12:20:03.640Z"
+   "at": "2026-11-22T12:40:04.027Z"
   }
  },
  "telegram": {
@@ -1918,11 +1918,38 @@ const AUTO = {
       "assist": "Владислав Мурзин",
       "post": 2181,
       "at": "2026-11-22T11:49:39+00:00"
+     },
+     {
+      "score": "3:3",
+      "opp": true,
+      "post": 2182,
+      "at": "2026-11-22T11:53:03+00:00"
+     },
+     {
+      "score": "4:3",
+      "scorer": "Иван Обороча",
+      "assist": null,
+      "post": 2183,
+      "at": "2026-11-22T11:53:52+00:00"
+     },
+     {
+      "score": "5:3",
+      "scorer": "Александр Шурыгин",
+      "assist": null,
+      "post": 2184,
+      "at": "2026-11-22T11:54:35+00:00"
+     },
+     {
+      "score": "6:3",
+      "scorer": "Андрей Суздаль",
+      "assist": "Александр Андриевич",
+      "post": 2185,
+      "at": "2026-11-22T11:55:32+00:00"
      }
     ],
     "score": [
-     3,
-     2
+     6,
+     3
     ],
     "date": "2026-11-22",
     "time": "",
@@ -1930,12 +1957,12 @@ const AUTO = {
     "post": 2176,
     "announced": false,
     "stream": "https://vk.ru/live-218166313_456239652",
-    "finished": false
+    "endAt": "2026-11-22T12:03:56+00:00",
+    "finished": true
    }
   ],
-  "ok": false,
-  "at": "2026-11-22T11:50:04.213Z",
-  "error": "Command failed: curl -sSfLg -m 15 -A Mozilla/5.0 (SadovodSiteUpdater) -H Accept-Language: ru,en https://t.me/s/fcsadovod\ncurl: (28) Connection timed out after 15001 milliseconds\n"
+  "ok": true,
+  "at": "2026-11-22T12:40:04.027Z"
  },
  "vk": {
   "posts": [
@@ -2473,7 +2500,7 @@ const AUTO = {
   ],
   "albums": [],
   "ok": true,
-  "at": "2026-11-22T12:20:03.640Z",
+  "at": "2026-11-22T12:40:04.027Z",
   "via": "widget"
  }
 };
