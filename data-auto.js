@@ -1,7 +1,7 @@
 // Файл создаётся автоматически скриптом update.js — не редактируйте вручную.
 // Ручные правки делайте в data.js (MANUAL_MATCHES / MANUAL_STANDINGS).
 const AUTO = {
- "updated": "2026-11-22T03:20:04.562Z",
+ "updated": "2026-11-22T03:30:04.190Z",
  "tournaments": {
   "city": {
    "standings": [
@@ -214,7 +214,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-22T03:20:04.562Z"
+   "at": "2026-11-22T03:30:04.190Z"
   },
   "fbl": {
    "standings": [
@@ -914,7 +914,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-22T03:20:04.562Z"
+   "at": "2026-11-22T03:30:04.190Z"
   },
   "cup": {
    "standings": [],
@@ -945,7 +945,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-22T03:20:04.562Z"
+   "at": "2026-11-22T03:30:04.190Z"
   }
  },
  "telegram": {
@@ -1871,10 +1871,36 @@ const AUTO = {
   ],
   "ok": false,
   "at": "2026-11-22T02:40:06.615Z",
-  "error": "Command failed: curl -sSfLg -m 15 -A Mozilla/5.0 (SadovodSiteUpdater) -H Accept-Language: ru,en https://t.me/s/fcsadovod\ncurl: (28) Connection timed out after 15001 milliseconds\n"
+  "error": "Command failed: curl -sSfLg -m 15 -A Mozilla/5.0 (SadovodSiteUpdater) -H Accept-Language: ru,en https://t.me/s/fcsadovod\ncurl: (28) Connection timed out after 15002 milliseconds\n"
  },
  "vk": {
   "posts": [
+   {
+    "id": 4080,
+    "date": "2026-11-22T03:29:38.000Z",
+    "text": "❗ДЕНЬ МАТЧА❗\n\n💥ФК Садовод - СИАЛ💥\n\n📆 11 ноября \n⏰ 20:30\n🏟 СК Металлург \n\nСмотри трансляцию, читай новости здесь или приходи поддержать нас лично!",
+    "photos": [
+     {
+      "big": "https://sun9-51.userapi.com/s/v1/ig2/7GBbiAu0E_P3w4m0S1M1dq7wFnbMhYCPR5Ge1ipxzC4wOBl6QQ24zCHILp5THBDa_0ArIfDGFH3x91w8sE3YjFgg.jpg?quality=95&crop=0,0,1254,1254&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,1080x1080,1254x1254&from=bu&cs=640x0",
+      "small": "https://sun9-51.userapi.com/s/v1/ig2/7GBbiAu0E_P3w4m0S1M1dq7wFnbMhYCPR5Ge1ipxzC4wOBl6QQ24zCHILp5THBDa_0ArIfDGFH3x91w8sE3YjFgg.jpg?quality=95&crop=0,0,1254,1254&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,1080x1080,1254x1254&from=bu&cs=640x0"
+     }
+    ],
+    "video": null,
+    "link": "https://vk.ru/wall-214784904_4080"
+   },
+   {
+    "id": 4079,
+    "date": "2026-11-22T03:28:35.000Z",
+    "text": "❗ДЕНЬ МАТЧА❗\n\n💥ФК Садовод - ГСУ СК💥\n\n5 тур 2 дивизиона ФБЛ\n📆 22 ноября\n⏰ 15:00\n🏟 МСК Сопка \n💬 Телеграм - текстовая трансляция\n\nПриглашаем всех поддержать нас! Идём за победой!⚽❤",
+    "photos": [
+     {
+      "big": "https://sun9-49.userapi.com/s/v1/ig2/oLtWMLv1sqQM5HwTlf7Ohhph_GtbVAxmUdfCtZcNuPqrrkbiDQlwYZm3YThoiaFoSfr4RdE8PaxJW7BJhFF251E0.jpg?quality=95&crop=0,0,853,1280&as=32x48,48x72,72x108,108x162,160x240,240x360,360x540,480x720,540x810,640x960,720x1080,853x1280&from=bu&cs=640x0",
+      "small": "https://sun9-49.userapi.com/s/v1/ig2/oLtWMLv1sqQM5HwTlf7Ohhph_GtbVAxmUdfCtZcNuPqrrkbiDQlwYZm3YThoiaFoSfr4RdE8PaxJW7BJhFF251E0.jpg?quality=95&crop=0,0,853,1280&as=32x48,48x72,72x108,108x162,160x240,240x360,360x540,480x720,540x810,640x960,720x1080,853x1280&from=bu&cs=640x0"
+     }
+    ],
+    "video": null,
+    "link": "https://vk.ru/wall-214784904_4079"
+   },
    {
     "id": 4078,
     "date": "2026-11-20T18:57:57.000Z",
@@ -2344,7 +2370,7 @@ const AUTO = {
   ],
   "albums": [],
   "ok": true,
-  "at": "2026-11-22T03:20:04.562Z",
+  "at": "2026-11-22T03:30:04.190Z",
   "via": "widget"
  }
 };
