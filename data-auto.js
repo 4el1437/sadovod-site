@@ -1,7 +1,7 @@
 // Файл создаётся автоматически скриптом update.js — не редактируйте вручную.
 // Ручные правки делайте в data.js (MANUAL_MATCHES / MANUAL_STANDINGS).
 const AUTO = {
- "updated": "2026-11-22T10:50:04.198Z",
+ "updated": "2026-11-22T10:58:19.870Z",
  "tournaments": {
   "city": {
    "standings": [
@@ -214,7 +214,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-22T10:50:04.198Z"
+   "at": "2026-11-22T10:58:19.870Z"
   },
   "fbl": {
    "standings": [
@@ -914,7 +914,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-22T10:50:04.198Z"
+   "at": "2026-11-22T10:58:19.870Z"
   },
   "cup": {
    "standings": [],
@@ -945,7 +945,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-22T10:50:04.198Z"
+   "at": "2026-11-22T10:58:19.870Z"
   }
  },
  "telegram": {
@@ -1884,7 +1884,7 @@ const AUTO = {
   ],
   "ok": false,
   "at": "2026-11-22T10:10:03.451Z",
-  "error": "Command failed: curl -sSfLg -m 15 -A Mozilla/5.0 (SadovodSiteUpdater) -H Accept-Language: ru,en https://t.me/s/fcsadovod?before=2157\ncurl: (28) Connection timed out after 15002 milliseconds\n"
+  "error": "Command failed: curl -sSfLg -m 15 -A Mozilla/5.0 (SadovodSiteUpdater) -H Accept-Language: ru,en https://t.me/s/fcsadovod\ncurl: (28) Connection timed out after 15002 milliseconds\n"
  },
  "vk": {
   "posts": [
@@ -1895,7 +1895,7 @@ const AUTO = {
     "photos": [],
     "video": {
      "title": "ФК Садовод - СИАЛ. 3 тур 1 лиги города Красноярска по футзалу",
-     "image": "https://iv.okcdn.ru/getVideoPreview?mid=1&type=32&tkn=eV3j7nSQVsFidmwI5anOhZWmOlU&fn=vid_l",
+     "image": "https://iv.okcdn.ru/getVideoPreview?mid=16867319564216&type=32&tkn=Y-ULCfoZ52xuNftU13__ROc41KM&fn=vid_l",
      "clip": false,
      "link": "https://vk.ru/video-218166313_456239652"
     },
@@ -2422,7 +2422,7 @@ const AUTO = {
   ],
   "albums": [],
   "ok": true,
-  "at": "2026-11-22T10:50:04.198Z",
+  "at": "2026-11-22T10:58:19.870Z",
   "via": "widget"
  }
 };
