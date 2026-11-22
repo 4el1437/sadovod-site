@@ -1,7 +1,7 @@
 // Файл создаётся автоматически скриптом update.js — не редактируйте вручную.
 // Ручные правки делайте в data.js (MANUAL_MATCHES / MANUAL_STANDINGS).
 const AUTO = {
- "updated": "2026-11-22T10:33:21.212Z",
+ "updated": "2026-11-22T10:40:04.355Z",
  "tournaments": {
   "city": {
    "standings": [
@@ -214,7 +214,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-22T10:33:21.212Z"
+   "at": "2026-11-22T10:40:04.355Z"
   },
   "fbl": {
    "standings": [
@@ -914,7 +914,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-22T10:33:21.212Z"
+   "at": "2026-11-22T10:40:04.355Z"
   },
   "cup": {
    "standings": [],
@@ -945,7 +945,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-22T10:33:21.212Z"
+   "at": "2026-11-22T10:40:04.355Z"
   }
  },
  "telegram": {
@@ -1884,10 +1884,23 @@ const AUTO = {
   ],
   "ok": false,
   "at": "2026-11-22T10:10:03.451Z",
-  "error": "Command failed: curl -sSfLg -m 15 -A Mozilla/5.0 (SadovodSiteUpdater) -H Accept-Language: ru,en https://t.me/s/fcsadovod?before=2156\ncurl: (28) Connection timed out after 15002 milliseconds\n"
+  "error": "Command failed: curl -sSfLg -m 15 -A Mozilla/5.0 (SadovodSiteUpdater) -H Accept-Language: ru,en https://t.me/s/fcsadovod\ncurl: (28) Connection timed out after 15002 milliseconds\n"
  },
  "vk": {
   "posts": [
+   {
+    "id": 4084,
+    "date": "2026-11-22T10:38:17.000Z",
+    "text": "ФК Садовод - СИАЛ. 3 тур 1 лиги города Красноярска по футзалу",
+    "photos": [],
+    "video": {
+     "title": "ФК Садовод - СИАЛ. 3 тур 1 лиги города Красноярска по футзалу",
+     "image": "https://iv.okcdn.ru/getVideoPreview?mid=1&type=32&tkn=eV3j7nSQVsFidmwI5anOhZWmOlU&fn=vid_l",
+     "clip": false,
+     "link": "https://vk.ru/video-218166313_456239652"
+    },
+    "link": "https://vk.ru/wall-214784904_4084"
+   },
    {
     "id": 4082,
     "date": "2026-11-22T10:28:34.000Z",
@@ -2409,7 +2422,7 @@ const AUTO = {
   ],
   "albums": [],
   "ok": true,
-  "at": "2026-11-22T10:33:21.212Z",
+  "at": "2026-11-22T10:40:04.355Z",
   "via": "widget"
  }
 };
