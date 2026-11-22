@@ -1,7 +1,7 @@
 // Файл создаётся автоматически скриптом update.js — не редактируйте вручную.
 // Ручные правки делайте в data.js (MANUAL_MATCHES / MANUAL_STANDINGS).
 const AUTO = {
- "updated": "2026-11-22T06:50:03.351Z",
+ "updated": "2026-11-22T07:00:03.732Z",
  "tournaments": {
   "city": {
    "standings": [
@@ -214,7 +214,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-22T06:50:03.351Z"
+   "at": "2026-11-22T07:00:03.732Z"
   },
   "fbl": {
    "standings": [
@@ -914,7 +914,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-22T06:50:03.351Z"
+   "at": "2026-11-22T07:00:03.732Z"
   },
   "cup": {
    "standings": [],
@@ -945,7 +945,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-22T06:50:03.351Z"
+   "at": "2026-11-22T07:00:03.732Z"
   }
  },
  "telegram": {
@@ -1883,10 +1883,23 @@ const AUTO = {
    }
   ],
   "ok": true,
-  "at": "2026-11-22T06:50:03.351Z"
+  "at": "2026-11-22T07:00:03.732Z"
  },
  "vk": {
   "posts": [
+   {
+    "id": 4081,
+    "date": "2026-11-22T06:51:42.000Z",
+    "text": "❗ СОСТАВ НА МАТЧ ФБЛ ❗",
+    "photos": [
+     {
+      "big": "https://sun9-40.userapi.com/s/v1/ig2/fTzzIIvPyDhhs5RNnzP7RkDsFDW4MBuVSDo894uR5Te-4v0q23vCwux1sPnrUXuSp3FMaVmgFyObft7ku19qJAs5.jpg?quality=95&crop=0,0,1122,1402&as=32x40,48x60,72x90,108x135,160x200,240x300,360x450,480x600,540x675,640x800,720x900,1080x1350,1122x1402&from=bu&cs=640x0",
+      "small": "https://sun9-40.userapi.com/s/v1/ig2/fTzzIIvPyDhhs5RNnzP7RkDsFDW4MBuVSDo894uR5Te-4v0q23vCwux1sPnrUXuSp3FMaVmgFyObft7ku19qJAs5.jpg?quality=95&crop=0,0,1122,1402&as=32x40,48x60,72x90,108x135,160x200,240x300,360x450,480x600,540x675,640x800,720x900,1080x1350,1122x1402&from=bu&cs=640x0"
+     }
+    ],
+    "video": null,
+    "link": "https://vk.ru/wall-214784904_4081"
+   },
    {
     "id": 4080,
     "date": "2026-11-22T03:29:38.000Z",
@@ -2382,7 +2395,7 @@ const AUTO = {
   ],
   "albums": [],
   "ok": true,
-  "at": "2026-11-22T06:50:03.351Z",
+  "at": "2026-11-22T07:00:03.732Z",
   "via": "widget"
  }
 };
