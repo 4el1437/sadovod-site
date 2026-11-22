@@ -1,7 +1,7 @@
 // Файл создаётся автоматически скриптом update.js — не редактируйте вручную.
 // Ручные правки делайте в data.js (MANUAL_MATCHES / MANUAL_STANDINGS).
 const AUTO = {
- "updated": "2026-11-22T22:40:04.111Z",
+ "updated": "2026-11-22T22:50:04.034Z",
  "tournaments": {
   "city": {
    "standings": [
@@ -214,7 +214,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-22T22:40:04.111Z"
+   "at": "2026-11-22T22:50:04.034Z"
   },
   "fbl": {
    "standings": [
@@ -860,13 +860,154 @@ const AUTO = {
     {
      "id": "vs-2026-11-22-ГСУ СК",
      "date": "2026-11-22",
-     "time": "15:00",
+     "time": "",
      "home": "ГСУ СК",
      "away": "СФУ",
-     "score": null,
-     "venue": "Спорткомплекс СОПКА",
+     "score": [
+      3,
+      20
+     ],
+     "venue": "",
      "link": "https://vsport.su/football/football-corporate/2-divizion-[fbl]---korporativnaia-futbolnaia-liga-2026272765/",
-     "round": ""
+     "round": "",
+     "goals": [
+      {
+       "score": "0:1",
+       "opp": true,
+       "min": 4
+      },
+      {
+       "score": "1:1",
+       "min": 5,
+       "scorer": "Артур Мустафин",
+       "assist": "Анатолий Антропов"
+      },
+      {
+       "score": "2:1",
+       "min": 6,
+       "scorer": "Андрей Суздаль",
+       "assist": null
+      },
+      {
+       "score": "3:1",
+       "min": 8,
+       "scorer": "Артур Мустафин",
+       "assist": "Александр Дьяченко"
+      },
+      {
+       "score": "4:1",
+       "min": 10,
+       "scorer": "Андрей Суздаль",
+       "assist": "Александр Дьяченко"
+      },
+      {
+       "score": "5:1",
+       "min": 12,
+       "scorer": "Артур Мустафин",
+       "assist": "Александр Андриевич"
+      },
+      {
+       "score": "6:1",
+       "min": 14,
+       "scorer": "Данил Скуратов",
+       "assist": "Андрей Суздаль"
+      },
+      {
+       "score": "7:1",
+       "min": 15,
+       "scorer": "Лев Мормель",
+       "assist": "Артур Мустафин"
+      },
+      {
+       "score": "8:1",
+       "min": 19,
+       "scorer": "Лев Мормель",
+       "assist": null
+      },
+      {
+       "score": "9:1",
+       "min": 22,
+       "scorer": "Андрей Пикалов",
+       "assist": "Александр Андриевич"
+      },
+      {
+       "score": "9:2",
+       "opp": true,
+       "min": 24
+      },
+      {
+       "score": "10:2",
+       "min": 24,
+       "scorer": "Александр Дьяченко",
+       "assist": "Артур Мустафин"
+      },
+      {
+       "score": "11:2",
+       "min": 29,
+       "scorer": "Андрей Суздаль",
+       "assist": "Лев Мормель"
+      },
+      {
+       "score": "12:2",
+       "min": 30,
+       "scorer": "Андрей Суздаль",
+       "assist": "Лев Мормель"
+      },
+      {
+       "score": "13:2",
+       "min": 36,
+       "scorer": "Александр Андриевич",
+       "assist": "Андрей Суздаль"
+      },
+      {
+       "score": "14:2",
+       "min": 40,
+       "scorer": "Артур Мустафин",
+       "assist": "Василий Прокофьев"
+      },
+      {
+       "score": "15:2",
+       "min": 43,
+       "scorer": "Артур Мустафин",
+       "assist": "Александр Дьяченко"
+      },
+      {
+       "score": "15:3",
+       "opp": true,
+       "min": 45
+      },
+      {
+       "score": "16:3",
+       "min": 46,
+       "scorer": "Анатолий Антропов",
+       "assist": "Андрей Суздаль"
+      },
+      {
+       "score": "17:3",
+       "min": 48,
+       "scorer": "Александр Дьяченко",
+       "assist": null
+      },
+      {
+       "score": "18:3",
+       "min": 49,
+       "scorer": "Лев Мормель",
+       "assist": null
+      },
+      {
+       "score": "19:3",
+       "min": 49,
+       "scorer": "Александр Дьяченко",
+       "assist": "Артур Мустафин"
+      },
+      {
+       "score": "20:3",
+       "min": 50,
+       "scorer": "Андрей Суздаль",
+       "assist": "Анатолий Антропов"
+      }
+     ],
+     "mvp": "Артур Мустафин"
     },
     {
      "id": "vs-2026-11-29-ПОБЕДА",
@@ -914,7 +1055,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-22T22:40:04.111Z"
+   "at": "2026-11-22T22:50:04.034Z"
   },
   "cup": {
    "standings": [],
@@ -945,7 +1086,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-22T22:40:04.111Z"
+   "at": "2026-11-22T22:50:04.034Z"
   }
  },
  "telegram": {
@@ -1961,9 +2102,8 @@ const AUTO = {
     "finished": true
    }
   ],
-  "ok": false,
-  "at": "2026-11-22T22:10:04.230Z",
-  "error": "Command failed: curl -sSfLg -m 15 -A Mozilla/5.0 (SadovodSiteUpdater) -H Accept-Language: ru,en https://t.me/s/fcsadovod\ncurl: (28) Connection timed out after 15002 milliseconds\n"
+  "ok": true,
+  "at": "2026-11-22T22:50:04.034Z"
  },
  "vk": {
   "posts": [
@@ -2514,7 +2654,7 @@ const AUTO = {
   ],
   "albums": [],
   "ok": true,
-  "at": "2026-11-22T22:40:04.111Z",
+  "at": "2026-11-22T22:50:04.034Z",
   "via": "widget"
  }
 };
