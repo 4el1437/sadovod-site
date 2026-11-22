@@ -1,7 +1,7 @@
 // Файл создаётся автоматически скриптом update.js — не редактируйте вручную.
 // Ручные правки делайте в data.js (MANUAL_MATCHES / MANUAL_STANDINGS).
 const AUTO = {
- "updated": "2026-11-22T11:10:04.313Z",
+ "updated": "2026-11-22T11:46:20.667Z",
  "tournaments": {
   "city": {
    "standings": [
@@ -214,7 +214,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-22T11:10:04.313Z"
+   "at": "2026-11-22T11:46:20.667Z"
   },
   "fbl": {
    "standings": [
@@ -914,7 +914,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-22T11:10:04.313Z"
+   "at": "2026-11-22T11:46:20.667Z"
   },
   "cup": {
    "standings": [],
@@ -945,7 +945,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-22T11:10:04.313Z"
+   "at": "2026-11-22T11:46:20.667Z"
   }
  },
  "telegram": {
@@ -1880,11 +1880,54 @@ const AUTO = {
     "post": 2147,
     "announced": true,
     "finished": false
+   },
+   {
+    "t": "city",
+    "opponent": "СИАЛ",
+    "round": "3 тур",
+    "goals": [
+     {
+      "score": "1:0",
+      "scorer": "Максим Янгулов",
+      "assist": "Рамиль Халимов",
+      "post": 2177,
+      "at": "2026-11-22T11:09:12+00:00"
+     },
+     {
+      "score": "1:1",
+      "opp": true,
+      "post": 2178,
+      "at": "2026-11-22T11:11:36+00:00"
+     },
+     {
+      "score": "2:1",
+      "scorer": "Обороча Иван",
+      "assist": "Александр Шурыгин",
+      "post": 2179,
+      "at": "2026-11-22T11:38:40+00:00"
+     },
+     {
+      "score": "2:2",
+      "opp": true,
+      "post": 2180,
+      "at": "2026-11-22T11:40:39+00:00"
+     }
+    ],
+    "score": [
+     2,
+     2
+    ],
+    "date": "2026-11-22",
+    "time": "",
+    "venue": "",
+    "post": 2176,
+    "announced": false,
+    "stream": "https://vk.ru/live-218166313_456239652",
+    "finished": false
    }
   ],
-  "ok": false,
-  "at": "2026-11-22T10:10:03.451Z",
-  "error": "Command failed: curl -sSfLg -m 15 -A Mozilla/5.0 (SadovodSiteUpdater) -H Accept-Language: ru,en https://t.me/s/fcsadovod\ncurl: (28) Connection timed out after 15002 milliseconds\n"
+  "ok": true,
+  "at": "2026-11-22T11:46:20.667Z"
  },
  "vk": {
   "posts": [
@@ -2422,7 +2465,7 @@ const AUTO = {
   ],
   "albums": [],
   "ok": true,
-  "at": "2026-11-22T11:10:04.313Z",
+  "at": "2026-11-22T11:46:20.667Z",
   "via": "widget"
  }
 };
