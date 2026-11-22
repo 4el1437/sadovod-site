@@ -1,7 +1,7 @@
 // Файл создаётся автоматически скриптом update.js — не редактируйте вручную.
 // Ручные правки делайте в data.js (MANUAL_MATCHES / MANUAL_STANDINGS).
 const AUTO = {
- "updated": "2026-11-22T23:00:04.354Z",
+ "updated": "2026-11-22T23:10:03.815Z",
  "tournaments": {
   "city": {
    "standings": [
@@ -214,10 +214,20 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-22T23:00:04.354Z"
+   "at": "2026-11-22T23:10:03.815Z"
   },
   "fbl": {
    "standings": [
+    {
+     "team": "СФУ",
+     "p": 5,
+     "w": 4,
+     "d": 1,
+     "l": 0,
+     "gf": 70,
+     "ga": 32,
+     "pts": 13
+    },
     {
      "team": "КАТТ",
      "p": 4,
@@ -229,14 +239,14 @@ const AUTO = {
      "pts": 10
     },
     {
-     "team": "СФУ",
-     "p": 4,
+     "team": "ПОБЕДА",
+     "p": 3,
      "w": 3,
-     "d": 1,
+     "d": 0,
      "l": 0,
-     "gf": 50,
-     "ga": 29,
-     "pts": 10
+     "gf": 44,
+     "ga": 8,
+     "pts": 9
     },
     {
      "team": "ВИТЭН",
@@ -249,14 +259,14 @@ const AUTO = {
      "pts": 9
     },
     {
-     "team": "ПОБЕДА",
-     "p": 2,
-     "w": 2,
+     "team": "КФСПбГУГА",
+     "p": 4,
+     "w": 3,
      "d": 0,
-     "l": 0,
-     "gf": 26,
-     "ga": 6,
-     "pts": 6
+     "l": 1,
+     "gf": 30,
+     "ga": 28,
+     "pts": 9
     },
     {
      "team": "ОРИОН-МОТОРС (ВГ)",
@@ -266,16 +276,6 @@ const AUTO = {
      "l": 1,
      "gf": 20,
      "ga": 19,
-     "pts": 6
-    },
-    {
-     "team": "КФСПбГУГА",
-     "p": 3,
-     "w": 2,
-     "d": 0,
-     "l": 1,
-     "gf": 24,
-     "ga": 25,
      "pts": 6
     },
     {
@@ -310,32 +310,32 @@ const AUTO = {
     },
     {
      "team": "Курама",
-     "p": 3,
+     "p": 4,
      "w": 1,
      "d": 0,
-     "l": 2,
-     "gf": 19,
-     "ga": 41,
+     "l": 3,
+     "gf": 22,
+     "ga": 47,
      "pts": 3
     },
     {
      "team": "Привал-строй",
-     "p": 3,
+     "p": 4,
      "w": 1,
      "d": 0,
-     "l": 2,
-     "gf": 10,
-     "ga": 36,
+     "l": 3,
+     "gf": 12,
+     "ga": 54,
      "pts": 3
     },
     {
      "team": "ГСУ СК",
-     "p": 3,
+     "p": 4,
      "w": 0,
      "d": 0,
-     "l": 3,
-     "gf": 10,
-     "ga": 19,
+     "l": 4,
+     "gf": 13,
+     "ga": 39,
      "pts": 0
     },
     {
@@ -1055,7 +1055,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-22T23:00:04.354Z"
+   "at": "2026-11-22T23:10:03.815Z"
   },
   "cup": {
    "standings": [],
@@ -1086,7 +1086,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-22T23:00:04.354Z"
+   "at": "2026-11-22T23:10:03.815Z"
   }
  },
  "telegram": {
@@ -2102,9 +2102,8 @@ const AUTO = {
     "finished": true
    }
   ],
-  "ok": false,
-  "at": "2026-11-22T22:50:04.034Z",
-  "error": "Command failed: curl -sSfLg -m 15 -A Mozilla/5.0 (SadovodSiteUpdater) -H Accept-Language: ru,en https://t.me/s/fcsadovod\ncurl: (28) Connection timed out after 15002 milliseconds\n"
+  "ok": true,
+  "at": "2026-11-22T23:10:03.815Z"
  },
  "vk": {
   "posts": [
@@ -2655,7 +2654,7 @@ const AUTO = {
   ],
   "albums": [],
   "ok": true,
-  "at": "2026-11-22T23:00:04.354Z",
+  "at": "2026-11-22T23:10:03.815Z",
   "via": "widget"
  }
 };
