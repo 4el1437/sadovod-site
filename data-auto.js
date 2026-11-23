@@ -1,7 +1,7 @@
 // Файл создаётся автоматически скриптом update.js — не редактируйте вручную.
 // Ручные правки делайте в data.js (MANUAL_MATCHES / MANUAL_STANDINGS).
 const AUTO = {
- "updated": "2026-11-23T13:30:03.830Z",
+ "updated": "2026-11-23T14:20:04.483Z",
  "tournaments": {
   "city": {
    "standings": [
@@ -214,7 +214,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-23T13:30:03.830Z"
+   "at": "2026-11-23T14:20:04.483Z"
   },
   "fbl": {
    "standings": [
@@ -1055,7 +1055,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-23T13:30:03.830Z"
+   "at": "2026-11-23T14:20:04.483Z"
   },
   "cup": {
    "standings": [],
@@ -1086,7 +1086,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-23T13:30:03.830Z"
+   "at": "2026-11-23T14:20:04.483Z"
   }
  },
  "telegram": {
@@ -2100,13 +2100,50 @@ const AUTO = {
     "stream": "https://vk.ru/live-218166313_456239652",
     "endAt": "2026-11-22T12:03:56+00:00",
     "finished": true
+   },
+   {
+    "t": "city",
+    "opponent": "ГУФСИН",
+    "round": "4 тур",
+    "goals": [],
+    "score": null,
+    "date": "2026-11-23",
+    "time": "21:30",
+    "venue": "СК Тотем",
+    "post": 2189,
+    "announced": true,
+    "lineupPost": {
+     "id": 2191,
+     "photo": "https://cdn4.telesco.pe/file/BkNnyxxtT6C0M1pYPWk0EQ44fya6HotpIjzbndYUijXacx8oCIw9uZFVWxYnaKIZxQiqkMA09Bkkm_009Rm1LDyx4RRMs9oepxjjhg3TnqJALnIIOw5i6hLRjmtEkky2bc1-f4T7lCyg8kanqZnAf8Rp_wHka7hyRaSG1i3RGWBi_ye0XlX07vcsmYPCowviUW90ZioSE-qSdh-5FN-gjLqhtsi_g-CtskLjAqU7T7dKof86hKKsXvvOdCAN8tNKuGmlr6J9ga33K7JXBx2rdf0yji-OHZAEHqbPUsCpoXASuqO-nTVuyyY9ZQBH5S2k5XVDb-HlF9ACMzhsa6RP2w.jpg"
+    },
+    "stream": "https://vk.ru/wall-218166313_2408",
+    "finished": false,
+    "lineup": [
+     "Семён Проровский",
+     "Андрей Супрун",
+     "Степан Мельников",
+     "Михаил Фалькенберг"
+    ]
    }
   ],
   "ok": true,
-  "at": "2026-11-23T13:30:03.830Z"
+  "at": "2026-11-23T14:20:04.483Z"
  },
  "vk": {
   "posts": [
+   {
+    "id": 4092,
+    "date": "2026-11-23T14:19:30.000Z",
+    "text": "ГУФСИН - САДОВОД",
+    "photos": [],
+    "video": {
+     "title": "ГУФСИН - САДОВОД",
+     "image": "https://iv.okcdn.ru/getVideoPreview?mid=1&type=32&tkn=eV3j7nSQVsFidmwI5anOhZWmOlU&fn=vid_l",
+     "clip": false,
+     "link": "https://vk.ru/video-218166313_456239655"
+    },
+    "link": "https://vk.ru/wall-214784904_4092"
+   },
    {
     "id": 4091,
     "date": "2026-11-23T13:30:00.000Z",
@@ -2706,7 +2743,7 @@ const AUTO = {
   ],
   "albums": [],
   "ok": true,
-  "at": "2026-11-23T13:30:03.830Z",
+  "at": "2026-11-23T14:20:04.483Z",
   "via": "widget"
  }
 };
