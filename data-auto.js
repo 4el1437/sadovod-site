@@ -1,7 +1,7 @@
 // Файл создаётся автоматически скриптом update.js — не редактируйте вручную.
 // Ручные правки делайте в data.js (MANUAL_MATCHES / MANUAL_STANDINGS).
 const AUTO = {
- "updated": "2026-11-23T14:20:04.483Z",
+ "updated": "2026-11-23T14:40:04.625Z",
  "tournaments": {
   "city": {
    "standings": [
@@ -214,7 +214,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-23T14:20:04.483Z"
+   "at": "2026-11-23T14:40:04.625Z"
   },
   "fbl": {
    "standings": [
@@ -1055,7 +1055,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-23T14:20:04.483Z"
+   "at": "2026-11-23T14:40:04.625Z"
   },
   "cup": {
    "standings": [],
@@ -1086,7 +1086,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-23T14:20:04.483Z"
+   "at": "2026-11-23T14:40:04.625Z"
   }
  },
  "telegram": {
@@ -2127,7 +2127,7 @@ const AUTO = {
    }
   ],
   "ok": true,
-  "at": "2026-11-23T14:20:04.483Z"
+  "at": "2026-11-23T14:40:04.625Z"
  },
  "vk": {
   "posts": [
@@ -2138,7 +2138,7 @@ const AUTO = {
     "photos": [],
     "video": {
      "title": "ГУФСИН - САДОВОД",
-     "image": "https://iv.okcdn.ru/getVideoPreview?mid=1&type=32&tkn=eV3j7nSQVsFidmwI5anOhZWmOlU&fn=vid_l",
+     "image": "https://iv.okcdn.ru/getVideoPreview?mid=17718346270559&type=32&tkn=0Qk-Vbh993zQQOt96pLMvyusvsc&fn=vid_l",
      "clip": false,
      "link": "https://vk.ru/video-218166313_456239655"
     },
@@ -2743,7 +2743,7 @@ const AUTO = {
   ],
   "albums": [],
   "ok": true,
-  "at": "2026-11-23T14:20:04.483Z",
+  "at": "2026-11-23T14:40:04.625Z",
   "via": "widget"
  }
 };
