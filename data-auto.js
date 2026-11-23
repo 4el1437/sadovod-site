@@ -1,7 +1,7 @@
 // Файл создаётся автоматически скриптом update.js — не редактируйте вручную.
 // Ручные правки делайте в data.js (MANUAL_MATCHES / MANUAL_STANDINGS).
 const AUTO = {
- "updated": "2026-11-23T11:00:06.434Z",
+ "updated": "2026-11-23T13:30:03.830Z",
  "tournaments": {
   "city": {
    "standings": [
@@ -214,7 +214,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-23T11:00:06.434Z"
+   "at": "2026-11-23T13:30:03.830Z"
   },
   "fbl": {
    "standings": [
@@ -1055,7 +1055,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-23T11:00:06.434Z"
+   "at": "2026-11-23T13:30:03.830Z"
   },
   "cup": {
    "standings": [],
@@ -1086,7 +1086,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-23T11:00:06.434Z"
+   "at": "2026-11-23T13:30:03.830Z"
   }
  },
  "telegram": {
@@ -2103,10 +2103,23 @@ const AUTO = {
    }
   ],
   "ok": true,
-  "at": "2026-11-23T11:00:06.434Z"
+  "at": "2026-11-23T13:30:03.830Z"
  },
  "vk": {
   "posts": [
+   {
+    "id": 4091,
+    "date": "2026-11-23T13:30:00.000Z",
+    "text": "❗СОСТАВ НА МАТЧ ❗",
+    "photos": [
+     {
+      "big": "https://sun9-15.userapi.com/s/v1/ig2/lkuDNokUCTEpOcdYwV4I5gnoqRl3UuEgRmiWmlpbIkS64tCkuX2sXiBOiRDRvTveBULA3m6EDlVt7z9YkTvrP5EJ.jpg?quality=95&crop=0,0,1122,1402&as=32x40,48x60,72x90,108x135,160x200,240x300,360x450,480x600,540x675,640x800,720x900,1080x1350,1122x1402&from=bu&cs=640x0",
+      "small": "https://sun9-15.userapi.com/s/v1/ig2/lkuDNokUCTEpOcdYwV4I5gnoqRl3UuEgRmiWmlpbIkS64tCkuX2sXiBOiRDRvTveBULA3m6EDlVt7z9YkTvrP5EJ.jpg?quality=95&crop=0,0,1122,1402&as=32x40,48x60,72x90,108x135,160x200,240x300,360x450,480x600,540x675,640x800,720x900,1080x1350,1122x1402&from=bu&cs=640x0"
+     }
+    ],
+    "video": null,
+    "link": "https://vk.ru/wall-214784904_4091"
+   },
    {
     "id": 4089,
     "date": "2026-11-23T08:38:11.000Z",
@@ -2693,7 +2706,7 @@ const AUTO = {
   ],
   "albums": [],
   "ok": true,
-  "at": "2026-11-23T11:00:06.434Z",
+  "at": "2026-11-23T13:30:03.830Z",
   "via": "widget"
  }
 };
