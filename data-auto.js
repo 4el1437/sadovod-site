@@ -1,7 +1,7 @@
 // Файл создаётся автоматически скриптом update.js — не редактируйте вручную.
 // Ручные правки делайте в data.js (MANUAL_MATCHES / MANUAL_STANDINGS).
 const AUTO = {
- "updated": "2026-11-23T05:50:04.183Z",
+ "updated": "2026-11-23T06:00:03.744Z",
  "tournaments": {
   "city": {
    "standings": [
@@ -214,7 +214,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-23T05:50:04.183Z"
+   "at": "2026-11-23T06:00:03.744Z"
   },
   "fbl": {
    "standings": [
@@ -1055,7 +1055,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-23T05:50:04.183Z"
+   "at": "2026-11-23T06:00:03.744Z"
   },
   "cup": {
    "standings": [],
@@ -1086,7 +1086,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-23T05:50:04.183Z"
+   "at": "2026-11-23T06:00:03.744Z"
   }
  },
  "telegram": {
@@ -2104,7 +2104,7 @@ const AUTO = {
   ],
   "ok": false,
   "at": "2026-11-23T05:40:03.427Z",
-  "error": "Command failed: curl -sSfLg -m 15 -A Mozilla/5.0 (SadovodSiteUpdater) -H Accept-Language: ru,en https://t.me/s/fcsadovod\ncurl: (28) Connection timed out after 15002 milliseconds\n"
+  "error": "Command failed: curl -sSfLg -m 15 -A Mozilla/5.0 (SadovodSiteUpdater) -H Accept-Language: ru,en https://t.me/s/fcsadovod\ncurl: (28) Connection timed out after 15001 milliseconds\n"
  },
  "vk": {
   "posts": [
@@ -2681,7 +2681,7 @@ const AUTO = {
   ],
   "albums": [],
   "ok": true,
-  "at": "2026-11-23T05:50:04.183Z",
+  "at": "2026-11-23T06:00:03.744Z",
   "via": "widget"
  }
 };
