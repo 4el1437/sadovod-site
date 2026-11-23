@@ -1,7 +1,7 @@
 // Файл создаётся автоматически скриптом update.js — не редактируйте вручную.
 // Ручные правки делайте в data.js (MANUAL_MATCHES / MANUAL_STANDINGS).
 const AUTO = {
- "updated": "2026-11-23T16:40:03.961Z",
+ "updated": "2026-11-23T17:30:03.913Z",
  "tournaments": {
   "city": {
    "standings": [
@@ -220,7 +220,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-23T16:40:03.961Z"
+   "at": "2026-11-23T17:30:03.913Z"
   },
   "fbl": {
    "standings": [
@@ -1061,7 +1061,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-23T16:40:03.961Z"
+   "at": "2026-11-23T17:30:03.913Z"
   },
   "cup": {
    "standings": [],
@@ -1092,7 +1092,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-23T16:40:03.961Z"
+   "at": "2026-11-23T17:30:03.913Z"
   }
  },
  "telegram": {
@@ -2172,7 +2172,7 @@ const AUTO = {
    }
   ],
   "ok": true,
-  "at": "2026-11-23T16:40:03.961Z"
+  "at": "2026-11-23T17:30:03.913Z"
  },
  "vk": {
   "posts": [
@@ -2183,7 +2183,7 @@ const AUTO = {
     "photos": [],
     "video": {
      "title": "ГУФСИН - САДОВОД",
-     "image": "https://iv.okcdn.ru/getVideoPreview?mid=17718346270559&type=39&tkn=661OPZS7q7sCx4KdG8OBr-tY2lw&fn=vid_x&scl=4",
+     "image": "https://sun9-45.userapi.com/impg/vQjoNovKDn04fso7f_3wqFb28V9qEAG8MkFUJg/XrGiAilSvts.jpg?size=800x450&quality=95&keep_aspect_ratio=1&background=000000&sign=fd30b0e5982a6e8d2a55c94bef1ae022&type=video_thumb",
      "clip": false,
      "link": "https://vk.ru/video-218166313_456239655"
     },
@@ -2261,7 +2261,7 @@ const AUTO = {
     "photos": [],
     "video": {
      "title": "ФК Садовод - СИАЛ. 3 тур 1 лиги города Красноярска по футзалу",
-     "image": "https://iv.okcdn.ru/getVideoPreview?mid=16867319564216&type=39&tkn=B8l3BIeEvvpjLK0ZcgDfQP8Zmwo&fn=vid_x&scl=4",
+     "image": "https://sun9-4.userapi.com/impg/2po_H2IaLEeWe56x-ru4P6R50T0PHq0sWsv-zQ/yL4Rvu2VCO4.jpg?size=800x450&quality=95&keep_aspect_ratio=1&background=000000&sign=6a5fedd4fa6849461259392197ae571f&type=video_thumb",
      "clip": false,
      "link": "https://vk.ru/video-218166313_456239652"
     },
@@ -2788,7 +2788,7 @@ const AUTO = {
   ],
   "albums": [],
   "ok": true,
-  "at": "2026-11-23T16:40:03.961Z",
+  "at": "2026-11-23T17:30:03.913Z",
   "via": "widget"
  }
 };
