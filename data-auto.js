@@ -1,7 +1,7 @@
 // Файл создаётся автоматически скриптом update.js — не редактируйте вручную.
 // Ручные правки делайте в data.js (MANUAL_MATCHES / MANUAL_STANDINGS).
 const AUTO = {
- "updated": "2026-11-23T02:40:03.978Z",
+ "updated": "2026-11-23T03:00:03.802Z",
  "tournaments": {
   "city": {
    "standings": [
@@ -214,7 +214,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-23T02:40:03.978Z"
+   "at": "2026-11-23T03:00:03.802Z"
   },
   "fbl": {
    "standings": [
@@ -1055,7 +1055,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-23T02:40:03.978Z"
+   "at": "2026-11-23T03:00:03.802Z"
   },
   "cup": {
    "standings": [],
@@ -1086,7 +1086,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-23T02:40:03.978Z"
+   "at": "2026-11-23T03:00:03.802Z"
   }
  },
  "telegram": {
@@ -2102,12 +2102,24 @@ const AUTO = {
     "finished": true
    }
   ],
-  "ok": false,
-  "at": "2026-11-23T02:30:04.270Z",
-  "error": "Command failed: curl -sSfLg -m 15 -A Mozilla/5.0 (SadovodSiteUpdater) -H Accept-Language: ru,en https://t.me/s/fcsadovod\ncurl: (28) Connection timed out after 15002 milliseconds\n"
+  "ok": true,
+  "at": "2026-11-23T03:00:03.802Z"
  },
  "vk": {
   "posts": [
+   {
+    "id": 4088,
+    "date": "2026-11-23T03:00:01.000Z",
+    "text": "❗ДЕНЬ МАТЧА❗\n\n💥ФК Садовод - ГУФСИН💥\n\n📆 23 ноября \n⏰ 21:30\n🏟 СК Тотем \n\nСмотри трансляцию, читай новости здесь или приходи поддержать нас лично!",
+    "photos": [
+     {
+      "big": "https://sun9-40.userapi.com/s/v1/ig2/sx-WvdZ0sNtxs4yv5__LzHsErWLf7EhMmCsGfDHS3FPq1As_7bJcyUaNdeFDr1jNYBAx-_rDAsdc0blPq4hbRen2.jpg?quality=95&crop=0,0,1254,1254&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,1080x1080,1254x1254&from=bu&cs=640x0",
+      "small": "https://sun9-40.userapi.com/s/v1/ig2/sx-WvdZ0sNtxs4yv5__LzHsErWLf7EhMmCsGfDHS3FPq1As_7bJcyUaNdeFDr1jNYBAx-_rDAsdc0blPq4hbRen2.jpg?quality=95&crop=0,0,1254,1254&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,1080x1080,1254x1254&from=bu&cs=640x0"
+     }
+    ],
+    "video": null,
+    "link": "https://vk.ru/wall-214784904_4088"
+   },
    {
     "id": 4086,
     "date": "2026-11-23T02:24:37.000Z",
@@ -2668,7 +2680,7 @@ const AUTO = {
   ],
   "albums": [],
   "ok": true,
-  "at": "2026-11-23T02:40:03.978Z",
+  "at": "2026-11-23T03:00:03.802Z",
   "via": "widget"
  }
 };
