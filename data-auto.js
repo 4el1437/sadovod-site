@@ -1,7 +1,7 @@
 // Файл создаётся автоматически скриптом update.js — не редактируйте вручную.
 // Ручные правки делайте в data.js (MANUAL_MATCHES / MANUAL_STANDINGS).
 const AUTO = {
- "updated": "2026-11-23T15:40:03.972Z",
+ "updated": "2026-11-23T15:50:04.103Z",
  "tournaments": {
   "city": {
    "standings": [
@@ -214,7 +214,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-23T15:40:03.972Z"
+   "at": "2026-11-23T15:50:04.103Z"
   },
   "fbl": {
    "standings": [
@@ -1055,7 +1055,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-23T15:40:03.972Z"
+   "at": "2026-11-23T15:50:04.103Z"
   },
   "cup": {
    "standings": [],
@@ -1086,7 +1086,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-23T15:40:03.972Z"
+   "at": "2026-11-23T15:50:04.103Z"
   }
  },
  "telegram": {
@@ -2132,10 +2132,17 @@ const AUTO = {
       "opp": true,
       "post": 2196,
       "at": "2026-11-23T15:38:23+00:00"
+     },
+     {
+      "score": "4:1",
+      "scorer": "Александр Шурыгин",
+      "assist": null,
+      "post": 2197,
+      "at": "2026-11-23T15:41:48+00:00"
      }
     ],
     "score": [
-     3,
+     4,
      1
     ],
     "date": "2026-11-23",
@@ -2148,7 +2155,8 @@ const AUTO = {
      "photo": "https://cdn4.telesco.pe/file/BkNnyxxtT6C0M1pYPWk0EQ44fya6HotpIjzbndYUijXacx8oCIw9uZFVWxYnaKIZxQiqkMA09Bkkm_009Rm1LDyx4RRMs9oepxjjhg3TnqJALnIIOw5i6hLRjmtEkky2bc1-f4T7lCyg8kanqZnAf8Rp_wHka7hyRaSG1i3RGWBi_ye0XlX07vcsmYPCowviUW90ZioSE-qSdh-5FN-gjLqhtsi_g-CtskLjAqU7T7dKof86hKKsXvvOdCAN8tNKuGmlr6J9ga33K7JXBx2rdf0yji-OHZAEHqbPUsCpoXASuqO-nTVuyyY9ZQBH5S2k5XVDb-HlF9ACMzhsa6RP2w.jpg"
     },
     "stream": "https://vk.ru/wall-218166313_2408",
-    "finished": false,
+    "endAt": "2026-11-23T15:43:09+00:00",
+    "finished": true,
     "lineup": [
      "Семён Проровский",
      "Андрей Супрун",
@@ -2158,7 +2166,7 @@ const AUTO = {
    }
   ],
   "ok": true,
-  "at": "2026-11-23T15:40:03.972Z"
+  "at": "2026-11-23T15:50:04.103Z"
  },
  "vk": {
   "posts": [
@@ -2774,7 +2782,7 @@ const AUTO = {
   ],
   "albums": [],
   "ok": true,
-  "at": "2026-11-23T15:40:03.972Z",
+  "at": "2026-11-23T15:50:04.103Z",
   "via": "widget"
  }
 };
