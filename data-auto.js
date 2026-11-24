@@ -1,7 +1,7 @@
 // Файл создаётся автоматически скриптом update.js — не редактируйте вручную.
 // Ручные правки делайте в data.js (MANUAL_MATCHES / MANUAL_STANDINGS).
 const AUTO = {
- "updated": "2026-11-24T09:20:04.035Z",
+ "updated": "2026-11-24T10:00:03.644Z",
  "tournaments": {
   "city": {
    "standings": [
@@ -11,8 +11,8 @@ const AUTO = {
      "w": 4,
      "d": 0,
      "l": 0,
-     "gf": 19,
-     "ga": 8,
+     "gf": 10,
+     "ga": 4,
      "pts": 12
     },
     {
@@ -21,8 +21,8 @@ const AUTO = {
      "w": 3,
      "d": 0,
      "l": 0,
-     "gf": 19,
-     "ga": 5,
+     "gf": 6,
+     "ga": 1,
      "pts": 9
     },
     {
@@ -31,8 +31,8 @@ const AUTO = {
      "w": 2,
      "d": 0,
      "l": 2,
-     "gf": 10,
-     "ga": 10,
+     "gf": 4,
+     "ga": 8,
      "pts": 6
     },
     {
@@ -41,8 +41,8 @@ const AUTO = {
      "w": 2,
      "d": 0,
      "l": 1,
-     "gf": 15,
-     "ga": 10,
+     "gf": 6,
+     "ga": 4,
      "pts": 6
     },
     {
@@ -51,8 +51,8 @@ const AUTO = {
      "w": 2,
      "d": 0,
      "l": 1,
-     "gf": 12,
-     "ga": 8,
+     "gf": 7,
+     "ga": 2,
      "pts": 6
     },
     {
@@ -61,8 +61,8 @@ const AUTO = {
      "w": 1,
      "d": 0,
      "l": 2,
-     "gf": 14,
-     "ga": 13,
+     "gf": 3,
+     "ga": 6,
      "pts": 3
     },
     {
@@ -71,28 +71,28 @@ const AUTO = {
      "w": 1,
      "d": 0,
      "l": 2,
-     "gf": 10,
-     "ga": 19,
+     "gf": 4,
+     "ga": 3,
      "pts": 3
     },
     {
      "team": "Спартак",
      "p": 3,
      "w": 0,
-     "d": 0,
+     "d": 1,
      "l": 2,
-     "gf": 7,
-     "ga": 15,
+     "gf": 1,
+     "ga": 6,
      "pts": 2
     },
     {
      "team": "Killprice",
      "p": 3,
      "w": 0,
-     "d": 0,
+     "d": 1,
      "l": 2,
-     "gf": 9,
-     "ga": 18,
+     "gf": 4,
+     "ga": 6,
      "pts": 1
     },
     {
@@ -101,8 +101,8 @@ const AUTO = {
      "w": 0,
      "d": 0,
      "l": 3,
-     "gf": 5,
-     "ga": 14,
+     "gf": 2,
+     "ga": 7,
      "pts": 0
     }
    ],
@@ -220,7 +220,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-24T09:20:04.035Z"
+   "at": "2026-11-24T10:00:03.644Z"
   },
   "fbl": {
    "standings": [
@@ -1061,7 +1061,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-24T09:20:04.035Z"
+   "at": "2026-11-24T10:00:03.644Z"
   },
   "cup": {
    "standings": [],
@@ -1092,7 +1092,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-24T09:20:04.035Z"
+   "at": "2026-11-24T10:00:03.644Z"
   }
  },
  "telegram": {
@@ -2172,10 +2172,39 @@ const AUTO = {
    }
   ],
   "ok": true,
-  "at": "2026-11-24T09:20:04.035Z"
+  "at": "2026-11-24T10:00:03.644Z"
  },
  "vk": {
   "posts": [
+   {
+    "id": 4096,
+    "date": "2026-11-24T10:00:01.000Z",
+    "text": "🏆ФК Садовод - СИАЛ🏆 \n \nЕсли вдруг вы не смотрели игру, мы сохранили ее в кадрах📸 \nФото уже можно посмотреть в альбоме https://vk.ru/album-214784904_310915631 👈🏻",
+    "photos": [
+     {
+      "big": "https://sun9-56.userapi.com/impg/GHRK6dCKgsoCnqoISZdp6jfkdCLPT7zP3MoFGA/zNENPObXoQ0.jpg?size=604x401&quality=95&sign=2871600c944164c04ca167b2aa708eb3&type=album",
+      "small": "https://sun9-56.userapi.com/impg/GHRK6dCKgsoCnqoISZdp6jfkdCLPT7zP3MoFGA/zNENPObXoQ0.jpg?size=604x401&quality=95&sign=2871600c944164c04ca167b2aa708eb3&type=album"
+     },
+     {
+      "big": "https://sun9-48.userapi.com/impg/N8jCvntL8hW-2-flKYahDw2f4r-VUO2ZJiN2tw/IYJHbyzmcOM.jpg?size=604x402&quality=95&sign=56afcf0f7cb2b56ba54052d9ec810b2d&type=album",
+      "small": "https://sun9-48.userapi.com/impg/N8jCvntL8hW-2-flKYahDw2f4r-VUO2ZJiN2tw/IYJHbyzmcOM.jpg?size=604x402&quality=95&sign=56afcf0f7cb2b56ba54052d9ec810b2d&type=album"
+     },
+     {
+      "big": "https://sun9-82.userapi.com/impg/fP9McaRKzCgS4_-AWV0iehGqlqZlSCD3k9LGOg/CBZtA3jguDw.jpg?size=604x401&quality=95&sign=8564ca6ba21a62af1bdfa7deee13b5f3&type=album",
+      "small": "https://sun9-82.userapi.com/impg/fP9McaRKzCgS4_-AWV0iehGqlqZlSCD3k9LGOg/CBZtA3jguDw.jpg?size=604x401&quality=95&sign=8564ca6ba21a62af1bdfa7deee13b5f3&type=album"
+     },
+     {
+      "big": "https://sun9-66.userapi.com/impg/YjlxYOzprpqLYhrCDvoG6gYZVZiJ0gil5h6hPg/gNqpj0Xck30.jpg?size=427x604&quality=95&sign=c7c0b416c82b3cb1130263bdc0fb8457&type=album",
+      "small": "https://sun9-66.userapi.com/impg/YjlxYOzprpqLYhrCDvoG6gYZVZiJ0gil5h6hPg/gNqpj0Xck30.jpg?size=427x604&quality=95&sign=c7c0b416c82b3cb1130263bdc0fb8457&type=album"
+     },
+     {
+      "big": "https://sun9-87.userapi.com/impg/Pty96fZ65NZth6UQ3KA0RjcTnHr0VNMTqy3AgQ/88kA45Zrz8Q.jpg?size=495x604&quality=95&sign=3d4963e74052eee6f2e87f51c7b4a870&type=album",
+      "small": "https://sun9-87.userapi.com/impg/Pty96fZ65NZth6UQ3KA0RjcTnHr0VNMTqy3AgQ/88kA45Zrz8Q.jpg?size=495x604&quality=95&sign=3d4963e74052eee6f2e87f51c7b4a870&type=album"
+     }
+    ],
+    "video": null,
+    "link": "https://vk.ru/wall-214784904_4096"
+   },
    {
     "id": 4095,
     "date": "2026-11-24T07:03:28.000Z",
@@ -2801,7 +2830,7 @@ const AUTO = {
   ],
   "albums": [],
   "ok": true,
-  "at": "2026-11-24T09:20:04.035Z",
+  "at": "2026-11-24T10:00:03.644Z",
   "via": "widget"
  }
 };
