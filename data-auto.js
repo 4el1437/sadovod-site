@@ -1,7 +1,7 @@
 // Файл создаётся автоматически скриптом update.js — не редактируйте вручную.
 // Ручные правки делайте в data.js (MANUAL_MATCHES / MANUAL_STANDINGS).
 const AUTO = {
- "updated": "2026-11-24T06:10:03.656Z",
+ "updated": "2026-11-24T07:10:04.425Z",
  "tournaments": {
   "city": {
    "standings": [
@@ -220,7 +220,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-24T06:10:03.656Z"
+   "at": "2026-11-24T07:10:04.425Z"
   },
   "fbl": {
    "standings": [
@@ -1061,7 +1061,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-24T06:10:03.656Z"
+   "at": "2026-11-24T07:10:04.425Z"
   },
   "cup": {
    "standings": [],
@@ -1092,7 +1092,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-24T06:10:03.656Z"
+   "at": "2026-11-24T07:10:04.425Z"
   }
  },
  "telegram": {
@@ -2172,10 +2172,23 @@ const AUTO = {
    }
   ],
   "ok": true,
-  "at": "2026-11-24T06:10:03.656Z"
+  "at": "2026-11-24T07:10:04.425Z"
  },
  "vk": {
   "posts": [
+   {
+    "id": 4095,
+    "date": "2026-11-24T07:03:28.000Z",
+    "text": "❗ИТОГ МАТЧА❗ \n \nТяжёлый выездной матч, не всё получалось, но снова победа за нами! Ещё один серьёзный соперник остался позади, а 3 очка у нас в кармане!✅ \n \nДальше больше!🌟",
+    "photos": [
+     {
+      "big": "https://sun9-51.userapi.com/s/v1/ig2/406T0CJvz2OqvOCWuUMwl83cRhWxixcTD7mUGRsbKUx6FxcG-IuAiisye4LuJgFYW6JhMbbIYGSkAWiRmiyOlX5ziRPMJQ.jpg?quality=95&crop=0,0,1254,1254&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,1080x1080,1254x1254&from=bu&cs=640x0",
+      "small": "https://sun9-51.userapi.com/s/v1/ig2/406T0CJvz2OqvOCWuUMwl83cRhWxixcTD7mUGRsbKUx6FxcG-IuAiisye4LuJgFYW6JhMbbIYGSkAWiRmiyOlX5ziRPMJQ.jpg?quality=95&crop=0,0,1254,1254&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,1080x1080,1254x1254&from=bu&cs=640x0"
+     }
+    ],
+    "video": null,
+    "link": "https://vk.ru/wall-214784904_4095"
+   },
    {
     "id": 4092,
     "date": "2026-11-23T14:19:30.000Z",
@@ -2788,7 +2801,7 @@ const AUTO = {
   ],
   "albums": [],
   "ok": true,
-  "at": "2026-11-24T06:10:03.656Z",
+  "at": "2026-11-24T07:10:04.425Z",
   "via": "widget"
  }
 };
