@@ -1,7 +1,7 @@
 // Файл создаётся автоматически скриптом update.js — не редактируйте вручную.
 // Ручные правки делайте в data.js (MANUAL_MATCHES / MANUAL_STANDINGS).
 const AUTO = {
- "updated": "2026-11-25T14:20:04.317Z",
+ "updated": "2026-11-25T14:30:04.413Z",
  "tournaments": {
   "city": {
    "standings": [
@@ -220,7 +220,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-25T14:20:04.317Z"
+   "at": "2026-11-25T14:30:04.413Z"
   },
   "fbl": {
    "standings": [
@@ -1061,7 +1061,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-25T14:20:04.317Z"
+   "at": "2026-11-25T14:30:04.413Z"
   },
   "cup": {
    "standings": [],
@@ -1092,7 +1092,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-25T14:20:04.317Z"
+   "at": "2026-11-25T14:30:04.413Z"
   }
  },
  "telegram": {
@@ -2172,7 +2172,7 @@ const AUTO = {
    }
   ],
   "ok": true,
-  "at": "2026-11-25T14:20:04.317Z"
+  "at": "2026-11-25T14:30:04.413Z"
  },
  "vk": {
   "posts": [
@@ -2224,8 +2224,8 @@ const AUTO = {
     "text": "❗ИТОГ МАТЧА❗ \n \nТяжёлый выездной матч, не всё получалось, но снова победа за нами! Ещё один серьёзный соперник остался позади, а 3 очка у нас в кармане!✅ \n \nДальше больше!🌟",
     "photos": [
      {
-      "big": "https://sun9-51.userapi.com/s/v1/ig2/406T0CJvz2OqvOCWuUMwl83cRhWxixcTD7mUGRsbKUx6FxcG-IuAiisye4LuJgFYW6JhMbbIYGSkAWiRmiyOlX5ziRPMJQ.jpg?quality=95&crop=0,0,1254,1254&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,1080x1080,1254x1254&from=bu&cs=640x0",
-      "small": "https://sun9-51.userapi.com/s/v1/ig2/406T0CJvz2OqvOCWuUMwl83cRhWxixcTD7mUGRsbKUx6FxcG-IuAiisye4LuJgFYW6JhMbbIYGSkAWiRmiyOlX5ziRPMJQ.jpg?quality=95&crop=0,0,1254,1254&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,1080x1080,1254x1254&from=bu&cs=640x0"
+      "big": "https://sun9-51.userapi.com/s/v1/ig2/179MLUhg1IqbOWc8PzsVpOdhkkAQ34MSzZ-h3wPmNZUjpqBkBvyecQJkNREsuUdFQsYX1jLI-UPeik4UB77v_1441ToQXg.jpg?quality=95&crop=0,0,1254,1254&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,1080x1080,1254x1254&from=bu&cs=640x0",
+      "small": "https://sun9-51.userapi.com/s/v1/ig2/179MLUhg1IqbOWc8PzsVpOdhkkAQ34MSzZ-h3wPmNZUjpqBkBvyecQJkNREsuUdFQsYX1jLI-UPeik4UB77v_1441ToQXg.jpg?quality=95&crop=0,0,1254,1254&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,1080x1080,1254x1254&from=bu&cs=640x0"
      }
     ],
     "video": null,
@@ -2843,7 +2843,7 @@ const AUTO = {
   ],
   "albums": [],
   "ok": true,
-  "at": "2026-11-25T14:20:04.317Z",
+  "at": "2026-11-25T14:30:04.413Z",
   "via": "widget"
  }
 };
