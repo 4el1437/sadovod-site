@@ -1,7 +1,7 @@
 // Файл создаётся автоматически скриптом update.js — не редактируйте вручную.
 // Ручные правки делайте в data.js (MANUAL_MATCHES / MANUAL_STANDINGS).
 const AUTO = {
- "updated": "2026-11-25T05:40:04.127Z",
+ "updated": "2026-11-25T05:50:04.136Z",
  "tournaments": {
   "city": {
    "standings": [
@@ -220,7 +220,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-25T05:40:04.127Z"
+   "at": "2026-11-25T05:50:04.136Z"
   },
   "fbl": {
    "standings": [
@@ -1061,7 +1061,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-25T05:40:04.127Z"
+   "at": "2026-11-25T05:50:04.136Z"
   },
   "cup": {
    "standings": [],
@@ -1092,7 +1092,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-25T05:40:04.127Z"
+   "at": "2026-11-25T05:50:04.136Z"
   }
  },
  "telegram": {
@@ -2178,6 +2178,19 @@ const AUTO = {
  "vk": {
   "posts": [
    {
+    "id": 4098,
+    "date": "2026-11-25T05:46:08.000Z",
+    "text": "«Садовод» — «ГУФСИН»: голы матча и победный результат 🏆🌟",
+    "photos": [],
+    "video": {
+     "title": "ФК Садовод - ГУФСИН",
+     "image": "https://sun9-4.userapi.com/impg/jo9JoW-ceWaoQNvpWEcbRa7eDj88rgPV3Vnqbg/FJda_GUv4I0.jpg?size=800x450&quality=95&keep_aspect_ratio=1&background=000000&sign=d6813419c4562025dd8f3384dbbc947b&type=video_thumb",
+     "clip": false,
+     "link": "https://vk.ru/video-214784904_456239396"
+    },
+    "link": "https://vk.ru/wall-214784904_4098"
+   },
+   {
     "id": 4096,
     "date": "2026-11-24T10:00:01.000Z",
     "text": "🏆ФК Садовод - СИАЛ🏆 \n \nЕсли вдруг вы не смотрели игру, мы сохранили ее в кадрах📸 \nФото уже можно посмотреть в альбоме https://vk.ru/album-214784904_310915631 👈🏻",
@@ -2831,7 +2844,7 @@ const AUTO = {
   ],
   "albums": [],
   "ok": true,
-  "at": "2026-11-25T05:40:04.127Z",
+  "at": "2026-11-25T05:50:04.136Z",
   "via": "widget"
  }
 };
