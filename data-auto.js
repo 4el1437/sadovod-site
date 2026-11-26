@@ -1,7 +1,7 @@
 // Файл создаётся автоматически скриптом update.js — не редактируйте вручную.
 // Ручные правки делайте в data.js (MANUAL_MATCHES / MANUAL_STANDINGS).
 const AUTO = {
- "updated": "2026-11-26T11:50:04.136Z",
+ "updated": "2026-11-26T12:00:04.273Z",
  "tournaments": {
   "city": {
    "standings": [
@@ -220,7 +220,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-26T11:50:04.136Z"
+   "at": "2026-11-26T12:00:04.273Z"
   },
   "fbl": {
    "standings": [
@@ -1061,7 +1061,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-26T11:50:04.136Z"
+   "at": "2026-11-26T12:00:04.273Z"
   },
   "cup": {
    "standings": [],
@@ -1092,7 +1092,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-26T11:50:04.136Z"
+   "at": "2026-11-26T12:00:04.273Z"
   }
  },
  "telegram": {
@@ -2173,7 +2173,7 @@ const AUTO = {
   ],
   "ok": false,
   "at": "2026-11-26T11:30:04.369Z",
-  "error": "Command failed: curl -sSfLg -m 15 -A Mozilla/5.0 (SadovodSiteUpdater) -H Accept-Language: ru,en https://t.me/s/fcsadovod\ncurl: (28) Connection timed out after 15002 milliseconds\n"
+  "error": "Command failed: curl -sSfLg -m 15 -A Mozilla/5.0 (SadovodSiteUpdater) -H Accept-Language: ru,en https://t.me/s/fcsadovod\ncurl: (28) Connection timed out after 15001 milliseconds\n"
  },
  "vk": {
   "posts": [
@@ -2225,8 +2225,8 @@ const AUTO = {
     "text": "❗ИТОГ МАТЧА❗ \n \nТяжёлый выездной матч, не всё получалось, но снова победа за нами! Ещё один серьёзный соперник остался позади, а 3 очка у нас в кармане!✅ \n \nДальше больше!🌟",
     "photos": [
      {
-      "big": "https://sun9-51.userapi.com/s/v1/ig2/179MLUhg1IqbOWc8PzsVpOdhkkAQ34MSzZ-h3wPmNZUjpqBkBvyecQJkNREsuUdFQsYX1jLI-UPeik4UB77v_1441ToQXg.jpg?quality=95&crop=0,0,1254,1254&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,1080x1080,1254x1254&from=bu&cs=640x0",
-      "small": "https://sun9-51.userapi.com/s/v1/ig2/179MLUhg1IqbOWc8PzsVpOdhkkAQ34MSzZ-h3wPmNZUjpqBkBvyecQJkNREsuUdFQsYX1jLI-UPeik4UB77v_1441ToQXg.jpg?quality=95&crop=0,0,1254,1254&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,1080x1080,1254x1254&from=bu&cs=640x0"
+      "big": "https://sun9-51.userapi.com/s/v1/ig2/3N360n3SVfW922I8Pbrj18ei91c6LXyEEeUmPDs-yNKrq_wU_xQT1nZKukNIeGNSCbBLnQvEzsjbdw7usn3e7R1CMMZEtQ.jpg?quality=95&crop=0,0,1254,1254&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,1080x1080,1254x1254&from=bu&cs=640x0",
+      "small": "https://sun9-51.userapi.com/s/v1/ig2/3N360n3SVfW922I8Pbrj18ei91c6LXyEEeUmPDs-yNKrq_wU_xQT1nZKukNIeGNSCbBLnQvEzsjbdw7usn3e7R1CMMZEtQ.jpg?quality=95&crop=0,0,1254,1254&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,1080x1080,1254x1254&from=bu&cs=640x0"
      }
     ],
     "video": null,
@@ -2844,7 +2844,7 @@ const AUTO = {
   ],
   "albums": [],
   "ok": true,
-  "at": "2026-11-26T11:50:04.136Z",
+  "at": "2026-11-26T12:00:04.273Z",
   "via": "widget"
  }
 };
