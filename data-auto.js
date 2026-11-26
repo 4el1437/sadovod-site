@@ -1,7 +1,7 @@
 // Файл создаётся автоматически скриптом update.js — не редактируйте вручную.
 // Ручные правки делайте в data.js (MANUAL_MATCHES / MANUAL_STANDINGS).
 const AUTO = {
- "updated": "2026-11-26T13:00:03.853Z",
+ "updated": "2026-11-26T13:10:04.538Z",
  "tournaments": {
   "city": {
    "standings": [
@@ -220,7 +220,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-26T13:00:03.853Z"
+   "at": "2026-11-26T13:10:04.538Z"
   },
   "fbl": {
    "standings": [
@@ -1061,7 +1061,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-26T13:00:03.853Z"
+   "at": "2026-11-26T13:10:04.538Z"
   },
   "cup": {
    "standings": [],
@@ -1092,7 +1092,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-26T13:00:03.853Z"
+   "at": "2026-11-26T13:10:04.538Z"
   }
  },
  "telegram": {
@@ -2172,7 +2172,7 @@ const AUTO = {
    }
   ],
   "ok": true,
-  "at": "2026-11-26T13:00:03.853Z"
+  "at": "2026-11-26T13:10:04.538Z"
  },
  "vk": {
   "posts": [
@@ -2276,8 +2276,8 @@ const AUTO = {
     "text": "❗ДЕНЬ МАТЧА❗\n\n💥ФК Садовод - ГУФСИН💥\n\n📆 23 ноября \n⏰ 21:30\n🏟 СК Тотем \n\nСмотри трансляцию, читай новости здесь или приходи поддержать нас лично!",
     "photos": [
      {
-      "big": "https://sun9-40.userapi.com/s/v1/ig2/sx-WvdZ0sNtxs4yv5__LzHsErWLf7EhMmCsGfDHS3FPq1As_7bJcyUaNdeFDr1jNYBAx-_rDAsdc0blPq4hbRen2.jpg?quality=95&crop=0,0,1254,1254&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,1080x1080,1254x1254&from=bu&cs=640x0",
-      "small": "https://sun9-40.userapi.com/s/v1/ig2/sx-WvdZ0sNtxs4yv5__LzHsErWLf7EhMmCsGfDHS3FPq1As_7bJcyUaNdeFDr1jNYBAx-_rDAsdc0blPq4hbRen2.jpg?quality=95&crop=0,0,1254,1254&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,1080x1080,1254x1254&from=bu&cs=640x0"
+      "big": "https://sun9-69.userapi.com/s/v1/ig2/sx-WvdZ0sNtxs4yv5__LzHsErWLf7EhMmCsGfDHS3FPq1As_7bJcyUaNdeFDr1jNYBAx-_rDAsdc0blPq4hbRen2.jpg?quality=95&crop=0,0,1254,1254&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,1080x1080,1254x1254&from=bu&cs=640x0",
+      "small": "https://sun9-69.userapi.com/s/v1/ig2/sx-WvdZ0sNtxs4yv5__LzHsErWLf7EhMmCsGfDHS3FPq1As_7bJcyUaNdeFDr1jNYBAx-_rDAsdc0blPq4hbRen2.jpg?quality=95&crop=0,0,1254,1254&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,1080x1080,1254x1254&from=bu&cs=640x0"
      }
     ],
     "video": null,
@@ -2843,7 +2843,7 @@ const AUTO = {
   ],
   "albums": [],
   "ok": true,
-  "at": "2026-11-26T13:00:03.853Z",
+  "at": "2026-11-26T13:10:04.538Z",
   "via": "widget"
  }
 };
