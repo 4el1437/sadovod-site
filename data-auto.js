@@ -1,7 +1,7 @@
 // Файл создаётся автоматически скриптом update.js — не редактируйте вручную.
 // Ручные правки делайте в data.js (MANUAL_MATCHES / MANUAL_STANDINGS).
 const AUTO = {
- "updated": "2026-11-26T14:50:03.780Z",
+ "updated": "2026-11-26T15:00:04.120Z",
  "tournaments": {
   "city": {
    "standings": [
@@ -26,14 +26,14 @@ const AUTO = {
      "pts": 12
     },
     {
-     "team": "ГУФСИН",
+     "team": "МК24-ДзержинеЦ",
      "p": 4,
-     "w": 2,
+     "w": 3,
      "d": 0,
-     "l": 2,
-     "gf": 10,
+     "l": 1,
+     "gf": 24,
      "ga": 10,
-     "pts": 6
+     "pts": 9
     },
     {
      "team": "Магистраль-ФК ФАВОРИТ",
@@ -46,13 +46,13 @@ const AUTO = {
      "pts": 6
     },
     {
-     "team": "МК24-ДзержинеЦ",
-     "p": 3,
+     "team": "ГУФСИН",
+     "p": 4,
      "w": 2,
      "d": 0,
-     "l": 1,
-     "gf": 12,
-     "ga": 8,
+     "l": 2,
+     "gf": 10,
+     "ga": 10,
      "pts": 6
     },
     {
@@ -77,12 +77,12 @@ const AUTO = {
     },
     {
      "team": "Легенда",
-     "p": 3,
+     "p": 4,
      "w": 1,
      "d": 0,
-     "l": 2,
-     "gf": 10,
-     "ga": 19,
+     "l": 3,
+     "gf": 12,
+     "ga": 31,
      "pts": 3
     },
     {
@@ -220,7 +220,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-26T14:50:03.780Z"
+   "at": "2026-11-26T15:00:04.120Z"
   },
   "fbl": {
    "standings": [
@@ -1061,7 +1061,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-26T14:50:03.780Z"
+   "at": "2026-11-26T15:00:04.120Z"
   },
   "cup": {
    "standings": [],
@@ -1092,7 +1092,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-26T14:50:03.780Z"
+   "at": "2026-11-26T15:00:04.120Z"
   }
  },
  "telegram": {
@@ -2171,9 +2171,8 @@ const AUTO = {
     ]
    }
   ],
-  "ok": false,
-  "at": "2026-11-26T14:40:04.258Z",
-  "error": "Command failed: curl -sSfLg -m 15 -A Mozilla/5.0 (SadovodSiteUpdater) -H Accept-Language: ru,en https://t.me/s/fcsadovod?before=2187\ncurl: (28) Connection timed out after 15003 milliseconds\n"
+  "ok": true,
+  "at": "2026-11-26T15:00:04.120Z"
  },
  "vk": {
   "posts": [
@@ -2844,7 +2843,7 @@ const AUTO = {
   ],
   "albums": [],
   "ok": true,
-  "at": "2026-11-26T14:50:03.780Z",
+  "at": "2026-11-26T15:00:04.120Z",
   "via": "widget"
  }
 };
