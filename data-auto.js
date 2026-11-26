@@ -1,7 +1,7 @@
 // Файл создаётся автоматически скриптом update.js — не редактируйте вручную.
 // Ручные правки делайте в data.js (MANUAL_MATCHES / MANUAL_STANDINGS).
 const AUTO = {
- "updated": "2026-11-26T12:30:03.852Z",
+ "updated": "2026-11-26T13:00:03.853Z",
  "tournaments": {
   "city": {
    "standings": [
@@ -220,7 +220,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-26T12:30:03.852Z"
+   "at": "2026-11-26T13:00:03.853Z"
   },
   "fbl": {
    "standings": [
@@ -1061,7 +1061,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-26T12:30:03.852Z"
+   "at": "2026-11-26T13:00:03.853Z"
   },
   "cup": {
    "standings": [],
@@ -1092,7 +1092,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-26T12:30:03.852Z"
+   "at": "2026-11-26T13:00:03.853Z"
   }
  },
  "telegram": {
@@ -2158,7 +2158,7 @@ const AUTO = {
     "announced": true,
     "lineupPost": {
      "id": 2191,
-     "photo": "https://cdn4.telesco.pe/file/ElZRmSbHN-xDcVc7UaWjCX6BG1tlZKvA9GhqmR2zNLcmn-q5mwOn4l9-mpqNF46YJz_pFHEVGQmWSwRH0GbKlQ1znBKdRp2v3_bjIg0uy-X0jfNdeqOkpvZzPRKsRl-087oJBy9Ty0aS8pSqfb6qGXrfV09EjkZOZz4L1k0b1CfZ7xcLituQAq0DJH663y4rM84k1OyyHKKxWx0feNl6CakQZip3MwFC6t8BzRBnmIJ-5EbPBb9GLFvOGviDmrUSpvsFBFgoIbt9LDHAFb5PcOk7jLNNZpREgb-TYq1VmvcXns9sqUOKAwrasd2QO0Tbt3rqwfAve0TOPPwYM0spgg.jpg"
+     "photo": "https://cdn4.telesco.pe/file/sdfvJ6OjaOGh_kvVqc3y1AreMemHajnqgQoYx4_5GV7zvi-bXurTWBsKDggnvRGVlrmlHGYV66NAZQod3pwLNXJ7vEd3MzeKV45ZX-n1zQzGzfTLprBmTJB2N4kW1iVcYmjzbuVhZ4P66y0FAaRip-yeDsGPy40ubF6XyYf8M1-NNi1Y1XbCpm_meiDRe-t5EUC0EJm8uQrsOmmFiy9kPIVSjm8g5muRW8I6rQ3E8ooHhJo6ko_w8xUchy2wmxmyT0J5P2DIKJOKYQCSymvckiuV37MaBkKZoDGBvrWzsVigTdlDFkZISm2le_yIqi4ycEScmpS147zlHVGR-iUWIA.jpg"
     },
     "stream": "https://vk.ru/wall-218166313_2408",
     "endAt": "2026-11-23T15:43:09+00:00",
@@ -2171,9 +2171,8 @@ const AUTO = {
     ]
    }
   ],
-  "ok": false,
-  "at": "2026-11-26T12:10:03.501Z",
-  "error": "Command failed: curl -sSfLg -m 15 -A Mozilla/5.0 (SadovodSiteUpdater) -H Accept-Language: ru,en https://t.me/s/fcsadovod\ncurl: (28) Connection timed out after 15002 milliseconds\n"
+  "ok": true,
+  "at": "2026-11-26T13:00:03.853Z"
  },
  "vk": {
   "posts": [
@@ -2844,7 +2843,7 @@ const AUTO = {
   ],
   "albums": [],
   "ok": true,
-  "at": "2026-11-26T12:30:03.852Z",
+  "at": "2026-11-26T13:00:03.853Z",
   "via": "widget"
  }
 };
