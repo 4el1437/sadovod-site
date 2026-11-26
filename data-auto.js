@@ -1,7 +1,7 @@
 // Файл создаётся автоматически скриптом update.js — не редактируйте вручную.
 // Ручные правки делайте в data.js (MANUAL_MATCHES / MANUAL_STANDINGS).
 const AUTO = {
- "updated": "2026-11-26T16:40:04.416Z",
+ "updated": "2026-11-26T16:50:04.347Z",
  "tournaments": {
   "city": {
    "standings": [
@@ -36,6 +36,16 @@ const AUTO = {
      "pts": 9
     },
     {
+     "team": "СИАЛ",
+     "p": 4,
+     "w": 2,
+     "d": 0,
+     "l": 2,
+     "gf": 19,
+     "ga": 15,
+     "pts": 6
+    },
+    {
      "team": "Магистраль-ФК ФАВОРИТ",
      "p": 4,
      "w": 2,
@@ -54,16 +64,6 @@ const AUTO = {
      "gf": 10,
      "ga": 10,
      "pts": 6
-    },
-    {
-     "team": "СИАЛ",
-     "p": 3,
-     "w": 1,
-     "d": 0,
-     "l": 2,
-     "gf": 14,
-     "ga": 13,
-     "pts": 3
     },
     {
      "team": "Тотем",
@@ -97,12 +97,12 @@ const AUTO = {
     },
     {
      "team": "Killprice",
-     "p": 3,
+     "p": 4,
      "w": 0,
      "d": 0,
-     "l": 2,
-     "gf": 9,
-     "ga": 18,
+     "l": 3,
+     "gf": 11,
+     "ga": 23,
      "pts": 1
     }
    ],
@@ -220,7 +220,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-26T16:40:04.416Z"
+   "at": "2026-11-26T16:50:04.347Z"
   },
   "fbl": {
    "standings": [
@@ -1061,7 +1061,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-26T16:40:04.416Z"
+   "at": "2026-11-26T16:50:04.347Z"
   },
   "cup": {
    "standings": [],
@@ -1092,7 +1092,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-26T16:40:04.416Z"
+   "at": "2026-11-26T16:50:04.347Z"
   }
  },
  "telegram": {
@@ -2171,9 +2171,8 @@ const AUTO = {
     ]
    }
   ],
-  "ok": false,
-  "at": "2026-11-26T16:20:04.007Z",
-  "error": "Command failed: curl -sSfLg -m 15 -A Mozilla/5.0 (SadovodSiteUpdater) -H Accept-Language: ru,en https://t.me/s/fcsadovod\ncurl: (28) Connection timed out after 15002 milliseconds\n"
+  "ok": true,
+  "at": "2026-11-26T16:50:04.347Z"
  },
  "vk": {
   "posts": [
@@ -2844,7 +2843,7 @@ const AUTO = {
   ],
   "albums": [],
   "ok": true,
-  "at": "2026-11-26T16:40:04.416Z",
+  "at": "2026-11-26T16:50:04.347Z",
   "via": "widget"
  }
 };
