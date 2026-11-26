@@ -1,10 +1,20 @@
 // Файл создаётся автоматически скриптом update.js — не редактируйте вручную.
 // Ручные правки делайте в data.js (MANUAL_MATCHES / MANUAL_STANDINGS).
 const AUTO = {
- "updated": "2026-11-26T01:00:04.496Z",
+ "updated": "2026-11-26T01:40:04.078Z",
  "tournaments": {
   "city": {
    "standings": [
+    {
+     "team": "СтройИнновация",
+     "p": 4,
+     "w": 4,
+     "d": 0,
+     "l": 0,
+     "gf": 24,
+     "ga": 6,
+     "pts": 12
+    },
     {
      "team": "Садовод",
      "p": 4,
@@ -14,16 +24,6 @@ const AUTO = {
      "gf": 19,
      "ga": 8,
      "pts": 12
-    },
-    {
-     "team": "СтройИнновация",
-     "p": 3,
-     "w": 3,
-     "d": 0,
-     "l": 0,
-     "gf": 19,
-     "ga": 5,
-     "pts": 9
     },
     {
      "team": "ГУФСИН",
@@ -37,12 +37,12 @@ const AUTO = {
     },
     {
      "team": "Магистраль-ФК ФАВОРИТ",
-     "p": 3,
+     "p": 4,
      "w": 2,
      "d": 0,
-     "l": 1,
-     "gf": 15,
-     "ga": 10,
+     "l": 2,
+     "gf": 16,
+     "ga": 15,
      "pts": 6
     },
     {
@@ -66,6 +66,16 @@ const AUTO = {
      "pts": 3
     },
     {
+     "team": "Тотем",
+     "p": 4,
+     "w": 1,
+     "d": 0,
+     "l": 3,
+     "gf": 9,
+     "ga": 15,
+     "pts": 3
+    },
+    {
      "team": "Легенда",
      "p": 3,
      "w": 1,
@@ -77,12 +87,12 @@ const AUTO = {
     },
     {
      "team": "Спартак",
-     "p": 3,
+     "p": 4,
      "w": 0,
      "d": 0,
-     "l": 2,
-     "gf": 7,
-     "ga": 15,
+     "l": 3,
+     "gf": 8,
+     "ga": 19,
      "pts": 2
     },
     {
@@ -94,16 +104,6 @@ const AUTO = {
      "gf": 9,
      "ga": 18,
      "pts": 1
-    },
-    {
-     "team": "Тотем",
-     "p": 3,
-     "w": 0,
-     "d": 0,
-     "l": 3,
-     "gf": 5,
-     "ga": 14,
-     "pts": 0
     }
    ],
    "matches": [
@@ -220,7 +220,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-26T01:00:04.496Z"
+   "at": "2026-11-26T01:40:04.078Z"
   },
   "fbl": {
    "standings": [
@@ -1061,7 +1061,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-26T01:00:04.496Z"
+   "at": "2026-11-26T01:40:04.078Z"
   },
   "cup": {
    "standings": [],
@@ -1092,7 +1092,7 @@ const AUTO = {
     }
    ],
    "ok": true,
-   "at": "2026-11-26T01:00:04.496Z"
+   "at": "2026-11-26T01:40:04.078Z"
   }
  },
  "telegram": {
@@ -2171,8 +2171,9 @@ const AUTO = {
     ]
    }
   ],
-  "ok": true,
-  "at": "2026-11-26T01:00:04.496Z"
+  "ok": false,
+  "at": "2026-11-26T01:00:04.496Z",
+  "error": "Command failed: curl -sSfLg -m 15 -A Mozilla/5.0 (SadovodSiteUpdater) -H Accept-Language: ru,en https://t.me/s/fcsadovod\ncurl: (28) Connection timed out after 15002 milliseconds\n"
  },
  "vk": {
   "posts": [
@@ -2843,7 +2844,7 @@ const AUTO = {
   ],
   "albums": [],
   "ok": true,
-  "at": "2026-11-26T01:00:04.496Z",
+  "at": "2026-11-26T01:40:04.078Z",
   "via": "widget"
  }
 };
